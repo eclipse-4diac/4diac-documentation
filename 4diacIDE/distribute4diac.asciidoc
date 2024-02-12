@@ -1,0 +1,191 @@
+= Step 2 - Distribute 4diac Applications
+:lang: en
+
+[[topOfPage]]
+== Step 2 - Distribute 4diac Applications
+
+This page is part of a guide that gives a walk-through over the major
+4diac IDE features.
+
+[start=0]
+. link:../../html/4diacIDE/overview.html[4diac IDE Overview]
+. link:../../html/4diacIDE/use4diacLocally.html[Use 4diac Locally
+(Blinking tutorial)]
+. Distribute 4diac Applications (YOU ARE HERE!)
+. link:../../html/4diacIDE/use4diacRemotely.html[Deploy Applications
+Remotely]
+. link:../../html/4diacIDE/createOwnTypes.html[Create Your own Function
+Block Types]
+. link:../../html/4diacIDE/otherUseful.html[Other Basic Features]
+. link:../../html/4diacIDE/advancedFeatures.html[Advanced Features]
+. link:../../html/4diacIDE/dynamicTypeLoader.html[Deploying new FBs with
+the Dynamic Type Loader]
+
+This guide extends the blinking application of
+link:../../html/4diacIDE/use4diacLocally.html[Step 1]. We want to count
+how many times the light has turned on. You will learn how to distribute
+a IEC 61499 Application to several devices and set up the communication
+between them. The example continues to run on the local computer. The
+application will run on 2 devices. The blinking part of the application
+will run on a 4diac FORTE and the count on another 4diac FORTE, see the
+architecture below. The two different programs running on the local
+machine emulate two PLCs. +
+image:../../html/4diacIDE/img/distributedArchitecture.png[architecture
+for the current step]
+
+[[extendApplication]]
+=== Extend the Application
+
+To count the blinking, we need to add 2 new Function Blocks (FBs) to the
+existing Application in the _BlinkTestApp_ Application Editor.
+
+. Drag and Drop the following FBs from the folder events of the Palette.
+* E_PERMIT
+* E_CTU
+. Create the connections between the FBs.
+
+Remember, Event and Data connections can not be mixed.
+
+image:../../html/4diacIDE/img/Step2/counterFBs.png[architecture for the
+current step]
+
+[[AddAnotherDevice]]
+=== Add Another Device
+
+Change to the _BlinkTest_ System Configuration Editor and add a second
+device from the Palette. The counter will run on the new device.
+
+. Drag and Drop a *FORTE_PC* device next to the existing one.
+. Rename the device to *Counter*.
+. Set the localhost to 61500. The devices need to have different
+localhosts, they can not have the same one.
+. Rename the resource to *Counter_RES*.
+
+image:../../html/4diacIDE/img/Step2/addAnotherDevice.png[Add another
+device to the system]
+
+Change back to the _BlinkTestApp_ Application Editor and map the two new
+FBs to the Resource _Counter_RES_. You can see the dashed connections
+between the two devices.
+
+image:../../html/4diacIDE/img/Step2/mapToCounter.png[Mapping of Function
+Block Instances within the Application Editor]
+
+[[SetUpCommunication]]
+=== Set up the Communication Between Both Devices
+
+Change to the _Testee.Blinky_RES_ or _Counter.Counter_RES_ Resource
+Editor. There you can see 2 incomplete FBs at the E_SR FB or E_PERMIT.
+They symbolize the broken connections between the two devices. Currently
+they have no opportunity to communicate with each other. We fix it by
+adding special Communications FBs. You can find more information about
+broken connections
+link:../../html/before4DIAC/iec61499.html#brokenConnection[here on our
+Homepage].
+
+image:../../html/4diacIDE/img/Step2/incompleteFBs.png[incomplete FBs
+show die broken connection beween two devices]
+
+[[SetUpBlinking]]
+==== Set up the Blinking Part of the Application
+
+Change to the _Testee.Blinky_RES_ Resource Editor.
+
+Drag and Drop a *PUBLISH_1* FB from the folder net of the Palette and
+set up the connections. The PUBLISH FB must be initialized, so it is
+best to connect its INIT event directly to the START.
+
+image:../../html/4diacIDE/img/Step2/blinkyResourceComplete.png[Blinky_RES
+completely connected]
+
+Set the QI value to 1 and the set the ID input data of the PUBLISH_COUNT
+FB to 239.0.0.1:61000.
+
+[[SetUpCounting]]
+==== Set up the Counting Part of the Application
+
+Change to the _Counter.Counter_RES_ Resource Editor.
+
+Drag and Drop a *SUBSCRIBE_1* FB from the folder net of the Palette and
+set up the connections. The SUBSCRIBE FB must also be initialized.
+
+image:../../html/4diacIDE/img/Step2/counterResourceComplete.png[Counter_RES
+completely connected]
+
+Set the QI value to 1 and the set the ID input data of the
+SUBSCRIBE_COUNT FB to 239.0.0.1:61000.
+
+[[BackgroundCommunicationFBs]]
+==== Background of the Communication FBs
+
+Here is what the last steps mean. The PUBLISH_X FB is used to send
+messages over the network which are received by an according SUBSCRIBE_X
+FB. Every time a REQ is triggered, a message is sent according to the ID
+input. With the value of the ID input you can specify what specific
+network protocol you would like to use (e.g., MQTT, OPC UA). If you do
+not specify a dedicated protocol the default as defined in the
+https://www.holobloc.com/doc/ita/["IEC 61499 Compliance Profile for
+Feasibility Demonstrations"] is used. The number X in PUBLISH_X is the
+number of data elements that you want to send in the message. Since we
+are only sending one value we used PUBLISH_1.
+
+The used ID value specifies an IP:PORT pair. The used "IEC 61499
+Compliance Profile for Feasibility Demonstrations" defines that this is
+an UDP multi-cast address in a certain address range. The selected
+239.0.0.1 and port 61000 have nothing to do with the localhost:61499 or
+localhost:61500 use for configuring the devices. The first is a UDP
+multi-cast address use to send messages between devices, and the latter
+are TCP connections for deploying applications to devices and manage
+them. Take care of not using the same UDP socket for different
+PUBLISH_X/SUBSCRIBE_X pairs.
+
+[[startDevices]]
+=== Start Both Devices
+
+Change to the Deployment Perspective.
+
+. Set the Port to 61499 (the same as defined before, remember
+localhost:61499 in the System Configuration Editor?).
+. Launch Local 4diac FORTE.
+. You should see the location of your 4diac FORTE and the Terminate
+button enabled in the Console.
+. Set the Port to 61500 (the same as defined before, remember
+localhost:61500 in the System Configuration?)
+. Launch Local 4diac FORTE
+. You should see the the location of your 4diac FORTE and the Terminate
+button enabled in the Console.
+. Select the elements to deploy. For this tutorial select our devices
+_Counter_ and _Testee_.
+. Click the [.button4diac]#Deploy# button.
+. Check that the _Deployment Console_ shows some output, and that no red
+warning appears on the right nor left of it. If you get something red,
+something went wrong.
+
+image:../../html/4diacIDE/img/Step2/deployCounter.png[deploying of the
+application]
+
+[[testApplication]]
+=== Test it!
+
+image:../../html/4diacIDE/img/Step2/monitoringApp.png[monitoring of the
+application]
+
+== Where to go from here?
+
+In the next step you will see how 4diac FORTE runs in another machine.
+
+link:../../html/4diacIDE/use4diacRemotely.html[Step 3 - Deploy
+Applications Remotely]
+
+If you want to go back to the original Blinking application without
+buttons, here's a link
+
+link:../../html/4diacIDE/use4diacLocally.html[Step 1 - Use 4diac Locally
+(Blinking Tutorial)]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+link:../../html/startHere/startHere.html[Where to Start]
+
+link:#topOfPage[Go to top]

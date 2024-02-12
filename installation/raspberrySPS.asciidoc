@@ -1,0 +1,66 @@
+= Building 4diac FORTE on Raspberry-SPS
+:lang: en
+
+[[topOfPage]]
+== Building 4diac FORTE on Raspberry-SPS
+
+=== Introduction
+
+The http://raspberry-sps.de/[Raspberry-SPS] consists of a Raspberry-PI
+which is a low-cost embedded system with an ARM processor @700Mhz and
+512MB RAM and additional modules such as digital and analog modules.
+This tutorial shows how to cross-compile 4diac FORTE for the
+Raspberry-SPS. For a general introduction to building 4diac FORTE, see
+the link:../../html/installation/install.html[installation tutorial].
+
+=== Preparation
+
+. Download the proper toolchain for your operating system where you plan
+to build 4diac FORTE
+https://releases.linaro.org/archive/15.06/components/toolchain/binaries/[gcc-linaro-arm-linux-gnueabihf].
+The [.specificText]#path to your downloaded toolchain has to be short#
+e.g., [.inlineCode]#C:/toolchain# for Windows.
+. Start CMake-gui, choose the 4diac FORTE source code folder and build
+binaries, e.g. [.folderLocation]#forte/bin/raspberrySPS# and press the
+configure button. A new window will be opened. As generator, choose
+[.specificText]#Unix Makefiles# and check the [.specificText]#Specify
+options for cross compiling# radio button.
+image:../../html/installation/img/raspberrySPS_configure.png[configure
+cross compiling for Raspberry-SPS]
+. Configure the cross compiling options as it is illustrated within the
+following image and press the [.button4diac]#finish# button.
+image:../../html/installation/img/raspberrySPS_configureToolchain.png[configure
+toolchain for Raspberry-SPS]
+. Choose posix as [.specificText]#FORTE_ARCHITECHTURE# and check
+[.specificText]#FORTE_MODULE_Raspberry-SPS# as well as other desired
+modules.
+. Press the [.button4diac]#Configure# button until nothing remains red.
+Afterwards press the [.button4diac]#Generate# button.
+. The desired make files have been generated. Execute make within a
+console and find the 4diac FORTE executable in
+[.folderLocation]#forte/bin/raspberrySPS/src#
++
+$ cd forte/bin/raspberrySPS $ make
+. Copy the 4diac FORTE executable to the Raspberry-SPS and start
+4diac FORTE with:
++
+$ ./forte
+
+[[whereToGoFromHere]]
+== Where to go from here?
+
+If you want to build a 4diac FORTE, here is a quick link back:
+
+link:../../html/installation/install.html[Install Eclipse 4diac]
+
+After you installed all required tools, it's time to start using them.
+Take a look at the following tutorials:
+
+link:../../html/4diacIDE/overview.html[Step 0 - 4diac IDE Overview]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+link:../../html/startHere/startHere.html[Where to Start]
+
+Or link:#topOfPage[Go to top]

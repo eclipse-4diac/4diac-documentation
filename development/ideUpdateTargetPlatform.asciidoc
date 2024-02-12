@@ -1,0 +1,52 @@
+= Updating the Target Platform used by 4diac IDE
+:lang: en
+
+[[topOfPage]]
+== Updating the Target Platform used by 4diac IDE
+
+The target platform defines the dependencies of 4diac IDE to other
+eclipse projects. Currently the 4diac IDE requires the following:
+
+* https://download.eclipse.org/eclipse/updates/4.xx
+** Eclipse Java Development Tools, org.eclipse.jdt.feature.group
+** Eclipse Platform SDK, org.eclipse.platform.sdk
+** Eclipse Plug-in Development Environment,
+org.eclipse.pde.feature.group
+* https://download.eclipse.org/releases/20xx-xx
+** EMF - Eclipse Modeling Framework SDK,
+org.eclipse.emf.sdk.feature.group
+** GEF (MVC) SDK, org.eclipse.gef.sdk.feature.group
+** Git integration for Eclipse, org.eclipse.egit.feature.group
+** OCL classic SDK: Ecore/UML Parsers, Evaluator, Edit,
+org.eclipse.ocl.all.sdk.feature.group
+** Xtext Complete SDK, org.eclipse.xtext.sdk.feature.group
+* https://download.eclipse.org/elk/updates/releases/0.x.x
+** Eclipse LayoutKernel (Incubation) - Core Components,
+org.eclipse.elk.feature.feature.group
+** Eclipse LayoutKernel (Incubation) - Layout Algorithms,
+org.eclipse.elk.algorithms.feature.feature.group
+* {blank}
+
+For upgrading to new Eclipse platform versions the following steps need
+to be done:
+
+* Update org.eclipse.fordiac.ide.product.target in the
+org.eclipse.fordiac.ide.product plug-in
+* Update pom.xml in the 4diac IDE's source root directory. At least the
+following steps have to be done:
+** Check tycho.version
+** Update tycho-repo.url to the new target platform version
+** Check org.eclipse.equinox.executable version range. Attention this
+has to be done on two places in the file. +
+For the version check the latest
+https://download.eclipse.org/oomph/archive/reports/download.eclipse.org/releases/index.html[release
+overview page]. There check for _Eclipse Platform Launcher Executables_.
+* Regenerate all model and model edit code from the models plug-in.
+* Run product from Eclipse IDE using product editor, i.e., press the
+synchronize button and then the "Launch an Eclipse Application"
+* Run Maven install for pom.xml in the 4diac IDE's source root directory
+locally
+* Test if the generated product can be executed. The generated products
+are in: +
+/org.eclipse.4diac.ide/plugins/org.eclipse.fordiac.ide.product/target/products/org.eclipse.fordiac.ide.product
+* Push to Gerrit so that CI build can also check if it is working

@@ -1,0 +1,53 @@
+= Development - Monitoring
+:lang: en
+
+[[topOfPage]]
+== Monitoring
+
+DTD will be added, after finishing all the implementation work and the
+interface for all commands is stable. Currently the following monitoring
+commands are supported:
+
+* AddWatch: where \{0} is an id, \{1} will be replaced with
+FB-Instance-Name.Portname and \{2} is '*'
++
+<Request ID="\{0}" Action="CREATE"><Watch Source="\{1}"
+Destination="\{2}" /></Request>
+* DeleteWatch: where \{0} is an id, \{1} will be replaced with
+FB-Instance-Name.Portname and \{2} is '*'
++
+<Request ID="\{0}" Action="DELETE"><Watch Source="\{1}"
+Destination="\{2}" /></Request>
+* ReadWatches: queries the current values of the watched elements
++
+<Request ID="\{0}" Action="READ"><Watches/></Request>
+* Read_Watches Response Message:
++
+<Resource name="ResName"> <FB name="fbName"> <Port name=\"portname"> <--
+if variable port --> <Data value="value" forced="true | false"></Data>
+<-- if event port --> <Data value="value" time="time"></Data> </Port>
+</FB> </Resource>
+* ForceValue: where \{0} is an id, \{1} is the value, \{2} will be
+replaced with FB-Instance-Name.Portname and \{3} is either 'true' or
+'false' in order to remove the force
++
+<Request ID="\{0}" Action="WRITE"> <Connection Source="\{1}"
+Destination="\{2}" force="\{3}" /> </Request>
+* TriggerEvent: where \{0} is an id, \{1} will be '$e' and \{2} is
+FB-Instance-Name.EventName
++
+<Request ID="\{0}" Action="WRITE"> <Connection Source="\{1}"
+Destination="\{2}" /> </Request>
+
+== Where to go from here?
+
+Go back to Development index:
+
+link:../../html/development/developmentIndex.html[Development Index]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+link:../../html/startHere/startHere.html[Start Here page]
+
+Or link:#topOfPage[Go to top]
