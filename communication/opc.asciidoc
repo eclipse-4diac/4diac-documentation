@@ -1,0 +1,118 @@
+= OPC DA
+:lang: en
+
+[[topOfPage]]
+== OPC DA
+
+This section will show you how to create an OPC DA Client with 4diac IDE
+and how to use it with 44diac FORTE. Download the following packages:
+
+* https://github.com/Tibalt/OPC_DA.git[OPC Client library] release 0.4
+* http://www.boost.org[Boost Lexical Cast]
+* https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16[Visual
+studio buildtools 2019]
+
+=== Prepare and compile OPC Client Toolkit
+
+. Unzip Boost C++ Libraries
+. [#msbuildtools]#Install visual studio build tools with the components
+shown in the below. Since
+https://docs.microsoft.com/en-us/cpp/porting/visual-cpp-change-history-2003-2015?redirectedfrom=MSDN&view=msvc-160#mfc-and-atl[Visual
+studio 2013], atls.lib and atlsd.lib are unified as atls.lib which
+together with headers could be detected by the msvc, so that no need to
+specify in CMakeLists.txt for OPC module.#
++
+image:../../html/communication/img/opc_VSBuildtoolsInstallation.png[VS
+Properties]
+. Clone OPC Client, check out to master branch and open the
+OPCClientToolKit project in Visual Studio Code, be noticed that Visual
+Studio Code should be started with visual studio tool chains awared, one
+way is that start Visual Studio Code in "Developer Command Prompt for VS
+2019" shown as below
+. Build project with ctrl+shift+B and choose debug or release which is
+same with 4diac FORTE.
+. Create the following folder structure:
+* [opcclientroot]/include - put header files from OPCClientToolKit
+project here
+* [opcclientroot]/lib - OPCClientToolkit.lib
+
+=== Compile 4diac FORTE with OPC DA Client Support
+
+. Create a MS Visual Studio Code Project of 4diac FORTE with CMake as
+described in
+link:../../html/installation/visualStudioCode.html[Compiling and
+Debugging 4diac FORTE with MS Visual Studio Code] and add the following
+variables in settings.json which are required for OPC Client support:
+* "FORTE_COM_OPC":"ON",
+* "FORTE_COM_OPC_LIB_ROOT": "Your path to opc lib root",
+* "FORTE_COM_OPC_BOOST_ROOT": "Your path to boost root",
+. Open the 4diac FORTE Project with MS Visual Studio Code.
+. link:../../html/installation/visualStudioCode.html[compile or debug]
+4diac FORTE
+
+=== Create OPC Client
+
+Start the 4diac IDE and create a new [.element61499]#System# with a new
+[.element61499]#Application# for one [.element61499]#Device#. Add a
+[.specificText]#CLIENT_1# Function Block to the
+[.element61499]#Application#, set the following input values, and map it
+to the hardware.
+
+* QI = 1
+* ID =
+opc[localhost:FestoDidactic.EzOPC.2:2000:0.01:VirtualPLC.EB0:VirtualPLC.AB0]
+* SD_1 = BYTE#210
+
+whereas the ID input has the following format:
+
+opc[host:serverName:updateRate:deadBand:fbInputItems:fbOutputItems]
+
+* [.inlineTitle]#host#: address to computer with OPC server
+* [.inlineTitle]#serverName#: OPC server name, e.g.
+Matrikon.OPC.Simulation
+* [.inlineTitle]#updateRate#: update frequency in milliseconds
+* [.inlineTitle]#deadBand#: dead band used for update of value (same
+unit as value)
+* [.inlineTitle]#fbInputItems/fbOutputItems#: items to be added, items
+should be separated with a comma e.g.
+
+Change to the [.view4diac]#Deployment perspective#, start 4diac FORTE
+and download the Application. Switch the System into online mode and
+start watching the in- and outputs. For further information about
+link:../../html/4diacIDE/use4diacLocally.html#monitoringApplication[Monitoring
+functionalities] follow the link.
+
+After triggering the INIT event, the OPC-client tries to connect with
+the OPC-server. In this example the OPC-server is
+"FestoDidactic.EzOPC.2". It is a tool from Festo and can be downloaded
+http://www.festo-didactic.com/de-de/service/software/vollversion-demos/ezopc.htm[here].
+
+image:../../html/communication/img/opc_fordiacTrigger.png[4diac IDE
+Trigger OPC event]
+
+When the connection is established, a window of the server pops up.
+
+image:../../html/communication/img/opc_festoOPCserver.png[Festo OPC
+Server]
+
+Now trigger the REQ event to send the data from client to server.
+"BYTE#210" should be send to the server's port "VirtualPLC.EB0". Click
+to "Virtual Controller" tab to check if the OPC server has received the
+information.
+
+image:../../html/communication/img/opc_festoOPCserverIO.png[Festo OPC
+Server IO]
+
+== Where to go from here?
+
+Go back to Protocols index:
+
+link:../../html/communication/communicationIndex.html[Communication
+Index]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+link:../../html/startHere/startHere.html[Start Here page]
+
+Or link:#topOfPage[Go to top]

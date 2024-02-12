@@ -1,0 +1,248 @@
+= FAQ
+:lang: en
+
+[[topOfPage]]
+== 4diac IDE FAQ
+
+. link:#4diacfaq1[When I open a certain perspective, a view element is
+missing, how can I get it back?]
+. link:#4diacfaq2[Download not possible! Defined profile () for
+RMT_XXX.xxx not supported]
+. link:#4diacfaq3[When I download my application, I get an
+[.errorMessage]#UNSUPPORTED TYPE# error message in the
+[.view4diac]#Deployment Console#]
+. link:#4diacfaq4[When I download my application, I get a
+[.errorMessage]#STATUS ACCESS VIOLATION# error messages in the
+[.view4diac]#Deployment Console#]
+. link:#4diacfaq5[When I download my application, I get a
+[.errorMessage]#Create FB Instance failed# error]
+. link:#4diacfaq6[When I want to download my application, I get an
+[.errorMessage]#connection refused# message]
+. link:#4diacfaq7[How do I use ARRAYs?]
+. link:#4diacfaq8[What does [.command4diac]#CLEAN Device# do?]
+. link:#4diacfaq9[What does [.command4diac]#KILL Device# do?]
+
+[[faqFORTE]]
+== 4diac FORTE FAQ
+
+. link:#fortefaq1[Windows/Cygwin: The setup script runs to completion
+but when building the target I get strange compile errors]
+. link:#fortefaq2[CMake/Cygwin: Can not find C and C++ compilers]
+. link:#fortefaq3[CMake/Cygwin: Can not find RC Compilers]
+. link:#fortefaq4[FORTE is C++, why are you then using the C-style
+include files for the standard C library instead of the C++ style
+include files?]
+. link:#fortefaq5[Within my 4diac FORTE console, I get
+[.errorMessage]#UDP-Socket Send failed: Network is unreachable#]
+. link:#fortefaq6[Within my 4diac FORTE console, I get
+[.errorMessage]#connection closed by peer#]
+
+== 4diac IDE answers
+
+. {blank}
++
+[[4diacfaq1]]
+=== When I open a certain perspective, a view element is missing, how can I get it back?
++
+There are two possibilities to do that:
+* Reset Perspective: When right-clicking on the active perspective's
+name in the perspective switcher, you get a context menu with the option
+Reset. By selecting this item, the perspective is reset to the initial
+configuration showing all views again and at their original place.
+* Show View Menu: The menu item [.menu4diac]#Window → Show View → Other#
+brings up a selection dialog that allows you to open any view. By
+searching through the items you can reopen an accidentally closed view.
+This option is especially of interest when you have a custom perspective
+layout you don't like to lose by resetting the perspective.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq2]]
+=== Download not possible! Defined profile () for RMT_XXX.xxx not supported
+* Go to the System Configuration
+* Select the Device which is named in the error message
+* Change the properties [.menu4diac]#Dialog → Advanced → Misc → Profile#
+* Set Profile to HOLOBLOC
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq3]]
+=== When I download my application, I get an [.errorMessage]#UNSUPPORTED TYPE# error message in the [.view4diac]#Deployment Console#
++
+This message appears for multiple problems:
+* Make sure that you have the source code (*.cpp, *.h) of all
+[.element4diac]#Function Blocks# within your
+[.element4diac]#Application#. Also check if all source files are listed
+within a [.fileLocation]#CMakeLists.txt# file.
+* Ensure that the missing Function Block is included in your built
+version of 4diac FORTE.
+** In 4diac IDE [.menu4diac]#Window → Preferences → 4diac IDE → FORTE
+Preferences# the path to your correct [.fileLocation]#forte.exe# has to
+be defined.
+** Or start your [.fileLocation]#forte.exe# directly (development tool
+specific)
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq4]]
+=== When I download my application, I get a [.errorMessage]#STATUS ACCESS VIOLATION# error messages in the [.view4diac]#Deployment Console#
++
+Check if you used [.element4diac]#Composite Function Blocks# within your
+[.element4diac]#Application#. Make sure that you have the source code
+(*.cpp, *.h) of all [.element4diac]#Function Blocks# within the
+[.element4diac]#Composite's Network#. Also check if all source files are
+listed within a [.fileLocation]#CMakeLists.txt# file.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq5]]
+=== When I download my application, I get a [.errorMessage]#Create FB Instance failed# error
++
+Verify that the interface of the Function Block you want to download is
+the same as those available on your 4diac FORTE executable. In case you
+download a Composite Function Block, please make sure that its Function
+Block Network matches the Function Block Network within your 4diac FORTE
+executable. When in doubt, export your Function Block and compile
+4diac FORTE before you download again.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq6]]
+=== When I want to download my application, I get a [.errorMessage]#connection refused# message
++
+Examine the following topics:
+* Make sure that the port numbers used in the [.view4diac]#Runtime
+Launcher# of the [.view4diac]#Deployment# view are the same as those
+used for the [.element4diac]#MGR_ID# of the [.element4diac]#Devices# in
+the [.view4diac]#System Configuration#.
+* Check if 4diac FORTE runs on a different port
+* Check in Task Manager (Windows) if an "old" crashed 4diac FORTE blocks
+the port
+* Check if Monitoring has been started before downloading (FORTE only
+supports a single connection at the management interface)
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq7]]
+=== How do I use ARRAYs?
++
+When you create a new Function Block, choose the desired type for your
+array elements in the [.menu4diac]#Type# drop down of the specific data
+and set the desired array size [.menu4diac]#ArraySize#. For
+initializing, put the values in curly brackets (e.g.,
+[.inlineCode]#\{1,2,3}#).
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq8]]
+=== What does [.command4diac]#CLEAN Device# do?
++
+[.command4diac]#CLEAN Device# deletes all existing
+[.element4diac]#Resources# and the FBs in the
+[.element4diac]#Resources#. After [.command4diac]#CLEAN Device#, you can
+deploy any other FB Network.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[4diacfaq9]]
+=== What does [.command4diac]#KILL Device# do?
++
+[.command4diac]#KILL Devices# terminates 4diac FORTE.
++
+link:#topOfPage[Go to top]
+
+== 4diac FORTE answers
+
+. {blank}
++
+[[fortefaq1]]
+=== Windows/Cygwin: The setup script runs to completion but when building the target, I get strange compile errors
+* First, check for any strange output of the setup script. Maybe your
+system misses something.
+* Do you have spaces in the path to your 4diac FORTE? Some Cygwin
+versions have problems with these.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[fortefaq2]]
+=== CMake/Cygwin: Can not find C and C++ compilers
++
+CMake Errors:
++
+your C compiler: CMAKE_C_COMPILER-NOTFOUND was not found. Please set
+CMAKE_C_COMPILER to a valid compiler path or name. your CXX compiler:
+CMAKE_CXX_COMPILER-NOTFOUND was not found. Please set CMAKE_CXX_COMPILER
+to a valid compiler path or name.
++
+In this case, you need to tick the check box Advanced and look for
+[.specificText]#CMAKE_CXXX_COMPILER# and
+[.specificText]#CMAKE_C_COMPILER# and set the path and executable for
+your C and C++ compiler. As an example, for Cygwin this could be
+[.fileLocation]#c:\cygwin\bin\g++-3.exe# for the C++ compiler and
+[.fileLocation]#c:\cygwin\bin\gcc-3.exe# for the C compiler.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[fortefaq3]]
+=== CMake/Cygwin: Can not find RC Compilers
++
+CMake Error:
++
+your RC compiler: CMAKE_RC_COMPILER-NOTFOUND was not found. Please set
+CMAKE_RC_COMPILER to a valid compiler path or name.
++
+Again you need to tick the check box Advanced and look for
+[.specificText]#CMAKE_RC_COMPILER#. For Cygwin or MinGW on Windows, it
+needs a file called windres.exe (e.g., C:\cygwin\bin\windres.exe).
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[fortefaq4]]
+=== FORTE is C++, why are you then using the C-style include files for the standard c library instead of the C++ style include files?
++
+The main reason for this is that not all platforms provide the correct
+C++ include files. This especially applies to real-time OS such as eCos
+where you can freely configure the supported features. Using C++ style C
+include files on these platforms would pull lots of stuff from the
+compilers in and result in a bigger image or even worse it would not
+compile. So as to current experience, C style include files are more
+reliable.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[fortefaq5]]
+=== Within my 4diac FORTE console, I get [.errorMessage]#UDP-Socket Send failed: Network is unreachable#
++
+Consider to explicitly set up multicast IP routing in the kernel with
+the [.inlineCode]#route# command. This has been an issue on Raspberry
+Pi, where executing the following command resolved the problem:
++
+route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
++
+The IPs are the desired multicast IPs.
++
+link:#topOfPage[Go to top]
+. {blank}
++
+[[fortefaq6]]
+=== Within my 4diac FORTE console, I get [.errorMessage]#connection closed by peer#
++
+The TCP port is opened by a server in the RMT_RES. This server handles
+the communication with the tool for download and monitoring. The message
+indicates the end of the download process when 4diac IDE disconnects.
++
+link:#topOfPage[Go to top]
+
+Or link:../../html/startHere/startHere.html[Go to the Start Here Page]

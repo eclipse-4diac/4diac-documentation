@@ -1,0 +1,157 @@
+= Building and Running 4diac IDE
+:lang: en
+
+[[topOfPage]]
+== Building and Running 4diac IDE
+
+You have 2 options for building and running 4diac IDE:
+
+. link:#buildFromSource[Building and Running 4diac IDE from Source]
+. link:#buildBinary[Building a Binary 4diac IDE Package from Source]
+
+[[buildFromSource]]
+=== Building and Running 4diac IDE from Source
+
+Run through the following steps to build and execute the 4diac IDE from
+source:
+
+. Get the development environment
+. Check out the 4diac IDE repository
+. Import plug-ins into workspace
+. Set the target platform
+. Run in development mode
+
+[[devEnvironment]]
+==== Get the Development Environment
+
+Get the latest https://eclipse.org/downloads/eclipse-packages/[Eclipse
+IDE]. Use [.specificText]#Eclipse Modeling Tools# edition.
+
+[[checkOutRepos]]
+==== Check out the 4diac IDE Repository
+
+This section shows how to check out (clone) the 4diac IDE repository.
+You will need https://git-scm.com/downloads[Git] to download it by using
+the [.inlineCode]#clone# command from Git to the repository [.address]#
+https://git.eclipse.org/r/4diac/org.eclipse.4diac.ide#. If you're using
+the terminal, do:
+
+$ cd ~ $ git clone https://git.eclipse.org/r/4diac/org.eclipse.4diac.ide
+
+The code will be copied to the new created folder
+~/org.eclipse.4diac.ide.
+
+You can also use the git integrated into Eclipse for this process.
+Please refere to the Eclipse EGit documentation on how to clone a
+repository
+
+[[importPlugins]]
+==== Import Plug-Ins into Workspace
+
+. [.menu4diac]#File → Import → General → Existing Projects into
+Workspace#
+. Under [.menu4diac]#Select root directory# select the source directory
+from the file system and mark all projects to be imported.
+. Wait till Eclipse finished building the project (look at the progress
+bar at the right bottom corner of the Eclipse main window)
+. Check problems view for errors. If you get [.specificText]#API
+Baseline# not set errors you need to perform the following steps:
+.. Open the Eclipse preferences: [.menu4diac]#Window → Preferences#
+.. Enter API in the top left search field. You should get three research
+results: 1. [.specificText]#API Baselines#, 2. [.specificText]#API
+Errors/Warnings#, and 3. [.specificText]#API Use Scans#
+.. You now have two options:
+... Set an API Baseline for your developments:
+* Select: API Baseline
+* Click Add Baseline ...
+* Enter a name, e.g., MyEclipse
+* For the location select your Eclipse directory
+* Press Finish
+* Select your new baseline in the API Baselines window and press OK
+... Set the API Baseline error to ignore:
+* Select: API Baseline
+* Set the option Missing API Baseline: which can be found in the bottom
+of the preferences window from Error to Ignore
++
+image:../../html/development/img/APIbaseline.png[API Baseline]
+
+[[targetPlatform]]
+==== Set Target Platform
+
+. Open the Eclipse preferences within the
+[.inlineCode]#org.eclipse.fordiac.ide.product# plugin:
++
+image:../../html/development/img/TargetPlatform.png[Eclipse target
+platform configuration]
+. Wait until the target platform is resolved or press
+[.button4diac]#Reload# and wait until it is resolved
+. Press [.button4diac]#Set as Target Platform# within the upper right
+corner and wait until the workspace is builded.
+
+[[devMode]]
+==== Run in Development Mode
+
+. Open the [.folderLocation]#org.eclipse.fordiac.ide.product# from the
+[.folderLocation]#org.eclipse.fordiac.ide.product# plug-in.
++
+image:../../html/development/img/productConfigKepler.png[Eclipse product
+configuration]
+. In the [.menu4diac]#Testing# Section of the [.tab4diac]#Overview# tab
+press [.button4diac]#Synchronize#
+. To use 4diac IDE directly under this (development) Eclipse you need a
+type library and templates. Both are part of the 4diac IDE repository
+and can be found in the [.folderLocation]#data# directory. In order that
+your development 4diac IDE can find this they have to put into the
+directory where the target platform is stored. For that copy the
+[.folderLocation]#template# and the [.folderLocation]#typelibrary#
+directory into the
+[.folderLocation]#.metadata/.plugins/org.eclipse.pde.core/.bundle_pool#
+directory.
+. Press [.button4diac]#Launch an Eclipse Application# in the
+[.view4diac]#Overview#
+
+[[buildingIDE]]
+==== Building your own 4diac IDE
+
+A big drawback for running 4diac IDE from source is that you need at
+least 2 Eclipse instances running. Especially on systems with little
+memory this can be an issue. If you still want to keep up with the
+developments performed in the Git repository it makes sense to build a
+binary package. See link:#buildBinary[Building a binary 4diac IDE
+package from source] for details on how this can be achieved.
+
+link:#topOfPage[Go to top]
+
+[[buildBinary]]
+=== Building a Binary 4diac IDE Package from Source
+
+For building a binary 4diac IDE package from the source code the best is
+to use the Maven configuration which is also used to build 4diac IDE on
+our build server. A modern Eclipse IDE comes with Maven integration out
+of the box. Then the necessary steps for generating binary 4diac IDE
+packages are:
+
+. Have the 4diac IDE source code in an Eclipse workspace as described in
+link:#buildFromSource[Building and Running 4diac IDE from Source]
+. Go to the root plugin [.inlineCode]#org.eclipse.fordiac.ide# and
+right-click on the pom.xml
+. Invoke the [.menu4diac]#Run As → Maven Install#.
+. After a successful build you will find the output in
+[.folderLocation]#plugins/org.eclipse.fordiac.ide.product/target/products#
+directory.
+
+Alternatively you can run [.mvn .install]# on the command line in the
+root folder of 4diac IDE source code.#
+
+== Where to go from here?
+
+Go back to Development index:
+
+link:../../html/development/developmentIndex.html[Development Index]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+link:../../html/startHere/startHere.html[Start Here page]
+
+Or link:#topOfPage[Go to top]

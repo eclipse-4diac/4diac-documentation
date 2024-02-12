@@ -1,0 +1,135 @@
+= Step 6 - Advanced Features
+:lang: en
+
+[[topOfPage]]
+== Step 6 - Advanced Features
+
+This page is part of a guide that gives a walk-through over the major
+4diac IDE features.
+
+[start=0]
+. link:img/4diacIDE/overview.html[4diac IDE Overview]
+. link:img/4diacIDE/use4diacLocally.html[Use 4diac Locally
+(Blinking tutorial)]
+. link:img/4diacIDE/distribute4diac.html[Distribute 4diac
+Applications]
+. link:img/4diacIDE/use4diacRemotely.html[Deploy Applications
+Remotely]
+. link:img/4diacIDE/createOwnTypes.html[Create Your own Function
+Block Types]
+. link:img/4diacIDE/otherUseful.html[Other Basic Features]
+. Advanced Features (YOU ARE HERE!)
+. link:img/4diacIDE/dynamicTypeLoader.html[Deploying new FBs with
+the Dynamic Type Loader]
+
+This page shows some advanced features about 4diac IDE that are usually
+used in more complicated applications:
+
+. link:#adaptersUsage[Adapter Usage]
+. Subapplications (implemented since version 1.9)
+
+[[adaptersUsage]]
+=== Adapter Usage
+
+[.element61499]#Adapters# group interface elements into reusable
+interface descriptions. They reduce the number of interface elements
+(event and data inputs and outputs) and by that the number of
+connections that have to be created between interacting function blocks.
+In 4diac IDE, [.element61499]#adapters# are listed in the type library
+and represented by this symbol:
+image:img/4diacIDE/img/adapter/adapter.png[adapter].
+
+[[newAdapterType]]
+==== Create a new Adapter Type
+
+These interface descriptions can be added to the interface of any
+Function Block Type. Currently, [.element61499]#adapters# can not
+contain other adapters. There are two types of
+[.element61499]#adapters#, which are mirrored interfaces:
+
+image::4diacIDE/img/adapter/plugAndSocket.png[socket and
+plug.]
+
+* [.element61499]#socket#: added as [.element4diac]#input# of a function
+block and represented by this symbol
+image:img/4diacIDE/img/adapter/sockets_16.png[socket of adapter]
+within the function block's interface.
+* [.element61499]#plug#: added as [.element4diac]#output# of a function
+block and represented by this symbol
+image:img/4diacIDE/img/adapter/plugs_16.png[plug of adapter]
+within the function block's interface.
+
+When a new [.element61499]#adapter# is created, it should be a
+[.element4diac]#socket#. The mirrored plug is derived automatically by
+4diac IDE and is [.specificText]#NOT# created by the user. An adapter
+(socket) is created by [.command4diac]#File → New → New Type# and
+selecting [.menu4diac]#Adapter.adp# as Type. All adapter names should
+start with an [.specificText]#A# (naming convention).
+
+image:img/4diacIDE/img/adapter/newAdapter.png[socket creation.]
+
+[[useAdapterType]]
+==== Use Your new Adapter Type
+
+After creating your desired adapter type (socket), it can be added to a
+function block's interface by drag and drop from the Palette, as
+illustrated in the following figure.
+
+image:img/4diacIDE/img/adapter/addAdapter.png[add adapter to the
+interface of a function block.]
+
+The function blocks used within the following application snippet are
+part of the TrafficLight example system. Two different adapter types
+have been used, [.element4diac]#ATimeOut# in
+[.element4diac]#PedLightCtl_AT# and [.element4diac]#E_TimeOut# and
+[.element4diac]#ATrafficLight# in [.element4diac]#PedLightCtl_AT#.
+
+The [.element4diac]#PedLightCtl_AT# is a basic function block. Within
+basic function blocks adapters are accessed by
+[.specificText]#FB_INTERFACE_NAME.ADAPTER_INTERFACE_NAME#. The elements
+of the [.element4diac]#ATimeOut# adapter are therefore accessed by
+[.specificText]#timeOut.START#, [.specificText]#timeOut.STOP# and
+[.specificText]#timeOut.TimeOut#.
+
+The [.element4diac]#E_TimeOut# is a composite function block. Within the
+network of a composite function block, any adapter added to its
+interface is represented by an adapter block which looks like a Function
+Block. The interface elements of this adapter block are connected like a
+function block.
+
+image:img/4diacIDE/img/adapter/example.png[application with
+function blocks that contain adapters.]
+
+Further examples for the usage of adapters can be found within the
+FestoMPS example system.
+
+== Where to go from here?
+
+If you want to see some examples, behind the following link is an index
+of the available examples in the documentation:
+
+link:img/examples/examplesIndex.html[4diac Examples]
+
+If you have a specific platform that has input and outputs and is
+supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you
+want to use them, go to following page:
+
+link:img/parameters/parameters.html[Parameters for Different
+Platforms]
+
+If you want to use a specific communication protocol supported by
+4diac FORTE, for example MQTT, OPC UA, Modbus and so on, go this page:
+
+link:img/communication/communicationIndex.html[Supported
+Communication Protocols]
+
+If you want to go back to see again the basic features, here's a link:
+
+link:img/4diacIDE/otherUseful.html[Step 5 - Other Basic Features]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access:
+
+link:img/startHere/startHere.html[Where to Start]
+
+link:#topOfPage[Go to top]

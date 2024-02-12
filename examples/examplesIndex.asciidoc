@@ -1,0 +1,37 @@
+= 4diac Examples
+:lang: en
+
+[[topOfPage]]
+== 4diac Examples
+
+This page is intended to serve as index for 4diac examples that help
+understand and develop applications. If you want to contribute, you're
+welcome to do it by posting in the
+https://www.eclipse.org/forums/index.php?t=thread&frm_id=308[forum].
+
+[[noHardwareRequired]]
+=== General Examples
+
+For the following examples, you don't need any special hardware:
+
+* link:../../html/examples/xplus3.html[X+3]: This example uses 2
+devices, 1 running 4diac FORTE and the other running FBRT. It has a
+really simple logic that allows the user to interact by inputing a
+number that's sent to 4diac FORTE, which add 3 to the input and returns
+the result which is shown back to the user.
+
+[[hardwareRequired]]
+=== Specific Hardware Required Examples
+
+For the following examples, you'll need specific hardware to try them:
+
+* link:../../html/examples/pidMotor.html[PID control on Lego Mindstorms
+Motor]: This example uses the Lego Mindstorms EV3. It creates a Basic
+Function Block that implements a PID control on the position of a motor.
+* link:../../html/examples/bbbTraficControl.html[Traffic control example
+running on a Beagle Bone Black]: This is the Traffic Control that comes
+with Eclipse 4diac, but instead of running locally, the control runs on
+a BBB and the HMI locally. This example is important because it finds
+many networking issues that are solved.
+
+Go to link:../../html/startHere/startHere.html[Where to Start]

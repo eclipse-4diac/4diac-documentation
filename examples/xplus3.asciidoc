@@ -1,0 +1,230 @@
+= X+3 Tutorial
+:lang: en
+
+[[topOfPage]]
+== Explore an Existing System
+
+This example gives you an overview of how to work with Eclipse 4diac by
+examining and deploying the [.element61499]#System#
+[.element4diac]#Xplus3# and [.element61499]#Application#
+[.element4diac]#Xplus3Application#. The [.element61499]#System# consists
+of two [.element61499]#Devices#, after examining the mapping of the
+[.element61499]#Application# parts to the [.element61499]#Resources#, we
+will set the preferences required and test it.
+
+* Task of the X+3 example: calculate and display X+3.
+* The [.element4diac]#Xplus3 System# is included with the 4diac IDE
+release, alternatively you can get it with mercurial [.inlineCode]#hg
+clone http://hg.code.sf.net/p/fordiac/fordiac-systems#
+* Examines a simple IEC 61499 [.element61499]#Application# with 2
+[.element61499]#Devices#.
+* The communication between the different [.element61499]#Devices# is
+integrated within the [.element61499]#Resource#.
+
+[[application]]
+=== Explore Existing Application
+
+A IEC 61499 [.element61499]#Application# is designed independent of
+[.element61499]#Devices# and [.element61499]#Resources#. The
+[.element61499]#Application# FBs are mapped to the
+[.element61499]#Resource# of a [.element61499]#Device# they will run on
+after building the application. Click on the arrow beside the
+[.element4diac]#Xplus3 System# and double-click to open the
+[.element4diac]#Application# called [.element4diac]#Xplus3Application#
+(note: depending on your operating system, a single click may be
+sufficient where double clicks are mentioned in this tutorial)
+
+image:../../html/examples/img/xplus3/x3_application.png[X+3
+TestApplication]
+
+There are 3 groups of Function Blocks connected. The specific color of a
+Function Block shows that this block is mapped to a
+[.element61499]#Device#. The two different colors of the FBs indicate
+that they are mapped to two different [.element61499]#Devices#, so the
+[.element61499]#Application# is distributed. The dashed line connections
+are just information. We will see how the data is passed between
+[.element61499]#Devices# in [.element61499]#Resources#.
+
+The [.element61499]#Applications# IOs are on one [.element61499]#Device#
+and the calculation (X+3) is on the 2nd [.element61499]#Device#. Mouse
+over often provides extra information like a data variable's type. When
+exploring the [.element61499]#Application# it can be figured out that
+there are three types of Function Blocks used
+
+* [.element4diac]#IN_ANY# and [.element4diac]#OUT_ANY# are the
+input/output, which visualize the input value and the calculation
+result. The input [.element4diac]#QI# is an input qualifier that allows
+the Function Block to work if its [.specificText]#true#. It is used to
+turn-off Function Blocks when a predecessor Function Block has an error.
+In our [.element61499]#Application# the [.element4diac]#OUT_BOOL.QI# is
+set to [.specificText]#1#.
+* [.element4diac]#F_ADD# adds two [.element4diac]#ANY# inputs together.
+One value comes from the input connection and the other is a hard-coded
+constant
+
+[[systemManagement]]
+=== Explore Existing [.element4diac]#System Configuration#
+
+Within the [.element61499]#System# called [.specificText]#Xplus3# there
+is the [.element4diac]#System Configuration#. Click once on
+[.element4diac]#System Configuration# (on left) and keep expanding the
+[.element4diac]#System Configuration# by clicking the arrows on the
+left. This shows the [.element61499]#Devices# and
+[.element61499]#Resources# used.
+
+image:../../html/examples/img/xplus3/x3_systemConfiguration.png[System
+Configuration]
+
+[[devices]]
+==== Explore Existing [.element61499]#Devices#
+
+Double click on [.element4diac]#System Configuration# to open the
+[.element4diac]#System Configuration# model that shows the
+[.element61499]#System#, the [.element61499]#Devices#, their
+[.element61499]#Resources# and the communication network the
+[.element61499]#Devices# are connected to.
+
+image:../../html/examples/img/xplus3/x3_system.png[The X+3 System]
+
+There are two [.element4diac]#Devices# connected via an Ethernet
+segment. You have to know what [.element4diac]#Devices# you are using.
+Here it is:
+
+. [.specificText]#MICROCONTROLLER# remote device
+([.element4diac]#RMT_DEV#) (uses 4diac FORTE). The IEC 61499 system used
+by this [.element61499]#Application# [.element4diac]#Xplus3Application#
+is Posix FORTE on a PC, but it could be a real microcontroller like ARM7
+in Lego Mindstorms as well.
+. [.specificText]#PC# remote frame ([.element4diac]#RMT_FRAME#) (uses
+FBDK). The IEC 61499 [.element61499]#System# used by this
+[.element61499]#Application# [.element4diac]#Xplus3Application# is FBDK
+via its runtime, FBRT.
+
+Click on the [.element61499]#Device# name in main window to look at the
+[.view4diac]#Device's properties# bottom window. It is important to set
+the property Misc/Profile to HOLOBLOC.
+
+[[resources]]
+==== Explore Existing [.element61499]#Resources#
+
+In this [.element61499]#System# each [.element61499]#Device# has a
+Manager and 1 [.element61499]#Resource#, that
+[.element61499]#Applications# can be mapped to. If you have not yet done
+so, click on the arrow at the left side of [.element4diac]#System
+Configuration# to see the [.element61499]#Devices#
+([.element4diac]#MICROCONTROLLER#; [.element4diac]#PC#). In the same
+way, expand the [.element61499]#Devices#
+([.element4diac]#MICROCONTROLLER#; [.element4diac]#PC#) to see their
+[.element61499]#Resource(s)#. Double-click on the
+[.element61499]#Resource# names ([.element4diac]#CALC#,
+[.element4diac]#VIS#) to see what Function Blocks are mapped to the
+[.element61499]#Resource#. For the [.element4diac]#CALC Resource#, it
+looks like this: [.element4diac]#System Configuration# →
+[.element4diac]#MICROCONTROLLER# → [.element4diac]#CALC#
+
+image:../../html/examples/img/xplus3/x3_microcontroller.png[Resource on
+the Microcontroller]
+
+And for the [.element4diac]#VIS Resource#, like this:
+[.element4diac]#System Configuration# → [.element4diac]#PC# →
+[.element4diac]#VIS#
+
+image:../../html/examples/img/xplus3/x3_pc.png[Resource on the PC]
+
+Note the [.element4diac]#PUBLISH_1# and [.element4diac]#SUBSCRIBE_1#
+Function Blocks that are used to send data between
+[.element61499]#Devices# or [.element61499]#Resources#. The
+[.specificText]#_1# is the number of data items being sent / received.
+[.element4diac]#INT2INT# is used multiple times. You may ask yourself:
+Why convert an [.element4diac]#INT# to an [.element4diac]#INT# - isn't
+that the same thing!?
+
+. Do a mouse over of the data output [.element4diac]#IN_ANY.OUT# in
+[.element4diac]#VIS#. Note its type: It is [.element4diac]#ANY#.
+. Do a mouse over of the data output [.element4diac]#PUBLISH_1_0.SD_1#.
+Note its type: It is [.element4diac]#ANY#.
+
+So, when the output type is [.element4diac]#ANY# and the input type is
+[.element4diac]#ANY#, how can the actual data type be known? This is why
+we need a conversion Function Block like [.element4diac]#INT2INT# with
+[.element4diac]#ANY# input and an actual data type for output. Funtion
+Blocks using an [.element4diac]#ANY# type for input or output have to
+tell the Function Blocks the type in and the following Function Blocks
+the type out. For regular Function Blocks the input type must match its
+type. Look back at the [.element61499]#Application#, where all 3 parts
+Input, Output and calculation appear together. Notice that the Publish
+and Subscribe Function Blocks used to exchange data between
+[.element61499]#Resources# of a [.element61499]#Device# are in the
+[.element61499]#Resource# directly. This makes the
+[.element61499]#Application# less cluttered and more clearly
+understandable.
+
+[[deployment]]
+=== Deploy Your Application
+
+Switch to the [.view4diac]#Deployment perspective# and set the runtime
+preferences. The following settings are under [.menu4diac]#Window →
+Preferences → 4diac IDE#. For further details on setting these locations
+see link:../../html/4diacIDE/overview.html#properties[4diac IDE
+Properties]. To run the test, the locations of the IEC 61499 executables
+for the [.element61499]#Devices# used are required.
+
+* [.element4diac]#MICROCONTROLLER.CALC# uses 4diac FORTE. Therefore, the
+location of [.fileLocation]#forte.exe# must be set within the
+4diac FORTE preferences. Typically, this is somewhere below
+.[.folderLocation]#/runtime/FORTE/#. Relative paths do not work in all
+setups, it is recommended to specify an absolute path here.
+* [.element4diac]#PC.VIS# uses FBRT. Therefore, the location of
+[.fileLocation]#fbrt.jar# must be set in FBRT preferences. Typically,
+this path is [.fileLocation]#./runtime/FBRT/fbrt.jar#.
+
+With the preferences set correctly for the IEC 61499
+[.element61499]#System# on the 2 [.element61499]#Devices# you can now
+test. Click the Open perspective button on top of the title bar and add
+Deployment in the perspective window. The Open Perspective button of the
+Deployment perspective will be found besides the [.button4diac]#System#
+perspective Button
+
+image:../../html/examples/img/xplus3/x3_deployment.png[Deployment of the
+X+3 Application]
+
+To download and test your IEC 61499 [.element61499]#Application#:
+
+. Check the [.element4diac]#System Xplus3# and notice the
+[.element61499]#Devices# show up under the [.element61499]#System#, but
+not the [.element61499]#Application# mapped to the
+[.element61499]#Devices#.
+. Press the Launch FBRT button. Note that the [.element61499]#Device#
+and port number match the properties of the [.element61499]#Device#
+using FBRT (i.e., [.element4diac]#PC#) in [.element4diac]#System
+Configuration#. The console output from the FBRT is shown on the bottom
+right and an empty Java window will open.
+. Press the Launch FORTE button. Note that the host and port number
+match the properties of the [.element61499]#Device# using 4diac FORTE
+(i.e., [.element4diac]#MICROCONTROLLER#) in [.element4diac]#System
+Configuration#. Again, console output is shown on the bottom right. The
+console output of 4diac FORTE is dependent on the log-level that has
+been configured with CMake. The default configuration is LOGDEBUG. It
+lists debug information.
+. When launching FBRT or 4diac FORTE for the first time, a system
+firewall configuration window may pop up. You should allow network
+access that the 2 [.element61499]#Devices# are able to communicate with
+each other over Ethernet.
+. Press Download and notice the Deployment Console output on the right.
+Click on the Java application window ([.element4diac]#RMT-FRAME#).
+Resize it if necessary to see the contents. Enter an integer in the top
+field and press the enter key. The result is shown in the bottom field:
+It should be the value you entered plus three.
+
+== Where to go from here?
+
+Go back to Examples index:
+
+link:../../html/examples/examplesIndex.html[Examples Index]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+link:../../html/startHere/startHere.html[Start Here page]
+
+link:#topOfPage[Go to top]
