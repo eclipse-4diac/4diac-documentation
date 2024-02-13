@@ -18,7 +18,7 @@ The BBB has the feature that can emulate an Ehternet port through its
 USB interface. In order to do this, it is required special drivers in
 the machine on the other side of the connection. For an accurate
 information on how to get the BBB ready, take a look at the official
-http://beagleboard.org/getting-started[BeableBone Page]
+http://beagleboard.org/getting-started[BeagleBone Page]
 
 Once the BBB is connected, it normally has the IP address 192.168.7.2,
 so a ping from the computer should be succesfull.
