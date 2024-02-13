@@ -1,6 +1,6 @@
 # 4diac-documentation
 
-This repository contains the help files for the 4diac-ide as well as the 4diac-website as asciidoc.
+This repository contains the help files for the 4diac-ide as well as the 4diac-website as Asciidoc files.
 
 ## How to Contribute
 
