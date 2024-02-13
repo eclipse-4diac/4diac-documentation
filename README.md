@@ -4,7 +4,7 @@ This repository contains the help files for the 4diac-ide as well as the 4diac-w
 
 ## How to Contribute
 
-Contributions are most welcome. There are many ways to contribute, from entering high quality bug reports, to contributing code or documentation changes. For a complete guide, see the [contribution guide](https://github.com/eclipse-4diac/4diac-documentation/blob/main/CONTRIBUTING.md).
+Contributions are most welcome. There are many ways to contribute, from entering high-quality bug reports, to contributing code or documentation changes. For a complete guide, see the [contribution guide](https://github.com/eclipse-4diac/4diac-documentation/blob/main/CONTRIBUTING.md).
 
 ## License
 
