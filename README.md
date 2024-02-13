@@ -1,6 +1,6 @@
-# 4diac-documentation
+# Eclipse 4diac Documentation
 
-This repository contains the help files for the 4diac-ide as well as the 4diac-website as Asciidoc files.
+This repository contains the help files for the [Eclipse 4diac Project](https://eclipse.dev/4diac) as [Asciidoc](https://asciidoc.org/) files.
 
 ## How to Contribute
 
