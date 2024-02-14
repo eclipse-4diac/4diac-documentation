@@ -265,6 +265,6 @@ Locally]
 If you want to go back to the Start Here page, we leave you here a fast
 access:
 
-link:../../html/startHere/startHere.adoc[Where to Start]
+xref:../index.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

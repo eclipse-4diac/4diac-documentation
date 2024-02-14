@@ -186,6 +186,6 @@ link:../../html/4diacIDE/use4diacLocally.html[Step 1 - Use 4diac Locally
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-link:../../html/startHere/startHere.html[Where to Start]
+xref:../index.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

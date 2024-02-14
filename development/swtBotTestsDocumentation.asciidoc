@@ -171,6 +171,6 @@ further action is necessary in this case.
 image:../../html/development/img/SWTBot/TestResults.png[Test
 results,width=800]
 
-link:../../html/startHere/startHere.html[Start Here page]
+xref:../index.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

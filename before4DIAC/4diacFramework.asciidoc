@@ -103,6 +103,6 @@ link:../../html/installation/install.html[Installation]
 If you want to go back to the Where to Start page, we leave you here a
 fast access:
 
-link:../../html/startHere/startHere.html[Where to Start]
+xref:../index.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

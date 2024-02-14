@@ -277,12 +277,11 @@ you'll find them in the example repository.
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+link:../../html/communication/communicationIndex.html[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-link:../../html/startHere/startHere.html[Start Here page]
+xref:../index.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

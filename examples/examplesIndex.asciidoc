@@ -34,4 +34,4 @@ with Eclipse 4diac, but instead of running locally, the control runs on
 a BBB and the HMI locally. This example is important because it finds
 many networking issues that are solved.
 
-Go to link:../../html/startHere/startHere.html[Where to Start]
+Go to xref:../index.adoc[Where to Start]
