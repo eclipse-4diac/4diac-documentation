@@ -24,4 +24,4 @@ Profile for Feasibility Demonstrations] and default protocol in
 * link:../../html/communication/openPOWERLINK.html[openPOWERLINK]
 * link:../../html/communication/arrowhead.html[Arrowhead]
 
-Go to link:../../html/startHere/startHere.html[Where to Start]
+Go to xref:../index.adoc[Where to Start]

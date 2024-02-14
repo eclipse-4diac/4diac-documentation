@@ -28,6 +28,6 @@ External Events]
 ** link:../../html/development/contribute.html[Contribute to 4diac IDE
 or 4diac FORTE]
 
-Go to link:../../html/startHere/startHere.html[Start Here page]
+Go to xref:../index.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

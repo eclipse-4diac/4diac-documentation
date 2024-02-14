@@ -245,4 +245,4 @@ indicates the end of the download process when 4diac IDE disconnects.
 +
 link:#topOfPage[Go to top]
 
-Or link:../../html/startHere/startHere.html[Go to the Start Here Page]
+Or xref:../index.adoc[Go to the Start Here Page]

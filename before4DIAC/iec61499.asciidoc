@@ -328,6 +328,6 @@ link:../../html/before4DIAC/4diacFramework.html[Eclipse 4diac Framework]
 In case you'd like to return to the "Where to Start"-page, we leave here
 a fast access for you:
 
-link:../../html/startHere/startHere.html[Where to Start]
+xref:../index.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

@@ -40,7 +40,7 @@ simple application with 4diac IDE and pre-built 4diac FORTE. If you want
 to start using 4diac IDE right away, you can skip the rest of the page
 and go directly to the link:../../html/4diacIDE/overview.html[step by
 step tutorial] or the
-link:../../html/startHere/startHere.html[Start Here-page].
+xref:../index.adoc[Start Here-page].
 
 If you want to develop your own Function Blocks or to run 4diac FORTE on
 control devices, you have to download and set up 4diac FORTE for the
@@ -332,6 +332,6 @@ link:../../html/4diacIDE/overview.html[Step 0 - 4diac IDE Overview]
 If you want to go back to the Where to Start page, we leave you here a
 fast access:
 
-link:../../html/startHere/startHere.html[Where to Start]
+xref:../index.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]
