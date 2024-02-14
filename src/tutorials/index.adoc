@@ -2,14 +2,13 @@
 
 == xref:overview.adoc[Step 0 - 4diac IDE Overview]
 
- 1. xref:overview.adoc#startingUp[Starting up 4diac IDE]
- 2. xref:overview.adoc#elements[4diac IDE Elements]
- 3. xref:overview.adoc#perspectives[4diac IDE Perspectives] 
- 4. xref:overview.adoc#overview.adoc#systemPerspective[System Perspective]
- 5. xref:overview.adoc#deploymentPerspective[Deployment Perspective]
- 6. xref:overview.adoc#debugPerspective[Debug Perspective]
- 7. xref:overview.adoc#preferences[4diac IDE Preferences]
- 8. xref:overview.adoc#toolbar[Toolbar]
+ . xref:overview.adoc#startingUp[Starting up 4diac IDE]
+ . xref:overview.adoc#elements[4diac IDE Elements]
+ . xref:overview.adoc#perspectives[4diac IDE Perspectives] 
+ . xref:overview.adoc#overview.adoc#systemPerspective[System Perspective]
+ . xref:overview.adoc#debugPerspective[Debug Perspective]
+ . xref:overview.adoc#preferences[4diac IDE Preferences]
+ . xref:overview.adoc#toolbar[Toolbar]
 
 
 == xref:use4diacLocally.adoc[Step 1 - Use 4diac Locally (Blinking Tutorial)]
