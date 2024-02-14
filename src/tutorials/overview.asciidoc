@@ -1,25 +1,23 @@
-= Step 0 - 4diac IDE - Overview
+= [[topOfPage]] Step 0 - 4diac IDE - Overview
 :lang: en
 
-[[topOfPage]]
-== Step 0 - 4diac IDE Overview
 
 This page is part of a guide that gives a walk-through over the major
 4diac IDE features.
 
 [start=0]
 . 4diac IDE Overview (YOU ARE HERE!)
-. link:../../html/4diacIDE/use4diacLocally.html[Use 4diac Locally
+. xref:use4diacLocally.adoc[Use 4diac Locally
 (Blinking tutorial)]
-. link:../../html/4diacIDE/distribute4diac.html[Distribute 4diac
+. xref:distribute4diac.adoc[Distribute 4diac
 Applications]
-. link:../../html/4diacIDE/use4diacRemotely.html[Deploy Applications
+. xref:use4diacRemotely.adoc[Deploy Applications
 Remotely]
-. link:../../html/4diacIDE/createOwnTypes.html[Create Your own Function
+. xref:createOwnTypes.adoc[Create Your own Function
 Block Types]
-. link:../../html/4diacIDE/otherUseful.html[Other Basic Features]
-. link:../../html/4diacIDE/advancedFeatures.html[Advanced Features]
-. link:../../html/4diacIDE/dynamicTypeLoader.html[Deploying new FBs with
+. xref:otherUseful.adoc[Other Basic Features]
+. xref:advancedFeatures.adoc[Advanced Features]
+. xref:dynamicTypeLoader.adoc[Deploying new FBs with
 the Dynamic Type Loader]
 
 An overview is presented in this step 0 - about elements, perspectives
@@ -34,15 +32,14 @@ create your workspace. For this tutorial, we name our workspace
 "Tutorial". A workspace is a folder on your computer that stores one or
 more 4diac IDE projects.
 
-image:../../html/4diacIDE/img/Step0/workspaceSelection.png[workspace
-selection]
+image:./img/Step0/workspaceSelection.png[workspace selection]
 
 After you created a workspace, 4diac IDE presents its welcome screen.
 Here you can get an overview about 4diac IDE, create a new project,
 import an existing project or read more about the chapters of the
 tutorial.
 
-image:../../html/4diacIDE/img/Step0/welcomeScreen.png[welcome screen of
+image:./img/Step0/welcomeScreen.png[welcome screen of
 4diac IDE]
 
 At first it's best to deselect the checkbox at the bottom-right corner
@@ -57,37 +54,37 @@ screen of 4diac IDE.
 
 Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE
 provides the standard's elements for work (you can check
-link:../../html/before4DIAC/iec61499.html#IEC61499[here] to revise):
+link:../../html/before4DIAC/iec61499.adoc#IEC61499[here] to revise):
 
-* image:../../html/4diacIDE/img/system.png[System]
+* image:./img/system.png[System]
 [.inlineTitle]#System#: It contains the [.view4diac]#System
 Configuration# and its corresponding [.element61499]#Applications#.
-* image:../../html/4diacIDE/img/app16.png[Application]
+* image:./img/app16.png[Application]
 [.inlineTitle]#Application#: It contains the desired application in
 terms of a FB network.
-* image:../../html/4diacIDE/img/device16.png[Device]
+* image:./img/device16.png[Device]
 [.inlineTitle]#Device#: It represents a hardware device such as a
 programmable logic controller (PLC) or a microcontroller.
-* image:../../html/4diacIDE/img/resource16.png[Resource]
+* image:./img/resource16.png[Resource]
 [.inlineTitle]#Resource#: It is responsible for the execution of the
 control logic within its own execution context.
 * [.inlineTitle]#Function blocks (FB)#:
-** image:../../html/4diacIDE/img/basicfb_16.png[BFB]
+** image:./img/basicfb_16.png[BFB]
 [.inlineTitle]#Basic FB (BFB)#: It uses an execution control chart (ECC)
 to control event execution. Algorithms are associated with the different
 states inside an ECC.
-** image:../../html/4diacIDE/img/compositefb_16.png[CFB]
+** image:./img/compositefb_16.png[CFB]
 [.inlineTitle]#Composite FB (CFB)#: It contains a FB network of existing
 FBs. Its FB interface passes events and data on to the FBs within the
 CFB, which in turn pass events and data among themselves and out to the
 CFB's normal output interface.
-** image:../../html/4diacIDE/img/sifb_16.png[SIFB]
+** image:./img/sifb_16.png[SIFB]
 [.inlineTitle]#Service interface FB (SIFB)#: It is usually used for
 something that cannot be done within the IEC 61499 standard such as
 communication with devices or network segments. It helps to first
 understand basic and composite FBs. SIFBs are then used to realize only
 what cannot be done using a BFB/CFB.
-* image:../../html/4diacIDE/img/adapter.png[Adapter]
+* image:./img/adapter.png[Adapter]
 [.element61499]#Adapter#: It combines a set of input/output events and
 data to one connection. On the one hand it simplifies the IEC 61499
 [.element61499]#Application# and on the other hand it better decouples
@@ -98,13 +95,13 @@ allows adopting the polymorphic concept of object-oriented programming
 === 4diac IDE Perspectives
 
 The 4diac IDE provides three perspectives, which can be added via the
-image:../../html/4diacIDE/img/perspective/new_persp.gif[add perspective]
+image:./img/perspective/new_persp.gif[add perspective]
 button in the upper-right corner:
 
-image:../../html/4diacIDE/img/Step0/perspectiveSelection.png[perspective
+image:./img/Step0/perspectiveSelection.png[perspective
 selection]
 
-. The [.inlineTitle]## image:../../html/4diacIDE/img/system.png[System
+. The [.inlineTitle]## image:./img/system.png[System
 Perspective Button] System ##perspective is used to configure everything
 regarding your system. It includes:
 * [.inlineTitle]#System Manager#, which allows creating and editing your
@@ -118,11 +115,11 @@ mapping and insertion of communication function blocks to other
 * [.inlineTitle]#Applications# according to the IEC 61499
 [.element61499]#Application# Model
 . [.inlineTitle]#
-image:../../html/4diacIDE/img/perspective/deploymentButton.gif[Deployment
+image:./img/perspective/deploymentButton.gif[Deployment
 Perspective Button] Deployment # perspective, where the
 [.element61499]#Applications# are launched and tested.
 . [.inlineTitle]#
-image:../../html/4diacIDE/img/perspective/debugButton.gif[Debug
+image:./img/perspective/debugButton.gif[Debug
 Perspective Button] 4diac IDE Debug # perspective, where
 [.element61499]#Applications# can be monitored.
 
@@ -131,7 +128,7 @@ Perspective Button] 4diac IDE Debug # perspective, where
 
 The perspective can be changed in the upper-right corner. The System
 perspective is reached via the
-image:../../html/4diacIDE/img/system.png[System Perspective Button]
+image:./img/system.png[System Perspective Button]
 button. The System perspective is divided into the following five areas:
 
 . [.inlineTitle]#System Management area#, which is used for managing
@@ -153,7 +150,7 @@ the [.IDEelement]#System editor# for modeling the
 block instances, [.element61499]#Devices#, and
 [.element61499]#Resources#
 
-image:../../html/4diacIDE/img/perspective/systemPerspective.png[System
+image:./img/perspective/systemPerspective.png[System
 Perspective Button]
 
 [[deploymentPerspective]]
@@ -161,7 +158,7 @@ Perspective Button]
 
 The perspective can be changed in the upper-right corner. The
 [.view4diac]#Deployment perspective# is reached by the
-image:../../html/4diacIDE/img/perspective/deploymentButton.gif[Deployment
+image:./img/perspective/deploymentButton.gif[Deployment
 Perspective Button] button. The [.view4diac]#Deployment Management#
 perspective is divided into the following four areas:
 
@@ -173,7 +170,7 @@ deployed to controller runtimes
 and launch IEC 61499 compliant runtimes
 . Console output if the runtime is running locally.
 
-image:../../html/4diacIDE/img/perspective/deploymentPerspective.png[Deployment
+image:./img/perspective/deploymentPerspective.png[Deployment
 Perspective Button]
 
 [[debugPerspective]]
@@ -181,7 +178,7 @@ Perspective Button]
 
 The perspective can be changed in the upper-right corner. The
 [.view4diac]#Debug perspective# is reached via the
-image:../../html/4diacIDE/img/perspective/debugButton.gif[Debug
+image:./img/perspective/debugButton.gif[Debug
 Perspective Button] button. The [.view4diac]#Debug perspective# is
 divided into the following four areas:
 
@@ -194,7 +191,7 @@ variables you marked for watching.
 . Outline of [.element61499]#Applications#, [.element61499]#System#
 configurations, [.element61499]#Devices#, and [.element61499]#Resources#
 
-image:../../html/4diacIDE/img/perspective/debugPerspective.png[Debug
+image:./img/perspective/debugPerspective.png[Debug
 Perspective Button]
 
 [[preferences]]
@@ -217,7 +214,7 @@ runtime environments are supported:
 . https://www.holobloc.com/[Holobloc's FBRT]:
 [.fileLocation]#path/fbrt.jar#
 
-image:../../html/4diacIDE/img/properties/4DIACpreferences.png[4diac IDE
+image:./img/properties/4DIACpreferences.png[4diac IDE
 Preferences]
 
 === Toolbar
@@ -229,19 +226,19 @@ and pressing the right mouse button opens the context menu with several
 menus to manipulate the specific element. Additionally, the following
 items are provided in the permanent toolbar located below the menu:
 
-* image:../../html/4diacIDE/img/properties/hideEvent.png[Hide Events]
-and image:../../html/4diacIDE/img/properties/hideData.png[Hide Data]
+* image:./img/properties/hideEvent.png[Hide Events]
+and image:./img/properties/hideData.png[Hide Data]
 allow hiding either the event or the data connections in the
 [.view4diac]#Application Editor# Editor
-* image:../../html/4diacIDE/img/properties/icon_print.png[Print Icon]
+* image:./img/properties/icon_print.png[Print Icon]
 allows printing the [.element61499]#Applications# and the Automation
 Hardware
-* image:../../html/4diacIDE/img/properties/icon_save.png[Save Icon]
+* image:./img/properties/icon_save.png[Save Icon]
 allows saving changes from the toolbar or the file (Save or Save All is
 used), alternative access by pressing [.inlineCode]#Ctrl + S#
-* image:../../html/4diacIDE/img/properties/undoredo.png[Undo/Redo Icon]
+* image:./img/properties/undoredo.png[Undo/Redo Icon]
 provides undo and/or redo of last changes
-* image:../../html/4diacIDE/img/properties/zoom.png[Zoom Functionality]
+* image:./img/properties/zoom.png[Zoom Functionality]
 provides zoom functionality in the toolbar or the menu entries in the
 context menu of an editor but also by pressing [.button4diac]#Ctrl#
 while scrolling the mouse wheel
@@ -254,7 +251,7 @@ properties are displayed at the bottom of the window. Additionally, a
 slow double-click also allows editing the name: First, select the FB by
 clicking onto it and, then, click on the FB again to edit the instance
 name. +
-image:../../html/4diacIDE/img/properties/instanceName.png[change
+image:./img/properties/instanceName.png[change
 instance name by double-clicking or property view]
 
 == Where to go from here?
@@ -262,12 +259,12 @@ instance name by double-clicking or property view]
 Now that you got an overview of the major parts of 4diac IDE, you can
 start using it:
 
-link:../../html/4diacIDE/use4diacLocally.html[Step 1 - Use 4diac IDE
+xref:use4diacLocally.adoc[Step 1 - Use 4diac IDE
 Locally]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access:
 
-link:../../html/startHere/startHere.html[Where to Start]
+link:../../html/startHere/startHere.adoc[Where to Start]
 
 link:#topOfPage[Go to top]
