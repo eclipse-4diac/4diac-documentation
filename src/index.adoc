@@ -1,0 +1,5 @@
+= Eclipse 4diac Documentation
+
+== xref:./tutorials/index.adoc[Tutorials - A Step by Step Guide] 
+
+Tutorials on getting started with 4diac IDE

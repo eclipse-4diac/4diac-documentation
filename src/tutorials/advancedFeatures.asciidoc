@@ -8,7 +8,7 @@ This page is part of a guide that gives a walk-through over the major
 4diac IDE features.
 
 [start=0]
-. link:img/4diacIDE/overview.html[4diac IDE Overview]
+. xref:overview.adoc[4diac IDE Overview]
 . link:img/4diacIDE/use4diacLocally.html[Use 4diac Locally
 (Blinking tutorial)]
 . link:img/4diacIDE/distribute4diac.html[Distribute 4diac
