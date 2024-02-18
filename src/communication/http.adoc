@@ -1,7 +1,6 @@
-= HTTP
-:lang: en
-
 [[topOfPage]]
+= HTTP
+
 == HTTP
 
 This section shows how to make applications communicate using HTTP. For
@@ -107,8 +106,7 @@ Content-length: length_of_data_string +
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

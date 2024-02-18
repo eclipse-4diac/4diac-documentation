@@ -1,8 +1,5 @@
-= OPC DA
-:lang: en
-
 [[topOfPage]]
-== OPC DA
+= OPC DA
 
 This section will show you how to create an OPC DA Client with 4diac IDE
 and how to use it with 44diac FORTE. Download the following packages:
@@ -12,7 +9,7 @@ and how to use it with 44diac FORTE. Download the following packages:
 * https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16[Visual
 studio buildtools 2019]
 
-=== Prepare and compile OPC Client Toolkit
+== Prepare and compile OPC Client Toolkit
 
 . Unzip Boost C++ Libraries
 . [#msbuildtools]#Install visual studio build tools with the components
@@ -22,8 +19,8 @@ studio 2013], atls.lib and atlsd.lib are unified as atls.lib which
 together with headers could be detected by the msvc, so that no need to
 specify in CMakeLists.txt for OPC module.#
 +
-image:../../html/communication/img/opc_VSBuildtoolsInstallation.png[VS
-Properties]
+image:img/opc_VSBuildtoolsInstallation.png[VS Properties]
+
 . Clone OPC Client, check out to master branch and open the
 OPCClientToolKit project in Visual Studio Code, be noticed that Visual
 Studio Code should be started with visual studio tool chains awared, one
@@ -36,7 +33,7 @@ same with 4diac FORTE.
 project here
 * [opcclientroot]/lib - OPCClientToolkit.lib
 
-=== Compile 4diac FORTE with OPC DA Client Support
+== Compile 4diac FORTE with OPC DA Client Support
 
 . Create a MS Visual Studio Code Project of 4diac FORTE with CMake as
 described in
@@ -50,7 +47,7 @@ variables in settings.json which are required for OPC Client support:
 . link:../../html/installation/visualStudioCode.html[compile or debug]
 4diac FORTE
 
-=== Create OPC Client
+== Create OPC Client
 
 Start the 4diac IDE and create a new [.element61499]#System# with a new
 [.element61499]#Application# for one [.element61499]#Device#. Add a
@@ -87,28 +84,24 @@ the OPC-server. In this example the OPC-server is
 "FestoDidactic.EzOPC.2". It is a tool from Festo and can be downloaded
 http://www.festo-didactic.com/de-de/service/software/vollversion-demos/ezopc.htm[here].
 
-image:../../html/communication/img/opc_fordiacTrigger.png[4diac IDE
-Trigger OPC event]
+image:img/opc_fordiacTrigger.png[4diac IDE Trigger OPC event]
 
 When the connection is established, a window of the server pops up.
 
-image:../../html/communication/img/opc_festoOPCserver.png[Festo OPC
-Server]
+image:img/opc_festoOPCserver.png[Festo OPC Server]
 
 Now trigger the REQ event to send the data from client to server.
 "BYTE#210" should be send to the server's port "VirtualPLC.EB0". Click
 to "Virtual Controller" tab to check if the OPC server has received the
 information.
 
-image:../../html/communication/img/opc_festoOPCserverIO.png[Festo OPC
-Server IO]
+image:img/opc_festoOPCserverIO.png[Festo OPC Server IO]
 
 == Where to go from here?
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

@@ -1,12 +1,9 @@
-= Communicating with Simulation Tools
-:lang: en
-
 [[topOfPage]]
-== Communicating with Simulation Tools
+= Communicating with Simulation Tools
 
-=== FMI
+== FMI
 
-==== About FMI
+=== About FMI
 
 The Functional Mockup Interface (FMI) is a standard which creates a
 common interface for simulation of systems from different areas. The
@@ -25,7 +22,7 @@ both FMUs in hand, a co-simulation tool can be used to connect the
 inputs and outputs of both systems together and co-simulate them and see
 how the system will behave with the implemented controller.
 
-==== How to export and FMU in 4diac IDE?
+=== How to export and FMU in 4diac IDE?
 
 . First, a special 4diac FORTE has to be compiled. Follow the
 link:../../html/installation/install.html#ownFORTE[steps to build your
@@ -53,7 +50,7 @@ found in the step before will be enable to be selected). The last option
 allows the user to save the selected libraries for the next time. Click
 Finish and it's done.
 
-==== Notes
+=== Notes
 
 * The IX and QX FBS are treated as boolean inputs and outputs
 respectively of the FMU.
@@ -82,14 +79,13 @@ E_DEMUX, E_MERGE, E_PERMIT, E_REND, E_RS, E_SELECT, E_SPLIT, E_SR,
 E_SWITCH are treated as Service Function Blocks.
 * Adapters are not yet supported.
 
-==== Example
+=== Example
 
 A simple tank system was modelled in OpenModelica as in the picture
 below. it has a "firstValve" which is to be controlled, which fills the
 tank. The "secondValve" is always open, so the tank tends to be empty.
 
-image:../../html/communication/img/fmi/tankModel.png[Model of a tank in
-openModelica]
+image:img/fmi/tankModel.png[Model of a tank in openModelica]
 
 DA and DS stand for "dummy actuator" (for controlling the first valve)
 and "dummy sensor" (which measures the current level of the tank)
@@ -103,8 +99,7 @@ loosing water (remember, just an example). TANK_LEVEL_IN (IW) and
 FILL_VALVE (QW) are the FBs that are the input and output of the
 exported FMU.
 
-image:../../html/communication/img/fmi/application.png[controller
-implemented in Eclipse 4diac]
+image:img/fmi/application.png[controller implemented in Eclipse 4diac]
 
 Once both system are exported as FMUs, they can be co-simulated using
 the https://github.com/into-cps/intocps-ui[INTO-CPS] tool. Inputs and
@@ -116,21 +111,19 @@ set in every co-simulation, making it easier to tune it.
 
 Below the first tries to tune the PID using the Ziegler-Nichols method
 
-image:../../html/communication/img/fmi/kp1500.png[Simulation with kp
-1500] image:../../html/communication/img/fmi/kp2000.png[Simulation with
-kp 2000] image:../../html/communication/img/fmi/kp2500.png[Simulation
-with kp 2500]
+image:img/fmi/kp1500.png[Simulation with kp 1500] 
+image:img/fmi/kp2000.png[Simulation with kp 2000] 
+image:img/fmi/kp2500.png[Simulation with kp 2500]
 
 And the final result of the tunning is seen below
 
-image:../../html/communication/img/fmi/classicPID.png[Final tunning of
-the controller]
+image:img/fmi/classicPID.png[Final tunning of the controller]
 
 This shows how two system from different areas can be easily coupled.
 The 4diac FMU also help finding bugs in your application to see if it
 behaves are expected.
 
-=== Matlab
+== Matlab
 
 Eclipse 4diac user Marc Jakobi developed a communicating library in
 Matlab, which allows connecting IEC 61499 control applications with
@@ -146,8 +139,7 @@ https://github.com/MrcJkb/tcpip4diac[tcpip4diac project on GitHub].
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

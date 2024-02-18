@@ -1,8 +1,5 @@
-= OPC UA with IEC 61499 Tutorial
-:lang: en
-
 [[topOfPage]]
-== OPC UA with IEC 61499 Tutorial
+= OPC UA with IEC 61499 Tutorial
 
 This tutorial shows how you can use
 https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC
@@ -27,7 +24,7 @@ Tasks in this tutorial:
 Application]
 
 [[build]]
-=== Build 4diac FORTE with open62541
+== Build 4diac FORTE with open62541
 
 OPC UA is not enabled by default in 4diac FORTE. To enable it, you need
 to build 4diac FORTE with the open62541 source code yourself.
@@ -35,7 +32,7 @@ to build 4diac FORTE with the open62541 source code yourself.
 [.inlineTitle]#Attention#: You need https://www.python.org/[python]
 installed on your computer in order to compile the OPCUA library.
 
-==== Linux
+=== Linux
 
 . Download the 4diac FORTE source from
 http://git.eclipse.org/c/4diac/org.eclipse.4diac.forte.git:
@@ -65,7 +62,7 @@ $ cd ~/4diac/forte/build $ cmake -DCMAKE_BUILD_TYPE=Debug \
 -DFORTE_COM_OPC_UA_LIB_DIR=$HOME/4diac/open62541/build/bin \
 -DFORTE_COM_OPC_UA_LIB=libopen62541.so $ make -j
 
-==== Windows with Visual Studio
+=== Windows with Visual Studio
 
 . Use a Git tool under Windows and download the 4diac FORTE source from
 http://git.eclipse.org/c/4diac/org.eclipse.4diac.forte.git and use the
@@ -129,7 +126,7 @@ add
 (Set the correct user path!)
 
 [[general]]
-=== General overview of how to use the module
+== General overview of how to use the module
 
 The parameters for the communication FBs (ID data input) is divided in
 two (three for remote actions) parts, separated by a semicolon ';'
@@ -167,8 +164,7 @@ remote access
 a folder with name myFolder and namespace 2 and inside, the node with
 name myNode and namespace 1
 ** NODE_ID: In the format NAMESPACE_INDEX:IDENTIFIER_TYPE=IDENTIFIER
-*** NAMESPACE_INDEX: Number of the namepsace. If ignored, it defaults to
-0. When ignored, the ':' must also be omitted
+*** NAMESPACE_INDEX: Number of the namepsace. If ignored, it defaults to 0. When ignored, the ':' must also be omitted
 *** IDENTIFIER_TYPE: Can have the following values:
 **** i: The nodeId is numeric
 **** s: the nodeId is a string
@@ -283,10 +279,10 @@ they should match
 |===
 
 [[variables]]
-=== OPC UA variables
+== OPC UA variables
 
 [[variables_flipflop]]
-==== Flip-Flop Application using Variables
+=== Flip-Flop Application using Variables
 
 In this step you will create a simple Flip-Flop
 [.element61499]#Application#, which uses PUBLISH and SUBSCRIBE function
@@ -322,8 +318,8 @@ Application Editor:
 * net/PUBLISH_1
 . Connect the function blocks in the following way:
 +
-image:../../html/communication/img/opc_ua_flipFlop_FB_2.png[OPC UA
-Flip-Flop Application]
+image:img/opc_ua_flipFlop_FB_2.png[OPC UA Flip-Flop Application]
+
 . Map the function blocks to the device
 . To configure where the variable nodes are created in the address
 space, you have use the ID fields of the SUBSCRIBE/PUBLISH function
@@ -338,8 +334,8 @@ the function block.
 . Open the System Editor and connect the COLD and WARM ports to the INIT
 port of SUBSCRIBE_1. So finally it should look like this:
 +
-image:../../html/communication/img/opc_ua_flipFlop_FB_full_2.png[OPC UA
-Flip-Flop Application connected]
+image:img/opc_ua_flipFlop_FB_full_2.png[OPC UA Flip-Flop Application connected]
+
 . Deploy the Application to 4diac FORTE
 . Open UaExpert (you can get it from
 https://www.unified-automation.com/de/downloads/opc-ua-clients.html[here])
@@ -348,8 +344,7 @@ and connect to the OPC UA server running on 4diac FORTE:
 . You should see the two variables which have been created by the
 SUBSCRIBE and PUBLISH function blocks:
 +
-image:../../html/communication/img/opc_ua_flipFlop_uaExpert_2.png[OPC UA
-Flip-Flop in UaExpert]
+image:img/opc_ua_flipFlop_uaExpert_2.png[OPC UA Flip-Flop in UaExpert]
 +
 The two [.specificText]##VariableNode##s [.specificText]#Flip# and
 [.specificText]#Flop# are created out of the SUBSCRIBE and PUBLISH
@@ -372,7 +367,7 @@ variable). Note that in the beginning both values will be
 there if you change a variable.
 
 [[variables_adder]]
-==== Adder Application using Variables
+=== Adder Application using Variables
 
 Here you can see another example how to use SUBSCRIBE and PUBLISH to
 create an IEC 61499 application which adds two values, by reading the
@@ -381,8 +376,7 @@ values from an OPC UA variable and providing the result.
 If you followed the steps before you should be able to create a new
 Application which looks like this:
 
-image:../../html/communication/img/opc_ua_adder_full_2.png[OPC UA Adder
-Application]
+image:img/opc_ua_adder_full_2.png[OPC UA Adder Application]
 
 The F_ADD function block is a generic type which can have any supported
 data type for the IN1, IN2 and OUT ports. On the other hand the
@@ -391,8 +385,7 @@ variables should have. To introduce this information into the
 application model, you can use the INT2INT converter function block.
 This will create the following nodes in the OPC UA Server:
 
-image:../../html/communication/img/opc_ua_adder_uaExpert_2.png[OPC UA
-Adder in UA Expert]
+image:img/opc_ua_adder_uaExpert_2.png[OPC UA Adder in UA Expert]
 
 Try to understand from where the names for [.specificText]#Num1#,
 [.specificText]#Num2#, and [.specificText]#Result# come from.
@@ -403,7 +396,7 @@ The value of [.specificText]#Result# should then be the sum of those two
 values.
 
 [[variables_remote]]
-==== Read and Write OPC UA variables on a remote server
+=== Read and Write OPC UA variables on a remote server
 
 This example shows you how you can use a [.element4diac]#CLIENT#
 function block to write and read an OPC UA variable on a remote server
@@ -420,8 +413,7 @@ on the command line, e.g., [.specificText]#./forte -c localhost:61500#
 
 The system configuration should then look like this:
 
-image:../../html/communication/img/opc_ua_variable_read_write_system_2.png[OPC
-UA Variable Read/Write System]
+image:img/opc_ua_variable_read_write_system_2.png[OPC UA Variable Read/Write System]
 
 Then we create the following application. On the server side we create
 an OPC UA variable [.specificText]#/Objects/Increment#
@@ -440,8 +432,7 @@ Do not forget to connect the [.element4diac]#COLD/WARM# events in the
 ressource view to the [.element4diac]#INIT# event ports of the
 corresponding function blocks.
 
-image:../../html/communication/img/opc_ua_variable_read_write_app_2.png[OPC
-UA Variable Read/Write Application]
+image:.img/opc_ua_variable_read_write_app_2.png[OPC UA Variable Read/Write Application]
 
 Deploy the application to two 4diac FORTE instances. You can access the
 server variables using UaExpert. For the client, you can monitor the
@@ -450,7 +441,7 @@ the number 42, and will then read the Incremented value where the new
 value will be present. The changes will be seen also in UaExpert
 
 [[methods]]
-=== OPC UA Methods
+== OPC UA Methods
 
 In this step you will see how you can create OPC UA methods in an IEC
 61499 application. It uses the SERVER function block which creates the
@@ -464,13 +455,13 @@ steps.
 
 . Create the following application:
 +
-image:../../html/communication/img/opc_ua_method_full_2.png[OPC UA
-Method Application]
+image:img/opc_ua_method_full_2.png[OPC UA Method Application]
+
 . Deploy the Application to 4diac FORTE
 . Open UaExpert and you should see the following address model:
 +
-image:../../html/communication/img/opc_ua_method_uaExpert_2.png[OPC UA
-Method in UaExpert]
+image:img/opc_ua_method_uaExpert_2.png[OPC UA Method in UaExpert]
+
 . Optionally you can again monitor the application in 4diac
 . In UaExpert Right-Click on the Method Node [.specificText]#AddValues#
 and select Call.
@@ -487,20 +478,19 @@ This is the default timeout for a method call. Otherwise the call will
 fail with a timeout error code.
 
 [[methodCall]]
-=== OPC UA Method call
+== OPC UA Method call
 
 To call the method from the example before, the application would look
 like this (in this case, it will send 43 and 10 as inputs to the
 method):
 
-image:../../html/communication/img/opc_ua_method_call_2.png[OPC UA
-method call in 4diac]
+image:img/opc_ua_method_call_2.png[OPC UA method call in 4diac]
 
 Try to deploy both applications and trigger the method call from the
 client and get the result from the method in the Result FB.
 
 [[subscription]]
-=== OPC UA Client Subscriptions
+== OPC UA Client Subscriptions
 
 In this step you will see how you can create an OPC UA data subscription
 in an IEC 61499 application. It is used to set up a data subscription to
@@ -519,8 +509,8 @@ SUBCRIPTION. The SUBSCRIBE function block gets the updated value
 automatically without a need to actively trigger the RSP event.
 . The application now looks like this:
 +
-image:../../html/communication/img/opc_ua_subscriptions_2.png[OPC UA
-Subscription Application]
+image:img/opc_ua_subscriptions_2.png[OPC UA Subscription Application]
+
 . Note, that the [.element4diac]#RD_1# port of the
 [.element4diac]#SUBSCRIBE# is the current value of the subscribed node.
 Additionaly, you need to make sure that the data type of the
@@ -532,7 +522,7 @@ for that, as shown in this example.
 value will appear at [.element4diac]#RD_1# port
 
 [[securityClients]]
-=== Connect to secure servers
+== Connect to secure servers
 
 [.inlineTitle]#Attention#: You need to use v1.0 of open62541 to use
 encryption.
@@ -612,8 +602,7 @@ the configSecurity.forte file.
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

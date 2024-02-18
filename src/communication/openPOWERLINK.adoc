@@ -1,20 +1,17 @@
-= openPOWERLINK
-:lang: en
-
 [[topOfPage]]
-== openPOWERLINK
+= openPOWERLINK
 
 http://openpowerlink.sourceforge.net/web/[openPOWERLINK] is an Open
 Source Industrial Ethernet stack implementing the POWERLINK protocol.
 
-=== Prerequisits
+== Prerequisits
 
 The following is needed in order to use openPOWERLINK with 4diac FORTE:
 
 * http://sourceforge.net/projects/openpowerlink/[openPOWERLINK V1.8.0]
 * http://sourceforge.net/projects/tinyxml/[TinyXML]
 
-=== Instructions
+== Instructions
 
 The openPOWERLINK V1.8.0 stack from sourceforge should be compiled using
 at least the following options in CMake:
@@ -42,8 +39,7 @@ folder is part of 4diac's type library.
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

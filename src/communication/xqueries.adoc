@@ -1,7 +1,6 @@
-= XQueries to BaseX
-:lang: en
-
 [[topOfPage]]
+= XQueries to BaseX
+
 == Access BaseX Database with XQueries
 
 This section will show you how to make applications communicate with a
@@ -99,10 +98,8 @@ possible interface and execution control chart for a basic function
 block whicht fetches values from your BaseX database during
 initialization.
 
-image:../../html/communication/img/xquery/testFB.png[Test function block
-to send XQueries]
-image:../../html/communication/img/xquery/testFB_ECC.png[Test function
-block to send XQueries]
+image:img/xquery/testFB.png[Test function block to send XQueries]
+image:img/xquery/testFB_ECC.png[Test function block to send XQueries]
 
 The algorithm _getVMax_ contains an XQuery which is supposed to
 calculate the maximum speed of a roller conveyor from values of the
@@ -181,8 +178,7 @@ function block. The result of the XQuery is received by the
 following image. Within this application a roller conveyor is
 initialized by its maximum speed, and its neighbouring roller conveyors.
 
-image:../../html/communication/img/xquery/testApp.png[Test function
-block to send XQueries]
+image:img/xquery/testApp.png[Test function block to send XQueries]
 
 The [.inlineCode]#ID# input of the [.inlineCode]#CLIENT_1# function
 block contains a variable [.inlineCode]#%local%# which is replaced by a
@@ -213,8 +209,7 @@ XQuery requests at the corresponding inputs of your test function block.
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
