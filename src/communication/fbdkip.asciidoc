@@ -1,7 +1,6 @@
-= FBDK/IP
-:lang: en
-
 [[topOfPage]]
+= FBDK/IP
+
 == FBDK/IP
 
 This section will show you how to make applications communicate using
@@ -69,8 +68,7 @@ pairs. Any data sent in a particular multicast IP address by any Publish
 FB will be received by any Subscribe FB listening to that multicast IP
 address.
 
-image:../../html/communication/img/publishsubscribe.png[Publish/Subscribe
-pair]
+image:img/publishsubscribe.png[Publish/Subscribe pair]
 
 [[clientServer]]
 === Client/Server - TCP/IP
@@ -133,14 +131,13 @@ that they can connect to it.
 * CLIENT_1 FB must be terminated before CLIENT_2 FB can connect to the
 SERVER_1 FB, i.e. the Server can serve only one Client at a time.
 
-image:../../html/communication/img/clientserver.png[Client/Server pair]
+image:img/clientserver.png[Client/Server pair]
 
 == Where to go from here?
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

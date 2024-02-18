@@ -1,7 +1,6 @@
-= Arrowhead Library
-:lang: en
-
 [[topOfPage]]
+= Arrowhead Library
+
 == How to use 4diac's Arrowhead library
 
 [[intro]]
@@ -78,7 +77,7 @@ the AF with OPC UA interfaces.
 The first thing that's needed is to have a version of 4diac FORTE with
 the Arrowhead Module enabled. For that, you'll need to compile your own
 4diac FORTE. To do that, follow these
-link:../../html/installation/install.html#ownFORTE[steps] and in CMake
+xref:../../html/installation/install.html#ownFORTE[steps] and in CMake
 set the variable [.specificText]#FORTE_MODULE_Arrowhead# and
 [.specificText]#FORTE_COM_HTTP# or/and [.specificText]#FORTE_COM_OPC_UA#
 to TRUE.
@@ -95,8 +94,7 @@ types from IEC 61499. The following figure shows the Function Block to
 create an Arrowhead Cloud type, which can later be connected to the
 upper levels.
 
-image:../../html/communication/img/arrowhead/typeHelper.png[Type helper
-for an Arrowhead Cloud]
+image:img/arrowhead/typeHelper.png[Type helper for an Arrowhead Cloud]
 
 On the second level, the actual Arrowhead services were implemented.
 These Function Blocks offer an adapter following the IEC 61499 standard,
@@ -108,9 +106,7 @@ the endpoint to connect to. The “registerService” adapter on the below
 right side, offers a plug to the actual implementation of the
 communication, passing all needed data.
 
-image:../../html/communication/img/arrowhead/abstractRegisterService.png[Abstract
-definition of the Register Service offered by the Service Registry core
-system]
+image:img/arrowhead/abstractRegisterService.png[Abstract definition of the Register Service offered by the Service Registry core system]
 
 The socket for this adapter is given by each implementation. The next
 figure shows the Function Block that implements the actual HTTP
@@ -120,8 +116,7 @@ input is the socket adapter, the counter part of the plug adapter from
 the previous figure. By connecting them, the information is passed to
 this Function Block that handles the communication.
 
-image:../../html/communication/img/arrowhead/httpRegisterService.png[Register
-Service implementation in HTTP Rest]
+image:img/arrowhead/httpRegisterService.png[Register Service implementation in HTTP Rest]
 
 This decoupled architecture allows to quickly implement another type of
 communication. For example, to connect to the Service Registry with an
@@ -136,12 +131,11 @@ provided that offers all parameters for it. The following figure shows
 the sub-application with all parameters to register and unregister a
 service using HTTP.
 
-image:../../html/communication/img/arrowhead/httpRegisterServiceFull.png[Sub-application
-for registering a service using HTTP]
+image:img/arrowhead/httpRegisterServiceFull.png[Sub-application for registering a service using HTTP]
 
 === Purpose of available FBs in the Arrowhead Library
 
-The following gives informatoin about the purposse of all FBs and
+The following gives information about the purpose of all FBs and
 SubApps in the library. The parameters of each one of them is documented
 in the FBs and SubApps itself.
 
@@ -277,7 +271,7 @@ you'll find them in the example repository.
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

@@ -1,7 +1,6 @@
-= ROS with IEC 61499 Tutorial
-:lang: en
-
 [[topOfPage]]
+= ROS with IEC 61499 Tutorial
+
 == How to use Eclipse 4diac's ROS Communication Interface
 
 Eclipse 4diac supports ROS communication for ROS topics, services and
@@ -86,8 +85,7 @@ ros[topic_name:message_name]
 An example of a ROS publish and subscribe connection within 4diac FORTE
 is shown next.
 
-image:../../html/communication/img/topics_example.PNG[Example
-Application using publish and subscribe to send and receive ROS topics]
+image:img/topics_example.png[Example Application using publish and subscribe to send and receive ROS topics]
 
 [[services]]
 === ROS Services
@@ -99,8 +97,7 @@ This service client and server function block can be used as a template
 to implement the ROS communication function blocks for your specific
 application. The interfaces of the trigger service client and server are
 shown next. +
-image:../../html/communication/img/fb_trigger_service.PNG[Interface of
-the Trigger Service Server and Client SIFB] +
+image:img/fb_trigger_service.png[Interface of the Trigger Service Server and Client SIFB] +
 A brief Interface description is given by the next 2 tables that show
 event and data connections of the implemented ROS function blocks. +
 
@@ -179,8 +176,7 @@ sudo apt-get install ros-indigo-reapp-msgs
 
 The interface of the client and server FBs is shown in the following
 figure and described in the diagrams below: +
-image:../../html/communication/img/fb_execute_action.PNG[Interface of
-the ExecuteAction Server and Client SIFB] +
+image:img/fb_execute_action.png[Interface of the ExecuteAction Server and Client SIFB] +
 
 [cols=",",]
 |===
@@ -278,8 +274,7 @@ rosrun actionlib axserver.py test_execute/localisation reapp_msgs/ExecuteAction
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

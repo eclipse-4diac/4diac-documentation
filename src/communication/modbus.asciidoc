@@ -1,10 +1,7 @@
-= Modbus
-:lang: en
-
 [[topOfPage]]
-== Modbus
+= Modbus
 
-=== Installation Instructions
+== Installation Instructions
 
 The Modbus com interface need the http://libmodbus.org/[libmodbus]
 library to work. Follow the steps below to set up your environment
@@ -22,9 +19,9 @@ library after build. Therefore copy [.fileLocation]#libmodbus.dll/so# to
 folder with [.fileLocation]#forte.exe# or add
 [.fileLocation]#libmodbus.dll/so# to library include path.
 
-=== Parameters
+== Parameters
 
-==== Modbus Client (TCP)
+=== Modbus Client (TCP)
 
 Usage of the Modbus Client (TCP):
 
@@ -63,7 +60,7 @@ Example:
 
 modbus[127.0.0.1:502:2000:3:1:0..3]
 
-==== Modbus Client (RTU)
+=== Modbus Client (RTU)
 
 Usage of the Modbus Client (RTU):
 
@@ -110,8 +107,7 @@ modbus[rtu:/dev/ttyS0:19200:E:8:1:2000:3:247:6142,6132,6137:64025..64025,63995..
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

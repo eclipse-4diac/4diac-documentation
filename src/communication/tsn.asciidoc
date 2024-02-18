@@ -1,7 +1,6 @@
-= TSN with IEC 61499 Tutorial
-:lang: en
-
 [[topOfPage]]
+= TSN with IEC 61499 Tutorial
+
 == How to use Eclipse 4diac's Time Sensitive Networking Communication Interface
 
 [[intro]]
@@ -73,8 +72,8 @@ forwarding and scheduling strategies of the TSN network.
 An example of a TSN enabled PUBLISH FB with a standard IP layer
 SUBSCRIBER FB is shown in the following figure.
 
-image:../../html/communication/img/tsn_layer_pub_sub.PNG[TSN enabled
-publish SIFB in 4diac] Note: In order to make this example work you have
+image:img/tsn_layer_pub_sub.png[TSN enabled publish SIFB in 4diac] 
+Note: In order to make this example work you have
 to route the UDP multicast traffic at the device of the subscriber like
 follows:
 
@@ -91,8 +90,7 @@ $ sudo ifconfig eth0.3 up $ sudo ifconfig eth0.3
 
 Go back to Protocols index:
 
-link:../../html/communication/communicationIndex.html[Communication
-Index]
+xref:index.adoc[Communication Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

@@ -1,0 +1,18 @@
+[[topOfPage]]
+= Eclipse 4diac Supported Communication Protocols
+
+This page is intended to serve as index for communication protocols that
+are supported by 4diac FORTE.
+
+* xref:opcUA.adoc[OPC UA]
+* xref:opcDA.adoc[OPC DA]
+* xref:http.adoc[HTTP]
+* xref:ros.adoc[ROS]
+* xref:mqttPaho.adoc[MQTT]
+* xref:simulation.adoc#fmi[FMI]
+* xref:simulation.adoc#matlab[Communication using Matlab]
+* xref:tsn.adoc[TSN]
+* xref:fbdkip.adoc[FBDK/IP]: Protocol defined in the http://holobloc.com/doc/ita/index.htm[IEC 61499 Compliance Profile for Feasibility Demonstrations] and default protocol in 4diac FORTE.
+* xref:modbus.adoc[Modbus]
+* xref:openPOWERLINK.adoc[openPOWERLINK]
+* xref:arrowhead.adoc[Arrowhead]
