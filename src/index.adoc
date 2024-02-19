@@ -22,13 +22,13 @@ link list.
 
 Here's a list of the main topics in the documentation:
 
-* xref:./tutorials/index.adoc[Step by Step Tutorials]: 
-To understand the basics of 4diac IDE, it is best to start using it.
-* xref:./before4DIAC/iec61499.adoc[Learn about IEC 61499]: 
+* xref:./intro/iec61499.adoc[Learn about IEC 61499]: 
 To use Eclipse 4diac, you need to understand the terms of the IEC 61499 standard and how the Function Blocks work. 
 At first, take therefore a look at this explanation about the standards and technology related to Eclipse 4diac.
-* xref:./before4DIAC/4diacFramework.adoc[Understand the 4diac framework]: 
+* xref:./intro/4diacFramework.adoc[Understand the 4diac framework]: 
 If you know about IEC 61499 and what PLCs are, but you don't understand what 4diac IDE is, or what's the relation with 4diac FORTE, then you should take a look at this topic about the 4diac IDE framework.
+* xref:./tutorials/index.adoc[Step by Step Tutorials]: 
+To understand the basics of 4diac IDE, it is best to start using it.
 * xref:./installation/install.adoc[Install Eclipse 4diac]: 
 If you understand all of the above, and you want to start using Eclipse 4diac, you will need to first install it.
 * xref:./examples/examplesIndex.adoc[4diac IDE examples]: 
