@@ -41,7 +41,7 @@ If you want to use a specific communication protocol supported by 4diac FORTE, 
 If you are a developer or you want to know more deep stuff about 4diac FORTE or 4diac IDE, you'll have fun here.
 * https://github.com/eclipse-4diac[File a bug for 4diac FORTE or 4diac IDE]: 
 You found a bug? File it here.
-* xref:./faq/faq.adoc[Frequently Asked Questions]: If you have troubles with something, visit the FAQs page.
+* xref:./faq.adoc[Frequently Asked Questions]: If you have troubles with something, visit the FAQs page.
 * https://www.eclipse.org/forums/index.php?t=thread&frm_id=308[4diac Forum]: 
 And if you still have a question or something you want to share, don't forget to participate in the forum.
 
