@@ -73,7 +73,8 @@ An example of a TSN enabled PUBLISH FB with a standard IP layer
 SUBSCRIBER FB is shown in the following figure.
 
 image:img/tsn_layer_pub_sub.png[TSN enabled publish SIFB in 4diac] 
-Note: In order to make this example work you have
+
+NOTE: In order to make this example work you have
 to route the UDP multicast traffic at the device of the subscriber like
 follows:
 

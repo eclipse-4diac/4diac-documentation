@@ -77,7 +77,7 @@ https://www.ev3dev.org/docs/tutorials/using-docker-to-cross-compile/[here].
 
 To set up the cross-compiler, the following steps must be done:
 
-*NOTE:* all commands starting with `docker` are run in the command
+NOTE: All commands starting with `docker` are run in the command
 prompt of your host computer, all other commands are run inside of your
 docker container (if you cross-compile) or inside of your EV3!
 

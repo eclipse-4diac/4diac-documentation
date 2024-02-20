@@ -145,12 +145,10 @@ The Project looks like this:
 Assuming we use QEMU with user mode network. This will let 4diac FORTE
 run on `10.0.2.16:61499` as `61499` is 4diac FORTE's default port.
 
-____
-_NOTE: If you want to use a different port you have to add template_
+NOTE: If you want to use a different port you have to add template_
 `posix / Environment variables` _to_ `Posix Process` _(similar behavior
 like adding_ `posix / lwIP Ethernet interface`__).__ +
 _Parameter_ `-c IP:PORT` _will start 4diac FORTE on an other port._
-____
 
 Right-click on `POSIX Partition` and click "copy". Right-click on
 `Application` and click on `insert`. Rename "partition name" and

@@ -209,8 +209,7 @@ it will write to them when triggered.
 in SD_1 and SD_2. If nodes aren't found, 4diac FORTE will look for them
 after some seconds until it finds them. Remote creation is not supported
 
-* NOTE: depending on the action being performed, browsepath and/or
-nodeId are mandatory/optional. See the table below:
+NOTE: depending on the action being performed, browsepath and/or nodeId are mandatory/optional. See the table below.
 
 [cols=",,,",options="header",]
 |===
@@ -471,11 +470,11 @@ names of data outputs of the server FB. Enter values for
 4diac FORTE will trigger the IND event of the SERVER FB, which causes
 the F_ADD FB to calculate the sum of the two numbers. When the sum is
 ready, the RSP event on SERVER is triggered and the result is returned
-to the calling OPC UA Client, which is in this case UaExpert. +
-[.inlineTitle]#Note:# After the IND event is triggered, the result has
-to be ready (i.e., the RSP event has to be triggered) within 4 seconds.
-This is the default timeout for a method call. Otherwise the call will
-fail with a timeout error code.
+to the calling OPC UA Client, which is in this case UaExpert. 
+
+NOTE: After the IND event is triggered, the result has to be ready (i.e., the RSP event has to be triggered) within 4 seconds.
+This is the default timeout for a method call. 
+Otherwise the call will fail with a timeout error code.
 
 [[methodCall]]
 == OPC UA Method call
