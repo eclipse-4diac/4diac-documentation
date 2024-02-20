@@ -307,11 +307,9 @@ something went wrong.
 image:../../html/4diacIDE/img/Step1/deploymentExample.png[deploying of
 the application]
 
-[.noteTitle]##Note:##[.noteText]## With the runtime launcher you can
-only start run-time environments on your local development computer. It
-is not possible to start run-time environments on remote computers or
-control devices. In order to perform this task device specific means to
-start the run-time environment have to be performed.##
+NOTE: With the runtime launcher you can only start run-time environments on your local development computer. 
+It is not possible to start run-time environments on remote computers or control devices. 
+In order to perform this task device specific means to start the run-time environment have to be performed.
 
 The _Deployment Console_ is automatically cleared before each download.
 Furthermore, with the icon
@@ -330,8 +328,7 @@ cleaning the Device.
 
 [.menu4diac]#Delete Resource# deletes just the selected resource:
 
-image:../../html/4diacIDE/img/Step1/cleanDeviceOrResource.png[Clean
-Devive or Resource,width=1024]
+image:../../html/4diacIDE/img/Step1/cleanDeviceOrResource.png[Clean Devive or Resource,width=1024]
 
 [[monitoringApplication]]
 === Monitoring the Application
