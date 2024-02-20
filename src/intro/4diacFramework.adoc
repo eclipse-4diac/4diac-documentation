@@ -1,9 +1,9 @@
+[[topOfPage]]
 = Eclipse 4diac Framework
-:lang: en
 
 To understand what's next, you need to know IEC 61499. If you did not
 read the following page yet, go there now:
-link:../../html/before4DIAC/iec61499.html[IEC 61499 101]
+xref:iec61499.adoc[IEC 61499 101]
 
 [[iec61499Framework]]
 == Eclipse 4diac Framework
@@ -18,7 +18,7 @@ actually controlling something physical, the logic behind the FBs and
 the FB networks has to be implemented. That's where the runtime
 environment comes in. This software loads the network of FBs and then
 executes the events and follows the rules of the standard like the one
-seen link:../../html/before4DIAC/iec61499.html#FBInternalSequence[here].
+seen xref:iec61499.adoc#FBInternalSequence[here].
 
 So, where is the runtime environment in the standard? Nowhere directly.
 For executing the distributed control applications modeled with
@@ -28,8 +28,7 @@ configure devices. This is what a runtime environment provides. In the
 next image, the idea behind decoupling the application development and
 the execution is presented.
 
-image:../../html/before4DIAC/img/iec61499Framework.png[IEC 61499
-framework]
+image:img/iec61499Framework.png[IEC 61499 framework]
 
 The rectangle on the top represents the system according to IEC 61499.
 Here, you need a tool that allows creating FBs and connecting them.

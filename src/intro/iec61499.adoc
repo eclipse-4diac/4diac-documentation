@@ -1,11 +1,8 @@
-= IEC 61499 101
-:lang: en
-
 [[topOfPage]]
-== IEC 61499 101
+= IEC 61499 101
 
 [[PLC]]
-=== PLC Programming according to IEC 61131-3
+== PLC Programming according to IEC 61131-3
 
 A https://en.wikipedia.org/wiki/Programmable_logic_controller[PLC] is,
 basically, a small computer used in industry. It has inputs and outputs
@@ -53,7 +50,7 @@ several small tools instead of an IDE.)
 . Now your application runs on the PLC whenever it is switched on.
 
 [[programmingPLC]]
-==== Programming PLCs
+=== Programming PLCs
 
 Even though each PLC vendor offers a specific IDE, the programming
 languages for PLCs were standardized in
@@ -75,8 +72,7 @@ can be programmed with conventional programming languages.
 We'll focus on the FBD programming language. The following image shows a
 basic example of a FBD:
 
-image:../../html/before4DIAC/img/functionBlockExample.png[Example of a
-Function Block Diagram according to IEC 61131]
+image:img/functionBlockExample.png[Example of a Function Block Diagram according to IEC 61131]
 
 In this image, we see 3 function blocks (on_delay1, AND, alarm), 4
 inputs (user_ok, T#5s, packet_arrived, conveyor_full), 2 outputs
@@ -104,7 +100,7 @@ dealt with the standard IEC 61131. We'll get closer to Eclipse 4diac in
 the next section where we discuss a newer standard.
 
 [[IEC61499]]
-=== IEC 61499
+== IEC 61499
 
 The industry is moving from centralized systems towards a more
 distributed paradigm. Large systems with a central intelligence
@@ -143,10 +139,10 @@ images to understand the capabilities and new features introduced by IEC
 61499.
 
 [[MainPartsOfIEC61499]]
-=== Main parts of IEC 61499
+== Main parts of IEC 61499
 
 [[FBInterface]]
-==== FB Interface
+=== FB Interface
 
 The image below shows the new appearance of the FB in IEC 61499. The
 function block encapsulates the desired functionality. Again, the inputs
@@ -174,18 +170,16 @@ a state machine, which receives the input events. Based on the current
 state, the ECC executes a certain part of the encapsulated
 functionality.
 
-image:../../html/before4DIAC/img/functionBlockInterfaces.png[Interfaces
-of a Function Block]
+image:img/functionBlockInterfaces.png[Interfaces of a Function Block]
 
 [[FBInternalSequence]]
-==== FB Internal Sequence
+=== FB Internal Sequence
 
 The following image shows how a FB is triggered to execute its
 functionality. A sequence of steps is executed when an event arrives at
 the FB.
 
-image:../../html/before4DIAC/img/functionBlockSequence.png[Sequence of
-how a Function Block is activated]
+image:img/functionBlockSequence.png[Sequence of how a Function Block is activated]
 
 . An input events arrives at the FB.
 . The data inputs related to the incoming event are refreshed.
@@ -201,14 +195,13 @@ Step 4 to 7 may be repeated several times. Although an output event can
 be triggered, this need not be the case.
 
 [[DistributedApplicaton]]
-==== Distributed Application
+=== Distributed Application
 
 We defined now FBs and their behavior. In the next image, an example for
 an application created according to the IEC 61499 is shown. You can see
 that data and events are not connected to each other.
 
-image:../../html/before4DIAC/img/genericApplication.png[A generic
-application in IEC61499]
+image:img/genericApplication.png[A generic application in IEC61499]
 
 As the standard allows modeling of distributed systems, the application
 need not run on only one device. Instead, it can be split and deployed
@@ -219,8 +212,7 @@ figure. A device may comprise several resources, which can be imagined
 as threads within a device. To be precise, the FBs are actually loaded
 onto a resource, not the device itself.
 
-image:../../html/before4DIAC/img/deployment.png[Application deployment
-in several devices]
+image:img/deployment.png[Application deployment in several devices]
 
 The image shows that not all FBs of an application are run on the same
 device. Additionally, a device can run many applications or many parts
@@ -228,7 +220,7 @@ of applications at the same time. CAUTION: A FB cannot be split to
 several devices.
 
 [[brokenConnection]]
-==== Broken Connections
+=== Broken Connections
 
 While it's nice that you can split the application over several devices,
 the data and events need to be sent to the next device in order to
@@ -237,8 +229,7 @@ special FBs to publish information and subscribe to it as shown in the
 image below. Since these new FBs are not part of the full application,
 they are only visible in the resource view.
 
-image:../../html/before4DIAC/img/distributedDeployment.png[Broken
-Connection in distributed deployment]
+image:img/distributedDeployment.png[Broken Connection in distributed deployment]
 
 Now the image below makes sense. Various PLCs are connected and the
 function blocks are spread among them. The HMI is the human machine
@@ -247,11 +238,10 @@ are actually implemented or how real hardware inputs/outputs are
 accessed. We'll see about it later when we consider the different types
 of FBs.
 
-image:../../html/before4DIAC/img/iec61499Disitribution.png[Application
-deployment in real industry]
+image:img/iec61499Disitribution.png[Application deployment in real industry]
 
 [[FBTypes]]
-==== Types of Function Blocks
+=== Types of Function Blocks
 
 IEC 61499 defines three types of FBs that you can use when developing
 your application:
@@ -282,14 +272,12 @@ Only when a new event E1 arrives, the state jumps back to START. These
 kinds of loops do occur with "1" on the transition, since only events
 are consumed.
 +
-image:../../html/before4DIAC/img/basicFunctionBlock.png[Basic Function
-Block]
+image:img/basicFunctionBlock.png[Basic Function Block]
 . Composite Function Block (CFB):
 +
 The CFB simply has an internal network of other FBs.
 +
-image:../../html/before4DIAC/img/compositeFunctionBlock.png[Composite
-Function Block]
+image:img/compositeFunctionBlock.png[Composite Function Block]
 . Service Function Block (SFB):
 +
 SFBs are FBs that are needed to access specific parts of the hardware.
@@ -301,11 +289,10 @@ cannot do. These types of FBs are activated not only by an incoming
 event but also by the hardware. Therefore, a Responder FB can trigger an
 event every time a packet arrives.
 +
-image:../../html/before4DIAC/img/serviceFunctionBlock.png[Service
-Function Block]
+image:img/serviceFunctionBlock.png[Service Function Block]
 
 [[iec61499ComplianceProfiles]]
-==== Compliance Profiles
+=== Compliance Profiles
 
 As the standard is intended to be abstract, many "things" needed for
 proper execution of a system, such as communication, are not included.
@@ -323,7 +310,7 @@ Now that you have a better understanding of the IEC 61499 standard, it's
 time to understand what Eclipse 4diac is and which tools are related to
 it. Take a look at the following page:
 
-link:../../html/before4DIAC/4diacFramework.html[Eclipse 4diac Framework]
+xref:4diacFramework.adoc[Eclipse 4diac Framework]
 
 In case you'd like to return to the "Where to Start"-page, we leave here
 a fast access for you:
