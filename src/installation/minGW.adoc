@@ -1,0 +1,73 @@
+= [[topOfPage]]Setting up MinGW-w64
+:lang: en
+
+== Install latest MinGW-w64 via MSYS2
+
+Since the original mingGW installer from underneath is not always working this is the best possibility to install the latest version of MingGW-64. 
+Download https://www.msys2.org/[the latest MSYS2 Installer] and follow the steps in the wizard. 
+After installing MSYS2, open the "MSYS2 MINGW64" terminal and download the Mingw-w64 toolchain with help of the package manager:
+----
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+----
+
+== Install MinGW-w64
+
+http://www.mingw-w64.org/[MinGW-w64] comprises development tools for compiling and debugging. 
+Download the Mingw-w64 Installer from https://sourceforge.net/projects/mingw-w64/files/[here] and follow the steps in the wizard. 
+It is essential that the installation path does not contain any spaces. 
+Therefore, you cannot install MinGW-w64 in Program Files. 
+We recommend to create a folder mingw-w64 on your system drive (e.g., C:\mingw). 
+Install a current version and specify [.button4diac]#win32# as thread when requested. 
+Additionally, choose the architecture [.button4diac]#x86_64#.
+
+== Set PATH variable
+
+After installing, you need to edit the PATH variable. 
+You can access the System Control Center by pressing [.button4diac]#Windows Key + Pause#.
+In the System window, click [.button4diac]#Advanced System Settings → Advanced (tab) → Environment Variables#. For Windows 10, a quick access is to enter "Edit the system environment variables" in the Start Search of Windows and click the button "Environment Variables". 
+Change the PATH variable (double-click on it or Select and [.button4diac]#Edit#), and add the path where your MinGW-w64 has been installed to e.g., `C:\mingw\mingw64\bin` or `C:\msys64\mingw64\bin`. 
+This folder should contain a number of .exe-files that you can see in your Explorer.
+
+== Test MinGW-w64
+
+Open the command prompt of Windows either via the Program Menu or type [.button4diac]#cmd# in the Start Search of Windows. Enter:
+----
+g++ --version
+----
+If version information of the compiler is displayed, it was successful and you can continue with the next section.
+
+If you get an error such as "Command g++ not found", then something went wrong. 
+In this case, verify that the PATH variable was successfully set and directs to the correct installation path. 
+Additionally, open a new command prompt and try to execute the command again. 
+If you try to reinstall, do not forget to restart the command prompt again (it does not update automatically). 
+If this does not help, please ask for advice in the https://www.eclipse.org/forums/index.php?t=thread&frm_id=308[Forum].
+
+== Change name of the make executable
+
+In your installation folder, inside the `bin` directory, you should find a file called `mingw32-make.exe`. 
+Create a copy of the file in the same directory named `make.exe`. 
+This is because this file is the one you will use to compile 4diac FORTE, and "make" is the command used for that throughout the documentation.
+
+== Next steps
+
+Now that you successfully installed a compiler, you can continue with the next step of the xref:./install.adoc#FORTEsteps[installation tutorial]. 
+All information in the installation tutorial is based on a setup with MinGW-w64. 
+For users with previous experience in building a 4diac FORTE, the details are listed:
+
+* When generating files for compiling in CMake, the tool "Unix Makefiles" has to be selected.
+* Also the architecture option needs to be set in CMake: The correct FORTE_ARCHITECTURE is Win32
+* When compiling, open the Windows command line and go to the folder, where CMake built the binaries. Execute the command make to compile.
+
+
+== [[whereToGoFromHere]]Where to go from here?
+
+If you want to build a 4diac FORTE, here is a quick link back:
+
+adoc:./install.adoc[Install Eclipse 4diac]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+xref:../index.adoc[Start Here page]
+
+link:#topOfPage[Go to top]
