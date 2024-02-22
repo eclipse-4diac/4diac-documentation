@@ -1,0 +1,177 @@
+= Use the PLC01A1 Module from STM32
+:lang: en
+
+This is the guide you need to have the PLC01A1 module working with stm32mp157* board. The module is
+https://www.st.com/en/ecosystems/x-nucleo-plc01a1.html[this one].
+
+. link:#board[Run Linux on the Board]
+. link:#forte[Run 4diac FORTE on the Board]
+. link:#dts[Enable SPI in the board]
+. link:#misc[Some good info]
+
+
+== [[board]]Run Linux on the Board
+
+. Follow the guide https://wiki.st.com/stm32mpu/wiki/Getting_started/STM32MP1_boards/STM32MP157C-DK2[here] so you have a running linux on your board and get to know the board by
+accessing it using the serial port first. 
+  To connect the NUCLEO PLC01A1 extension board, follow https://www.st.com/content/ccc/resource/technical/document/user_manual/group0/9c/25/64/62/4f/bc/4d/9f/DM00213568/files/DM00213568.pdf/jcr:content/translations/en.DM00213568.pdf[this
+tutorial]. 
+  Be careful that the extension board needs 24V which could damage the STM32 board. 
+  Read carefully the documentation to know where the 24V is used.
+
+
+== [[forte]]Run 4diac FORTE on the Board
+
+. Follow the instruction https://wiki.st.com/stm32mpu/wiki/Getting_started/STM32MP1_boards/STM32MP157x-DK2/Develop_on_Arm%C2%AE_Cortex%C2%AE-A7[here]
+to download the SDK to a Ubuntu machine, and set the cross-compilers as default for the terminal session.
+. Clone the 4diac FORTE repository and compile as usual.
+. Change the IP of the board by executing:
++
+----
+ip addr add XXX.XXX.XXX.XXX/MM dev eth0
+----
++
+which will set the ip according to what you use in the XXX and the YY, which is a two-digit number representing the mask.
+. Test with a simple application without IOs, and monitor it from 4diac IDE.
+
+== [[dts]]Enable SPI in the board
+
+For some reason, the PLC01A1 module cannot be used directly with the board. 
+You need to change the device tree of the linux. 
+This is a long step, but you'll need to do it only once. 
+The result will be a .dtb file that you need to update in your board. 
+In the future, maybe stm32 will provide this.
+
+. Check the file being called when the board boots. 
+  For that, connect to it using the USB cable for serial communication to the stm32 board using 115200 for the speed. 
+  Establish a connection and reboot the board. 
+  You'll see something similar to:
++
+----
+Found /mmc0_stm32mp157a-dk1_extlinux/extlinux.conf Retrieving file:
+/mmc0_stm32mp157a-dk1_extlinux/extlinux.conf
+----
++
+You see in this case that the board is `stm32mp157a-dk1` and the configuration file being used is `/mmc0_stm32mp157a-dk1_extlinux/extlinux.conf` or something similar.
+. Follow the guide https://wiki.st.com/stm32mpu/wiki/STM32MP1_Developer_Package#Installing_the_Linux_kernel[here] and compile the Linux image. 
+  It's a big step.
+. Once you are able to compile it, you need to change some things depending on your board. 
+  Go to the folder `arch/arm/boot/dts` of the linux source code and you will find some files stm32mp157* with a .dts extension. 
+  You need to edit the one you saw on your board when booting. 
+  (some users complained that the booting file didn't match the actual board they had, so checking at boot time is safer). 
+  In the file you'll see some blocks inside curly brackets `\{}`. 
+  The first one has a slash `/` before opening it. 
+  After this whole block (it ends with `};`) you need to add the following text in a new line:
++
+----
+&spi4 {
+  pinctrl-names = "default";
+  pinctrl-0 = <&spi4_pins_a>;
+  status = "okay";
+  cs-gpios = <&gpioh 6 GPIO_ACTIVE_LOW>, <&gpioe 11 GPIO_ACTIVE_LOW>; /* Usage of CS1 and CS2 */
+
+  CLT01-38SQ7@0 { /* INPUTS */
+    compatible = "spidev";
+    reg = <0>; /* CS1 */
+    spi-max-frequency = <6250000>;
+  };
+
+  VNI8200XP@1 { /* OUTPUTS */
+    compatible = "spidev";
+    reg = <1>;
+    spi-max-frequency = <5000000>;
+  };
+ };
+----
++
+. Recompile the Linux Image and you'll get a new .dtb file for your board.
+. Put this file in the board in the folder `/boot`. 
+  You can use a scp client for it. Use a different name so you don't overwrite the original one, just in case.
+. You need then to edit the booting file, which selects the .dtb file to be loaded. 
+  So you need to change the file `mmc0_stm32mp157a-dk1_extlinux/extlinux.conf` or `mmc0_stm32mp157c-dk2_extlinux/extlinux.conf` inside the `/boot` folder depending on what you saw before
+. There, you need to add a new LABEL at the end and its configuration.  
+  You can copy from the first one and change it accordingly. 
+  You need to change the LABEL to some desired name (for example FORTE_SPI) and the FDT name, which should point to the .dtb file you just copied. 
+  It should look something like the following (pay attention to the FDT field which should match the one you are using):
++
+----
+LABEL FORTE_SPI
+  KERNEL /uImage
+  FDT /stm32mp157a-dk1-SPI4.dtb
+  APPEND root=/dev/mmcblk0p6 rootwait rw console=ttySTM0,115200
+----
++
+or
++
+----
+LABEL FORTE_SPI
+  KERNEL /uImage
+  FDT /stm32mp157c-dk2-SPI4.dtb
+  APPEND root=/dev/mmcblk0p6 rootwait rw console=ttySTM0,115200
+----
+. In the same file, there's a line which says DEFAULT followed by some text. 
+  If there's none, add it before the first label. 
+  Change this text to FORTE_SPI (or whatever name you used in your LABEL). 
+  Be careful in leaving no blank space after your text. The line should look something like this:
++
+`DEFAULT FORTE_SPI`
+. Reboot the board.
+. You need then to enable the output directly, which should be done everytime the board boots, so you can put the following command in some script (the best idea is to have it in the same script that starts forte at boot)
++
+----
+gpioset gpiochip4 9=1
+----
++
+That's it. You can check that you have enabled the spi by doing
++
+----
+ls -l /sys/class/spidev
+----
++
+which should show two files.
+. To access the IOs, you need to use the special FB called PLC01A1 in 4diac IDE.
+
+
+== [[misc]]Some good info
+
+* Start 4diac FORTE at boot: Make sure that you can start your 4diac FORTE manually, and then create a script file that executes it and put it in the folder `/usr/local/weston-start-at-startup` and give this file execution permissions. 
+An example of the script to start 4diac FORTE, assuming the 4diac FORTE file is in `/home/root/`
++
+----
+#!/bin/bash
+
+FOLDER=/home/root/
+
+sleep 5
+
+# Enable output
+gpioset gpiochip4 9=1
+
+# Execute forte
+cd ${FOLDER}
+
+if [ -f ./currentLog.txt ];
+then
+  mv ./currentLog.txt ./lastLog.txt
+fi
+
+./forte > ./currentLog.txt 2>&1 & 
+----
++
+which saves the current log and the previous one, in case the board reboots.
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]
