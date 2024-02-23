@@ -17,9 +17,10 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 An overview is presented in this step 0 - about elements, perspectives and properties of 4diac IDE that you need to know about to use it smoothly.
 
 
-=== [[startingUp]]Starting up 4diac IDE
+== [[startingUp]]Starting up 4diac IDE
 
-Open 4diac IDE to start the tutorial. You will be prompted to select or create your workspace. For this tutorial, we name our workspace "Tutorial". 
+Open 4diac IDE to start the tutorial. 
+You will be prompted to select or create your workspace. For this tutorial, we name our workspace "Tutorial". 
 A workspace is a folder on your computer that stores one or more 4diac IDE projects.
 
 image:./img/Step0/workspaceSelection.png[workspace selection]
@@ -35,9 +36,9 @@ You can open the welcome screen later again via Help → Welcome.
 Next you click the _workbench_ button. This brings you to the main screen of 4diac IDE.
 
 
-=== [[elements]]4diac IDE Elements
+== [[elements]]4diac IDE Elements
 
-Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the standard's elements for work (you can check link:../../html/before4DIAC/iec61499.adoc#IEC61499[here] to revise):
+Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the standard's elements for work (you can check xref:../intro/iec61499.adoc#IEC61499[here] to revise):
 
 * image:./img/system.png[System] 
 [.inlineTitle]#System#: It contains the [.view4diac]#System Configuration# and its corresponding [.element61499]#Applications#.
@@ -62,7 +63,7 @@ SIFBs are then used to realize only what cannot be done using a BFB/CFB.
 On the one hand it simplifies the IEC 61499 [.element61499]#Application# and on the other hand it better decouples [.element61499]#Application# parts providing an interface concept, which allows adopting the polymorphic concept of object-oriented programming.
 
 
-=== [[perspectives]]4diac IDE Perspectives
+== [[perspectives]]4diac IDE Perspectives
 
 The 4diac IDE provides three perspectives, which can be added via the image:./img/perspective/new_persp.gif[add perspective] button in the upper-right corner:
 
@@ -78,7 +79,7 @@ The [.element61499]#Resources# are used for [.element61499]#Application# mapping
 . The [.inlineTitle]## image:./img/perspective/debugButton.gif[Debug Perspective Button] 4diac IDE Debug ##perspective, where [.element61499]#Applications# can be monitored and FBs can be debugged within the IDE.
 
 
-==== [[systemPerspective]]System Perspective
+=== [[systemPerspective]]System Perspective
 
 The perspective can be changed in the upper-right corner. 
 The System perspective is reached via the image:./img/system.png[System Perspective Button] button. 
@@ -94,7 +95,7 @@ well as the default library.
 image:./img/perspective/systemPerspective.png[System Perspective Button]
 
 
-==== [[debugPerspective]]Debug Perspective
+=== [[debugPerspective]]Debug Perspective
 
 The perspective can be changed in the upper-right corner. 
 The [.view4diac]#Debug perspective# is reached via the image:./img/perspective/debugButton.gif[Debug Perspective Button] button. 
@@ -108,7 +109,7 @@ The [.view4diac]#Debug perspective# is divided into the following four areas:
 image:./img/perspective/debugPerspective.png[Debug Perspective Button]
 
 
-=== [[preferences]]4diac IDE Preferences
+== [[preferences]]4diac IDE Preferences
 
 Before starting the engineering process of IEC 61499 [.element61499]#Applications#, you should set the preferences for the 4diac IDE under [.menu4diac]#Window → Preferences → 4diac IDE#.
 
@@ -123,7 +124,7 @@ Currently two runtime environments are supported:
 
 image:./img/properties/4DIACpreferences.png[4diac IDE Preferences]
 
-=== Toolbar
+== Toolbar
 
 Selecting an element (e.g. [.element61499]#Systems#, [.element61499]#Devices#, [.element61499]#Resources#, [.element61499]#Applications#, [.element61499]#Function Blocks#, ...) and pressing the right mouse button opens the context menu with several menus to manipulate the specific element. 
 Additionally, the following items are provided in the permanent toolbar located below the menu:
