@@ -37,7 +37,7 @@ If you want to see some examples using 4diac IDE, this link is your friend.
 If you have a specific platform with input and outputs that is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, use this topic.
 * xref:./communication/index.adoc[Communication Protocols]: 
 If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, follow the link.
-* xref:./development/developmentIndex.adoc[Development of 4diac FORTE and 4diac IDE]: 
+* xref:./development/index.adoc[Development of 4diac FORTE and 4diac IDE]: 
 If you are a developer or you want to know more deep stuff about 4diac FORTE or 4diac IDE, you'll have fun here.
 * https://github.com/eclipse-4diac[File a bug for 4diac FORTE or 4diac IDE]: 
 You found a bug? File it here.
