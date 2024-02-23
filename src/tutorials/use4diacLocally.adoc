@@ -8,34 +8,25 @@ This page is part of a guide that gives a walk-through over the major
 4diac IDE features.
 
 [start=0]
-. link:../../html/4diacIDE/overview.html[4diac IDE Overview]
+. link:./overview.adoc[4diac IDE Overview]
 . Use 4diac Locally (YOU ARE HERE!)
-. link:../../html/4diacIDE/distribute4diac.html[Distribute 4diac
-Applications]
-. link:../../html/4diacIDE/use4diacRemotely.html[Deploy Applications
-Remotely]
-. link:../../html/4diacIDE/createOwnTypes.html[Create Your own Function
-Block Types]
-. link:../../html/4diacIDE/otherUseful.html[Other Basic Features]
-. link:../../html/4diacIDE/advancedFeatures.html[Advanced Features]
-. link:../../html/4diacIDE/dynamicTypeLoader.html[Deploying new FBs with
-the Dynamic Type Loader]
+. link:./distribute4diac.adoc[Distribute 4diac Applications]
+. link:./use4diacRemotely.adoc[Deploy Applications Remotely]
+. link:./createOwnTypes.adoc[Create Your own Function Block Types]
+. link:./otherUseful.adoc[Other Basic Features]
+. link:./advancedFeatures.adoc[Advanced Features]
+. link:./dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
-In this tutorial you create a simple Blinking application. It's the
-"Hello World" of automation programs, so it teaches the key aspects and
-workflow of 4diac IDE. The application will run locally, so no
-connection to any PLC or external hardware is needed. The architecture
-is shown below.
+In this tutorial you create a simple Blinking application. 
+It's the "Hello World" of automation programs, so it teaches the key aspects and workflow of 4diac IDE. 
+The application will run locally, so no connection to any PLC or external hardware is needed. 
+The architecture is shown below.
 
-image:../../html/4diacIDE/img/locallyArchitecture.png[architecture for
-the current step]
+image:./img/locallyArchitecture.png[architecture for the current step]
 
-After completing Step 0 switch to the system perspective using the
-image:../../html/4diacIDE/img/system.png[System Perspective Button]
-Button.
+After completing Step 0 switch to the system perspective using the image:./img/system.png[System Perspective Button] Button.
 
-[[createSystem]]
-=== Create a new IEC 61499 System
+=== [[createSystem]]Create a new IEC 61499 System
 
 . In the upper left corner of the system perspective there is the main
 menu. Create a new project by selecting +
@@ -43,7 +34,7 @@ menu. Create a new project by selecting +
 . Follow the instructions in the creation wizard. For this tutorial we
 name our new system _BlinkTest_.
 +
-image:../../html/4diacIDE/img/Step1/newSystemWizard.png[Create a new IEC
+image:./img/Step1/newSystemWizard.png[Create a new IEC
 61499 System]
 
 The system appears in the [.view4diac]#System Explorer# on the left,
@@ -82,7 +73,7 @@ Explorer. The three FBs are in the [.folderLocation]#events# folder:
 * E_SR
 +
 You can also double-click the editor area and search for the FBs.
-image:../../html/4diacIDE/img/Step1/blinkFBs.png[Function Blocks for the
+image:./img/Step1/blinkFBs.png[Function Blocks for the
 blink example]
 +
 The name in the middle of the FB is its type. If you CTRL + click on it,
@@ -102,7 +93,7 @@ output, click and drag to the other end of the connection to create one.
 Remember, Event and Data connections cannot be mixed. Events connections
 allow fan-in and fan-out. Data connections allow fan-out but not fan-in.
 +
-image:../../html/4diacIDE/img/Step1/blinkWithConnections.png[Function
+image:./img/Step1/blinkWithConnections.png[Function
 Blocks for the blink example]
 +
 Here are some tips for editing the application:
@@ -125,7 +116,7 @@ below or double-click on DT and set the value directly
 +
 Set the value to [.specificText]#T#1s#, meaning 1 second.
 +
-image:../../html/4diacIDE/img/Step1/blinkComplete.png[Function Blocks
+image:./img/Step1/blinkComplete.png[Function Blocks
 for the blink example]
 
 Now the application is done. You should try to understand how the
@@ -165,7 +156,7 @@ MGR_ID [.address]#localhost:61499# specifies the IP:PORT where the
 device will run. In this case it'll run locally and will listen at the
 port 61499.
 
-image:../../html/4diacIDE/img/Step1/systemConfigurationEditor.png[System
+image:./img/Step1/systemConfigurationEditor.png[System
 Configuration Editor]
 
 The color is automatically generated for better orientation in the
@@ -183,7 +174,7 @@ be changed in the property view or by double-clicking on the name. +
 The *resource* is automatically generated for your convenience. EMB_RES
 stands for Embedded Resource. We named it _Blinky_RES_.
 
-image:../../html/4diacIDE/img/Step1/changeResourceName.png[changing the
+image:./img/Step1/changeResourceName.png[changing the
 name of the Resource]
 
 Device and Resource parameters can either be specified directly at each
@@ -221,7 +212,7 @@ left-clicking or drawing a rectangle over it (in this case all of them),
 
 [.menu4diac]#right click → Map to ... → FORTE_PC → Blinky_RES#
 
-image:../../html/4diacIDE/img/Step1/mappingInAppEditor.png[Mapping of
+image:./img/Step1/mappingInAppEditor.png[Mapping of
 Function Block Instances within the Application Editor]
 
 To unmap a Function Block instance from a Resource, use the context menu
@@ -241,7 +232,7 @@ when starting. The STOP is triggered when the PLC is set to a STOP
 state, and the WARM when the PLC changes from a STOP state back to a RUN
 state. Connect both COLD and WARM to E_CYCLE.START.
 
-image:../../html/4diacIDE/img/Step1/resourceComplete.png[Resource
+image:./img/Step1/resourceComplete.png[Resource
 completely connected]
 
 You also see the FBs that were previously mapped. You can add more FBs
@@ -286,10 +277,10 @@ save the .exe wherever you like, we have chosen F:\4diac\4diac IDE\. Go
 to [.menu4diac]#Windows → Preferences → 4diac IDE → FORTE Preferences#,
 and in [.addressDoc]#FORTE Location# look for the 4diac FORTE executable
 and then click _Apply and Close_. +
-image:../../html/4diacIDE/img/Step1/selectForte.png[select your
+image:./img/Step1/selectForte.png[select your
 4diac FORTE,width=600]
 . Change to the _Deployment Perspective_ using the
-image:../../html/4diacIDE/img/perspective/deploymentButton.gif[Deployment
+image:./img/perspective/deploymentButton.gif[Deployment
 Perspective Button] button.
 . Set the port to 61499 (the same define before, remember
 [.address]#localhost:61499# in the System Configuration?)
@@ -304,7 +295,7 @@ select the devices to deploy and even which resources to deploy.
 warning appears on the right nor left of it. If you get something red,
 something went wrong.
 
-image:../../html/4diacIDE/img/Step1/deploymentExample.png[deploying of
+image:./img/Step1/deploymentExample.png[deploying of
 the application]
 
 NOTE: With the runtime launcher you can only start run-time environments on your local development computer. 
@@ -313,7 +304,7 @@ In order to perform this task device specific means to start the run-time enviro
 
 The _Deployment Console_ is automatically cleared before each download.
 Furthermore, with the icon
-image:../../html/4diacIDE/img/clearDeploymentConsole.png[Clear
+image:./img/clearDeploymentConsole.png[Clear
 Deployment Console] in the upper right corner of the _Deployment
 Console_ the deployment messages can be cleared.
 
@@ -328,7 +319,7 @@ cleaning the Device.
 
 [.menu4diac]#Delete Resource# deletes just the selected resource:
 
-image:../../html/4diacIDE/img/Step1/cleanDeviceOrResource.png[Clean Devive or Resource,width=1024]
+image:./img/Step1/cleanDeviceOrResource.png[Clean Devive or Resource,width=1024]
 
 [[monitoringApplication]]
 === Monitoring the Application
@@ -336,15 +327,15 @@ image:../../html/4diacIDE/img/Step1/cleanDeviceOrResource.png[Clean Devive or Re
 To observe the outputs of your Application you can use 4diac's
 monitoring functionality. You can enable it in the Toolbar under the
 Toolbar icon:
-image:../../html/4diacIDE/img/properties/startMon.gif[Monitoring] or
+image:./img/properties/startMon.gif[Monitoring] or
 doing the following:
 
 . Change to Debug Perspective using the
-image:../../html/4diacIDE/img/perspective/debugButton.gif[Debug
+image:./img/perspective/debugButton.gif[Debug
 Perspective Button] button.
 . In the System Explorer, right click on the System → Monitor System
 +
-image:../../html/4diacIDE/img/Step1/enableMonitoring.png[Resource
+image:./img/Step1/enableMonitoring.png[Resource
 completely connected]
 
 A green circle will appear in the system icon indicating that monitoring
@@ -353,7 +344,7 @@ is enabled for the system. To watch variables, you can:
 * Right Click on a [.menu4diac]#FB → Watch All# or
 * Right Click on a [.menu4diac]#Variable → Watch#
 +
-image:../../html/4diacIDE/img/Step1/monitoringWatch.png[Resource
+image:./img/Step1/monitoringWatch.png[Resource
 completely connected]
 
 The Data and Events are monitored. The Data shows the current value and
@@ -363,13 +354,13 @@ directly on the Element or in the Watches view.
 Now you can see that _true_ and _false_ alternate. If a controller
 output were connected, a light would now blink at 1 second intervals.
 
-image:../../html/4diacIDE/img/Step1/monitoringWatching.png[Resource
+image:./img/Step1/monitoringWatching.png[Resource
 completely connected]
 
 You can force values to data inputs and trigger events by right clicking
 on it and selecting the corresponding command.
 
-image:../../html/4diacIDE/img/Step1/monitoringForceOrTrigger.png[Force
+image:./img/Step1/monitoringForceOrTrigger.png[Force
 value]
 
 == Where to go from here?
@@ -377,13 +368,13 @@ value]
 Now that you know how to do a centralized solution, let's try and
 distribute things:
 
-link:../../html/4diacIDE/distribute4diac.html[Step 2 - Distribute 4diac
+link:./distribute4diac.html[Step 2 - Distribute 4diac
 Applications]
 
 If you want to go the back to see an overall overview of 4diac IDE,
 here's a link
 
-link:../../html/4diacIDE/overview.html[Step 0 - 4diac IDE Overview]
+link:./overview.html[Step 0 - 4diac IDE Overview]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
