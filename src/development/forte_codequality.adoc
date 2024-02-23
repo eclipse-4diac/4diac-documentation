@@ -1,0 +1,144 @@
+= [[topOfPage]]Assuring 4diac FORTE Code Quality
+:lang: en
+
+
+Reducing the number of bugs and keep a high code quality is a constant struggle. 
+For 4diac FORTE we apply several means and tools which we summarize here as we think they can be helpful for users planing to extend 4diac FORTE.
+
+== [[staticAnalysis]]Static Code Analysis
+
+Static code analyzers as the name implies perform an off-line analysis of your code and try to identify potential issues. 
+For 4diac FORTE we are currently using the following two open source static code analyzers:
+
+* *CPP Check*: is a tool you can directly use to check your code. 
+ However for Eclipse there also exists an Eclipse plugin you can install from the Eclipse market place. 
+ Which makes its use much more convenient. 
+ CPP Check helps for example to find if correct pairs of new/delete are used or also on potential memory leaks.
+* *Clang's scan-build*: scan-build is a tool that comes with the C++ Compiler clang. 
+  It uses the clang compiler to perform the static analysis during compile time.
++
+To use it for checking 4diac FORTE you first need to change the C to clang's `ccc-analyzer` and the C++ compiler to clang's `c++-analyzer` during the CMake configuration of 4diac FORTE. 
+Therefore it is recommended to use a separate build directory.
++
+Furthermore instead of running
++
+----
+make all
+----
++
+you need to invoke the comman.d
++
+----
+scan-build -o ./static make
+----
++
+for building 4diac FORTE. 
+The nice thing about scan-build is that it creates nice html files with explanations about the found problems.
+
+== [[dynamicAnalysis]]Dynamic Analysis
+
+Dynamic analysis tools help to find issues during the runtime. 
+Typical issues are memory issues like memory leaks, out of bound access, stack over/underflows, or the use after memory is freed.
+
+* *Valgrind*: Valgrind is definitely the most commonly known dynamic checker. 
+  It checks mainly for memory issues. 
+  Currently it is only available for Linux and there only for Intel platforms. 
+  The main drawback of Valgrind is that it tremendously slows down the execution of the application under test.
+* *Sanitizers*: Sanitizers are means for runtime checking that the complier adds to your application. 
+  They can be activated with compiler switches and have the great advantage that they are currently much faster than Valgrind. 
+  However they are only available for Clang and gcc. 
+  For the latter only partially. 
+  Currently we have worked with the following sanitizers
+** Address: Checks for memory and heap issues. Can be activated by adding
++
+----
+-fsanitize=address
+----
++
+to the CMake option CMAKE_CXX_FLAGS.
+** Undefined Behavior: Checks for undefined behavior in your code (e.g, overflows, div by zero). Can be activated by adding
++
+----
+-fsanitize=undefined
+----
++
+to the CMake option CMAKE_CXX_FLAGS.
+** Thread: To be tested
+
+
+== [[unitTests]]Unit Tests
+
+We applied the unit test framework provided by the Boost-library called Boost Test. 
+You can find the current set of available unit test in the directory test. 
+New unit tests are always more then welcome.
+
+=== Install Boost Test
+
+To use execute unit tests at least http://www.boost.org/[boost 1.59] is needed. 
+Download it and unzip it.
+
+==== Linux
+Check 
+
+----
+wget -O boost_1_63_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.63.0/boost_1_63_0.tar.gz/download
+tar -xzvf boost_1_63_0.tar.gz cd boost_1_63_0/ 
+./bootstrap.sh gcc 
+sudo ./b2 install --prefix=installation/path toolset=gcc
+----
+
+==== Windows
+
+For detailed instructions on installation under Windows have a look at https://andres.jaimes.net/718/how-to-install-the-c-boost-libraries-on-windows/[this] or https://gist.github.com/zrsmithson/0b72e0cb58d0cb946fc48b5c88511da8#file-mngw-w64_boost-md[this Blog]. 
+Otherwise follow this summary for cygwin:
+
+. open a cygwin command line and go to your unziped folder
+. Start bootstrap.bat and specify your toolset. Supported toolsets are:
+borland, como, gcc, gcc-nocygwin, intel-win32, metrowerks, mingw, msvc,
+vc7, vc8, vc9, vc10, vc11. Use the following command for cygwin
++
+./bootstrap.sh gcc
+. define an installation directory and specify a toolset. 
+  Toolsets here are a little bit different from the ones we used before. 
+  The following command creates two folders, include and lib. 
+  Both folders should contain files afterwards, which takes a lot of time.
++
+----
+./b2 install --prefix=c:/installation/path toolset=gcc
+----
+
+=== Set CMake of the 4diac FORTE
+
+Set the following configuration in CMake:
+
+----
+FORTE_TESTS=ON 
+FORTE_TESTS_INC_DIRS=path to generated include files have to be set under windows 
+FORTE_TESTS_LINK_DIRS=path to generated libraries have to be set under windows
+----
+
+The make target "all" generates a fortetest executable which executes all Tests. 
+In case you want code coverage results also check `FORTE_TEST_CODE_COVERAGE_ANALYSIS` and create a make target in eclipse called TestCoverage the make target TestCoverage generates a folder with html files containing the coverage results. 
+In case an error occures, uncomment
+----
+line 133: #ADD_DEFINITIONS (-fsanitize=address) 
+line 166: remove -fsanitize=address
+----
+
+=== Function Block Tests
+
+Based on Boost Test we developed a helper class which allows you to write unit test for Function Blocks in C++. 
+For examples how to use it have a look on the test cases in the test/stdfblib directory. 
+Write positive and negative test cases for your unit tests.
+
+== Where to go from here?
+
+Go back to Development index:
+
+xref:./index.adoc[Development Index]
+
+If you want to go back to the Start Here page, we leave you here a fast access
+
+xref:../index.adoc[Start Here page]
+
+Or link:#topOfPage[Go to top]

@@ -1,0 +1,20 @@
+= [[topOfPage]]Development of 4diac IDE or 4diac FORTE
+:lang: en
+
+This page is intended to give an overview of the topics you can find in the documentation about developing 4diac IDE or 4diac FORTE.
+
+* 4diac IDE
+** xref:./building4diac.adoc#buildFromSource[Building and Running 4diac IDE from Source]
+** xref:./building4diac.adoc#buildBinary[Building a Binary 4diac IDE Package from Source]
+** xref:./swtBotTestsDocumentation.adoc#swtBotTesting[SWTBot Tests for 4diac IDE]
+* 4diac FORTE
+** xref:./forte_monitoring.adoc[Monitoring 4diac FORTE]
+** xref:./forte_communicationArchitecture.adoc[Communication Architecture]
+** xref:./externalEvent_example.adoc[Sevice FB as External Events]
+** xref:./forte_codequality.adoc[Assuring 4diac FORTE Code Quality]
+* Contributing
+** xref:./contribute.adoc[Contribute to 4diac IDE or 4diac FORTE]
+
+Go to xref:../index.adoc[Start Here page]
+
+Or link:#topOfPage[Go to top]

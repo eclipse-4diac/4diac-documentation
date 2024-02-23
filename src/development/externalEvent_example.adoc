@@ -1,0 +1,122 @@
+= [[topOfPage]]External Event SIFB
+:lang: en
+
+
+External Events are events in 4diac FORTE, which are hidden and can not be seen in 4diac IDE. 
+They do not appear as red event lines. 
+They are  usually used for Communication between Hardware and Function Blocks.
+For example,  `E_CYCLE` is a Function Block that uses this functionality. 
+It registers to the `CTimerHandler` class to get External Events in a periodic time.
+
+== Receiving External Events
+
+This is an advanced example showing how to make your own timed T-Flip-Flop Service Interface Function Block. 
+It is based on the `E_CYCLE` Block and works quite the same way. 
+This tutorial shows you how to build it from scratch. 
+Consider that this is just an example that does not follow the IEC 61499 standard.
+
+=== The Interface
+
+T Flip-Flop as SIFB with integrated Timer.
+xref:../tutorials/createOwnTypes.adoc#exportTypes[Export the interface to 4diac FORTE] (`*.h` and `*.cpp` files) and xref:../installation/install.adoc#externalModules[include them to your build].
+
+image:./img/flipFlop_integratedTimer.jpg[Interface of the T Flip-Flop as SIFB with integrated Timer]
+
+=== Edit the Headerfile
+
+This time we want to create a timed `SIFB` so we do not inherit from `CFunctionBlock`. 
+Instead we inherit from `CEventSourceFB`. 
+A `CEventSourceFB` can react to External Events. 
+Therefore you should correct the first line of your class declaration like this:
+----
+class FORTE_SIFB_T_FF3 : public CEventSourceFB\{
+----
+
+In this case we want to get External Events from the included Timer handler. 
+Include the 2 files `timerha.h` and `resource.h` and change `funcbloc.h` to `esfb.h`. 
+Your include parameters should look like this:
+
+----
+#include "timerha.h" //added 
+#include "resource.h" //added 
+#include "esfb.h" //instead of #include "funcbloc.h" 
+#include "forte_time.h"
+#include "forte_bool.h"
+----
+
+Then we need a new Constructor as well as two new private members `bool mActive;` which will indicate that the timed Function Block is currently active.
+
+----
+EVENT_SOURCE_FUNCTION_BLOCK_CTOR(FORTE_SIFB_T_FF3){
+	    setEventChainExecutor(pa_poSrcRes->getResourceEventExecution());
+	    mActive = false;
+};
+----
+
+Remove the default constructor `FUNCTION_BLOCK_CTOR` and replace it with above. 
+This constructor registers this Function Block as a External Event Listener, that triggers this Function Block if an event occurs. 
+Then the timer list entry is configured.
+
+=== Edit the Source File
+
+Then you need to edit the `executeEvent` method. 
+The usual start and stop Events will register this block to the `CTimerHandler`. 
+Add a new event `cgExternalEventID`, which is defined in `CEventSourceFB`, and let it set your outputs. 
+This will be triggered if your Function Block receives an External Event.
+
+----
+void FORTE_SIFB_T_FF3::executeEvent(TEventID paEIID, CEventChainExecutionThread *const paECET){
+  switch(paEIID){
+	case cg_nExternalEventID:
+	  Q() = !Q();
+	  sendOutputEvent(scm_nEventEOID, paECET);
+	  break;
+	case scm_nEventSTOPID:
+	  if(m_bActive){
+		CTimerHandler::sm_poFORTETimer->unregisterTimedFB(this);
+		m_bActive = false;
+	  }
+	  break;
+	case scm_nEventSTARTID:
+	  if(!m_bActive){
+		CTimerHandler::sm_poFORTETimer->registerPeriodicTimedFB(this, DT());
+		m_bActive = true;
+	  }
+	  break;
+	default:
+	  break;
+  }
+}
+----
+
+Compile 4diac FORTE and run it. 
+Test your new Function Block with the tester. 
+If something went wrong, compare your code with the following files.
+
+== Sending External Events
+
+To send External Events your Class must inherit from `CExternalEventHandler`. 
+In the Constructor you must register this class:
+
+----
+m_nExtEvHandID = sm_poDeviceExecution->registerExternalEventHandler(this);
+----
+
+Then you can send External Events with:
+----
+if(sm_poDeviceExecution->extEvHandlerIsAllowed(m_nExtEvHandID)) {
+  sm_poDeviceExecution->startNewEventChain(pointerToTargetFB); 
+}
+----
+
+== Where to go from here?
+
+Go back to Development index:
+
+xref:./index.adoc[Development Index]
+
+If you want to go back to the Start Here page, we leave you here a fast access
+
+xref:../index.adoc[Start Here page]
+
+Or link:#topOfPage[Go to top]
