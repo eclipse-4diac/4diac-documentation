@@ -1,133 +1,77 @@
-= Step 5 - Other Basic Features
+= [[CreateTypes]]Step 5 - Other Basic Features
 :lang: en
 
-[[CreateTypes]]
-== Step 5 - Other Basic Features
 
-This page is part of a guide that gives a walk-through over the major
-4diac IDE features.
+This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
 [start=0]
-. link:../../html/4diacIDE/overview.html[4diac IDE Overview]
-. link:../../html/4diacIDE/use4diacLocally.html[Use 4diac Locally
-(Blinking tutorial)]
-. link:../../html/4diacIDE/distribute4diac.html[Distribute 4diac
-Applications]
-. link:../../html/4diacIDE/use4diacRemotely.html[Deploy Applications
-Remotely]
-. link:../../html/4diacIDE/createOwnTypes.html[Create Your own Function
-Block Types]
+. xref:overview.adoc[4diac IDE Overview]
+. xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
+. xref:distribute4diac.adoc[Distribute 4diac Applications]
+. xref:use4diacRemotely.adoc[Deploy Applications Remotely]
+. xref:createOwnTypes.adoc[Create Your own Function Block Types]
 . Other Basic Features (YOU ARE HERE!)
-. link:../../html/4diacIDE/advancedFeatures.html[Advanced Features]
-. link:../../html/4diacIDE/dynamicTypeLoader.html[Deploying new FBs with
-the Dynamic Type Loader]
+. xref:advancedFeatures.adoc[Advanced Features]
+. xref:dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
-This page shows the following interesting features in 4diac IDE that
-might improve your work:
+This page shows the following interesting features in 4diac IDE that might improve your work:
 
 . link:#ImportSystem[Import an Existing System]
 . link:#ImportType[Import Existing IEC 61499 Types]
 . link:#CreateBootfiles[Creating Boot-Files]
 
-[[ImportSystem]]
-=== Import an Existing System
+== [[ImportSystem]]Import an Existing System
 
 Existing Systems can be imported as follows:
 
 . Start 4diac IDE with the desired Workspace
 . Select File/Import/Existing Projects into Workspace and press Next
-. Choose the folder that contains the folder with the System you want to
-import
+. Choose the folder that contains the folder with the System you want to import
 . Mark the desired System within the project field below
-. If your project is not yet within your workspace and if you do not
-want to modify the original version of your project, mark Copy Projects
-into workspace and press Finish. Consider that if you did not check Copy
-Projects into workspace and you delete your System within 4diac IDE,
-your System will be deleted permanently.
-. Verify that the System is completely there, that is the System
-Configuration with the Devices and Resources as well as the Application
-with FBs and both event and data connections.
+. If your project is not yet within your workspace and if you do not want to modify the original version of your project, mark Copy Projects into workspace and press Finish. 
+  Consider that if you did not check Copy Projects into workspace and you delete your System within 4diac IDE, your System will be deleted permanently.
+. Verify that the System is completely there, that is the System Configuration with the Devices and Resources as well as the Application with FBs and both event and data connections.
 
-[[ImportType]]
-=== Import Existing IEC 61499 Types
+== [[ImportType]]Import Existing IEC 61499 Types
 
-By default, new systems contain a copy of the IEC 61499 types in the
-tool-library. If different types are needed, for example from another
-project or another IEC 61499 engineering tool, these type files can be
-easily added by copying them into the project directory to the desired
-location. Furthermore, the Type Navigator allows to drag and drop types
-between projects as well as within a project to a different folder.
+By default, new systems contain a copy of the IEC 61499 types in the tool-library. 
+If different types are needed, for example from another project or another IEC 61499 engineering tool, these type files can be easily added by copying them into the project directory to the desired location. 
+Furthermore, the Type Navigator allows to drag and drop types between projects as well as within a project to a different folder.
 
-[[CreateBootfiles]]
-=== Creating Boot-Files
+== [[CreateBootfiles]]Creating Boot-Files
 
-When the option [.specificText]#FORTE_SUPPORT_BOOTFILE# is enabled for
-the 4diac FORTE you are using, on startup 4diac FORTE tries to load a so
-called boot-file. This boot-file has to be located in the same directory
-as your 4diac FORTE binary and needs to be named
-[.fileLocation]#forte.fboot.# This file contains the FB network
-configuration for the device and will be automatically instantiated
-during startup of 4diac FORTE.
+When the option `FORTE_SUPPORT_BOOTFILE` is enabled for the 4diac FORTE you are using, on startup 4diac FORTE tries to load a so called boot-file. 
+This boot-file has to be located in the same directory as your 4diac FORTE binary and needs to be named `forte.fboot`. 
+This file contains the FB network configuration for the device and will be automatically instantiated during startup of 4diac FORTE.
 
-In order to create such boot-files, you need to select one or more
-devices or resources in the [.view4diac]#Download Selection View# and
-select [.menu4diac]#Create FORTE boot-files...# from the context menu.
+In order to create such boot-files, you need to select one or more devices or resources in the [.view4diac]#Download Selection View# and select [.menu4diac]#Create FORTE boot-files...# from the context menu.
 
-image:../../html/4diacIDE/img/createBootFileContextMenu.png[Create
-Boot-file context menu]
+image:./img/createBootFileContextMenu.png[Create Boot-file context menu]
 
-In the wizard, you can then select the devices and resources for which
-you wish to create boot-files as well as the directory where to place
-them.
+In the wizard, you can then select the devices and resources for which you wish to create boot-files as well as the directory where to place them.
 
-image:../../html/4diacIDE/img/createBootFileWizard.png[Create Boot-file
-Wizard]
+image:./img/createBootFileWizard.png[Create Boot-file Wizard]
 
-On pressing [.button4diac]#Finish# one boot-file will be created per
-device. This boot-file will contain the selected resources and the FB
-networks contained in the resources. As only the resources selected are
-included in the boot-file, you can have a larger set of resources during
-development (e.g., for test-code) and use only the main resources for
-the boot-file. The name of the boot-file will be a combination of system
-and device name dot fboot. Before using it you need to rename it to
-forte.fboot.
+On pressing [.button4diac]#Finish# one boot-file will be created per device. 
+This boot-file will contain the selected resources and the FB networks contained in the resources. 
+As only the resources selected are included in the boot-file, you can have a larger set of resources during development (e.g., for test-code) and use only the main resources for the boot-file. 
+The name of the boot-file will be a combination of system and device name dot fboot. 
+Before using it you need to rename it to forte.fboot.
 
 == Where to go from here?
 
-The last step is optional, and shows some advanced features of 4diac IDE
-that you might use in more complicated applications.
-
-link:../../html/4diacIDE/advancedFeatures.html[Step 6 - Advanced
-Features]
-
-If you want to see some examples, the following link is an index of the
-available examples in the documentation:
-
-link:../../html/examples/examplesIndex.html[4diac Examples]
-
-If you have a specific platform that has input and outputs that is
-supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you
-want to use them, go to following page:
-
-link:../../html/parameters/parameters.html[Parameters for Different
-Platforms]
-
-If you want to use a specific communication protocol supported by
-4diac FORTE, for example MQTT, OPC UA, Modbus and so on, go to this
-page:
-
-link:../../html/communication/communicationIndex.html[Supported
-Communication Protocols]
-
-If you want to go back to see again how to create your own Function
-Blocks, here's a link:
-
-link:../../html/4diacIDE/createOwnTypes.html[Step 4 - Create Your own
-Function Block Types]
-
-If you want to go back to the Start Here page, we leave you here a fast
-access:
-
+* The last step is optional, and shows some advanced features of 4diac IDE that you might use in more complicated applications: +
+xref:./advancedFeatures.adoc[Step 6 - Advanced Features]
+* If you want to see some examples, the following link is an index of the available examples in the documentation: +
+xref:../examples/index.adoc[4diac Examples]
+* If you have a specific platform that has input and outputs that is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, go to following page: +
+xref:../io_config/io_config.adoc[I/O Configuration Parameters for Different Platforms]
+* If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, go to this
+page: +
+xref:../communication/index.adoc[Supported Communication Protocols]
+* If you want to go back to see again how to create your own Function Blocks, here's a link: +
+xref:./createOwnTypes.adoc[Step 4 - Create Your own Function Block Types]
+* If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../index.adoc[Where to Start]
 
 link:#topOfPage[Go to top]
