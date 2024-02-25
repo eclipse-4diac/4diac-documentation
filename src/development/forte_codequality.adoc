@@ -113,11 +113,13 @@ Set the following configuration in CMake:
 
 ----
 FORTE_TESTS=ON 
-FORTE_TESTS_INC_DIRS=path to generated include files have to be set under windows 
-FORTE_TESTS_LINK_DIRS=path to generated libraries have to be set under windows
+FORTE_TESTS_INC_DIRS=path to generated include files
+FORTE_TESTS_LINK_DIRS=path to generated libraries
 ----
 
-The make target "all" generates a fortetest executable which executes all Tests. 
+On Windows include and link directory have to be set.
+On Linux these directories do not have to be set when boost has been installed by `sudo apt install`, whereas when downloading the archive and executing the shell script, as described above, they have to be set as well.
+The make target "all" generates a `forte_test` executable within the `tests` directory of your build directory, that executes all tests. 
 In case you want code coverage results also check `FORTE_TEST_CODE_COVERAGE_ANALYSIS` and create a make target in eclipse called TestCoverage the make target TestCoverage generates a folder with html files containing the coverage results. 
 In case an error occures, uncomment
 ----
