@@ -169,13 +169,9 @@ The FBs are not directly to be found in 4diac IDE, but you'll find them in the 
 
 == Where to go from here?
 
-Go back to Protocols index:
-
+* Go back to Protocols index: +
 xref:index.adoc[Communication Index]
-
-If you want to go back to the Start Here page, we leave you here a fast
-access
-
+* If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../index.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

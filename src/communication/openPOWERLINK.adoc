@@ -1,10 +1,8 @@
-[[topOfPage]]
-= openPOWERLINK
+= [[topOfPage]]openPOWERLINK
 
-http://openpowerlink.sourceforge.net/web/[openPOWERLINK] is an Open
-Source Industrial Ethernet stack implementing the POWERLINK protocol.
+http://openpowerlink.sourceforge.net/web/[openPOWERLINK] is an Open Source Industrial Ethernet stack implementing the https://en.wikipedia.org/wiki/Ethernet_Powerlink[Ethernet POWERLINK] protocol.
 
-== Prerequisits
+== Prerequisites
 
 The following is needed in order to use openPOWERLINK with 4diac FORTE:
 
@@ -13,37 +11,29 @@ The following is needed in order to use openPOWERLINK with 4diac FORTE:
 
 == Instructions
 
-The openPOWERLINK V1.8.0 stack from sourceforge should be compiled using
-at least the following options in CMake:
+The openPOWERLINK V1.8.0 stack from SourceForge should be compiled using at least the following options in CMake:
 
-* CFG_POWERLINK_CHM
-* CFG_POWERLINK_PROCESS_IMAGE
-* CFG_X86_WINDOWS_DLL (only available on Windows)
+* `CFG_POWERLINK_CHM`
+* `CFG_POWERLINK_PROCESS_IMAGE`
+* `CFG_X86_WINDOWS_DLL` (only available on Windows)
 
-If compiled on Windows the resulting DLL and LIB must be copied to the
-main openPOWERLINK-V1.8.0 folder.
+If compiled on Windows the resulting DLL and LIB must be copied to the main openPOWERLINK-V1.8.0 folder.
 
-TinyXML can also be downloaded from sourceforge. 4diac FORTE CMake has
-to be configured as follows:
+TinyXML can also be downloaded from SourceForge. 
+4diac FORTE CMake has to be configured as follows:
 
-* check FORTE_MODULE_POWERLINK
-* set FORTE_MODULE_POWERLINK_LIB_DIR to [OPENPOWERLINK-V1.08.0_HOME]
-* set FORTE_MODULE_POWERLINK_TINYXML_DIR to the directory where you
-unpacked TinyXML
+* check `FORTE_MODULE_POWERLINK`
+* set `FORTE_MODULE_POWERLINK_LIB_DIR` to [OPENPOWERLINK-V1.08.0_HOME]
+* set `FORTE_MODULE_POWERLINK_TINYXML_DIR` to the directory where you unpacked TinyXML
 
-For communication through opwenPOWERLINK, instantiate and configure the
-function blocks provided within the powerlink folder. The powerlink
-folder is part of 4diac's type library.
+For communication through opwenPOWERLINK, instantiate and configure the function blocks provided within the opwenPOWERLINK folder. 
+The opwenPOWERLINK folder is part of 4diac's type library.
 
 == Where to go from here?
 
-Go back to Protocols index:
-
+* Go back to Protocols index: +
 xref:index.adoc[Communication Index]
-
-If you want to go back to the Start Here page, we leave you here a fast
-access
-
+* If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../index.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

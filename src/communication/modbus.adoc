@@ -1,117 +1,97 @@
-[[topOfPage]]
-= Modbus
+= [[topOfPage]]Modbus
 
 == Installation Instructions
 
-The Modbus com interface need the http://libmodbus.org/[libmodbus]
-library to work. Follow the steps below to set up your environment
-before compiling 4diac FORTE.
+The Modbus com interface need the http://libmodbus.org/[libmodbus] library to work. 
+Follow the steps below to set up your environment before compiling 4diac FORTE.
 
 . libmodbus files should be placed in the following folder structure:
-* [.folderLocation]#[ibmodbushome]/include/modbus#: include files
-* [.fileLocation]#[libmodbushome]/lib: libmodbus.lib# (windows) or
-[.fileLocation]#libmodbus.so# (posix)
-. When configuring 4diac FORTE project with CMake choose
-[.specificText]#[ibmodbushome]# as
-[.specificText]#FORTE_COM_MODBUS_LIB_DIR#
-. [.fileLocation]#forte.exe# must be able to find the dynamic libmodbus
-library after build. Therefore copy [.fileLocation]#libmodbus.dll/so# to
-folder with [.fileLocation]#forte.exe# or add
-[.fileLocation]#libmodbus.dll/so# to library include path.
+* `[ibmodbushome]/include/modbus`: include files
+* `[libmodbushome]/lib`: `libmodbus.lib` (windows) or `libmodbus.so` (posix)
+. When configuring 4diac FORTE project with CMake choose `[ibmodbushome]` as `FORTE_COM_MODBUS_LIB_DIR`
+. `forte.exe` must be able to find the dynamic libmodbus library after build. 
+  Therefore copy `libmodbus.dll/so` to folder with `forte.exe` or add `libmodbus.dll/so` to library include path.
 
 == Parameters
 
 === Modbus Client (TCP)
 
 Usage of the Modbus Client (TCP):
-
+----
 modbus[(protocol:)ip:port:pollFreqency:functionCode:(slaveId):readAddresses:sendAddresses(:responseTimeout:byteTimeout)]
+----
 
-* [.inlineTitle]#protocol#: tcp (tcp is default)
-* [.inlineTitle]#ip#: address of Modbus server, e.g. 127.0.0.1
-* [.inlineTitle]#port#: preferably above 1024, default is 502
-* [.inlineTitle]#pollFrequency#: polling frequency in milliseconds
-* [.inlineTitle]#functionCode#: an integer between 1 and 4
+* *protocol*: tcp (tcp is default)
+* *ip*: address of Modbus server, e.g. 127.0.0.1
+* *port*: preferably above 1024, default is 502
+* *pollFrequency*: polling frequency in milliseconds
+* *functionCode*: an integer between 1 and 4
 ** 1 = Read Coils
 ** 2 = Read Discrete Inputs
 ** 3 = Read Holding Registers
 ** 4 = Read Input Register
-* [.inlineTitle]#slaveId# (optional): the slave id used by the modbus
-server (0xFF is standard); this is in principle an optional parameter
-but some modbus devices - e.g. Siemens SENTRON PAC power measurement
-devices - need this parameter in order to establish a connection
-* [.inlineTitle]#readAddresses#: addresses can be specified between
-0-65535 more than one address (max 100) can be specified using
+* *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection
+* *readAddresses*: addresses can be specified between 0-65535 more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
 ** dots for interval 5..10
 ** combination 0,5..10,2,65500
-* [.inlineTitle]#sendAddresses#: addresses can be specified between
-0-65535 if data is only read sendAddresses should be left empty more
-than one address (max 100) can be specified using
+* *sendAddresses*: addresses can be specified between 0-65535 if data is only read sendAddresses should be left empty more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
 ** dots for interval 5..10
 ** combination 0,5..10,2,65500
-* [.inlineTitle]#responseTimeout# (optional): timeout in milliseconds to
-wait for a response (500ms is default)
-* [.inlineTitle]#byteTimeout# (optional): timeout in milliseconds
-between two consecutive bytes (500ms is default)
+* *responseTimeout* (optional): timeout in milliseconds to wait for a response (500ms is default)
+* *byteTimeout* (optional): timeout in milliseconds between two consecutive bytes (500ms is default)
 
 Example:
-
+----
 modbus[127.0.0.1:502:2000:3:1:0..3]
+----
 
 === Modbus Client (RTU)
 
 Usage of the Modbus Client (RTU):
-
-modbus[protocol:device:baudRate:parity:dataBit:stopBit:pollFreqency:functionCode:(slaveId):readAddresses:sendAddresses(:responseTimeout:byteTimeout)]
+----
+modbus[protocol:device:baudRate:parity:dataBit:stopBit:pollFreqency:functionCode(slaveId):readAddresses:sendAddresses(:responseTimeout:byteTimeout)]
+----
 
 Parameter meaning:
 
-* [.inlineTitle]#protocol#: rtu
-* [.inlineTitle]#device#: serial device, e.g., /dev/ttyS0
-* [.inlineTitle]#baudRate#: baud rate
-* [.inlineTitle]#parity#: N for none, E for even, O for odd
-* [.inlineTitle]#dataBit#: number of data bits
-* [.inlineTitle]#stopBit#: number of stop bits
-* [.inlineTitle]#pollFrequency#: polling frequency in milliseconds
-* [.inlineTitle]#functionCode#: an integer between 1 and 4, whereas
+* *protocol*: rtu
+* *device*: serial device, e.g., /dev/ttyS0
+* *baudRate*: baud rate
+* *parity*: N for none, E for even, O for odd
+* *dataBit*: number of data bits
+* *stopBit*: number of stop bits
+* *pollFrequency*: polling frequency in milliseconds
+* *functionCode*: an integer between 1 and 4, whereas
 ** 1 = Read Coils
 ** 2 = Read Discrete Inputs
 ** 3 = Read Holding Registers
 ** 4 = Read Input Register
-* [.inlineTitle]#slaveId# (optional): the slave id used by the modbus
-server (0xFF is standard); this is in principle an optional parameter
-but some modbus devices - e.g. Siemens SENTRON PAC power measurement
-devices - need this parameter in order to establish a connection
-* [.inlineTitle]#readAddresses#: addresses can be specified between
-0-65535. More than one address (max 100) can be specified using
+* *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection 
+* *readAddresses*: addresses can be specified between 0-65535. 
+  More than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
 ** dots for interval 5..10
 ** combination 0,5..10,2,65500
-* [.inlineTitle]#sendAddresses#: addresses can be specified between
-0-65535. More than one address (max 100) can be specified using
+* *sendAddresses*: addresses can be specified between 0-65535. 
+  More than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
 ** dots for interval 5..10
 ** combination 0,5..10,2,65500
-* [.inlineTitle]#responseTimeout# (optional): timeout in milliseconds to
-wait for a response (500ms is default)
-* [.inlineTitle]#byteTimeout# (optional): timeout in milliseconds
-between two consecutive bytes (500ms is default)
+* *responseTimeout* (optional): timeout in milliseconds to wait for a response (500ms is default)
+* *byteTimeout# (optional): timeout in milliseconds between two consecutive bytes (500ms is default)
 
 Example:
-
+----
 modbus[rtu:/dev/ttyS0:19200:E:8:1:2000:3:247:6142,6132,6137:64025..64025,63995..63995]
+----
 
 == Where to go from here?
 
-Go back to Protocols index:
-
+* Go back to Protocols index: +
 xref:index.adoc[Communication Index]
-
-If you want to go back to the Start Here page, we leave you here a fast
-access
-
+* If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../index.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]
