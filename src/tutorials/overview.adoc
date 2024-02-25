@@ -5,7 +5,7 @@
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
 [start=0]
-. 4diac IDE Overview (YOU ARE HERE!)
+. xref:overview.adoc[4diac IDE Overview (YOU ARE HERE!)]
 . xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
 . xref:use4diacRemotely.adoc[Deploy Applications Remotely]
@@ -40,27 +40,28 @@ Next you click the _workbench_ button. This brings you to the main screen of 4di
 
 Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the standard's elements for work (you can check xref:../intro/iec61499.adoc#IEC61499[here] to revise):
 
-* image:./img/system.png[System] 
-[.inlineTitle]#System#: It contains the [.view4diac]#System Configuration# and its corresponding [.element61499]#Applications#.
-* image:./img/app16.png[Application]
-[.inlineTitle]#Application#: It contains the desired application in terms of a FB network.
-* image:./img/device16.png[Device]
-[.inlineTitle]#Device#: It represents a hardware device such as a programmable logic controller (PLC) or a microcontroller.
-* image:./img/resource16.png[Resource]
-[.inlineTitle]#Resource#: It is responsible for the execution of the control logic within its own execution context.
-* [.inlineTitle]#Function blocks (FB)#:
-** image:./img/basicfb_16.png[BFB]
-[.inlineTitle]#Basic FB (BFB)#: It uses an execution control chart (ECC) to control event execution. Algorithms are associated with the different states inside an ECC.
-** image:./img/compositefb_16.png[CFB]
-[.inlineTitle]#Composite FB (CFB)#: It contains a FB network of existing FBs. 
-Its FB interface passes events and data on to the FBs within the CFB, which in turn pass events and data among themselves and out to the CFB's normal output interface.
-** image:./img/sifb_16.png[SIFB]
-[.inlineTitle]#Service interface FB (SIFB)#: It is usually used for something that cannot be done within the IEC 61499 standard such as communication with devices or network segments. 
-It helps to first understand basic and composite FBs. 
-SIFBs are then used to realize only what cannot be done using a BFB/CFB.
-* image:./img/adapter.png[Adapter]
-[.element61499]#Adapter#: It combines a set of input/output events and data to one connection. 
-On the one hand it simplifies the IEC 61499 [.element61499]#Application# and on the other hand it better decouples [.element61499]#Application# parts providing an interface concept, which allows adopting the polymorphic concept of object-oriented programming.
+* image:./img/system.png[System] *System*: 
+  It contains the [.view4diac]#System Configuration# and its corresponding [.element61499]#Applications#.
+* image:./img/app16.png[Application] *Application*: 
+  It contains the desired application in terms of a FB network.
+* image:./img/device16.png[Device] *Device*: 
+  It represents a hardware device such as a programmable logic controller (PLC) or a microcontroller.
+* image:./img/resource16.png[Resource] *Resource*: 
+  It is responsible for the execution of the control logic within its own execution context.
+* *Function Blocks (FBs)*:
+** image:./img/basicfb_16.png[BFB] *Basic FB (BFB)*: 
+   It uses an execution control chart (ECC) to control event execution. 
+   Algorithms are associated with the different states inside an ECC.
+** image:./img/compositefb_16.png[CFB] *Composite FB (CFB)*: 
+   It contains a FB network of existing FBs. 
+   Its FB interface passes events and data on to the FBs within the CFB, which in turn pass events and data among themselves and out to the CFB's normal output interface.
+** image:./img/sifb_16.png[SIFB] *Service interface FB (SIFB)*: 
+   It is usually used for something that cannot be done within the IEC 61499 standard such as communication with devices or network segments. 
+   It helps to first understand basic and composite FBs. 
+   SIFBs are then used to realize only what cannot be done using a BFB/CFB.
+* image:./img/adapter.png[Adapter] *Adapter*: 
+  It combines a set of input/output events and data to one connection. 
+  On the one hand it simplifies the IEC 61499 [.element61499]#Application# and on the other hand it better decouples [.element61499]#Application# parts providing an interface concept, which allows adopting the polymorphic concept of object-oriented programming.
 
 
 == [[perspectives]]4diac IDE Perspectives
@@ -69,14 +70,14 @@ The 4diac IDE provides three perspectives, which can be added via the image:./i
 
 image:./img/Step0/perspectiveSelection.png[perspective selection]
 
-. The [.inlineTitle]## image:./img/system.png[System Perspective Button] System ##perspective is used to configure everything regarding your system. 
+. The image:./img/system.png[System Perspective Button] *System Perspective* is used to configure everything regarding your system. 
 It includes:
-* [.inlineTitle]#System Manager#, which allows creating and editing your System and Applications.
-* [.inlineTitle]#System Configuration#, which allows managing [.element61499]#Devices#, [.element61499]#Resources# and    [.element61499]#Segments# according to IEC 61499. 
+* *System Manager*, which allows creating and editing your System and Applications.
+* *System Configuration*, which allows managing [.element61499]#Devices#, [.element61499]#Resources# and    [.element61499]#Segments# according to IEC 61499. 
 The [.element61499]#Resources# are used for [.element61499]#Application# mapping and insertion of communication function blocks to other
 [.element61499]#Devices# and [.element61499]#Resources#.
-* [.inlineTitle]#Applications# according to the IEC 61499 [.element61499]#Application# Model. 
-. The [.inlineTitle]## image:./img/perspective/debugButton.gif[Debug Perspective Button] 4diac IDE Debug ##perspective, where [.element61499]#Applications# can be monitored and FBs can be debugged within the IDE.
+* *Applications* according to the IEC 61499 [.element61499]#Application# Model. 
+. The image:./img/perspective/debugButton.gif[Debug Perspective Button] *4diac IDE Debug Perspective*, where [.element61499]#Applications# can be monitored and FBs can be debugged within the IDE.
 
 
 === [[systemPerspective]]System Perspective
@@ -85,12 +86,12 @@ The perspective can be changed in the upper-right corner.
 The System perspective is reached via the image:./img/system.png[System Perspective Button] button. 
 The System perspective is divided into the following five areas:
 
-. [.inlineTitle]#System Management area#, which is used for managing IEC 61499 compliant applications and configuring [.element61499]#Devices# and [.element61499]#Resources#. 
+. *System Management area*, which is used for managing IEC 61499 compliant applications and configuring [.element61499]#Devices# and [.element61499]#Resources#. 
 The [.IDEelement]#Type Navigator# is in a tab next to it and lists the available function block library for every [.element61499]#System# as
 well as the default library.
-. [.inlineTitle]#Editor area#, which contains the [.IDEelement]#Application editor# for modeling of control applications, the [.IDEelement]#System editor# for modeling the [.element61499]#System# configuration, and the [.IDEelement]#Device# and [.IDEelement]#Resource  editor# for modeling the [.element61499]#Resource# configuration.
-. [.inlineTitle]#Outline# of [.element61499]#Applications#, [.element61499]#System# configurations, [.element61499]#Devices#, and [.element61499]#Resources# 
-. [.inlineTitle]#Property view#, which allows parameterizing function block instances, [.element61499]#Devices#, and [.element61499]#Resources#
+. *Editor area*, which contains the [.IDEelement]#Application editor# for modeling of control applications, the [.IDEelement]#System editor# for modeling the [.element61499]#System# configuration, and the [.IDEelement]#Device# and [.IDEelement]#Resource  editor# for modeling the [.element61499]#Resource# configuration.
+. *Outline* of [.element61499]#Applications#, [.element61499]#System# configurations, [.element61499]#Devices#, and [.element61499]#Resources# 
+. *Property view*, which allows parameterizing function block instances, [.element61499]#Devices#, and [.element61499]#Resources#
  
 image:./img/perspective/systemPerspective.png[System Perspective Button]
 
@@ -144,12 +145,9 @@ First, select the FB by clicking onto it and, then, click on the FB again to edi
 
 == Where to go from here?
 
-Now that you got an overview of the major parts of 4diac IDE, you can start using it:
-
+* Now that you got an overview of the major parts of 4diac IDE, you can start using it: +
 xref:use4diacLocally.adoc[Step 1 - Use 4diac IDE Locally]
-
-If you want to go back to the Start Here page, we leave you here a fast access:
-
+* If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../index.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

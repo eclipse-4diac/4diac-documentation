@@ -1,113 +1,100 @@
-= Step 7 - Deploying new FBs with the Dynamic Type Loader
+= [[topOfPage]]Step 7 - Deploying new FBs with the Dynamic Type Loader
 :lang: en
 
-[[topOfPage]]
-== Step 7 - Deploying new FBs with the Dynamic Type Loader
 
-This page is part of a guide that gives a walk-through of the major
-4diac IDE features.
+This page is part of a guide that gives a walk-through of the major 4diac IDE features.
 
 [start=0]
-. link:../../html/4diacIDE/overview.html[4diac IDE Overview]
-. link:../../html/4diacIDE/use4diacLocally.html[Use 4diac Locally
-(Blinking tutorial)]
-. link:../../html/4diacIDE/distribute4diac.html[Distribute 4diac
-Applications]
-. link:../../html/4diacIDE/use4diacRemotely.html[Deploy Applications
-Remotely]
-. link:../../html/4diacIDE/createOwnTypes.html[Create Your own Function
-Block Types]
-. link:../../html/4diacIDE/otherUseful.html[Other Basic Features]
-. link:../../html/4diacIDE/advancedFeatures.html[Advanced Features]
+. xref:overview.adoc[4diac IDE Overview]
+. xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
+. xref:distribute4diac.adoc[Distribute 4diac Applications]
+. xref:use4diacRemotely.adoc[Deploy Applications Remotely]
+. xref:createOwnTypes.adoc[Create Your own Function Block Types]
+. xref:otherUseful.adoc[Other Basic Features]
+. xref:advancedFeatures.adoc[Advanced Features]
 . Deploying new FBs with the Dynamic Type Loader (YOU ARE HERE!)
 
-In this tutorial, you will learn how to deploy and test your function
-blocks, without compiling and adding them to 4diac FORTE .
+In this tutorial, you will learn how to deploy and test your function blocks, without compiling and adding them to 4diac FORTE .
 
-Each time you created new function blocks, a new 4diac FORTE has to be
-compiled. This takes time, which is wasted just for compiling.
-Therefore, we have a feature called "Dynamic Type Loader". With this
-feature, new functions blocks can be deployed and tested without the
-need to compile them. Instead of directly compiled into 4diac FORTE, the
-FBs are downloaded as LUA Code and a Lua-Interpreter, running inside
-4diac FORTE, interprets this code then.
+Each time you created new function blocks, a new 4diac FORTE has to be compiled. 
+This takes time, which is wasted just for compiling. 
+Therefore, we have a feature called "Dynamic Type Loader". 
+With this feature, new functions blocks can be deployed and tested without the need to compile them. 
+Instead of directly compiled into 4diac FORTE, the FBs are downloaded as LUA Code and a Lua-Interpreter, running inside 4diac FORTE,  interprets this code then.
 
-[[getCCompiler]]
-=== Downloading the Compiler
 
-Before we can use the Dynamic Type Loader, we have to compile a new
-4diac FORTE with the Lua JIT (Just-In-Time Compiler). Therefore we are
-going to need a c-compiler. If you have done the tutorial, on how to
-create your own 4diac FORTE, everything you need should already be
-installed. Otherwise, follow the steps
-link:../../html/installation/install.html[here].
+== [[getCCompiler]]Downloading the Compiler
+
+Before we can use the Dynamic Type Loader, we have to compile a new 4diac FORTE with the Lua JIT (Just-In-Time Compiler). 
+Therefore we are going to need a C-compiler. 
+If you have done the tutorial, on how to create your own 4diac FORTE, everything you need should already be installed. 
+Otherwise, follow the steps xref:../installation/install.adoc[here].
 
 We recommend using the minGW compiler.
 
-[[getLua]]
-=== Downloading Lua
+== [[getLua]]Downloading Lua
 
-Now we need to download the Lua source code and build the libraries. We
-are using %20http://luajit.org/git/luajit-2.0.git[this site]. Open the
-folder, you want to build Lua in. Start Git Bash there and enter this
-commands:
+Now we need to download the Lua source code and build the libraries. 
+We are using http://luajit.org/git/luajit-2.0.git[LuaJit]. 
+Open the folder, you want to build Lua in. 
+Start Git Bash there and enter this commands:
 
+----
 $ git clone http://luajit.org/git/luajit-2.0.git $ cd luajit-2.0 $ make
+----
 
 The libs should be successfully created.
 
-image:../../html/4diacIDE/img/Step7/LuaJitCompiled.png[Compile Lua Jit]
+image:./img/Step7/LuaJitCompiled.png[Compile Lua Jit]
 
-[[CompileForte]]
-=== Compiling 4diac Forte with the LuaJit
 
-At first download the 4diac FORTE source code from
-https://eclipse.dev/4diac/en_dow.php[here] or clone the 4diac FORTE
-repository.
+== [[CompileForte]]Compiling 4diac Forte with the LuaJit
 
-$ git clone
-git://git.eclipse.org/gitroot/4diac/org.eclipse.4diac.forte.git
+At first download the 4diac FORTE source code from https://eclipse.dev/4diac/en_dow.php[here] or clone the 4diac FORTE repository.
+
+----
+$ git clone git://git.eclipse.org/gitroot/4diac/org.eclipse.4diac.forte.git
+----
 
 Then create an folder where we are going to build our 4diac FORTE in.
-Open CMake and set the source folder, to the folder where your
-4diac FORTE source files are in. Then set the build folder, to folder
-where you want to build 4diac FORTE in.
+Open CMake and set the source folder, to the folder where your 4diac FORTE source files are in. 
+Then set the build folder, to folder where you want to build 4diac FORTE in.
 
-Before configuring the Lua options, please enable all options, shown in
-this
-link:../../html/installation/install.html#generateFilesForCompiling[tutorial].
+Before configuring the Lua options, please enable all options, shown in this xref:../installation/install.html#generateFilesForCompiling[tutorial].
 Before pressing generate, we have to configure all Lua options.
 
-. Set FORTE_USE_LUATYPES to LUAJIT and press configure
-. For LUAJIT_INCLUDE_DIR choose the folder, where your compiled library
-is in, YOUR_FOLDER/src/.
-. For LUAJIT_LIBRARY choose the Lua51.dll which should be in your folder
-where compiled Lua under YOUR_FOLDER/src/Lua51.dll
-. Press Configure. All red marked lines should be gone. At last press
-generate, open Git Bash in your build folder and enter
+. Set `FORTE_USE_LUATYPES` to `LUAJIT` and press configure
+. For `LUAJIT_INCLUDE_DIR` choose the folder, where your compiled library is in, `YOUR_FOLDER/src/`.
+. For `LUAJIT_LIBRARY` choose the `Lua51.dll` which should be in your folder where compiled Lua under `YOUR_FOLDER/src/Lua51.dll`
+. Press Configure. 
+  All red marked lines should be gone. 
+  At last press generate, open Git Bash in your build folder and enter
 +
+----
 make
+----
 
-You should have now successfully built your 4diac FORTE with the
-integration of the Lua JIT compiler.
+You should have now successfully built your 4diac FORTE with the integration of the Lua JIT compiler.
 
-image:../../html/4diacIDE/img/Step7/FORTECompiled.png[Compile
-4diac FORTE]
+image:./img/Step7/FORTECompiled.png[Compile 4diac FORTE]
 
-[[enableDTL]]
-=== Enabling the Dynamic Type Loader
+== [[enableDTL]]Enabling the Dynamic Type Loader
 
-Before you can use theDynamic Type Loader, you have to enable it in the
-4diac IDE.
+Before you can use theDynamic Type Loader, you have to enable it in the 4diac IDE.
 
-. Then choose your system application, where you can see all your
-resources
-. Then choose the 4diac FORTE resources, where you want to deploy the
-new FBs to
-. In the properties tab, change the profile above the "Inputs" of the
-tab, to "DynamicTypeLoad"
+. Then choose your system application, where you can see all your resources
+. Then choose the 4diac FORTE resources, where you want to deploy the new FBs to
+. In the properties tab, change the profile above the "Inputs" of the tab, to "DynamicTypeLoad"
 
-image:../../html/4diacIDE/img/Step7/EnabledDTL.png[Enable DTL]
+image:./img/Step7/EnabledDTL.png[Enable DTL]
 
-Everthing should be set up and you can deploy your FBs, like you learned
-earlier in the tutorial, without compiling a new 4diac FORTE.
+Everything should be set up and you can deploy your FBs, like you learned earlier in the tutorial, without compiling a new 4diac FORTE.
+
+
+== Where to go from here?
+
+* If you want to go back to the Start Here page, we leave you here a fast access: +
+xref:../index.adoc#wheretostart[Where to Start]
+
+link:#topOfPage[Go to top]
+
