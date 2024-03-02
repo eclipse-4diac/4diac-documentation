@@ -1,10 +1,9 @@
 = [[topOfPage]]HTTP
 
-This section shows how to make applications communicate using HTTP. 
-For now, 4diac FORTE supports client http (get, put, post) and server (get).
+This section shows how to make applications communicate using the HTTP protocol. 
 You should use the client and server FBs according to your needs.
-Publish and Subscribe blocks are currently not supported. 
-All RDs and SDs data output/inputs should be connected to STRING types for it to work.
+Publish and Subscribe blocks are currently not supported.
+Currently only `GET`, `POST` or `PUT` requests are supported.
 
 == Configuration
 
@@ -15,82 +14,47 @@ Then follow the same procedure, compile 4diac FORTE, et voilà, you have HTTP s
 
 == Client
 
-=== Type of FB
+To realize an HTTP client, a client function block is needed with 3 SD inputs and 2 RD outputs, otherwise the runtime should log an error. 
+The SDs are expected to be of type `STRING` or `WSTRING`, whereas the RDs are expected to be of type `STRING`.
+Currently only GET, PUT and POST are supported. 
+The ID input of the client function block should be specified as follows:
 
-* Only GET, PUT and POST are supported
-* Needs a client FB
-* For a GET request, it should have exactly 1 RD (where the output is stored). 
-  SDs are ignored
-* For a PUT/POST request you can set the data to be sent in two ways:
-** On the PARAMETERS in the PARAM data input (see below)
-** In a RD (exactly 1) of the client FB +
-If both cases are present, the RD takes precedence and the PARAMETER is ignored.
-
-=== PARAM
 ----
-http[IP:PORT/PATH?PARAMETERS; POST | PUT | GET ;content-type;response-code]
+http[IP:PORT/PATH;POST|PUT|GET;content-type]
 ----
 
-==== Mandatory
+The `IP:PORT` specifies the IP address and the port of the remote endpoint. The `PATH` specifies the path on the server to reach and is separated from the port by a slash. As request type `POST` or `PUT` or  `GET` can be used, and should be written written in capital letters. The request type is mandatory.
+The `content-type` represents the HTTP content-type of the packet to be sent, but is optional. Default `content-type` is `text/html`. Examples for the ID input are the following:
 
-* `IP:PORT` → ip address and port of the remote endpoint
-* `PATH` → path on the server to reach
-* `POST | PUT | GET` → They should be written exactly like this, and they define the type of packet to be sent.
+* `http[34.231.219.193:80/get;GET;text/html]` → send GET request with text/html content type
+* `http[34.231.219.193:80/put;PUT;application/json]` → send PUT request, with application/json content type
 
-==== Optional
+The first SD can be used for authentication, but can also be left empty in case the corresponding server does not require this. The second SD can be used for parameters, where the parameters should be separated by the HTML representation for _&_, which is `&amp;amp;`. This second SD can also be left empty when no parameters are needed. The third SD input is used for the body, that is supposed to be sent. Examples for the three SD inputs are as follows:
 
-* `PARAMETERS:` parameters to be sent
-* `content-type:` HTTP content-type of the packet to be sent. If parameters are used with PUT or POST (SD or PARAMETERS), content-type will be ignored and application/x-www-form-urlencoded will be used instead. 
-  If not defined, "text/html" will be used as default.
-* `response-code:` the response that's expected. 
-  If not defined, "HTTP/1.1 200 OK" will be used. 
-  If the response-code of a packet is not as defined, the packet is ignored. 
-  If "*" is set, the packet is never ignored, no matter what the response code is
+* authentication: `Token enterTheTokenProvidedByTheServerHere`
+* parameters: `org=organization&amp;amp;bucket=sensors` 
+* body: `airSensors,sensor_id=TLM0201 temperature=73.97038159354763,humidity=35.23103248356096,co=0.48445310567793615`
 
-==== Examples
-
-* `http[34.231.219.193:80/get;GET;text/html;*]` → Accepts all responses
-* `http[34.231.219.193:80/get?par1=value1;GET;text/html;*]` → Request with parameters
-* `http[34.231.219.193:80/put;PUT;application/json]` → Use application/json content type
-* `http[34.231.219.193:80/put;PUT;application/json;HTTP/1.1 201 Created]` → Use application/json content type and discard packets which have not "HTTP/1.1 201 Created" as response code
+Both RDs are used for the server's response.
+The first RD is used for the response code, whereas the second RD is used for the body of the server's response.
 
 == Server
 
-=== Type of FB
+To realize an HTTP server, a server function block is needed with 1 SD input for the body of the response it creates.
+The SD input expects type `STRING` or `WSTRING`. 
+The ID input of the server function block should be specified as follows:
 
-* Only incoming GET requests are supported
-* Needs a server FB
-* It must have exactly one SD (for the response text)
-* Can have 0 or many RDs for the incoming parameters
-
-=== PARAM
 ----
 http[PATH]
 ----
 
-The server FB will trigger an event when the PATH is accessed with GET request. 
-If parameters are provided, they should match the number of RDs in the FB and should be of type (name=value&....). 
+The specified `PATH` is added to the server at startup.
+The server FB will trigger an event when the `PATH` is accessed with a GET request. 
+Server responses use HTTP version `HTTP/1.1` and content-type `text/plain` as default.
+If parameters are provided, they should match the number of RDs of the function block and should be of type (name=value&....). 
 The "&" should be used to define more than one parameter. 
 The name is actually not used. 
-The values are stored in the RDs in the order they arrived and treated as STRINGs.
-
-== Notes
-
-* The following IEC 61499 data types are currently NOT supported: DATE, DATE_AND_TIME, TIME_OF_DAY, arrays, structs
-* By default, a GET request is sent as: 
-+
-----
-GET /path HTTP/1.1
-Host: ip:port
-----
-* By default, a `PUT{POST}` request is sent as: 
-+
-----
-PUT{POST} /path HTTP/1.1 
-Host: ip:port 
-Content-type: text/html 
-Content-length: length_of_data_string 
-----
+The values are stored in the RDs in the order they arrived and treated as `STRING` values.
 
 == Where to go from here?
 
