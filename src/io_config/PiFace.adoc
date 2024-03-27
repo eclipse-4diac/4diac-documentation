@@ -1,0 +1,23 @@
+= [[piface]]PiFace Digital 2
+
+The http://www.piface.org.uk/products/piface_digital_2/[PiFace 2] is a hat for the Raspberry Pi with Digital I/Os. 
+You can control the Inputs and Outputs from 0 to 7 just using the right number, similar to the Raspberry Pi.
+
+IMPORTANT: The PiFace was not tested, so if you find a problem or want to add support to the other features of the board, please file a
+https://github.com/eclipse-4diac/4diac-forte/issues[issue].
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]

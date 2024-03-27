@@ -1,0 +1,31 @@
+== [[mlpi]]Bosch Rexroth PLC (MLPI)
+
+The MLPI interface was tested on a http://www.boschrexroth.com/dcc/Vornavigation/VorNavi.cfm?PageID=p650746&Language=en[IndraControl
+XM22] PLC from Bosch Rexroth. 
+In order for 4diac FORTE to access the I/O, a PLC program must be running already in the PLC. 
+4diac FORTE will connect to this program and send/receive information to/from it.
+
+The parameters that you need to use in PARAMS depend therefore from the names you gave to the I/Os in the PLC program. 
+That means that you need to create your program and give them names. 
+An example was tested where the Digital Inputs were called di01, di01, di02 and so on, and similarly with Digital Outputs (do00, do01, do02, etc). To access them from 4diac FORTE, the parameters were:
+
+* Application.UserVarGlobal.di00 → Digital Input 00
+* Application.UserVarGlobal.di01 → Digital Input 01
+* Application.UserVarGlobal.do00 → Digital Output 00
+* ... and so on
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]

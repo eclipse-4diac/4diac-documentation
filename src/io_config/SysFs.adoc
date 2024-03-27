@@ -1,0 +1,32 @@
+= [[sysfs]]SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)
+
+The following picture shows an example application from the xref:../tutorials/use4diacLocally.adoc[Blinking tutorial] which is extended with IX and QX function blocks. 
+The extended application periodically toggles on pin number 8. 
+It can be started and stopped via pin number 2. 
+You can connect an LED to obtain a blinking light.
+
+image:./img/ixqx_fb_network.png[Simple blinking application with an IX and QX function block.]
+
+The `PARAMS` data input in the IX and QX FB define which pin should be used. 
+The application also contains E_CYCLE and E_SWITCH function blocks (which are not in the Blinking tutorial). 
+The first one generates an event every 500 ms. 
+This way the IX block will check the hardware input every half second if the signal has changed. 
+E_SWITCH_0 starts or stops the action, depending on the `IN` data output of the IX function block.
+
+Remember that if you have any problem and cannot find the solution in the documentation, visit the https://www.eclipse.org/forums/index.php?t=thread&frm_id=308[forum].
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]
