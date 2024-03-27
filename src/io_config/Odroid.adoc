@@ -1,0 +1,24 @@
+= [[odroid]]Odroid
+
+https://wiki.odroid.com/[Odroid] is an embedded board that you can say it's a more powerful Rapsberry Pi, and it has analog inputs. 
+In order to use the I/O of this board. 
+It works similar to the Raspberry Pi, so you can use QX and IX with the number corresponding to the pin number, and to access the Analog Inputs, you should use IW. 
+`0` and `1` should be set to PARAMS of IW in order to access the first and second analog inputs respectively.
+
+image:./img/odroidFBs.png[FBs example for Odroid platform]
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]

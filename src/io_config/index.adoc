@@ -1,0 +1,54 @@
+= [[topOfPage]]I/O Configuration for Different Platforms
+:lang: en
+
+Using QX, IX and similar allows you to access the inputs and outputs of a supported hardware. 
+Of course, in the case of a normal computer, this doesn't apply since it doesn't have I/O that you can control directly like you do on a PLC (normally boolean). 
+Currently there are two I/O integration concepts, the parameter based and the firmware based one.
+
+== Parameter Based I/Os
+
+The parameter based I/O support uses the PARAMS data input of the IX, QX, ... function blocks.
+In order to access the I/O of a hardware, you need to set the PARAMS data input to a corresponding value to select which I/O to access. 
+4diac FORTE should be compiled with the corresponding module, that can be selected in CMake. 
+You find here the values to be set to PARAMS for the following supported platforms:
+
+. xref:./SysFs.adoc[SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)]
+. xref:./Odroid.adoc[Odroid]
+. xref:./Piface.adoc[PiFace Digital 2]
+. xref:./uMIC.adoc[µMIC.200]
+. xref:./mlpi.adoc[Bosch Rexroth PLC (MLPI)]
+. xref:./EV3.adoc[Lego Mindstorms EV3]
+
+== Firmware Based I/Os
+
+The firmware based I/O support uses an IEC 61499 Resource, that could be called Firmware, but the naming is up to you. 
+This IEC 61499 Resource contains a function block or a function block network that represents your hardware.
+If it is only one function block or a network of function blocks, depends on your hardware. 
+Modular PLCs for example are represented as function block network, where one module represents the core module and the others the expansion modules.
+The function blocks for the supported hardware modules are within the _io_ folder of the type library.
+Any I/O of a hardware module is represented by a function block input of type STRING or WSTRING.
+The STRING or WSTRING inputs are then set to the hierarchical name of an IX, QX, ... function block instance you used within your application.
+Each hierarchy level is separated by a dot '.'. 
+The hierarchy starts with the name of the IEC 61499 Application, followed by the dot, possible IEC 61499 sub-application names or composite function block names, also separated by dots and at last the instance name of the IX, QX, ... function block.
+This concept of I/O support let your IEC 61499 Application be completely hardware independent.
+For the supported platforms have a look on the following chapters:
+
+. xref:./plc01a1.adoc[PLC01A1]
+. xref:./RevolutionPi.adoc[Revolution Pi]
+
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]

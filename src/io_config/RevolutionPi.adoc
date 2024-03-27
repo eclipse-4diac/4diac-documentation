@@ -1,0 +1,84 @@
+= [[RevolutionPi]]Revolution Pi
+
+The Revolution Pi by KUNBUS GmbH has been implemented by the firmware based I/O concept.
+Revolution Pi is a modular PLC, where you always have at least one core module and maybe one or more expansion modules for I/Os.
+
+== Setup your hardware
+
+Put the several modules together by connecting them through the PiBridge.
+Also wire each of your modules with +24V and 0V through the primary power supply X4 and the secondary (in case your module has one) power supply X2.
+All power supply connections need to be connected that the devices work properly and all LEDs are green.
+
+When you use the Revolution Pi core module for the first time, it has to be configured by https://revolutionpi.com/en/tutorials/was-ist-pictory-2[Pictory]. 
+To connect any analog I/O consider the corresponding https://revolutionpi.com/en/tutorials/uebersicht-aio-2/analoge-eingaenge-konfigurieren-2[tutorial].
+The data sheet of your analog sensor determines the settings within Pictory.
+In case you get too less values, you might have to increase the ADC frequency within the AIO settings of Pictory.
+
+== Compile 4diac for Revolution Pi
+
+To compile 4diac FORTE for Revolution Pi best use https://github.com/eclipse-4diac/4diac-fbe[forte's build environment].
+Follow the instructions of forte's build environment to install and setup a configuration.
+Your configuration file for Revolution Pi for this build environment could be like the following:
+
+[source,json]
+----
+ARCH=arm-linux-musleabihf
+
+DEPS=tinyxml
+
+CMAKE_BUILD_TYPE=Debug
+FORTE_LOGLEVEL=LOGDEBUG
+
+COM=ETH,FBDK,LOCAL
+
+//RT_Events,,RECONFIGURATION
+MODULE=CONVERT,IEC61131,UTILS,UTILS_ADDON,CUSTOM_FBS
+
+// address sanitizer doesn't work with static linking
+TOOLCHAIN_EXTRA_C_FLAGS=-fno-sanitize=address -fno-lto
+TOOLCHAIN_EXTRA_LINKER_FLAGS=-fno-sanitize=address -fno-lto
+
+FORTE_IO=ON
+IO=REVOLUTIONPI
+
+// no local additions
+FORTE_EXTERNAL_MODULES_DIRECTORY=/nonexistant
+----
+
+After successful compilation the runtime can be found within the folder _build/yourConfigurationFileName/output/bin_ of forte's build environment.
+Copy this executable to your Revolution Pi core module by e.g. https://winscp.net/eng/index.php[WinSCP], possibly within a folder _/home/pi/forte_.
+You should set execution rights for your copied executable to run it.
+Login to your Revolution Pi core module by e.g. https://putty.org/[Putty], navigate to the folder where you put your executable and run it by _./forte_.
+Now you can deploy the desired IEC 61499 resources on your Revolution Pi.
+
+== Configure your hardware in 4diac
+
+Within Eclipse 4diac create a new IEC 61499 device with one IEC 61499 resource. 
+Maybe call it _Firmware_.
+This _Firmware_ resource contains your hardware setup in terms of function blocks.
+In case you have one Revolution Pi core module, two DIO and one AIO module, it could be like in the following image.
+
+image:./img/revpi_firmware.png[Firmware function block network]
+
+Within your IEC 61499 application you might have a function block like shown within the following image.
+Take it's IEC 61499 application name and it's instance name separated by a dot and add it as input for the desired input of the corresponding firmware function block.
+
+image:./img/revpi_ioFb.png[I/O function block in your IEC 61499 application]
+
+When all I/Os are wired and named within your firmware function block network correspondingly, your IEC 61499 application is ready to be deployed and access the hardware.
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]
