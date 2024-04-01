@@ -48,7 +48,7 @@ The code will be copied to the new created folder
 You can also use the git integrated into Eclipse for this process.
 Please refer to the Eclipse EGit documentation on how to clone a repository.
 
-Once you have cloned the repository make sure that you switch to the `develop` branch. Thhe default branch, `master`, might be out of date and thus incompatible with these setup steps.
+Once you have cloned the repository make sure that you switch to the `develop` branch. The default branch, `master`, might be out of date and thus incompatible with these setup steps.
 ----
 $ cd ~/org.eclipse.4diac.ide/
 $ git checkout develop
