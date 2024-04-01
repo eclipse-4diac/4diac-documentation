@@ -79,9 +79,9 @@ of the preferences window from Error to Ignore
 +
 image:./img/APIbaseline.png[API Baseline]
 
-----
+
 Note: If you get an error in the "Problems" view stating "There is a possible API baseline mismatch ...", you can safely ignore this message. This message will not prevent the IDE from building successfully.
-----
+
 
 === [[targetPlatform]]Set Target Platform
 
