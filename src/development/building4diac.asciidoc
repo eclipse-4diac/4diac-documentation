@@ -87,7 +87,7 @@ Note: If you get an error in the "Problems" view stating "There is a possible AP
 
 . Expand the project `org.eclipse.fordiac.ide.product` and open the target configuration `org.eclipse.fordiac.ide.product.target`:
 +
-image:./TargetPlatform.png[Eclipse target platform configuration]
+image:./img/TargetPlatform.png[Eclipse target platform configuration]
 . Wait until the target platform is resolved or press [.button4diac]#Reload# and wait until it is resolved
 . Press [.button4diac]#Set as Active Target Platform# within the upper right corner and wait until the workspace is built.
 
