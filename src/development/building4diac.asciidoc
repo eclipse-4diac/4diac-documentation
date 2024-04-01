@@ -30,7 +30,6 @@ In order for all dependencies to resolve correctly, the following additional Ecl
 * M2E - Maven Integration for Eclipse
 * M2E - PDE Integration
 * XText Complete SDK
-* XCore
 
 You can install these packages using your Eclipse IDE by selecting Help -> Install New Software (Eclipse Repository). 
 
