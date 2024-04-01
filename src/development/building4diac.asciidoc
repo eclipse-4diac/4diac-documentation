@@ -20,9 +20,11 @@ Run through the following steps to build and execute the 4diac IDE from source:
 
 === [[devEnvironment]]Get the Development Environment
 
-The 4diac IDE requires at least a version 17 Java JRE. Higher version JREs are supported, but may require additional Eclipse IDE configuration (see step 4 of link:#importPlugins[Import plug-ins into workspace]).
+The 4diac IDE requires at least a version 17 Java JRE.
+Higher version JREs are supported, but may require additional Eclipse IDE configuration (see step 4 of link:#importPlugins[Import plug-ins into workspace]).
 
-Get the latest https://eclipse.org/downloads/eclipse-packages/[Eclipse IDE]. Use [.specificText]#Eclipse Modeling Tools# edition.
+Get the latest https://eclipse.org/downloads/eclipse-packages/[Eclipse IDE].
+Use [.specificText]#Eclipse Modeling Tools# edition.
 
 
 In order for all dependencies to resolve correctly, the following additional Eclipse packages are required:
@@ -48,7 +50,8 @@ The code will be copied to the new created folder
 You can also use the git integrated into Eclipse for this process.
 Please refer to the Eclipse EGit documentation on how to clone a repository.
 
-Once you have cloned the repository make sure that you switch to the `develop` branch. The default branch, `master`, might be out of date and thus incompatible with these setup steps.
+Once you have cloned the repository make sure that you switch to the `develop` branch.
+The default branch, `master`, might be out of date and thus incompatible with these setup steps.
 ----
 $ cd ~/org.eclipse.4diac.ide/
 $ git checkout develop
@@ -57,10 +60,14 @@ $ git checkout develop
 === [[importPlugins]]Import Plug-Ins into Workspace
 
 . [.menu4diac]#File → Import → General → Existing Projects into Workspace#
-. Under [.menu4diac]#Select root directory# select the source directory from the file system and mark all projects to be imported. If the project list only shows one project (org.eclipse.4diac.ide), make sure the checkbox "Search for nested projects" under "Options" is ticked.
+. Under [.menu4diac]#Select root directory# select the source directory from the file system and mark all projects to be imported.
+If the project list only shows one project (org.eclipse.4diac.ide), make sure the checkbox "Search for nested projects" under "Options" is ticked.
 . Wait till Eclipse finished building the project (look at the progress bar at the right bottom corner of the Eclipse main window)
-. If you have a JRE > 17 installed, you need to make sure the compiler compliance level is set to JDK version 17 in order for the build to succeed. Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 17. If this step has not been completed properly the "Problems" view will be populated with "XText" errors.
-. Check problems view for errors. If you get [.specificText]#API Baseline# not set errors you need to perform the following steps:
+. If you have a JRE > 17 installed, you need to make sure the compiler compliance level is set to JDK version 17 in order for the build to succeed.
+Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 17.
+If this step has not been completed properly the "Problems" view will be populated with "XText" errors.
+. Check problems view for errors.
+If you get [.specificText]#API Baseline# not set errors you need to perform the following steps:
 .. Open the Eclipse preferences: [.menu4diac]#Window → Preferences#
 .. Enter API in the top left search field. 
    You should get three research results: 1. [.specificText]#API Baselines#, 2. [.specificText]#API Errors/Warnings#, and 3.  [.specificText]#API Use Scans#
@@ -80,7 +87,8 @@ of the preferences window from Error to Ignore
 image:./img/APIbaseline.png[API Baseline]
 
 
-Note: If you get an error in the "Problems" view stating "There is a possible API baseline mismatch ...", you can safely ignore this message. This message will not prevent the IDE from building successfully.
+Note: If you get an error in the "Problems" view stating "There is a possible API baseline mismatch ...", you can safely ignore this message.
+This message will not prevent the IDE from building successfully.
 
 
 === [[targetPlatform]]Set Target Platform
@@ -92,9 +100,10 @@ image:./img/TargetPlatform.png[Eclipse target platform configuration]
 . Press [.button4diac]#Set as Active Target Platform# within the upper right corner and wait until the workspace is built.
 
 === [[devMode]]Run in Development Mode
-. To use 4diac IDE directly under this (development) Eclipse you need a type library and templates. Both are part of the 4diac IDE repository and can be found in the `data` directory. 
-  In order that your development 4diac IDE can find this they have to put into the directory where the target platform is stored. 
-  For that copy the `template` and the `typelibrary` directory into the `.metadata/.plugins/org.eclipse.pde.core/.bundle_pool` directory.
+. To use 4diac IDE directly under this (development) Eclipse you need a type library and templates.
+Both are part of the 4diac IDE repository and can be found in the `data` directory. 
+In order that your development 4diac IDE can find this they have to put into the directory where the target platform is stored. 
+For that copy the `template` and the `typelibrary` directory into the `.metadata/.plugins/org.eclipse.pde.core/.bundle_pool` directory.
 . Open the `org.eclipse.fordiac.ide.product` from the `org.eclipse.fordiac.ide.product` plug-in.
 +
 image:./img/productConfigKepler.png[Eclipse product configuration]
