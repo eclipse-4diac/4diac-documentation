@@ -98,7 +98,7 @@ Then you have two options:
 
 ### Creating a Pull Request
 
-When you have set up your fork of a repository that you want to contribute change to, and if you have prepared a local clone for it, it you can perform changes, commit them, and propose them via a pull request as follows.
+When you have set up your fork of a repository that you want to contribute change to, and if you have prepared a local clone for it, you can perform changes, commit them, and propose them via a pull request as follows.
 
 1. Create a branch for the changes you want to make. Set up that branch starting from your local `main` branch and set the remote to your forked repository.
 
@@ -151,7 +151,7 @@ Fixes https://github.com/<Full URL to issues/issue #>
 ```
 Improve the Documentation of how to use Adapter Interfaces #321
 
-Adpater interfaces are a power full feature in IEC 61499. 
+Adpater interfaces are a powerful feature in IEC 61499. 
 Eclipse 4diac IDE was one of the first IDEs to support 
 Adapters Interfaces in all FB Types and Subapplications. 
 This change extends the existing documentation of adapter 
