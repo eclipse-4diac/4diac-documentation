@@ -59,9 +59,11 @@ $ git checkout develop
 
 === [[importPlugins]]Import Plug-Ins into Workspace
 
-. [.menu4diac]#File → Import → General → Existing Projects into Workspace#
-. Under [.menu4diac]#Select root directory# select the source directory from the file system and mark all projects to be imported.
-If the project list only shows one project (org.eclipse.4diac.ide), make sure the checkbox "Search for nested projects" under "Options" is ticked.
+. change to the Git perspective within Eclipse
+. right click on the 4diac IDE git repository and select _Import Projects..._ that opens a dialog. 
+Select everything within this dialog except the following ones 
++
+image:./img/4diacIDE_import.png[4diac IDE not imported folders]
 . Wait till Eclipse finished building the project (look at the progress bar at the right bottom corner of the Eclipse main window)
 . If you have a JRE > 17 installed, you need to make sure the compiler compliance level is set to JDK version 17 in order for the build to succeed.
 Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 17.
@@ -81,8 +83,7 @@ If you get [.specificText]#API Baseline# not set errors you need to perform the 
 * Select your new baseline in the API Baselines window and press OK
 ... Set the API Baseline error to ignore:
 * Select: API Baseline
-* Set the option Missing API Baseline: which can be found in the bottom
-of the preferences window from Error to Ignore
+* Set the option Missing API Baseline: which can be found in the bottom of the preferences window from Error to Ignore
 +
 image:./img/APIbaseline.png[API Baseline]
 
