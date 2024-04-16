@@ -26,8 +26,8 @@ Below is an example of settings.json for forte with OPC DA compiled.
      "FORTE_LOGLEVEL:STRING": "LOGDEBUG", 
      "CMAKE_BUILD_TYPE:STRING": "debug",
      "FORTE_COM_OPC":"ON", 
-     "FORTE_COM_OPC_LIB_ROOT": "D:/4diac/OPC_DA_ClientSDK_0.4/" , 
-     "FORTE_COM_OPC_BOOST_ROOT": "D:/4diac/boost_1_70_0/boost_1_70_0/", 
+     "FORTE_COM_OPC_LIB_ROOT": "D:/4diac/OPC-Client-X64/",
+     "FORTE_COM_OPC_BOOST_ROOT": "D:/4diac/boost_1_84_0/",
   } 
 }
 ----
