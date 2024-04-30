@@ -118,7 +118,7 @@ Drag and Drop a
 from the Palette.
 
 Connect them by clicking on one and dragging to the other. 
-The segment is divided in two areas, the upper is for moving and the lower for connections.
+The segment is divided in two areas, the upper area is for moving and the lower area for connections.
 The device can be connected by clicking on the device type (second row). 
 One `EMB_RES` resource is already present in the device. 
 The `MGR_ID` value of `localhost:61499` specifies the `IP:PORT` where the device will run. 
