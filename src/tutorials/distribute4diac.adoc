@@ -104,19 +104,13 @@ The first is a UDP multi-cast address use to send messages between devices, and 
 
 == [[startDevices]]Start Both Devices
 
-Change to the Deployment Perspective.
+Open the local console 2x
 
-. Set the Port to 61499 (the same as defined before, remember localhost:61499 in the System Configuration Editor?).
-. Launch Local 4diac FORTE.
-. You should see the location of your 4diac FORTE and the Terminate button enabled in the Console.
-. Set the Port to 61500 (the same as defined before, remember localhost:61500 in the System Configuration?)
-. Launch Local 4diac FORTE
-. You should see the the location of your 4diac FORTE and the Terminate button enabled in the Console.
+. Navigate to the folder where the forte.exe is saved.
+. Open Forte with port 61499 and in the other cmd window with port 61500.
+. The command looks like this: forte.exe -c localhost:port
 . Select the elements to deploy. For this tutorial select our devices _Counter_ and _Testee_.
-. Click the [.button4diac]#Deploy# button.
-. Check that the _Deployment Console_ shows some output, and that no red warning appears on the right nor left of it. If you get something red, something went wrong.
-
-image:./img/Step2/deployCounter.png[deploying of the application]
+. Start the program by clicking the green execute button.
 
 == [[testApplication]]Test it!
 
