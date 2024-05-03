@@ -104,9 +104,9 @@ The first is a UDP multi-cast address use to send messages between devices, and 
 
 == [[startDevices]]Start Both Devices
 
-Open the local console 2x
+Open two local consoles
 
-. Navigate to the folder where the forte.exe is saved.
+. Navigate to the folder where the forte executable is saved.
 . Open Forte with port 61499 and in the other cmd window with port 61500.
 . The command looks like this: forte.exe -c localhost:port
 . Select the elements to deploy. For this tutorial select our devices _Counter_ and _Testee_.
