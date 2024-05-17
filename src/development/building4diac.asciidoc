@@ -20,7 +20,7 @@ Run through the following steps to build and execute the 4diac IDE from source:
 
 === [[devEnvironment]]Get the Development Environment
 
-The 4diac IDE requires at least a version 17 Java JRE.
+The 4diac IDE requires at least a version 21 Java JRE.
 Higher version JREs are supported, but may require additional Eclipse IDE configuration (see step 4 of link:#importPlugins[Import plug-ins into workspace]).
 
 Get the latest https://eclipse.org/downloads/eclipse-packages/[Eclipse IDE].
@@ -66,7 +66,7 @@ Select everything within this dialog except the following ones
 image:./img/4diacIDE_import.png[4diac IDE not imported folders]
 . Wait till Eclipse finished building the project (look at the progress bar at the right bottom corner of the Eclipse main window)
 . If you have a JRE > 17 installed, you need to make sure the compiler compliance level is set to JDK version 17 in order for the build to succeed.
-Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 17.
+Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 21.
 If this step has not been completed properly the "Problems" view will be populated with "XText" errors.
 . Check problems view for errors.
 If you get [.specificText]#API Baseline# not set errors you need to perform the following steps:
