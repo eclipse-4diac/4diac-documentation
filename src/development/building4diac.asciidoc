@@ -65,7 +65,7 @@ Select everything within this dialog except the following ones
 +
 image:./img/4diacIDE_import.png[4diac IDE not imported folders]
 . Wait till Eclipse finished building the project (look at the progress bar at the right bottom corner of the Eclipse main window)
-. If you have a JRE > 17 installed, you need to make sure the compiler compliance level is set to JDK version 17 in order for the build to succeed.
+. If you have a JRE > 21 installed, you need to make sure the compiler compliance level is set to JDK version 21 in order for the build to succeed.
 Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 21.
 If this step has not been completed properly the "Problems" view will be populated with "XText" errors.
 . Check problems view for errors.
