@@ -15,7 +15,7 @@ This page is part of a guide that gives a walk-through of the major 4diac IDE f
 . xref:dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
 In this tutorial, you will learn how to create your own Function Block (FB). 
-There are several different types of Function Blocks, we will show how to create a Basic, a Simple, a Composite and a Service Function Block. 
+There are several different types of Function Blocks, we will show how to create a Basic, a Simple, a Composite and a Service Interface Function Block. 
 The new FBs are then available in the FB Palette for use in the Applications of the System.
 
 New FBs need to be created when the desired functionality doesn't exist as a library FB or multiple FBs should be combined into just one FB.
@@ -188,7 +188,7 @@ image:./img/Step4/createCompositeNetwork.png[Composite Network example]
 
 That's all you need to do for the Composite Function Block.
 
-== [[createService]]Create a Service Function Block
+== [[createService]]Create a Service Interface Function Block
 
 Create a new Type by following the instructions in the creation wizard.
 For this tutorial, select BlinkTest as the parent folder. 
@@ -203,7 +203,7 @@ Change the interface as link:#changeInterface[before].
 image:./img/Step4/createServiceInterfaceInterface.png[Create Service Interface Type - Interface]
 
 That's it. 
-The behavior of the Service Function Block must be implemented directly in the code that's generated from it. 
+The behavior of the Service Interface Function Block must be implemented directly in the code that's generated from it. 
 You will need to implement the functionality for each incoming event, manage the internal variables and send output events by yourself after exporting. link:#finishService[Below], you find the code for this example.
 
 
