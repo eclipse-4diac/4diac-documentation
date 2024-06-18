@@ -47,8 +47,8 @@ With both FMUs in hand, a co-simulation tool can be used to connect the inputs a
   Each SD and RD is treated as an output and input respectively.
 * All the data inputs and data outputs, as well as internal variables in basic function blocks (and current state of the ECC), and internal FBs in a composite FB are exported as internal variables of the FMU, meaning that can be monitored when co-simulating. 
   The number of time an events has been triggered is also available. 
-  Service Function Blocks have only their interface available, since the implementation is hidden.
-* The FBs: E_CYCLE, E_F_TRIG, E_R_TRIG, E_TimeOut, E_CTU, E_D_FF, E_DEMUX, E_MERGE, E_PERMIT, E_REND, E_RS, E_SELECT, E_SPLIT, E_SR, E_SWITCH are treated as Service Function Blocks.
+  Service Interface Function Blocks have only their interface available, since the implementation is hidden.
+* The FBs: E_CYCLE, E_F_TRIG, E_R_TRIG, E_TimeOut, E_CTU, E_D_FF, E_DEMUX, E_MERGE, E_PERMIT, E_REND, E_RS, E_SELECT, E_SPLIT, E_SR, E_SWITCH are treated as Service Interface Function Blocks.
 * Adapters are not yet supported.
 
 === Example

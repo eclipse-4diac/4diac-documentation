@@ -42,7 +42,7 @@
  3. xref:createOwnTypes.adoc#changeECC[Change the ECC]
  4. xref:createOwnTypes.adoc#createSimple[Create a Simple Function Block]
  5. xref:createOwnTypes.adoc#createComposite[Create a Composite Function Block]
- 6. xref:createOwnTypes.adoc#createService[Create a Service Function Block]
+ 6. xref:createOwnTypes.adoc#createService[Create a Service Interface Function Block]
  7. xref:createOwnTypes.adoc#exportTypes[Export Function Block Types]
  8. xref:createOwnTypes.adoc#finishService[Finish the Service Interface Test]
  9. xref:createOwnTypes.adoc#OtherEditors[Other Type Editors]

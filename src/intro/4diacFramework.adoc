@@ -50,7 +50,7 @@ Within 4diac IDE, you therefore have the possibility to export your created FB 
 You then need to add your exported code to the source code of 4diac FORTE and compile all as explained in the
 xref:../installation/install.adoc#FORTE[Compile 4diac FORTE] section of the installation documentation. 
 This is possible only for Basic and Composite Function Blocks (BFB and CFB), since both definitions are in the standard. 
-However, for Service Function Blocks (SIFBs) only the interface is defined. 
+However, for Service Interface Function Blocks (SIFBs) only the interface is defined. 
 The internal implementation of an SIFB has to be coded manually in C++, the language 4diac FORTE is written in.
 
 == Human Machine Interface

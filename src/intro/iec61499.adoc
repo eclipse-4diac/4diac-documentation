@@ -210,7 +210,7 @@ image:./img/basicFunctionBlock.png[Basic Function Block]
 The CFB simply has an internal network of other FBs.
 +
 image:./img/compositeFunctionBlock.png[Composite Function Block]
-. Service Function Block (SFB):
+. Service Interface Function Block (SIFB):
 +
 SFBs are FBs that are needed to access specific parts of the hardware.
 As seen above, the same application can be deployed to several devices.
@@ -220,7 +220,7 @@ They are used for anything that needs to access the platform, which BFBs or CFBs
 These types of FBs are activated not only by an incoming event but also by the hardware. 
 Therefore, a Responder FB can trigger an event every time a packet arrives.
 +
-image:./img/serviceFunctionBlock.png[Service Function Block]
+image:./img/serviceFunctionBlock.png[Service Interface Function Block]
 
 === [[iec61499ComplianceProfiles]]Compliance Profiles
 
