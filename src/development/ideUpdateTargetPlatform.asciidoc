@@ -1,26 +1,13 @@
 = [[topOfPage]]Updating the Target Platform used by 4diac IDE
 :lang: en
 
-
-The target platform defines the dependencies of 4diac IDE to other eclipse projects. Currently the 4diac IDE requires the following:
-
-* https://download.eclipse.org/eclipse/updates/4.xx
-** Eclipse Java Development Tools, org.eclipse.jdt.feature.group
-** Eclipse Platform SDK, org.eclipse.platform.sdk
-** Eclipse Plug-in Development Environment, org.eclipse.pde.feature.group
-* https://download.eclipse.org/releases/20xx-xx
-** EMF - Eclipse Modeling Framework SDK, org.eclipse.emf.sdk.feature.group
-** GEF (MVC) SDK, org.eclipse.gef.sdk.feature.group
-** Git integration for Eclipse, org.eclipse.egit.feature.group
-** OCL classic SDK: Ecore/UML Parsers, Evaluator, Edit, org.eclipse.ocl.all.sdk.feature.group
-** Xtext Complete SDK, org.eclipse.xtext.sdk.feature.group
-* https://download.eclipse.org/elk/updates/releases/0.x.x
-** Eclipse LayoutKernel (Incubation) - Core Components, org.eclipse.elk.feature.feature.group
-** Eclipse LayoutKernel (Incubation) - Layout Algorithms, org.eclipse.elk.algorithms.feature.feature.group
-
 For upgrading to new Eclipse platform versions the following steps need to be done:
 
 * Update org.eclipse.fordiac.ide.product.target in the org.eclipse.fordiac.ide.product plug-in
+** Locate https://github.com/eclipse-4diac/4diac-ide/blob/develop/plugins/org.eclipse.fordiac.ide.product/org.eclipse.fordiac.ide.product.target
+** Open it in a plain text editor
+** Go through all entries check for new urls and new versions
+** At the end open the `org.eclipse.fordiac.ide.product.target` in the target editor to verify all upgrades work. Resolve any problems accordingly
 * Update pom.xml in the 4diac IDE's source root directory. 
   At least the following steps have to be done:
 ** Check tycho.version
