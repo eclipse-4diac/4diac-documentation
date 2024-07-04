@@ -125,8 +125,8 @@ The color red doesn't mark errors, but that these rows were affected by the last
 These options allow you to configure your 4diac FORTE build. You should set at least the following parameters:
 
 * select the target architecture using the [.specificText]#FORTE_ARCHITECTURE# option: 
-** [.specificText]#win32# for Windows with MinGW-w64 
-** [.specificText]#posix# for Linux 
+** [.specificText]#Win32# for Windows with MinGW-w64 
+** [.specificText]#Posix# for Linux 
 ** For other setups, check the respective installation page.
 * select the modules with the Function Block libraries you wish to enable (a basic configuration uses  [.specificText]#FORTE_MODULE_CONVERT#, [.specificText]#FORTE_MODULE_IEC61131# and [.specificText]#FORTE_MODULE_UTILS#)
 * choose the [.specificText]#CMAKE_BUILD_TYPE# by adding the value [.specificText]#Debug# or [.specificText]#Release#
