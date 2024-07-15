@@ -175,7 +175,7 @@ xref:../tutorials/overview.adoc[Step 0 - 4diac IDE Overview]
 
 If you want to compile 4diac FORTE for another platform or want to know more about that, here's a quick link back:
 
-xref:./install.adoc[Install Eclipse 4diac]
+xref:./index.adoc[Install Eclipse 4diac]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

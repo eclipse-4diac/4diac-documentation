@@ -141,7 +141,7 @@ In this case, a module called "EV3" is added.
 
 If you want to build a 4diac FORTE, here is a quick link back:
 
-xref:./install.adoc[Install Eclipse 4diac]
+xref:./index.adoc[Install Eclipse 4diac]
 
 After you installed all required tools, it's time to start using them. 
 Take a look at the tutorials - a step by step guide:
