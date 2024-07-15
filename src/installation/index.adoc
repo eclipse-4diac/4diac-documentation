@@ -225,6 +225,8 @@ link:#FORTEsteps[back]
 * link:./legoMindstormEv3.adoc[Setting up 4diac FORTE for Lego Mindstorms EV3]
 * link:./freeRTOSLwIP.adoc[Setting up 4diac FORTE for freeRTOS + LwIP]
 
+== [[bootWithForte]]xref:./bootWithForte.adoc[Start 4diac FORTE after boot on Linux based systems]
+
 
 == [[whereToGoFromHere]]Where to go from here?
 
