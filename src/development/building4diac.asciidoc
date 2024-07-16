@@ -38,11 +38,11 @@ You can install these packages using your Eclipse IDE by selecting Help -> Insta
 === [[checkOutRepos]]Check out the 4diac IDE Repository
 
 This section shows how to check out (clone) the 4diac IDE repository. 
-You will need https://git-scm.com/downloads[Git] to download it by using the `clone` command from Git to the repository `https://git.eclipse.org/r/4diac/org.eclipse.4diac.ide`. 
+You will need https://git-scm.com/downloads[Git] to download it by using the `clone` command from Git to the repository `https://github.com/eclipse-4diac/4diac-ide.git`. 
 If you're using the terminal, do:
 ----
 $ cd ~
-$ git clone https://git.eclipse.org/r/4diac/org.eclipse.4diac.ide
+$ git clone https://github.com/eclipse-4diac/4diac-ide.git
 ----
 The code will be copied to the new created folder
 ~/org.eclipse.4diac.ide.
@@ -53,7 +53,7 @@ Please refer to the Eclipse EGit documentation on how to clone a repository.
 Once you have cloned the repository make sure that you switch to the `develop` branch.
 The default branch, `master`, might be out of date and thus incompatible with these setup steps.
 ----
-$ cd ~/org.eclipse.4diac.ide/
+$ cd ~/4diac-ide/
 $ git checkout develop
 ----
 
