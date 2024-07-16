@@ -1,0 +1,97 @@
+= [[topOfPage]]Start 4diac FORTE after boot on Linux based systems
+:lang: en
+
+Usually programmable logic controllers start their runtime directly after boot, that the user can either manually download the user defined control application without login at the programmable logic controller, or that a boot file which contains the user defined application is loaded when the runtime starts. 
+To achieve this for 4diac FORTE a Linux service can be added that provides this feature.
+
+== Create a Linux Service
+
+There are different ways to create a Linux service that starts 4diac FORTE after boot:
+
+- creating a service as /etc/init.d script
+- creating a systemd service
+
+Since the first way is described to be the older mechanism, providing less features, the systemd service is the preferred solution that will be described within this section.
+
+=== Create systemd service
+
+Create a service file _/etc/systemd/system/forte.service_ you will need super user rights to create this file. It could contain the following content:
+
+[source]
+----
+[Unit]
+Description=start 4diac runtime
+After=network.target dbus.service
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Environment="DAEMON_PATH=/home/pi/forte/" "DAEMON_NAME=forte" "DAEMON_BOOT_FILE=BootFile.fboot"
+ExecStartPre=/bin/bash -c '[ -x "${DAEMON_PATH}${DAEMON_NAME}" ] && [ -x "${DAEMON_PATH}${DAEMON_BOOT_FILE}" ] && rm ${DAEMON_PATH}${DAEMON_NAME}.log'
+ExecStart=/bin/bash -c 'echo "Start 4diac FORTE..." && ${DAEMON_PATH}${DAEMON_NAME} -f ${DAEMON_PATH}${DAEMON_BOOT_FILE} >> ${DAEMON_PATH}${DAEMON_NAME}.log'
+TimeoutStartSec=10s
+----
+
+Within this example systemd service it is expected that 4diac FORTE is located within the folder _/home/pi/forte/_, it is named _forte_ and that there is a boot file _MesseDemo_RevolutionPi.fboot_ within the same folder.
+This example folder might be named differently on each system, dependent on the available users. 
+By the _ExecStartPre_ entry the systemd service checks that the files exist and removes any existing log file.
+By the ExecStart entry the systemd service starts 4diac FORTE with the boot file and logs its messages into a log file.
+
+=== Test systemd service
+
+Test the systemd service by the following command
+
+[source]
+----
+sudo systemctl start forte.service
+----
+
+Check the status of the service by the following command
+
+[source]
+----
+sudo systemctl status forte.service
+----
+
+The service can be stopped by the following command
+
+[source]
+----
+sudo systemctl stop forte.service
+----
+
+=== Enable systemd service
+
+When the service runs properly, enable the systemd service to be started after boot by the following command
+
+[source]
+----
+sudo systemctl enable forte.service
+----
+
+When the device is restarted the service should be stared as well and a process called forte should be listed when executing 
+
+[source]
+----
+top
+----
+
+
+== [[whereToGoFromHere]]Where to go from here?
+
+Now that you installed the required tools, it's time to start using
+them. Take a look at the following page:
+
+xref:../tutorials/overview.adoc[Step by step tutorial]
+
+If you want to build 4diac FORTE, here is a quick link back:
+
+xref:./index.adoc[Install Eclipse 4diac]
+
+If you want to go back to the Start Here page, we leave you here a fast
+access
+
+xref:../index.adoc[Start Here page]
+
+Or link:#topOfPage[Go to top]

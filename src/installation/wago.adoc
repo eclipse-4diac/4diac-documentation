@@ -166,7 +166,7 @@ xref:../tutorials/overview.adoc[Step by step tutorial]
 
 If you want to build a 4diac FORTE, here is a quick link back:
 
-xref:./install.html[Install Eclipse 4diac]
+xref:./index.adoc[Install Eclipse 4diac]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

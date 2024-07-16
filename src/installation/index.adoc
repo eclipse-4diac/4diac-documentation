@@ -225,12 +225,14 @@ link:#FORTEsteps[back]
 * link:./legoMindstormEv3.adoc[Setting up 4diac FORTE for Lego Mindstorms EV3]
 * link:./freeRTOSLwIP.adoc[Setting up 4diac FORTE for freeRTOS + LwIP]
 
+== [[bootWithForte]]xref:./bootWithForte.adoc[Start 4diac FORTE after boot on Linux based systems]
+
 
 == [[whereToGoFromHere]]Where to go from here?
 
 Now that you installed the required tools, it's time to start using them. Take a look at the tutorials - A step by step guide:
 
-link:../tutorial/overview.html[Step 0 - 4diac IDE Overview]
+xref:../tutorial/overview.adoc[Step 0 - 4diac IDE Overview]
 
 If you want to go back to the Where to Start page, we leave you here a fast access:
 
