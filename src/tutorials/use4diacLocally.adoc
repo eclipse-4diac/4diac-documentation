@@ -118,7 +118,7 @@ Drag and Drop a
 from the Palette.
 
 Connect them by clicking on one and dragging to the other. 
-The segment is divided in two areas, the left is for moving, the right for connections. 
+The segment is divided in two areas, the upper area is for moving and the lower area for connections.
 The device can be connected by clicking on the device type (second row). 
 One `EMB_RES` resource is already present in the device. 
 The `MGR_ID` value of `localhost:61499` specifies the `IP:PORT` where the device will run. 
@@ -217,27 +217,10 @@ You can either build your own 4diac FORTE as xref:..//installation/install.html
 You can save the .exe wherever you like, we have chosen `F:\4diac\4diac IDE\`. 
 Go to [.menu4diac]#Windows → Preferences → 4diac IDE → FORTE Preferences#, and in [.addressDoc]#FORTE Location# look for the 4diac FORTE executable and then click _Apply and Close_. +
 image:./img/Step1/selectForte.png[select your 4diac FORTE,width=600]
-. Change to the _Deployment Perspective_ using the image:./img/perspective/deploymentButton.gif[Deployment Perspective Button] button.
-. Set the port to 61499 (the same define before, remember [.address]#localhost:61499# in the System Configuration?)
-. [.button4diac]#Launch Local 4diac FORTE#
-. You should see the the location of your 4diac FORTE and the *Terminate* button enabled in the Console.
-. Select the elements to deploy. For this tutorial select our device `Testee`. 
-  In case you have many devices with many resources, you can select the devices to deploy and even which resources to deploy.
-. Click the [.button4diac]#Deploy# button
-. Check that the _Deployment Console_ shows some output, and that no red warning appears on the right nor left of it. 
-  If you get something red, something went wrong.
-
-image:./img/Step1/deploymentExample.png[deploying of the application]
-
-NOTE: With the runtime launcher you can only start run-time environments on your local development computer. 
-It is not possible to start run-time environments on remote computers or control devices. 
-In order to perform this task device specific means to start the run-time environment have to be performed.
-
-The _Deployment Console_ is automatically cleared before each download.
-Furthermore, with the icon image:./img/clearDeploymentConsole.png[Clear Deployment Console] in the upper right corner of the _Deployment Console_ the deployment messages can be cleared.
-
-By selecting a Device or Resource the corresponding IEC 61499 element can be cleaned. 
-This means that the Device or Resource configuration are cleaned and reset to the default configuration without any Function Block Network.
+. Start Forte locally on your computer and then simply run the program by clicking on the green arrow. (If you don't have a configuration yet, you can edit/create it with run configuration.)
+. The console in 4diac should show the following output
+<!--  Connected to device: Testee -->
+<!--  Disconnected from device: Testee -->
 
 [.menu4diac]#Delete All Resources# leaves the Device empty, and [.menu4diac]#Kill Device# stops 4diac FORTE. 
 You can deploy again after cleaning the Device.
