@@ -1,0 +1,131 @@
+= [[topOfPage]]Library Management
+:lang: en
+:imagesdir: ./src/development/img
+
+image::LibraryExample.png[Library Example]
+
+
+== Library Handling
+Libraries get introduced into the project through the available import wizards which update the project manifest as necessary.
+The libraries are referenced through symbolic links to avoid unnecessary copying.
+
+=== Storage Location
+There are three separate locations:
+
+* *Standard Libraries* come bundled with the 4diac distribution
+* *Archives* are stored in the `+.download+` folder of the workspace
+* *Libraries* are stored in the `+.lib+` folder of the workspace
+
+=== Project Startup
+On opening a project, a background task checks the project manifest for dependencies and proceeds as follows:
+
+. Check if fitting library version is already linked
+. If that's not the case, search and link a fitting version in `.lib`
+. If none were found, try to download it through configured download sources
+
+== Library Structure
+* A folder named `+<SymbolicName>-<Version>+` containing:
+** A `+MANIFEST.MF+` file defining the library
+** A folder named `+typelib+` holding the library contents (function blocks, structs, types, etc.)
+
+Library archives (in zip format) are expected to only contain this folder.
+
+== Manifest file
+An XML-document holding all information concerning libraries used by both libraries and projects.
+The following parts are shared by both:
+
+* Scope (attribute) - either `+Library+` or `+Project+`
+* Dependencies (optional) - references to other needed libraries
+** Required (0 to unbounded) - reference 
+*** SymbolicName (attribute) - symbolic name of library dependency
+*** Version (attribute) - link:#versionRange[version range] of library dependency
+* Product (required) - base information about project/library
+** VersionInfo (required)
+*** Author (attribute) - author name
+*** Date (attribute) - creation/modification date (ISO 8601 date)
+*** Version (attribute) - version of the project/library
+
+=== [[libraryManifest]]Library Manifest
+Has the following additions:
+
+* Product 
+** Name (attribute) - display name
+** SymbolicName (attribute) - symbolic name
+** Comment (attribute) - comment/description
+
+.Example Library Manifest
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<Manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="platform:/resource/org.eclipse.fordiac.ide.library.model/model/library.xsd" Scope="Library">
+  <Dependencies>
+    <Required SymbolicName="firstLib" Version="1.1.0"/>
+    <Required SymbolicName="secondLib" Version="[1.0.0-2.0.0)"/>
+  </Dependencies>
+  <Product Name="Example Library" SymbolicName="exampleLib" Comment="example for demonstration">
+    <VersionInfo Author="Eclipse 4diac" Date="2024-07-24" Version="1.0.0"/>
+  </Product>
+</Manifest>
+----
+
+=== [[projectManifest]]Project Manifest
+Has the following additions:
+
+* Exports (optional) - contains libraries to be exported from this project
+** Library (0 to unbounded) - library export definition
+*** Name, SymbolicName, Comment - equivalent to link:#libraryManifest[library manifest]
+*** Includes (required) - filters for including types in the exported library
+**** LibraryElement (0 to unbounded) - link:#libraryElement[filter pattern] for inclusion
+*** Excludes (optional) - filters for excluding types 
+**** LibraryElement (0 to unbounded) - link:#libraryElement[filter pattern] for exclusion
+
+
+.Example project manifest
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<Manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="platform:/resource/org.eclipse.fordiac.ide.library.model/model/library.xsd" Scope="Project">
+  <Dependencies>
+    <Required SymbolicName="exampleLib" Version="[1.0.0-1.2.5]"/>
+    <Required SymbolicName="math" Version="1.0.0"/>
+  </Dependencies>
+  <Product>
+    <VersionInfo Author="" Date="2024-07-24" Version="1.3.0"/>
+  </Product>
+  <Exports>
+    <Library Name="Export Library 1" SymbolicName="exportLib1" Comment="example for export">
+      <Includes>
+        <LibraryElement>base::**</LibraryElement>
+        <LibraryElement>extended::**</LibraryElement>
+      </Includes>
+      <Excludes>
+        <LibraryElement>*::test::**</LibraryElement>
+      </Excludes>
+    </Library>
+  </Exports>
+</Manifest>
+----
+
+=== [[versionRange]]Version (Range)
+The version format used is `+major.minor.micro+` with all three parts being positive integers.
+Standard value for all of them is zero which leads to `+1+` being equivalent to `+1.0+` and `+1.0.0+`.
+
+The version range (used in dependencies) is formatted as `+<left><version>-<version><right>+`, 
+with `+<left>+` as `+[+` (inclusive) or `+(+` (exclusive) and `+<right>+` as  `+]+` (inclusive) or `+)+` (exclusive).
+The special case `+<version>+` will be interpreted as `+[<version>-<version>]+` (a range only containing that version).
+
+=== [[libraryElement]]Library Element
+Filter pattern for inclusion/exclusion of types into an exported library, consisting of the following:
+
+* Identifiers - as defined by IEC61131-3
+* `+::+` - package delimiter
+* `+*+` - match any identifier
+* `+**+` - match any identifier over one or more levels
+
+Examples:
+
+* `+A::B::C+` - match a specific type
+* `+test::**+` - match anything directly inside `+test+` (but not `+test:a:b+` as an example)
+* `+test::**+` - match anything inside `+test+` and its lower levels
+* `+**::basetype+` - match any occurrence of `+basetype+` wherever it is (but not `+basetype+` without any package)
+* `+*::test::**+` - match anything that has `+test+` as its second hierarchy level
