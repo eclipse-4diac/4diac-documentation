@@ -6,9 +6,9 @@ The Modbus com interface need the http://libmodbus.org/[libmodbus] library to wo
 Follow the steps below to set up your environment before compiling 4diac FORTE.
 
 . libmodbus files should be placed in the following folder structure:
-* `[ibmodbushome]/include/modbus`: include files
+* `[libmodbushome]/include/modbus`: include files
 * `[libmodbushome]/lib`: `libmodbus.lib` (windows) or `libmodbus.so` (posix)
-. When configuring 4diac FORTE project with CMake choose `[ibmodbushome]` as `FORTE_COM_MODBUS_LIB_DIR`
+. When configuring 4diac FORTE project with CMake choose `[libmodbushome]` as `FORTE_COM_MODBUS_LIB_DIR`
 . `forte.exe` must be able to find the dynamic libmodbus library after build. 
   Therefore copy `libmodbus.dll/so` to folder with `forte.exe` or add `libmodbus.dll/so` to library include path.
 
@@ -18,73 +18,61 @@ Follow the steps below to set up your environment before compiling 4diac FORTE.
 
 Usage of the Modbus Client (TCP):
 ----
-modbus[(protocol:)ip:port:pollFreqency:functionCode:(slaveId):readAddresses:sendAddresses(:responseTimeout:byteTimeout)]
+modbus[(protocol:)ip:port:(slaveId):pollFrequency:readAddresses:sendAddresses(:responseTimeout:byteTimeout)]
 ----
 
 * *protocol*: tcp (tcp is default)
 * *ip*: address of Modbus server, e.g. 127.0.0.1
 * *port*: preferably above 1024, default is 502
-* *pollFrequency*: polling frequency in milliseconds
-* *functionCode*: an integer between 1 and 4
-** 1 = Read Coils
-** 2 = Read Discrete Inputs
-** 3 = Read Holding Registers
-** 4 = Read Input Register
 * *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection
+* *pollFrequency*: polling frequency in milliseconds
 * *readAddresses*: addresses can be specified between 0-65535 more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
 ** dots for interval 5..10
 ** combination 0,5..10,2,65500
+** function is by default holding register, and can be changed with a prefixed letter
+*** 'c' for coil
+*** 'd' for discrete input
+*** 'h' for holding register
+*** 'i' for input register
 * *sendAddresses*: addresses can be specified between 0-65535 if data is only read sendAddresses should be left empty more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
 ** dots for interval 5..10
 ** combination 0,5..10,2,65500
+** function can be selected like for readAddresses
 * *responseTimeout* (optional): timeout in milliseconds to wait for a response (500ms is default)
 * *byteTimeout* (optional): timeout in milliseconds between two consecutive bytes (500ms is default)
+* to reuse a previous connection define only ip and port and leave everything up to slaveId empty
 
 Example:
 ----
-modbus[127.0.0.1:502:2000:3:1:0..3]
+modbus[tcp:127.0.0.1:502::20000:h0..3:]
 ----
 
 === Modbus Client (RTU)
 
 Usage of the Modbus Client (RTU):
 ----
-modbus[protocol:device:baudRate:parity:dataBit:stopBit:pollFreqency:functionCode(slaveId):readAddresses:sendAddresses(:responseTimeout:byteTimeout)]
+modbus[protocol:port:baudrate:parity:databits:stopbits:flow:(slaveId):pollFrequency:readAddresses:sendAddresses(:responseTimeout:byteTimeout)]
 ----
 
-Parameter meaning:
-
 * *protocol*: rtu
-* *device*: serial device, e.g., /dev/ttyS0
-* *baudRate*: baud rate
+* *port*: serial port, e.g., /dev/ttyS0 or COM1
+* *baudrate*: serial port baudrate, e.g., 9600
 * *parity*: N for none, E for even, O for odd
-* *dataBit*: number of data bits
-* *stopBit*: number of stop bits
-* *pollFrequency*: polling frequency in milliseconds
-* *functionCode*: an integer between 1 and 4, whereas
-** 1 = Read Coils
-** 2 = Read Discrete Inputs
-** 3 = Read Holding Registers
-** 4 = Read Input Register
-* *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection 
-* *readAddresses*: addresses can be specified between 0-65535. 
-  More than one address (max 100) can be specified using
-** comma for separate addresses 0,2,65500
-** dots for interval 5..10
-** combination 0,5..10,2,65500
-* *sendAddresses*: addresses can be specified between 0-65535. 
-  More than one address (max 100) can be specified using
-** comma for separate addresses 0,2,65500
-** dots for interval 5..10
-** combination 0,5..10,2,65500
-* *responseTimeout* (optional): timeout in milliseconds to wait for a response (500ms is default)
-* *byteTimeout# (optional): timeout in milliseconds between two consecutive bytes (500ms is default)
+* *databits*: number of data bits, e.g., 8
+* *stopbits*: number of stop bits, e.g., 1
+* *flow*:
+** leave empty for none
+** arduino - disable DTR and wait for Arduino to boot just in case
+** delay - wait 2 seconds after connecting
+** longdelay - wait 3 seconds after connecting
+* all other paramters are as for TCP
+* to reuse a previous connection define only port and leave everything up to slaveId empty
 
 Example:
 ----
-modbus[rtu:/dev/ttyS0:19200:E:8:1:2000:3:247:6142,6132,6137:64025..64025,63995..63995]
+modbus[rtu:/dev/ttyUSB0:19200:N:8:1::1:2000:i6142,i6132,i6137:h64025..64028,h63995..63998]
 ----
 
 == Where to go from here?
