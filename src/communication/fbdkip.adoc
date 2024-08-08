@@ -1,5 +1,9 @@
 = [[topOfPage]]FBDK/IP
-
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This section will show you how to make applications communicate using the default FBDK/ip protocol as defined in the http://holobloc.com/doc/ita/index.htm[IEC 61499 Compliance Profile for Feasibility Demonstrations]. 
 Because we are going to use the default protocol, we don't have to put it as a parameter in the beginning of the ID input of the Communication Function Blocks. 
@@ -47,7 +51,7 @@ An example of using a Publish/Subscribe FBs can be seen in the figure below and 
   Any data sent in a particular multicast IP address by any Publish FB will be received by any Subscribe FB listening to that multicast IP address.
 ====
 
-image:./img/publishsubscribe.png[Publish/Subscribe pair]
+image:publishsubscribe.png[Publish/Subscribe pair]
 
 
 == [[clientServer]]Client/Server - TCP/IP
@@ -92,7 +96,7 @@ An example of using a Client/Server pair can be seen in the figure below and can
 * CLIENT_1 FB must be terminated before CLIENT_2 FB can connect to the SERVER_1 FB, i.e., the Server can serve only one Client at a time.
 ====
 
-image:./img/clientserver.png[Client/Server pair]
+image:clientserver.png[Client/Server pair]
 
 == Where to go from here?
 

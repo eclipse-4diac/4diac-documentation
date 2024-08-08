@@ -1,4 +1,9 @@
 = [[umic]]µMIC.200
+:lang: en
+:imagesdir: ./src/io_config/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This module uses the library provided for the http://www.microcontrol.net/en/products/control-systems/umic200/[µMIC.200].
 You need the `umic_dio.h`, `umic_relay.h` and `umic_led.h` headers and also the `umic.so` library to be present in your system and accessible by the compiler.
@@ -34,7 +39,7 @@ Example: +
 Example: +
 `relay.1` → will control the NC relay at pins 14- 15
 
-image:./img/uMICFBs.png[FBs example for uMIC platform]
+image:uMICFBs.png[FBs example for uMIC platform]
 
 [IMPORTANT]
 .Using the Releays

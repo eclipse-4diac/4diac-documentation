@@ -1,4 +1,9 @@
 = [[topOfPage]]How to use 4diac's Arrowhead library
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 == [[intro]]Introduction
@@ -47,7 +52,7 @@ The 4diac IDE is where the library of Function Blocks were defined, and it was 
 In the lowest level, helper Function Blocks allow the user to create the Arrowhead Framework types using standard types from IEC 61499. 
 The following figure shows the Function Block to create an Arrowhead Cloud type, which can later be connected to the upper levels.
 
-image:./img/arrowhead/typeHelper.png[Type helper for an Arrowhead Cloud]
+image:arrowhead/typeHelper.png[Type helper for an Arrowhead Cloud]
 
 On the second level, the actual Arrowhead services were implemented.
 These Function Blocks offer an adapter following the IEC 61499 standard, in order to decouple the abstract definition of services from the actual implementation. 
@@ -55,13 +60,13 @@ As an example, the following figure shows the Function Block to register and unr
 The data inputs are a Service Registry Entry type (protocol independent) and the endpoint to connect to. 
 The “registerService” adapter on the below right side, offers a plug to the actual implementation of the communication, passing all needed data.
 
-image:./img/arrowhead/abstractRegisterService.png[Abstract definition of the Register Service offered by the Service Registry core system]
+image:arrowhead/abstractRegisterService.png[Abstract definition of the Register Service offered by the Service Registry core system]
 
 The socket for this adapter is given by each implementation. The next figure shows the Function Block that implements the actual HTTP communication to the Service Registry (there's one with the same interface for OPC UA but different internal implementation). 
 Its only input is the socket adapter, the counter part of the plug adapter from the previous figure. 
 By connecting them, the information is passed to this Function Block that handles the communication.
 
-image:./img/arrowhead/httpRegisterService.png[Register Service implementation in HTTP Rest]
+image:arrowhead/httpRegisterService.png[Register Service implementation in HTTP Rest]
 
 This decoupled architecture allows to quickly implement another type of communication. 
 For example, to connect to the Service Registry with an OPC UA interface, only the Function Block in the last figure needed to be re-implemented with the specifics of OPC UA.
@@ -70,7 +75,7 @@ On the top most level, sub-applications were implemented in order to facilitate 
 For example, for registering a service, instead of building from the lowest level, which requires many Function Blocks and connections, an encapsulated sub-application is provided that offers all parameters for it. 
 The following figure shows the sub-application with all parameters to register and unregister a service using HTTP.
 
-image:./img/arrowhead/httpRegisterServiceFull.png[Sub-application for registering a service using HTTP]
+image:arrowhead/httpRegisterServiceFull.png[Sub-application for registering a service using HTTP]
 
 == Purpose of available FBs in the Arrowhead Library
 

@@ -1,6 +1,9 @@
 = [[topOfPage]] Step 0 - 4diac IDE - Overview
 :lang: en
-
+:imagesdir: ./src/tutorials/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
@@ -23,12 +26,12 @@ Open 4diac IDE to start the tutorial.
 You will be prompted to select or create your workspace. For this tutorial, we name our workspace "Tutorial". 
 A workspace is a folder on your computer that stores one or more 4diac IDE projects.
 
-image:./img/Step0/workspaceSelection.png[workspace selection]
+image:Step0/workspaceSelection.png[workspace selection]
 
 After you created a workspace, 4diac IDE presents its welcome screen.
 Here you can get an overview about 4diac IDE, create a new project, import an existing project or read more about the chapters of the tutorial.
 
-image:./img/Step0/welcomeScreen.png[welcome screen of 4diac IDE]
+image:Step0/welcomeScreen.png[welcome screen of 4diac IDE]
 
 At first it's best to deselect the checkbox at the bottom-right corner so you can start up 4diac IDE faster the next time. 
 You can open the welcome screen later again via Help → Welcome.
@@ -40,50 +43,50 @@ Next you click the _workbench_ button. This brings you to the main screen of 4di
 
 Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the standard's elements for work (you can check xref:../intro/iec61499.adoc#IEC61499[here] to revise):
 
-* image:./img/system.png[System] *System*: 
+* image:system.png[System] *System*: 
   It contains the [.view4diac]#System Configuration# and its corresponding [.element61499]#Applications#.
-* image:./img/app16.png[Application] *Application*: 
+* image:app16.png[Application] *Application*: 
   It contains the desired application in terms of a FB network.
-* image:./img/device16.png[Device] *Device*: 
+* image:device16.png[Device] *Device*: 
   It represents a hardware device such as a programmable logic controller (PLC) or a microcontroller.
-* image:./img/resource16.png[Resource] *Resource*: 
+* image:resource16.png[Resource] *Resource*: 
   It is responsible for the execution of the control logic within its own execution context.
 * *Function Blocks (FBs)*:
-** image:./img/basicfb_16.png[BFB] *Basic FB (BFB)*: 
+** image:basicfb_16.png[BFB] *Basic FB (BFB)*: 
    It uses an execution control chart (ECC) to control event execution. 
    Algorithms are associated with the different states inside an ECC.
-** image:./img/compositefb_16.png[CFB] *Composite FB (CFB)*: 
+** image:compositefb_16.png[CFB] *Composite FB (CFB)*: 
    It contains a FB network of existing FBs. 
    Its FB interface passes events and data on to the FBs within the CFB, which in turn pass events and data among themselves and out to the CFB's normal output interface.
-** image:./img/sifb_16.png[SIFB] *Service interface FB (SIFB)*: 
+** image:sifb_16.png[SIFB] *Service interface FB (SIFB)*: 
    It is usually used for something that cannot be done within the IEC 61499 standard such as communication with devices or network segments. 
    It helps to first understand basic and composite FBs. 
    SIFBs are then used to realize only what cannot be done using a BFB/CFB.
-* image:./img/adapter.png[Adapter] *Adapter*: 
+* image:adapter.png[Adapter] *Adapter*: 
   It combines a set of input/output events and data to one connection. 
   On the one hand it simplifies the IEC 61499 [.element61499]#Application# and on the other hand it better decouples [.element61499]#Application# parts providing an interface concept, which allows adopting the polymorphic concept of object-oriented programming.
 
 
 == [[perspectives]]4diac IDE Perspectives
 
-The 4diac IDE provides three perspectives, which can be added via the image:./img/perspective/new_persp.gif[add perspective] button in the upper-right corner:
+The 4diac IDE provides three perspectives, which can be added via the image:perspective/new_persp.gif[add perspective] button in the upper-right corner:
 
-image:./img/Step0/perspectiveSelection.png[perspective selection]
+image:Step0/perspectiveSelection.png[perspective selection]
 
-. The image:./img/system.png[System Perspective Button] *System Perspective* is used to configure everything regarding your system. 
+. The image:system.png[System Perspective Button] *System Perspective* is used to configure everything regarding your system. 
 It includes:
 * *System Manager*, which allows creating and editing your System and Applications.
 * *System Configuration*, which allows managing [.element61499]#Devices#, [.element61499]#Resources# and    [.element61499]#Segments# according to IEC 61499. 
 The [.element61499]#Resources# are used for [.element61499]#Application# mapping and insertion of communication function blocks to other
 [.element61499]#Devices# and [.element61499]#Resources#.
 * *Applications* according to the IEC 61499 [.element61499]#Application# Model. 
-. The image:./img/perspective/debugButton.gif[Debug Perspective Button] *4diac IDE Debug Perspective*, where [.element61499]#Applications# can be monitored and FBs can be debugged within the IDE.
+. The image:perspective/debugButton.gif[Debug Perspective Button] *4diac IDE Debug Perspective*, where [.element61499]#Applications# can be monitored and FBs can be debugged within the IDE.
 
 
 === [[systemPerspective]]System Perspective
 
 The perspective can be changed in the upper-right corner. 
-The System perspective is reached via the image:./img/system.png[System Perspective Button] button. 
+The System perspective is reached via the image:system.png[System Perspective Button] button. 
 The System perspective is divided into the following five areas:
 
 . *System Management area*, which is used for managing IEC 61499 compliant applications and configuring [.element61499]#Devices# and [.element61499]#Resources#. 
@@ -93,13 +96,13 @@ well as the default library.
 . *Outline* of [.element61499]#Applications#, [.element61499]#System# configurations, [.element61499]#Devices#, and [.element61499]#Resources# 
 . *Property view*, which allows parameterizing function block instances, [.element61499]#Devices#, and [.element61499]#Resources#
  
-image:./img/perspective/systemPerspective.png[System Perspective Button]
+image:perspective/systemPerspective.png[System Perspective Button]
 
 
 === [[debugPerspective]]Debug Perspective
 
 The perspective can be changed in the upper-right corner. 
-The [.view4diac]#Debug perspective# is reached via the image:./img/perspective/debugButton.gif[Debug Perspective Button] button. 
+The [.view4diac]#Debug perspective# is reached via the image:perspective/debugButton.gif[Debug Perspective Button] button. 
 The [.view4diac]#Debug perspective# is divided into the following four areas:
 
 . System selection, where Systems can be marked for monitoring by right-clicking and choosing [.menu4diac]#Monitor System.#
@@ -107,7 +110,7 @@ The [.view4diac]#Debug perspective# is divided into the following four areas:
 . Watches view, which allows watching the current values of the variables you marked for watching.
 . Outline of [.element61499]#Applications#, [.element61499]#System# configurations, [.element61499]#Devices#, and [.element61499]#Resources#
 
-image:./img/perspective/debugPerspective.png[Debug Perspective Button]
+image:perspective/debugPerspective.png[Debug Perspective Button]
 
 
 == [[preferences]]4diac IDE Preferences
@@ -123,25 +126,25 @@ Currently two runtime environments are supported:
 . http://www.eclipse.dev/4diac/en_rte.php[4diac Forte]: [.fileLocation]#path/forte.exe#
 . https://www.holobloc.com/[Holobloc's FBRT]: [.fileLocation]#path/fbrt.jar#
 
-image:./img/properties/4DIACpreferences.png[4diac IDE Preferences]
+image:properties/4DIACpreferences.png[4diac IDE Preferences]
 
 == Toolbar
 
 Selecting an element (e.g. [.element61499]#Systems#, [.element61499]#Devices#, [.element61499]#Resources#, [.element61499]#Applications#, [.element61499]#Function Blocks#, ...) and pressing the right mouse button opens the context menu with several menus to manipulate the specific element. 
 Additionally, the following items are provided in the permanent toolbar located below the menu:
 
-* image:./img/properties/hideEvent.png[Hide Events] and image:./img/properties/hideData.png[Hide Data]
+* image:properties/hideEvent.png[Hide Events] and image:properties/hideData.png[Hide Data]
 allow hiding either the event or the data connections in the [.view4diac]#Application Editor# Editor
-* image:./img/properties/icon_print.png[Print Icon] allows printing the [.element61499]#Applications# and the Automation Hardware
-* image:./img/properties/icon_save.png[Save Icon] allows saving changes from the toolbar or the file (Save or Save All is used), alternative access by pressing [.inlineCode]#Ctrl + S# 
-* image:./img/properties/undoredo.png[Undo/Redo Icon] provides undo and/or redo of last changes
-* image:./img/properties/zoom.png[Zoom Functionality] provides zoom functionality in the toolbar or the menu entries in the context menu of an editor but also by pressing [.button4diac]#Ctrl# while scrolling the mouse wheel
+* image:properties/icon_print.png[Print Icon] allows printing the [.element61499]#Applications# and the Automation Hardware
+* image:properties/icon_save.png[Save Icon] allows saving changes from the toolbar or the file (Save or Save All is used), alternative access by pressing [.inlineCode]#Ctrl + S# 
+* image:properties/undoredo.png[Undo/Redo Icon] provides undo and/or redo of last changes
+* image:properties/zoom.png[Zoom Functionality] provides zoom functionality in the toolbar or the menu entries in the context menu of an editor but also by pressing [.button4diac]#Ctrl# while scrolling the mouse wheel
 * Function Block instances or [.element61499]#Devices# can be deleted pressing [.button4diac]#DEL# or selecting the context menu entry Delete.
 * Instance names of Function Blocks, [.element61499]#Resources# or [.element61499]#Devices# can be changed. The instance name field can be
 edited in the properties view. 
 When a function block is selected, its properties are displayed at the bottom of the window. 
 Additionally, a slow double-click also allows editing the name: 
-First, select the FB by clicking onto it and, then, click on the FB again to edit the instance name. + image:./img/properties/instanceName.png[change instance name by double-clicking or property view]
+First, select the FB by clicking onto it and, then, click on the FB again to edit the instance name. + image:properties/instanceName.png[change instance name by double-clicking or property view]
 
 == Where to go from here?
 

@@ -1,4 +1,9 @@
 = [[RevolutionPi]]Revolution Pi
+:lang: en
+:imagesdir: ./src/io_config/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 The Revolution Pi by KUNBUS GmbH has been implemented by the _IO_CONFIG_ based I/O concept.
 Revolution Pi is a modular PLC, where you always have at least one core module and maybe one or more expansion modules for I/Os.
@@ -57,12 +62,12 @@ Maybe call it _IO_CONFIG_RES_.
 This _IO_CONFIG_RES_ contains your hardware setup in terms of function blocks.
 In case you have one Revolution Pi core module, two DIO and one AIO module, it could be like in the following image.
 
-image:./img/revpi_ioconfig.png[IO_CONFIG function block network]
+image:revpi_ioconfig.png[IO_CONFIG function block network]
 
 Within your IEC 61499 application you might have a function block like shown within the following image.
 Take it's IEC 61499 application name and it's instance name separated by a dot and add it as input for the desired input of the corresponding _IO_CONFIG_ function block.
 
-image:./img/revpi_ioFb.png[I/O function block in your IEC 61499 application]
+image:revpi_ioFb.png[I/O function block in your IEC 61499 application]
 
 When all I/Os are wired and named within your _IO_CONFIG_ function block network correspondingly, your IEC 61499 application is ready to be deployed and to access the hardware.
 

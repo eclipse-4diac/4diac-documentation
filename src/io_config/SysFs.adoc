@@ -1,11 +1,16 @@
 = [[sysfs]]SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)
+:lang: en
+:imagesdir: ./src/io_config/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 The following picture shows an example application from the xref:../tutorials/use4diacLocally.adoc[Blinking tutorial] which is extended with IX and QX function blocks. 
 The extended application periodically toggles on pin number 8. 
 It can be started and stopped via pin number 2. 
 You can connect an LED to obtain a blinking light.
 
-image:./img/ixqx_fb_network.png[Simple blinking application with an IX and QX function block.]
+image:ixqx_fb_network.png[Simple blinking application with an IX and QX function block.]
 
 The `PARAMS` data input in the IX and QX FB define which pin should be used. 
 The application also contains E_CYCLE and E_SWITCH function blocks (which are not in the Blinking tutorial). 

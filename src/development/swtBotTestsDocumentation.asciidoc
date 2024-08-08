@@ -1,5 +1,9 @@
 = [[topOfPage]]SWTBot Tests Documentation
 :lang: en
+:imagesdir: ./src/development/img/SWTBot
+ifdef::env-github[]
+:imagesdir: img/SWTBOT
+endif::[]
 
 * link:#ImprovementThroughAutomatedTesting[Eclipse 4diac IDE User Interface Quality Improvement Through Automated Testing]
 ** link:#WhatIsEclipseSWTBot[What is Eclipse SWTBot]
@@ -72,22 +76,22 @@ The test structure can also be found in https://wiki.eclipse.org/Eclipse_4diacWi
 
 To run all tests of a class in the folder `org.eclipse.fordiac.ide.test.ui`, *right click on the class → Run As → SWTBot Test.*
 
-image:./img/SWTBot/ClassRunAsSWTBotTest.png[execute all SWTBot tests of a class,width=800]
+image::ClassRunAsSWTBotTest.png[execute all SWTBot tests of a class,width=800]
 
 To execute a single test method *select the method and right click → Run As → SWTBot Test.*
 
-image:./img/SWTBot/RunAsSWTBotTest.png[execute a single test method,width=800]
+image:RunAsSWTBotTest.png[execute a single test method,width=800]
 
 == [[CreateNewTests]]Create a new test class or test method
 
 After a new class is added it is necessary to change the run configurations from Eclipse Platform to Eclipse 4diac to run the tests.
 The fastest way to do this is to + [.menu4diac]#right click on the class in the System Explorer → Run As → Run Configurations...#
 
-image:./img/SWTBot/RunConfigurationSelection.png[select Run Configuration for class,width=800]
+image:RunConfigurationSelection.png[select Run Configuration for class,width=800]
 
 In the window that appears, click on the *Main tab* and select to the right of *Run a project* the option *org.eclipse.fordiac.ide.product*.
 
-image:./img/SWTBot/RunConfigurationMain.png[select Run Configuration for method,width=800]
+image:RunConfigurationMain.png[select Run Configuration for method,width=800]
 
 In order to be able to run the tests individually, it is necessary to make the same setting with the individual test methods as well. 
 However, it was noticed that sometimes the first 1-2 test runs do not go through despite these settings because the settings are reset to Eclipse platform. 
@@ -104,7 +108,7 @@ This closing is important, otherwise the tests cannot be executed.
 
 Settings such as timeout and playback speed are also set here.
 
-image:./img/SWTBot/BeforeAll.png[@BeforeAll settings,width=450]
+image:BeforeAll.png[@BeforeAll settings,width=450]
 
 == [[ResultsEvaluation]]Results and Evaluation of the tests
 
@@ -121,7 +125,7 @@ This is the only way to rule out incorrect results due to incorrect tests.
 In our case, the test is correct, we found an error, the FB is actually not displayed in the hierarchy tree.
 Investigations revealed that the bug has already been reported, so no further action is necessary in this case.
 
-image:./img/SWTBot/TestResults.png[Test results,width=800]
+image:TestResults.png[Test results,width=800]
 
 xref:../index.adoc[Start Here page]
 

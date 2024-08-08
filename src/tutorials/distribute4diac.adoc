@@ -1,5 +1,9 @@
 = [[topOfPage]]Step 2 - Distribute 4diac Applications
 :lang: en
+:imagesdir: ./src/tutorials/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
@@ -22,7 +26,7 @@ The application will run on 2 devices.
 The blinking part of the application will run on a 4diac FORTE and the count on another 4diac FORTE, see the architecture below. 
 The two different programs running on the local machine emulate two PLCs. 
 
-image:./img/distributedArchitecture.png[architecture for the current step]
+image:distributedArchitecture.png[architecture for the current step]
 
 == [[extendApplication]]Extend the Application
 
@@ -35,7 +39,7 @@ To count the blinking, we need to add 2 new Function Blocks (FBs) to the existin
 
 Remember, Event and Data connections can not be mixed.
 
-image:./img/Step2/counterFBs.png[architecture for the current step]
+image:Step2/counterFBs.png[architecture for the current step]
 
 == [[AddAnotherDevice]]Add Another Device
 
@@ -48,12 +52,12 @@ The counter will run on the new device.
   The devices need to have different localhosts, they can not have the same one.
 . Rename the resource to *Counter_RES*.
 
-image:./img/Step2/addAnotherDevice.png[Add another device to the system]
+image:Step2/addAnotherDevice.png[Add another device to the system]
 
 Change back to the _BlinkTestApp_ Application Editor and map the two new FBs to the Resource _Counter_RES_. 
 You can see the dashed connections between the two devices.
 
-image:./img/Step2/mapToCounter.png[Mapping of Function Block Instances within the Application Editor]
+image:Step2/mapToCounter.png[Mapping of Function Block Instances within the Application Editor]
 
 == [[SetUpCommunication]]Set up the Communication Between Both Devices
 
@@ -64,7 +68,7 @@ Currently they have no opportunity to communicate with each other.
 We fix it by adding special Communications FBs. 
 You can find more information about broken connections xref:../intro/iec61499.html#brokenConnection[here on our Homepage].
 
-image:./img/Step2/incompleteFBs.png[incomplete FBs show die broken connection between two devices]
+image:Step2/incompleteFBs.png[incomplete FBs show die broken connection between two devices]
 
 === [[SetUpBlinking]]Set up the Blinking Part of the Application
 
@@ -73,7 +77,7 @@ Change to the _Testee.Blinky_RES_ Resource Editor.
 Drag and Drop a *PUBLISH_1* FB from the folder net of the Palette and set up the connections. 
 The PUBLISH FB must be initialized, so it is best to connect its INIT event directly to the START.
 
-image:./img/Step2/blinkyResourceComplete.png[Blinky_RES completely connected]
+image:Step2/blinkyResourceComplete.png[Blinky_RES completely connected]
 
 Set the `QI` value to `1` and the set the `ID` input data of the `PUBLISH_COUNT` FB to `239.0.0.1:61000`.
 
@@ -84,7 +88,7 @@ Change to the `Counter.Counter_RES` Resource Editor.
 Drag and Drop a *SUBSCRIBE_1* FB from the folder net of the Palette and set up the connections. 
 The SUBSCRIBE FB must also be initialized.
 
-image:./img/Step2/counterResourceComplete.png[Counter_RES completely connected]
+image:Step2/counterResourceComplete.png[Counter_RES completely connected]
 
 Set the `QI` value to `1` and the set the `ID` input data of the `SUBSCRIBE_COUNT` FB to `239.0.0.1:61000`.
 
@@ -116,11 +120,11 @@ Change to the Deployment Perspective.
 . Click the [.button4diac]#Deploy# button.
 . Check that the _Deployment Console_ shows some output, and that no red warning appears on the right nor left of it. If you get something red, something went wrong.
 
-image:./img/Step2/deployCounter.png[deploying of the application]
+image:Step2/deployCounter.png[deploying of the application]
 
 == [[testApplication]]Test it!
 
-image:./img/Step2/monitoringApp.png[monitoring of the application]
+image:Step2/monitoringApp.png[monitoring of the application]
 
 == Where to go from here?
 

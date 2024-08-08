@@ -1,5 +1,9 @@
 = [[topOfPage]]Building 4diac FORTE for freeRTOS + LwIP
 :lang: en
+:imagesdir: ./src/installation/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 == Introduction
@@ -28,7 +32,7 @@ If you don't have a freeRTOS and LwIP example this guide won't help you much.
 .. Set path for binaries where you want to create the library. Normally, `bin/freeRTOS` is used.
 .. Press [.button4diac]#Configure#
 +
-image:./img/raspiCrossLinux1.png[Selecting folders in CMake]
+image:raspiCrossLinux1.png[Selecting folders in CMake]
 . Select the correct option
 .. Select the tool you normally use to compile your programs. This
 example follows using UNIX Makefiles from the list.
@@ -38,7 +42,7 @@ that requires that you create the file first, which if you can do it
 later when you have more experience with CMake)
 .. Press [.button4diac]#Next#
 +
-image:./img/raspberrySPS_configure.png[CMake Setup]
+image:raspberrySPS_configure.png[CMake Setup]
 . Setup for cross-compilation
 .. Write a name for the OS (normally freeRTOS, it won't affect the compilation).
 .. Select the path to the C cross-compiler for your hardware. 
@@ -48,7 +52,7 @@ image:./img/raspberrySPS_configure.png[CMake Setup]
 .. The target root field can be left empty.
 .. Click [.button4diac]#Finish#
 +
-image:./img/raspiCrossLinux3.png[Select cross-compiling tools.]
+image:raspiCrossLinux3.png[Select cross-compiling tools.]
 . Configure the compilation
 +
 A list with all variables of 4diac FORTE in red should be shown in CMake.
