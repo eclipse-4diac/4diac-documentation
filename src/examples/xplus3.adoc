@@ -1,5 +1,9 @@
 = [[topOfPage]] X+3 Tutorial
 :lang: en
+:imagesdir: ./src/examples/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 == Explore an Existing System
 
@@ -19,7 +23,7 @@ The [.element61499]#Application# FBs are mapped to the [.element61499]#Resource#
 Click on the arrow beside the [.element4diac]#Xplus3 System# and double-click to open the [.element4diac]#Application# called [.element4diac]#Xplus3Application# 
 NOTE: depending on your operating system, a single click may be sufficient where double clicks are mentioned in this tutorial.
 
-image:./img/xplus3/x3_application.png[X+3 TestApplication]
+image:xplus3/x3_application.png[X+3 TestApplication]
 
 There are 3 groups of Function Blocks connected. The specific color of a Function Block shows that this block is mapped to a [.element61499]#Device#. 
 The two different colors of the FBs indicate that they are mapped to two different [.element61499]#Devices#, so the [.element61499]#Application# is distributed. 
@@ -44,13 +48,13 @@ Within the [.element61499]#System# called [.specificText]#Xplus3# there is the [
 Click once on [.element4diac]#System Configuration# (on left) and keep expanding the [.element4diac]#System Configuration# by clicking the arrows on the left. 
 This shows the [.element61499]#Devices# and [.element61499]#Resources# used.
 
-image:./img/xplus3/x3_systemConfiguration.png[System Configuration]
+image:xplus3/x3_systemConfiguration.png[System Configuration]
 
 ==== [[devices]]Explore Existing [.element61499]#Devices#
 
 Double click on [.element4diac]#System Configuration# to open the [.element4diac]#System Configuration# model that shows the [.element61499]#System#, the [.element61499]#Devices#, their [.element61499]#Resources# and the communication network the [.element61499]#Devices# are connected to.
 
-image:./img/xplus3/x3_system.png[The X+3 System]
+image:xplus3/x3_system.png[The X+3 System]
 
 There are two [.element4diac]#Devices# connected via an Ethernet segment. 
 You have to know what [.element4diac]#Devices# you are using. 
@@ -73,12 +77,12 @@ In the same way, expand the [.element61499]#Devices# ([.element4diac]#MICROCONTR
 Double-click on the [.element61499]#Resource# names ([.element4diac]#CALC#, [.element4diac]#VIS#) to see what Function Blocks are mapped to the [.element61499]#Resource#. 
 For the [.element4diac]#CALC Resource#, it looks like this: [.element4diac]#System Configuration# → [.element4diac]#MICROCONTROLLER# → [.element4diac]#CALC#
 
-image:./img/xplus3/x3_microcontroller.png[Resource on the Microcontroller]
+image:xplus3/x3_microcontroller.png[Resource on the Microcontroller]
 
 And for the [.element4diac]#VIS Resource#, like this:
 [.element4diac]#System Configuration# → [.element4diac]#PC# → [.element4diac]#VIS#
 
-image:./img/xplus3/x3_pc.png[Resource on the PC]
+image:xplus3/x3_pc.png[Resource on the PC]
 
 Note the [.element4diac]#PUBLISH_1# and [.element4diac]#SUBSCRIBE_1# Function Blocks that are used to send data between [.element61499]#Devices# or [.element61499]#Resources#. 
 The [.specificText]#_1# is the number of data items being sent / received. 
@@ -119,7 +123,7 @@ With the preferences set correctly for the IEC 61499 [.element61499]#System# on 
 Click the Open perspective button on top of the title bar and add Deployment in the perspective window. 
 The Open Perspective button of the Deployment perspective will be found besides the [.button4diac]#System# perspective Button
 
-image:./img/xplus3/x3_deployment.png[Deployment of the X+3 Application]
+image:xplus3/x3_deployment.png[Deployment of the X+3 Application]
 
 To download and test your IEC 61499 [.element61499]#Application#:
 

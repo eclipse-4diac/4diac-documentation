@@ -1,5 +1,9 @@
 = [[topOfPage]]Setting up 4diac FORTE for Posix PikeOS 5.x
 :lang: en
+:imagesdir: ./src/installation/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 This instruction assumes you have a Linux system with a PikeOS 5.x installation and a CODOE installation matching to the installed PikeOS
@@ -73,23 +77,23 @@ $\{workspace_loc:/forte-incubation}/
 CMAKE-GUI shows a dialog. 
 First set `forte-incubation` as source folder and `lwip.app` binary folder:
 
-image:./img/set_src_bin.svg[source code:
+image:set_src_bin.svg[source code:
 /home/user/workspace/forte-incubation, binaries:
 /home/user/workspace/lwip.app/4diac-forte,title="Setting path to src and bin"]
 
 
 Push _Configure_ and select "Unix Makefiles" and "Specify options for cross-compiling":
 
-image:./img/set_crossc.svg[Unix Makefiles cross-compiling options,title="Setting cross-compiling"]
+image:set_crossc.svg[Unix Makefiles cross-compiling options,title="Setting cross-compiling"]
 
 Push _Next_, set "Operating System" to "Generic" and leave all other fields blank.
 
-image:./img/set_os.svg[OS:Generic,title="Setting OS"]
+image:set_os.svg[OS:Generic,title="Setting OS"]
 
 After that press _Finish_ which will occur an expected error dialog. 
 Close the dialog and set parameter `FORTE_ARCHITECTURE` to `PikeOS_Posix`.
 
-image:./img/set_forte_arch.svg[FORTE<em>ARCHITECTURE=PikeOS</em>Posix,title="Setting FORTE_ARCHITECTURE"]
+image:set_forte_arch.svg[FORTE<em>ARCHITECTURE=PikeOS</em>Posix,title="Setting FORTE_ARCHITECTURE"]
 
 Push _Configure_ twice. 
 Now no error should be present any more.

@@ -1,4 +1,9 @@
 = [[topOfPage]]The Eclipse 4diac Project
+:lang: en
+:imagesdir: ./src/intro/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 To understand what's next, you need to know IEC 61499. 
 If you did not read the following page yet, go there now: xref:iec61499.adoc[IEC 61499 101]
@@ -17,7 +22,7 @@ For executing the distributed control applications modeled with IEC 61499 the s
 This is what a run-time environment provides. 
 In the next image, the idea behind decoupling the application development and the execution is presented.
 
-image:./img/iec61499Framework.png[IEC 61499 framework]
+image:iec61499Framework.png[IEC 61499 framework]
 
 The rectangle on the top represents the system according to IEC 61499. 
 Here, you need a tool that allows creating FBs and connecting them. 

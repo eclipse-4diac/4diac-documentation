@@ -1,5 +1,9 @@
 = [[topOfPage]]Step 6 - Advanced Features
 :lang: en
+:imagesdir: ./src/tutorials/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This page is part of a guide that gives a walk-through over the major
 4diac IDE features.
@@ -25,7 +29,7 @@ This page shows some advanced features about 4diac IDE that are usually used in
 [.element61499]#Adapters# group interface elements into reusable interface descriptions. 
 They reduce the number of interface elements (event and data inputs and outputs) and by that the number of connections that have to be created between interacting function blocks.
 In 4diac IDE, [.element61499]#adapters# are listed in the type library and represented by this symbol:
-image:./img/4diacIDE/img/adapter/adapter.png[adapter].
+image:4diacIDE/img/adapter/adapter.png[adapter].
 
 
 === [[newAdapterType]]Create a new Adapter Type
@@ -34,23 +38,23 @@ These interface descriptions can be added to the interface of any Function Block
 Currently, [.element61499]#adapters# can not contain other adapters. 
 There are two types of [.element61499]#adapters#, which are mirrored interfaces:
 
-image::./img/adapter/plugAndSocket.png[socket and plug.]
+image::adapter/plugAndSocket.png[socket and plug.]
 
-* [.element61499]#socket#: added as [.element4diac]#input# of a function block and represented by this symbol image:./img/adapter/sockets_16.png[socket of adapter] within the function block's interface.
-* [.element61499]#plug#: added as [.element4diac]#output# of a function block and represented by this symbol image:./img/adapter/plugs_16.png[plug of adapter] within the function block's interface.
+* [.element61499]#socket#: added as [.element4diac]#input# of a function block and represented by this symbol image:adapter/sockets_16.png[socket of adapter] within the function block's interface.
+* [.element61499]#plug#: added as [.element4diac]#output# of a function block and represented by this symbol image:adapter/plugs_16.png[plug of adapter] within the function block's interface.
 
 When a new [.element61499]#adapter# is created, it should be a [.element4diac]#socket#. 
 The mirrored plug is derived automatically by 4diac IDE and is [.specificText]#NOT# created by the user. 
 An adapter (socket) is created by [.command4diac]#File → New → New Type# and selecting [.menu4diac]#Adapter.adp# as Type. 
 All adapter names should start with an [.specificText]#A# (naming convention).
 
-image:./img/adapter/newAdapter.png[socket creation.]
+image:adapter/newAdapter.png[socket creation.]
 
 === [[useAdapterType]]Use Your new Adapter Type
 
 After creating your desired adapter type (socket), it can be added to a function block's interface by drag and drop from the Palette, as illustrated in the following figure.
 
-image:./img/adapter/addAdapter.png[add adapter to the interface of a function block.]
+image:adapter/addAdapter.png[add adapter to the interface of a function block.]
 
 The function blocks used within the following application snippet are part of the TrafficLight example system. 
 Two different adapter types have been used, `ATimeOut` in `PedLightCtl_AT` and `E_TimeOut` and `ATrafficLight` in `PedLightCtl_AT`.
@@ -62,7 +66,7 @@ The `E_TimeOut` is a composite function block.
 Within the network of a composite function block, any adapter added to its interface is represented by an adapter block which looks like a Function Block. 
 The interface elements of this adapter block are connected like a function block.
 
-image:./img/adapter/example.png[application with function blocks that contain adapters.]
+image:adapter/example.png[application with function blocks that contain adapters.]
 
 Further examples for the usage of adapters can be found within the FestoMPS example system.
 

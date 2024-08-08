@@ -1,5 +1,9 @@
 = [[topOfPage]]Contributing to 4diac IDE or 4diac FORTE
 :lang: en
+:imagesdir: ./src/development/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 The projects 4diac IDE and 4diac FORTE are stored as a Git repository in the Eclipse platform. 
@@ -447,7 +451,7 @@ johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte/.git $ nano config
 The following screenshot indicates the parts you need to add or change.
 Save and exit afterwards.
 +
-image:./img/cmdPushUrlConfig.png[Configure Gerrit Push URL]
+image:cmdPushUrlConfig.png[Configure Gerrit Push URL]
 . Create your own commit message template (optional)
 +
 You can create a commit message template file, which will be used everytime you do a new commit. 
@@ -463,7 +467,7 @@ johndoe@linuxmint ~/ $ nano .git_commit_msg_template
 The following screenshot shows some example content. 
 See link:#CommitChanges[above] for more details of the message guide
 +
-image:./img/cmdCreateCommitMsgTemplate.png[Example of commit message template contents]
+image:cmdCreateCommitMsgTemplate.png[Example of commit message template contents]
 . Do your first command line commit
 +
 A new commit should always be in relation to a bug in Bugzilla as already mentioned link:#FindBug[above]. 

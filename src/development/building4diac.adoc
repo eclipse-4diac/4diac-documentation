@@ -1,5 +1,9 @@
 = [[topOfPage]]Building and Running 4diac IDE
 :lang: en
+:imagesdir: ./src/development/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 You have 2 options for building and running 4diac IDE:
 
@@ -63,7 +67,7 @@ $ git checkout develop
 . right click on the 4diac IDE git repository and select _Import Projects..._ that opens a dialog. 
 Select everything within this dialog except the following ones 
 +
-image:./img/4diacIDE_import.png[4diac IDE not imported folders]
+image:4diacIDE_import.png[4diac IDE not imported folders]
 . Wait till Eclipse finished building the project (look at the progress bar at the right bottom corner of the Eclipse main window)
 . If you have a JRE > 21 installed, you need to make sure the compiler compliance level is set to JDK version 21 in order for the build to succeed.
 Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 21.
@@ -85,7 +89,7 @@ If you get [.specificText]#API Baseline# not set errors you need to perform the 
 * Select: API Baseline
 * Set the option Missing API Baseline: which can be found in the bottom of the preferences window from Error to Ignore
 +
-image:./img/APIbaseline.png[API Baseline]
+image:APIbaseline.png[API Baseline]
 
 
 Note: If you get an error in the "Problems" view stating "There is a possible API baseline mismatch ...", you can safely ignore this message.
@@ -96,7 +100,7 @@ This message will not prevent the IDE from building successfully.
 
 . Expand the project `org.eclipse.fordiac.ide.product` and open the target configuration `org.eclipse.fordiac.ide.product.target`:
 +
-image:./img/TargetPlatform.png[Eclipse target platform configuration]
+image:TargetPlatform.png[Eclipse target platform configuration]
 . Wait until the target platform is resolved or press [.button4diac]#Reload# and wait until it is resolved
 . Press [.button4diac]#Set as Active Target Platform# within the upper right corner and wait until the workspace is built.
 
@@ -107,7 +111,7 @@ In order that your development 4diac IDE can find this they have to put into th
 For that copy the `template` and the `typelibrary` directory into the `.metadata/.plugins/org.eclipse.pde.core/.bundle_pool` directory.
 . Open the `org.eclipse.fordiac.ide.product` from the `org.eclipse.fordiac.ide.product` plug-in.
 +
-image:./img/productConfigKepler.png[Eclipse product configuration]
+image:productConfigKepler.png[Eclipse product configuration]
 . In the [.menu4diac]#Testing# Section of the [.tab4diac]#Overview# tab press [.button4diac]#Synchronize#
 
 . Press [.button4diac]#Launch an Eclipse Application# in the [.view4diac]#Overview#

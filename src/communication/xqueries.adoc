@@ -1,5 +1,9 @@
 = [[topOfPage]]Access BaseX Database with XQueries
-
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This section will show you how to make applications communicate with a http://basex.org/[BaseX] database through XQueries. 
 This allows a component, to initialize itself by accessing its asset administration shell, in terms of an XML database. 
@@ -77,8 +81,8 @@ Replace the version number of the following line by the version number of the JA
 To send XQueries to your database, create a proper basic function block, which produces the desired XQueries. 
 The following images show a possible interface and execution control chart for a basic function block which fetches values from your BaseX database during initialization.
 
-image:./img/xquery/testFB.png[Test function block to send XQueries]
-image:./img/xquery/testFB_ECC.png[Test function block to send XQueries]
+image:xquery/testFB.png[Test function block to send XQueries]
+image:xquery/testFB_ECC.png[Test function block to send XQueries]
 
 The algorithm _getVMax_ contains an XQuery which is supposed to calculate the maximum speed of a roller conveyor from values of the database. 
 Since the 4diac IDE currently does not provide support for an XQuery algorithm language, you have to use _AnyText_ as algorithm language. The _AnyText_ language is interpreted as C++ code during export of your function block. 
@@ -145,7 +149,7 @@ The result of the XQuery is received by the `RD_1` output.
 A possible test application is shown in the following image. 
 Within this application a roller conveyor is initialized by its maximum speed, and its neighbouring roller conveyors.
 
-image:./img/xquery/testApp.png[Test function block to send XQueries]
+image:xquery/testApp.png[Test function block to send XQueries]
 
 The `ID` input of the `CLIENT_1` function block contains a variable `%local%` which is replaced by a proper value during deployment. 
 The `ID` is configured with the protocol name, the IP address of the computer, where your BaseX database is running, the port where your BaseX server listens for requests, the name of your database, a user name and a password. 

@@ -1,4 +1,9 @@
 = [[topOfPage]]OPC DA
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This section will show you how to create an OPC DA Client with 4diac IDE and how to use it with 4diac FORTE. 
 Download the following packages: 
@@ -13,7 +18,7 @@ Download the following packages:
 . Install Visual Studio Build Tools with the components shown in the below.
   Since https://docs.microsoft.com/en-us/cpp/porting/visual-cpp-change-history-2003-2015?redirectedfrom=MSDN&view=msvc-160#mfc-and-atl[Visual studio 2013], atls.lib and atlsd.lib are unified as atls.lib which together with headers could be detected by the msvc, so that no need to specify in CMakeLists.txt for OPC module.
 +
-image:./img/opc_VSBuildtoolsInstallation.png[VS Properties]
+image:opc_VSBuildtoolsInstallation.png[VS Properties]
 
 . Clone OPC Client library, check out to develop branch and open the OPC-Client-X64 folder in Visual Studio Code, Visual Studio Code with C/C++ Extension Pack installed should be detect OPC-Client-X64 as a CMake project. Create settings.json file inside .vscode folder as below.
 +
@@ -80,17 +85,17 @@ After triggering the INIT event, the OPC-client tries to connect with the OPC-se
 In this example the OPC-server is `FestoDidactic.EzOPC.2`. 
 It is a tool from Festo and can be downloaded https://www.festo.com/de/en/support-portal-specific/?query=EzOPC&groupId=4&productName=EzOPC&documentId=658492[here].
 
-image:./img/opc_fordiacTrigger.png[4diac IDE Trigger OPC event]
+image:opc_fordiacTrigger.png[4diac IDE Trigger OPC event]
 
 When the connection is established, a window of the server pops up.
 
-image:./img/opc_festoOPCserver.png[Festo OPC Server]
+image:opc_festoOPCserver.png[Festo OPC Server]
 
 Now trigger the REQ event to send the data from client to server.
 `BYTE#210` should be send to the server's port `VirtualPLC.EB0`. 
 Click to "Virtual Controller" tab to check if the OPC server has received the information.
 
-image:./img/opc_festoOPCserverIO.png[Festo OPC Server IO]
+image:opc_festoOPCserverIO.png[Festo OPC Server IO]
 
 == Where to go from here?
 

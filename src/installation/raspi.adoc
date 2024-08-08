@@ -1,5 +1,9 @@
 = [[topOfPage]]Building 4diac FORTE on Raspberry Pi
 :lang: en
+:imagesdir: ./src/installation/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 == Introduction
@@ -107,14 +111,14 @@ but this method gave some errors in some cases.
    Normally, `bin/raspPi` is used.
 .. Press [.button4diac]#Configure#
 +
-image:./img/raspiCrossLinux1.png[Selecting folders in CMake]
+image:raspiCrossLinux1.png[Selecting folders in CMake]
 . CMake Setup
 .. Select the tool you normally use to compile your programs. 
    This example follows using UNIX Makefiles from the list.
 .. Select [.button4diac]#Specify tools for cross-compiling#
 .. Press [.button4diac]#Next#
 +
-image:./img/raspiCrossLinux2.png[CMake Setup]
+image:raspiCrossLinux2.png[CMake Setup]
 . CMake Setup
 .. Write a name for the OS (normally Raspbian, it won't affect the compilation).
 .. Select the path to the C cross-compiler called arm-linux-gnueabihf-gcc, in the bin folder of the downloaded tools' folder. 
@@ -134,7 +138,7 @@ $ which arm-linux-gnueabi-g++
 .. The target root field can be left empty.
 .. Click [.button4diac]#Finish#
 +
-image:./img/raspiCrossLinux3.png[Select cross-compiling tools.]
+image:raspiCrossLinux3.png[Select cross-compiling tools.]
 . Configure the compilation
 +
 A list with all variables of 4diac FORTE in red should be shown in CMake as the picture below.
@@ -146,10 +150,10 @@ A list with all variables of 4diac FORTE in red should be shown in CMake as the
 .. Click [.button4diac]#Configure# and the variables that need revision will appear again in red and the rest in white. 
    Check these variables and press [.button4diac]#Configure# until no variable is shown in red.
 +
-image:./img/raspiCrossLinux4.png[Configure 4diac FORTE compilation.]
+image:raspiCrossLinux4.png[Configure 4diac FORTE compilation.]
 . Generate files: Click [.button4diac]#Generate#
 +
-image:./img/raspiCrossLinux5.png[Generate the makefiles.]
+image:raspiCrossLinux5.png[Generate the makefiles.]
 . Build 4diac FORTE: Go to the recently generated folder and execute make (or build it as you normally do)
 +
 ----

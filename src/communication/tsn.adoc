@@ -1,5 +1,9 @@
 = [[topOfPage]]How to use Eclipse 4diac's Time Sensitive Networking Communication Interface
-
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 == [[intro]]Introduction
 
@@ -61,7 +65,7 @@ The different VLANs are related to different forwarding and scheduling strategie
 
 An example of a TSN enabled PUBLISH FB with a standard IP layer SUBSCRIBER FB is shown in the following figure.
 
-image:./img/tsn_layer_pub_sub.png[TSN enabled publish SIFB in 4diac] 
+image:tsn_layer_pub_sub.png[TSN enabled publish SIFB in 4diac] 
 
 [NOTE]
 ====
