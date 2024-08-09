@@ -1,9 +1,11 @@
 = [[topOfPage]]Library Management
 :lang: en
 :imagesdir: ./src/development/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 image::LibraryExample.png[Library Example]
-
 
 == Library Handling
 Libraries get introduced into the project through the available import wizards which update the project manifest as necessary.

@@ -1,5 +1,9 @@
 = [[topOfPage]]Communication Architecture
 :lang: en
+:imagesdir: ./src/development/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 == Layered Network Interface
 
@@ -55,7 +59,7 @@ There are also three roles a layer can take: top layer, middle layer and bottom 
   The bottom layer will, in most cases, not implement recvData function, as this is handled directly by the network interface.
   
 .Overview of the Network Layer
-image::./img/Network_overview.png[]
+image::Network_overview.png[]
 
 
 === [[openConnection]]Open Connection
@@ -68,10 +72,10 @@ The openConnection function is called when the function block receives an INIT+ 
 The function can also fail, for example, when the network device is not ready.
 
 .Open connection successful
-image::./img/OpenConnection.png[]
+image::OpenConnection.png[]
 
 .Open connection failed
-image::./img/OpenConnectionFailed.png[]
+image::OpenConnectionFailed.png[]
 
 === [[closeConnection]]Close Connection
 
@@ -79,7 +83,7 @@ The closeConnection function is dependent to the openConnection function.
 The function closes all beneath layers and then closes the own connection.
 
 .Sequence diagram of closing a connection
-image::./img/CloseConnection.png[Figure 4]
+image::CloseConnection.png[Figure 4]
 
 === [[sendData]]Send Data
 
@@ -96,7 +100,7 @@ The middle layer is the most flexible layer, as it is possible to add additional
   The last layer (bottom layer), sends the message to the network and returns a confirm event to the function block.
 
 .Send data on an established connection
-image::./img/SendData.png[Figure 5]
+image::SendData.png[Figure 5]
 
 === [[receiveData]]Receive Data
 
@@ -119,7 +123,7 @@ Process interrupt will be usually done at the bottom or middle layer depending o
 Afterwards, the `recvData(..)` function will be called from lower to upper layer until the FunctionBlock receives the data and emits the CNF+/IND+ signal
 
 .Receive data of an established connection
-image::./img/RecvData.png[Figure 6]
+image::RecvData.png[Figure 6]
 
 
 === [[genericInterrupt]]Generic Interrupt
@@ -130,7 +134,7 @@ In the same way as in the example of receiving data, the external event handler 
 Then, after receiving the External Event signal, the function block sends the processInterrupt() to the network layer, which returns an  `INIT-` event indicating a lost connection.
 
 .Connection abort interrupt from network interface
-image::./img/AsyncError.png[Figure 7]
+image::AsyncError.png[Figure 7]
 
 
 == [[functionBlocks]]Function Blocks

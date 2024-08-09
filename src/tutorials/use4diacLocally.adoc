@@ -1,5 +1,9 @@
 = [[topOfPage]]Step 1 - Use 4diac Locally
 :lang: en
+:imagesdir: ./src/tutorials/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
@@ -18,9 +22,9 @@ It's the "Hello World" of automation programs, so it teaches the key aspects and
 The application will run locally, so no connection to any PLC or external hardware is needed. 
 The architecture is shown below.
 
-image:./img/locallyArchitecture.png[architecture for the current step]
+image:locallyArchitecture.png[architecture for the current step]
 
-After completing Step 0 switch to the system perspective using the image:./img/system.png[System Perspective Button] Button.
+After completing Step 0 switch to the system perspective using the image:system.png[System Perspective Button] Button.
 
 == [[createSystem]]Create a new IEC 61499 System
 
@@ -30,7 +34,7 @@ After completing Step 0 switch to the system perspective using the image:./img/s
 . Follow the instructions in the creation wizard. 
   For this tutorial we name our new system _BlinkTest_.
 +
-image:./img/Step1/newSystemWizard.png[Create a new IEC 61499 System]
+image:Step1/newSystemWizard.png[Create a new IEC 61499 System]
 
 The system appears in the [.view4diac]#System Explorer# on the left, click on the _BlinkTest_ to unfold the tree. 
 There you can see three things now:
@@ -58,7 +62,7 @@ A double-click on an Application in the System Explorer tab on the left opens th
 
 +
 You can also double-click the editor area and search for the FBs. 
-image:./img/Step1/blinkFBs.png[Function Blocks for the blink example] +
+image:Step1/blinkFBs.png[Function Blocks for the blink example] +
 The name in the middle of the FB is its type. If you CTRL + click on it, you can access the definition of the type of the FB. 
 There you can see the interface and how it works. 
 Check `E_SWITCH` and `E_SR` and go to the ECC tab to see how they behave. +
@@ -72,7 +76,7 @@ Position the mouse pointer over an Event-/Data in- or output, click and drag to 
 Remember, Event and Data connections cannot be mixed. Events connections allow fan-in and fan-out. 
 Data connections allow fan-out but not fan-in. 
 +
-image:./img/Step1/blinkWithConnections.png[Function Blocks for the blink example]
+image:Step1/blinkWithConnections.png[Function Blocks for the blink example]
 +
 Here are some tips for editing the application:
 
@@ -89,7 +93,7 @@ Here are some tips for editing the application:
 +
 Set the value to `T#1s`, meaning 1 second.
 +
-image:./img/Step1/blinkComplete.png[Function Blocks for the blink example]
+image:Step1/blinkComplete.png[Function Blocks for the blink example]
 
 Now the application is done. 
 You should try to understand how the application works. 
@@ -124,7 +128,7 @@ One `EMB_RES` resource is already present in the device.
 The `MGR_ID` value of `localhost:61499` specifies the `IP:PORT` where the device will run. 
 In this case it'll run locally and will listen at the port `61499`.
 
-image:./img/Step1/systemConfigurationEditor.png[System Configuration Editor]
+image:Step1/systemConfigurationEditor.png[System Configuration Editor]
 
 The color is automatically generated for better orientation in the system. 
 When several devices or segments are in use, you can see at a glance where the FB belongs to. 
@@ -144,7 +148,7 @@ NOTE: The *resource* is automatically generated for your convenience.
 `EMB_RES` stands for Embedded Resource. 
 We named it `Blinky_RES`.
 
-image:./img/Step1/changeResourceName.png[changing the name of the Resource]
+image:Step1/changeResourceName.png[changing the name of the Resource]
 
 Device and Resource parameters can either be specified directly at each Device/Resource or via the Properties View. 
 The [.view4diac]#Properties View# shows the parameters of a IEC 61499 Device/Resource (if it is selected either in the [.view4diac]#System Configuration Editor# or in the [.view4diac]#System Manager View#). 
@@ -167,7 +171,7 @@ All mapped FBs are changing their fill color to the device's color during the ma
 Go to the Application created before, select the FBs you want to map by left-clicking or drawing a rectangle over it (in this case all of them), +
 [.menu4diac]#right click → Map to ... → FORTE_PC → Blinky_RES#
 
-image:./img/Step1/mappingInAppEditor.png[Mapping of Function Block Instances within the Application Editor]
+image:Step1/mappingInAppEditor.png[Mapping of Function Block Instances within the Application Editor]
 
 To unmap a Function Block instance from a Resource, use the context menu entry [.menu4diac]#Unmap# of a Function Block in the corresponding [.button4diac]#Application#.
 
@@ -181,7 +185,7 @@ This is the default starter function block of the `EMB_RES`.
 This will trigger a `COLD` event when starting. 
 The `STOP` is triggered when the PLC is set to a stop state, and the `WARM` when the PLC changes from a stop state back to a run state. Connect both `COLD` and `WARM` to `E_CYCLE.START`.
 
-image:./img/Step1/resourceComplete.png[Resource completely connected]
+image:Step1/resourceComplete.png[Resource completely connected]
 
 You also see the FBs that were previously mapped. 
 You can add more FBs directly here and they will be already mapped to the resource, or you can unmap the FBs.
@@ -216,8 +220,8 @@ In this step, the Blink application will be deployed to 4diac FORTE running loc
 You can either build your own 4diac FORTE as xref:..//installation/install.html#ownFORTE[shown here] or you can download the 4diac FORTE image that is provided for you for this tutorial on https://eclipse.dev/4diac/en_dow.php[our Homepage]. 
 You can save the .exe wherever you like, we have chosen `F:\4diac\4diac IDE\`. 
 Go to [.menu4diac]#Windows → Preferences → 4diac IDE → FORTE Preferences#, and in [.addressDoc]#FORTE Location# look for the 4diac FORTE executable and then click _Apply and Close_. +
-image:./img/Step1/selectForte.png[select your 4diac FORTE,width=600]
-. Change to the _Deployment Perspective_ using the image:./img/perspective/deploymentButton.gif[Deployment Perspective Button] button.
+image:Step1/selectForte.png[select your 4diac FORTE,width=600]
+. Change to the _Deployment Perspective_ using the image:perspective/deploymentButton.gif[Deployment Perspective Button] button.
 . Set the port to 61499 (the same define before, remember [.address]#localhost:61499# in the System Configuration?)
 . [.button4diac]#Launch Local 4diac FORTE#
 . You should see the the location of your 4diac FORTE and the *Terminate* button enabled in the Console.
@@ -227,14 +231,14 @@ image:./img/Step1/selectForte.png[select your 4diac FORTE,width=600]
 . Check that the _Deployment Console_ shows some output, and that no red warning appears on the right nor left of it. 
   If you get something red, something went wrong.
 
-image:./img/Step1/deploymentExample.png[deploying of the application]
+image:Step1/deploymentExample.png[deploying of the application]
 
 NOTE: With the runtime launcher you can only start run-time environments on your local development computer. 
 It is not possible to start run-time environments on remote computers or control devices. 
 In order to perform this task device specific means to start the run-time environment have to be performed.
 
 The _Deployment Console_ is automatically cleared before each download.
-Furthermore, with the icon image:./img/clearDeploymentConsole.png[Clear Deployment Console] in the upper right corner of the _Deployment Console_ the deployment messages can be cleared.
+Furthermore, with the icon image:clearDeploymentConsole.png[Clear Deployment Console] in the upper right corner of the _Deployment Console_ the deployment messages can be cleared.
 
 By selecting a Device or Resource the corresponding IEC 61499 element can be cleaned. 
 This means that the Device or Resource configuration are cleaned and reset to the default configuration without any Function Block Network.
@@ -244,24 +248,24 @@ You can deploy again after cleaning the Device.
 
 [.menu4diac]#Delete Resource# deletes just the selected resource:
 
-image:./img/Step1/cleanDeviceOrResource.png[Clean Devive or Resource,width=1024]
+image:Step1/cleanDeviceOrResource.png[Clean Devive or Resource,width=1024]
 
 == [[monitoringApplication]]Monitoring the Application
 
 To observe the outputs of your Application you can use 4diac's monitoring functionality. 
-You can enable it in the Toolbar under the Toolbar icon: image:./img/properties/startMon.gif[Monitoring] or doing the following:
+You can enable it in the Toolbar under the Toolbar icon: image:properties/startMon.gif[Monitoring] or doing the following:
 
-. Change to Debug Perspective using the image:./img/perspective/debugButton.gif[Debug Perspective Button] button.
+. Change to Debug Perspective using the image:perspective/debugButton.gif[Debug Perspective Button] button.
 . In the System Explorer, right click on the System → Monitor System
 +
-image:./img/Step1/enableMonitoring.png[Resource completely connected]
+image:Step1/enableMonitoring.png[Resource completely connected]
 
 A green circle will appear in the system icon indicating that monitoring is enabled for the system. To watch variables, you can:
 
 * Right Click on a [.menu4diac]#FB → Watch All# or
 * Right Click on a [.menu4diac]#Variable → Watch#
 +
-image:./img/Step1/monitoringWatch.png[Resource completely connected]
+image:Step1/monitoringWatch.png[Resource completely connected]
 
 The Data and Events are monitored. 
 The Data shows the current value and the Events show the times it was triggered. 
@@ -270,11 +274,11 @@ You can watch on the directly on the Element or in the Watches view.
 Now you can see that _true_ and _false_ alternate. 
 If a controller output were connected, a light would now blink at 1 second intervals. 
 
-image:./img/Step1/monitoringWatching.png[Resource completely connected]
+image:Step1/monitoringWatching.png[Resource completely connected]
 
 You can force values to data inputs and trigger events by right clicking on it and selecting the corresponding command.
 
-image:./img/Step1/monitoringForceOrTrigger.png[Force value]
+image:Step1/monitoringForceOrTrigger.png[Force value]
 
 == Where to go from here?
 

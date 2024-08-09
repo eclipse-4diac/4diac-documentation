@@ -1,12 +1,16 @@
 = [[topOfPage]]Compiling and Debugging 4diac FORTE with Eclipse
 :lang: en
+:imagesdir: ./src/installation/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 == Get C/C++ support for Eclipse
 
 . Unless you already use Eclipse, for example to build 4diac IDE from source, download http://www.eclipse.org/downloads/[Eclipse for C/C++ Developers] and unzip the file to a suitable location (e.g., `C:\eclipse`). 
 Otherwise you can integrate C/C++ functionality into your Eclipse installation by [.menu4diac]#Help → Install New Software#, choosing your Eclipse version (1) and checking [.menu4diac]#Programming Languages → C/C++ Development Tools# (2).
 +
-image:./img/eclipseInstallNewSoftware.png[Install new software in Eclipse]
+image:eclipseInstallNewSoftware.png[Install new software in Eclipse]
 . Restart `eclipse.exe`
 . Choose a workspace directory. 
   This will be the directory where your C/C++ projects will be located. 
@@ -33,7 +37,7 @@ Then compile the project as follows:
   [.fileLocation]#bin/[YOUR_SYSTEM]/all# to compile 4diac FORTE to an executable application. If you don't see the targets (all or clean), you can create them in the same window. 
   Make sure that you create them in the correct folder.
 +
-image:./img/eclipseMakefiles.png[Eclipse C++ with 4diac FORTE imported and marked makefiles]
+image:eclipseMakefiles.png[Eclipse C++ with 4diac FORTE imported and marked makefiles]
 
 == Debug 4diac FORTE with Eclipse
 
@@ -46,14 +50,14 @@ For debugging your own Function Blocks, go through the following steps:
   In the [.tab4diac]#Debugger# tab, choose your desired debugger. 
   In Windows you normally use MinGW64 (you have to install them in order for them to appear in the selection box).
 +
-image:./img/eclipseLaunchDebug.png[Eclipse Launch Debug Configuration Selection]
+image:eclipseLaunchDebug.png[Eclipse Launch Debug Configuration Selection]
 . Click [.button4diac]#Debug#.
 . Confirm for changing into the Debug view.
 . If you don't see the file where the debugger stopped at the beginning, press the [.button4diac]#Locate File# button (1) and navigate to the
 Eclipse workspace which contains the extracted 4diac FORTE, type [.specificText]#main# into the search field of the Windows Explorer and select `main.cpp`. 
   4diac FORTE is now stopped at the [.specificText]#main()# function.
 +
-image:./img/eclipseDebug.png[Eclipse C++ Debug View]
+image:eclipseDebug.png[Eclipse C++ Debug View]
 . Press the [.button4diac]#Resume# button (2) to run 4diac FORTE and observe the behavior of your application.
 . Always press the [.button4diac]#Terminate# button for stopping a 4diac FORTE launched within Eclipse. 
   This avoids 4diac FORTE running in the background (not always shown in Task Manager).

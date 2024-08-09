@@ -1,6 +1,9 @@
 = [[topOfPage]]Step 7 - Deploying new FBs with the Dynamic Type Loader
 :lang: en
-
+:imagesdir: ./src/tutorials/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This page is part of a guide that gives a walk-through of the major 4diac IDE features.
 
@@ -45,7 +48,7 @@ $ git clone http://luajit.org/git/luajit-2.0.git $ cd luajit-2.0 $ make
 
 The libs should be successfully created.
 
-image:./img/Step7/LuaJitCompiled.png[Compile Lua Jit]
+image:Step7/LuaJitCompiled.png[Compile Lua Jit]
 
 
 == [[CompileForte]]Compiling 4diac Forte with the LuaJit
@@ -76,7 +79,7 @@ make
 
 You should have now successfully built your 4diac FORTE with the integration of the Lua JIT compiler.
 
-image:./img/Step7/FORTECompiled.png[Compile 4diac FORTE]
+image:Step7/FORTECompiled.png[Compile 4diac FORTE]
 
 == [[enableDTL]]Enabling the Dynamic Type Loader
 
@@ -86,7 +89,7 @@ Before you can use theDynamic Type Loader, you have to enable it in the 4diac I
 . Then choose the 4diac FORTE resources, where you want to deploy the new FBs to
 . In the properties tab, change the profile above the "Inputs" of the tab, to "DynamicTypeLoad"
 
-image:./img/Step7/EnabledDTL.png[Enable DTL]
+image:Step7/EnabledDTL.png[Enable DTL]
 
 Everything should be set up and you can deploy your FBs, like you learned earlier in the tutorial, without compiling a new 4diac FORTE.
 

@@ -1,4 +1,9 @@
 = [[topOfPage]]OPC UA with IEC 61499 Tutorial
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This tutorial shows how you can use https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC 61499 Application using available FBs. You should first complete the xref:../tutorials/use4diacLocally.html[First Steps in Eclipse 4diac Tutorial] to get familiar with the 4diac IDE. 
 4diac FORTE uses the http://open62541.org/[open62541] OPC UA stack which is open source and can also be used in commercial projects free of charge.
@@ -278,7 +283,7 @@ Note that only one OPC UA server will be created and the address model is shared
 * net/PUBLISH_1
 . Connect the function blocks in the following way:
 +
-image:./img/opc_ua_flipFlop_FB_2.png[OPC UA Flip-Flop Application]
+image:opc_ua_flipFlop_FB_2.png[OPC UA Flip-Flop Application]
 
 . Map the function blocks to the device
 . To configure where the variable nodes are created in the address space, you have use the ID fields of the SUBSCRIBE/PUBLISH function blocks. 
@@ -289,13 +294,13 @@ image:./img/opc_ua_flipFlop_FB_2.png[OPC UA Flip-Flop Application]
 . Open the System Editor and connect the COLD and WARM ports to the INIT port of SUBSCRIBE_1. 
  So finally it should look like this:
 +
-image:./img/opc_ua_flipFlop_FB_full_2.png[OPC UA Flip-Flop Application connected]
+image:opc_ua_flipFlop_FB_full_2.png[OPC UA Flip-Flop Application connected]
 
 . Deploy the Application to 4diac FORTE
 . Open UaExpert (you can get it from https://www.unified-automation.com/de/downloads/opc-ua-clients.html[here]) and connect to the OPC UA server running on 4diac FORTE: `opc.tcp://localhost:4840`. 
   You should see the two variables which have been created by the SUBSCRIBE and PUBLISH function blocks:
 +
-image:./img/opc_ua_flipFlop_uaExpert_2.png[OPC UA Flip-Flop in UaExpert]
+image:opc_ua_flipFlop_uaExpert_2.png[OPC UA Flip-Flop in UaExpert]
 +
 The two _VariableNodes_ `Flip` and `Flop` are created out of the SUBSCRIBE and PUBLISH function block. 
 The data type of the variables is derived from the type of the connected FB's port datatype (E_SWITCH.G and E_SR.Q) +
@@ -314,14 +319,14 @@ Here you can see another example how to use SUBSCRIBE and PUBLISH to create an I
 
 If you followed the steps before you should be able to create a new Application which looks like this:
 
-image:./img/opc_ua_adder_full_2.png[OPC UA Adder Application]
+image:opc_ua_adder_full_2.png[OPC UA Adder Application]
 
 The F_ADD function block is a generic type which can have any supported data type for the IN1, IN2 and OUT ports. 
 On the other hand the SUBSCRIBE and PUBLISH FBs need to now which datatype the created variables should have. 
  To introduce this information into the application model, you can use the INT2INT converter function block.
 This will create the following nodes in the OPC UA Server:
 
-image:./img/opc_ua_adder_uaExpert_2.png[OPC UA Adder in UA Expert]
+image:opc_ua_adder_uaExpert_2.png[OPC UA Adder in UA Expert]
 
 Try to understand from where the names for [.specificText]#Num1#, [.specificText]#Num2#, and [.specificText]#Result# come from.
 
@@ -341,7 +346,7 @@ To start two 4diac FORTE instances on the same PC, you can pass the port on the
 
 The system configuration should then look like this:
 
-image:./img/opc_ua_variable_read_write_system_2.png[OPC UA Variable Read/Write System]
+image:opc_ua_variable_read_write_system_2.png[OPC UA Variable Read/Write System]
 
 Then we create the following application. On the server side we create an OPC UA variable `/Objects/Increment` (`SUBSCRIBE_1`). 
 When a client writes to this variable, it will be incremented (F_ADD) and then written to another OPC UA variable at `/Objects/Incremented` (`PUBLISH_1`).
@@ -351,7 +356,7 @@ To read the incremented value from the server, we use a `CLIENT_0_1` FB, which r
 
 Do not forget to connect the `COLD/WARM` events in the resource view to the `INIT` event ports of the corresponding function blocks.
 
-image:./img/opc_ua_variable_read_write_app_2.png[OPC UA Variable Read/Write Application]
+image:opc_ua_variable_read_write_app_2.png[OPC UA Variable Read/Write Application]
 
 Deploy the application to two 4diac FORTE instances. You can access the server variables using UaExpert. 
 For the client, you can monitor the system. 
@@ -368,12 +373,12 @@ When you have created the empty Application, continue with the following steps.
 
 . Create the following application:
 +
-image:./img/opc_ua_method_full_2.png[OPC UA Method Application]
+image:opc_ua_method_full_2.png[OPC UA Method Application]
 
 . Deploy the Application to 4diac FORTE
 . Open UaExpert and you should see the following address model:
 +
-image:./img/opc_ua_method_uaExpert_2.png[OPC UA Method in UaExpert]
+image:opc_ua_method_uaExpert_2.png[OPC UA Method in UaExpert]
 
 . Optionally you can again monitor the application in 4diac
 . In UaExpert Right-Click on the Method Node [.specificText]#AddValues# and select Call.
@@ -392,7 +397,7 @@ Otherwise the call will fail with a timeout error code.
 To call the method from the example before, the application would look like this (in this case, it will send 43 and 10 as inputs to the
 method):
 
-image:./img/opc_ua_method_call_2.png[OPC UA method call in 4diac]
+image:opc_ua_method_call_2.png[OPC UA method call in 4diac]
 
 Try to deploy both applications and trigger the method call from the client and get the result from the method in the Result FB.
 
@@ -409,7 +414,7 @@ Therefore we extend the OPC UA variables example by adding subscription function
   The SUBSCRIBE function block gets the updated value automatically without a need to actively trigger the RSP event.
 . The application now looks like this:
 +
-image:./img/opc_ua_subscriptions_2.png[OPC UA Subscription Application]
+image:opc_ua_subscriptions_2.png[OPC UA Subscription Application]
 
 . Note, that the [.element4diac]#RD_1# port of the [.element4diac]#SUBSCRIBE# is the current value of the subscribed node. 
   Additionally, you need to make sure that the data type of the [.element4diac]#RD# port matches the types from the OPC UA variable you want to subscribe to. 

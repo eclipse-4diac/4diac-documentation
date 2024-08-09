@@ -1,6 +1,9 @@
 = [[CreateTypes]]Step 5 - Other Basic Features
 :lang: en
-
+:imagesdir: ./src/tutorials/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
@@ -46,11 +49,11 @@ This file contains the FB network configuration for the device and will be autom
 
 In order to create such boot-files, you need to select one or more devices or resources in the [.view4diac]#Download Selection View# and select [.menu4diac]#Create FORTE boot-files...# from the context menu.
 
-image:./img/createBootFileContextMenu.png[Create Boot-file context menu]
+image:createBootFileContextMenu.png[Create Boot-file context menu]
 
 In the wizard, you can then select the devices and resources for which you wish to create boot-files as well as the directory where to place them.
 
-image:./img/createBootFileWizard.png[Create Boot-file Wizard]
+image:createBootFileWizard.png[Create Boot-file Wizard]
 
 On pressing [.button4diac]#Finish# one boot-file will be created per device. 
 This boot-file will contain the selected resources and the FB networks contained in the resources. 

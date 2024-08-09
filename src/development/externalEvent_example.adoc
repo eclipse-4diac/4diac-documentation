@@ -1,5 +1,9 @@
 = [[topOfPage]]External Event SIFB
 :lang: en
+:imagesdir: ./src/development/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 External Events are events in 4diac FORTE, which are hidden and can not be seen in 4diac IDE. 
@@ -20,7 +24,7 @@ Consider that this is just an example that does not follow the IEC 61499 standar
 T Flip-Flop as SIFB with integrated Timer.
 xref:../tutorials/createOwnTypes.adoc#exportTypes[Export the interface to 4diac FORTE] (`*.h` and `*.cpp` files) and xref:../installation/install.adoc#externalModules[include them to your build].
 
-image:./img/flipFlop_integratedTimer.jpg[Interface of the T Flip-Flop as SIFB with integrated Timer]
+image:flipFlop_integratedTimer.jpg[Interface of the T Flip-Flop as SIFB with integrated Timer]
 
 === Edit the Headerfile
 

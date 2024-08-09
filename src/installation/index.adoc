@@ -1,5 +1,9 @@
 = [[topOfPage]]Installation
 :lang: en
+:imagesdir: ./src/installation/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 == [[IDE]]4diac IDE
 
@@ -106,7 +110,7 @@ The files are required for compiling in the next step.
 Press the [.button4diac]#Configure# button (3) at the bottom. 
 If you are asked to create a folder that doesn't exist, confirm.
 +
-image:./img/CMakeFirstStep.png[First step in CMake]
+image:CMakeFirstStep.png[First step in CMake]
 . In the pop up window select your project type, which depends on your target system. 
 CMake needs to know whether to export the files as a project for Visual Studio, Eclipse, or another, and the compiler you will use to compile the executable. 
 +
@@ -116,7 +120,7 @@ As a Linux user, also select "Unix makefiles".
 For other setups, check the respective installation page. 
 In this step, you would select the cross-compiler used if you are compiling for another platform (for example, compiling for a Raspberry Pi or a PLC from a Windows or a Linux computer).
 +
-image:./img/CMakeSelectCompiler.png[Select compiler in CMake]
+image:CMakeSelectCompiler.png[Select compiler in CMake]
 . After selecting the type of project and compiler, click Generate.
 +
 You may get an error message "No valid architecture chosen", click Okay.
@@ -131,7 +135,7 @@ These options allow you to configure your 4diac FORTE build. You should set at 
 * select the modules with the Function Block libraries you wish to enable (a basic configuration uses  [.specificText]#FORTE_MODULE_CONVERT#, [.specificText]#FORTE_MODULE_IEC61131# and [.specificText]#FORTE_MODULE_UTILS#)
 * choose the [.specificText]#CMAKE_BUILD_TYPE# by adding the value [.specificText]#Debug# or [.specificText]#Release#
 +
-image:./img/CMakeBasicConfig.png[Basic Configuration in CMake]
+image:CMakeBasicConfig.png[Basic Configuration in CMake]
 +
 . After you change some options in CMake, you must press Configure again until no row appears red. 
 . Finally, press the [.button4diac]#Generate# button to create the project files in OUTPUT_FOLDER.
@@ -181,7 +185,7 @@ it.
 . Put all six files into EXAMPLE_TEST (a .cpp and .h file for each FB).
 . Create a file called `CMakeLists.txt` (this exact name is mandatory).
 +
-image:./img/modulesFiles.png[File Structure to add modules]
+image:modulesFiles.png[File Structure to add modules]
 . The content of this file can be created in different ways.
 * By using the `Export CMakeLists.txt` option in 4diac. 
   This will use the directory name to create the module name. 
@@ -212,7 +216,7 @@ You can use `forte_add_subdirectory` to include subdirectories with own `CMakeLi
 . When pressing Configure again, a variable called `FORTE_MODULE_EXTERNAL_EXAMPLE_TEST` will appear.
   Checking the box will include the module in compilation.
 +
-image:./img/modulesCMake.png[CMake configuration for external modules]
+image:modulesCMake.png[CMake configuration for external modules]
 . After setting all desired variables, do the same as before: Generate
 and then link:#FORTEcompile[compile].
 

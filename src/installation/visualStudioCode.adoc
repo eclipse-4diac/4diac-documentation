@@ -1,5 +1,9 @@
 = [[topOfPage]]Compiling and Debugging 4diac FORTE with MS Visual Studio Code
 :lang: en
+:imagesdir: ./src/installation/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 The following describes how to compile 4diac FORTE with win32-architecture using Visual Studio Code. 
@@ -48,10 +52,10 @@ cmake:build           //compile
 cmake:debug
 ----
 +
-image:./img/visualcodeCMake.png[CMake command ]
+image:visualcodeCMake.png[CMake command ]
 . When you choose debug or release, do make the cmake option `CMAKE_BUILD_TYPE` in settings.json align with the `cmake:select variant`.
 +
-image:./img/visualcodeDebug.png[debug or release]
+image:visualcodeDebug.png[debug or release]
 
 
 == [[whereToGoFromHere]]Where to go from here?

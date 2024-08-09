@@ -1,5 +1,9 @@
 = [[topOfPage]]Compiling and Debugging 4diac FORTEwith MS Visual Studio
 :lang: en
+:imagesdir: ./src/installation/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 
 The following describes how to compile 4diac FORTE with win32-architecture using Visual Studio. 
@@ -29,17 +33,17 @@ The correct architecture is Win32.
 . Open the generated 4diac FORTEproject (.sln file) with Visual Studio in `FORTE_FOLDER_ROOT/bin/win32`. 
   You can change from Debug to Release mode if you don't want to debug.
 +
-image:./img/VSreleaseDebug.png[Release Mode of Visual Studio ]
+image:VSreleaseDebug.png[Release Mode of Visual Studio ]
 . Build 4diac FORTEafterwards by right-clicking on [.button4diac]#forte# in the Solution Explorer window and then clicking [.button4diac]#Build#.
   A file `forte.exe` should be generated in `FORTE_FOLDER_ROOT/bin/win32/src/Release`.
 +
-image:./img/VSCompile.png[Compile by right-clicking on 4diac FORTE in the Solution Explorer window, and then click Build]
+image:VSCompile.png[Compile by right-clicking on 4diac FORTE in the Solution Explorer window, and then click Build]
 
 == Debugging
 
 . If you want to Debug using Visual Studio, select the Debug mode and set 4diac FORTEas the main project.
 +
-image:./img/VSstartProject.png[Set 4diac FORTE as main project in Visual Studio ]
+image:VSstartProject.png[Set 4diac FORTE as main project in Visual Studio ]
 . Finally, press [.button4diac]#F5# or click [.button4diac]#Debug → Start Debugging#
 
 

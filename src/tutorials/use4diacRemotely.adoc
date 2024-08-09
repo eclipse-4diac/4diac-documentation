@@ -1,6 +1,9 @@
 = [[topOfPage]]Step 3 - Deploy Applications Remotely
 :lang: en
-
+:imagesdir: ./src/tutorials/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
@@ -19,7 +22,7 @@ This has not too much to show, but it helps understand the workflow when using r
 Since this page is more of an explanation than actually showing, it's up to the reader to actually implement it. 
 The image below shows the architecture of this step.
 
-image:./img/Step3/remoteArchitecture.png[architecture for the current step]
+image:Step3/remoteArchitecture.png[architecture for the current step]
 
 == [[stepsToDeployRem]]Steps to Deploy Remotely
 
@@ -35,7 +38,7 @@ image:./img/Step3/remoteArchitecture.png[architecture for the current step]
   To do this, delete the _testee FORTE_PC_ and pull in the new matching device from the Palette and connect it to the network (map, insert communication FB and connect) +
   In our example the device IP address is 192.168.0.8, you may have another one. 
   The port is 61499 by default. +
-  image:./img/Step3/deviceAddress.png[changing the device address]
+  image:Step3/deviceAddress.png[changing the device address]
 . Switch to Deployment Perspective set the port to 61500.
 . Launch Local Forte
 . Run 4diac FORTE on the device. 
@@ -51,7 +54,7 @@ image:./img/Step3/remoteArchitecture.png[architecture for the current step]
 * the firewall is blocking
 * 4diac FORTE does not run on the external device +
   Here is an example of an error message +
-  image:./img/Step3/downloadError.png[Major Download Error pop-up]
+  image:Step3/downloadError.png[Major Download Error pop-up]
 . You can activate the monitor system and watch the project. Now you can
 see that _true_ and __false__alternate as before.
 

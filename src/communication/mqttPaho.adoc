@@ -1,4 +1,9 @@
 = [[topOfPage]]MQTT with Eclipse Paho
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 This section will show you how to make applications communicate using http://www.eclipse.org/paho/[MQTT Paho]. 
 4diac FORTE uses a layered communication architecture. 
@@ -42,7 +47,7 @@ $ cd [binPaho] $ make
 raw[].mqtt[tcp://ip:port, cientID, topic]
 ----
 +
-image:./img/mqttExample.png[Example of MQTT]
+image:mqttExample.png[Example of MQTT]
 +
 CAUTION: When using the `raw[]` layer in your `ID`, the `RD_1` of your subscriber and the `SD_1` of your publishers must be connected to a STRING  type data. 
 Also, you can only use `PUBLISHER_1` and `SUSBCRIBER_1`, not others function blocks wit more inputs or outputs.
