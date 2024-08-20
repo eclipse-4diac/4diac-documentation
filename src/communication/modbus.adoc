@@ -68,6 +68,7 @@ modbus[protocol:port:baudrate:parity:databits:stopbits:flow:(slaveId):pollFreque
 ** delay - wait 2 seconds after connecting
 ** longdelay - wait 3 seconds after connecting
 * all other paramters are as for TCP
+** except the *slaveId*, while it is optional in some cases for Modbus-TCP, is is mandatory for Modbus-RTU, and in most cases the factory default of devices is 1
 * to reuse a previous connection define only port and leave everything up to slaveId empty
 
 Example:
