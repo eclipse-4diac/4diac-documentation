@@ -1,4 +1,9 @@
 = [[topOfPage]]Modbus
+:lang: en
+:imagesdir: ./src/communication/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
 
 == Installation Instructions
 
