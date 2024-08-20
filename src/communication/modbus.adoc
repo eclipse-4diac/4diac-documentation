@@ -76,6 +76,15 @@ Example:
 modbus[rtu:/dev/ttyUSB0:19200:N:8:1::1:2000:i6142,i6132,i6137:h64025..64028,h63995..63998]
 ----
 
+== Example: Writing Outputs of a 8-Output Relay Card:
+----
+modbus[rtu:/dev/uart/1:9600:N:8:1::1:2000:c0..7:c0..7]
+----
+
+
+
+
+
 == Where to go from here?
 
 * Go back to Protocols index: +
