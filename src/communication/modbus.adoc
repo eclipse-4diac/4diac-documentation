@@ -24,7 +24,7 @@ modbus[(protocol:)ip:port:(slaveId):pollFrequency:readAddresses:sendAddresses(:r
 * *protocol*: tcp (tcp is default)
 * *ip*: address of Modbus server, e.g. 127.0.0.1
 * *port*: preferably above 1024, default is 502
-* *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection
+* *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection. Also if you use a Modbus-RTU to Modbus-TCP Gateway like for Example EX9133C-2-MTCP then this slaveID does tell which Device on the RTU Side you want to connect to.
 * *pollFrequency*: polling frequency in milliseconds
 * *readAddresses*: addresses can be specified between 0-65535 more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
