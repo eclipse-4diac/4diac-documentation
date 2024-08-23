@@ -15,7 +15,7 @@ Follow the steps below to set up your environment before compiling 4diac FORTE.
 * `[libmodbushome]/lib`: `libmodbus.lib` (windows) or `libmodbus.so` (posix)
 . When configuring 4diac FORTE project with CMake choose `[libmodbushome]` as `FORTE_COM_MODBUS_LIB_DIR`
 . `forte.exe` must be able to find the dynamic libmodbus library after build. 
-  Therefore copy `libmodbus.dll/so` to folder with `forte.exe` or add `libmodbus.dll/so` to library include path.
+ Therefore copy `libmodbus.dll/so` to folder with `forte.exe` or add `libmodbus.dll/so` to library include path.
 
 == Parameters
 
@@ -40,6 +40,7 @@ modbus[(protocol:)ip:port:(slaveId):pollFrequency:readAddresses:sendAddresses(:r
 *** 'd' for discrete input
 *** 'h' for holding register
 *** 'i' for input register
+*** --> see below for a Detailed Table
 * *sendAddresses*: addresses can be specified between 0-65535 if data is only read sendAddresses should be left empty more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
 ** dots for interval 5..10
@@ -80,6 +81,39 @@ Example:
 ----
 modbus[rtu:/dev/ttyUSB0:19200:N:8:1::1:2000:i6142,i6132,i6137:h64025..64028,h63995..63998]
 ----
+
+== Table of Functions: 
+
+[cols="4*", options="header"]
+|===
+| 
+| 
+| read 
+| write
+
+| c 
+| coil 
+| https://libmodbus.org/reference/modbus_read_bits/[modbus_read_bits] +
+0x01 (read coil status) 
+| https://libmodbus.org/reference/modbus_write_bits/[modbus_write_bits] +
+0x0F (force multiple coils) 
+
+| d | discrete input 
+| https://libmodbus.org/reference/modbus_read_input_bits/[modbus_read_input_bits] +
+0x02 (read input status) 
+| 
+
+| h | holding register 
+| https://libmodbus.org/reference/modbus_read_registers/[modbus_read_registers] +
+0x03 (read holding registers) 
+| https://libmodbus.org/reference/modbus_write_registers/[modbus_write_registers] +
+0x10 (preset multiple registers)
+
+| i | input register 
+| https://libmodbus.org/reference/modbus_read_input_registers/[modbus_read_input_registers] +
+0x04 (read input registers) 
+| 
+|===
 
 == Example: Writing Outputs of a 8-Output Relay Card:
 ----
