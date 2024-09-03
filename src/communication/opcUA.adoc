@@ -5,7 +5,7 @@ ifdef::env-github[]
 :imagesdir: img
 endif::[]
 
-This tutorial shows how you can use https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC 61499 Application using available FBs. You should first complete the xref:../tutorials/use4diacLocally.html[First Steps in Eclipse 4diac Tutorial] to get familiar with the 4diac IDE. 
+This tutorial shows how you can use https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC 61499 Application using available FBs. You should first complete the xref:../tutorials/use4diacLocally.adoc[First Steps in Eclipse 4diac Tutorial] to get familiar with the 4diac IDE. 
 4diac FORTE uses the http://open62541.org/[open62541] OPC UA stack which is open source and can also be used in commercial projects free of charge.
 
 After version 1.11.0 of 4diac FORTE, the OPC UA module has changed its API, so applications developed before this version won't be compatible. 

@@ -7,14 +7,14 @@ endif::[]
 
 
 The following describes how to compile 4diac FORTE with win32-architecture using Visual Studio Code. 
-In the installation tutorial xref:./install.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
+In the installation tutorial xref:./index.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
 Additionally, visual studio code is described there.
 
 == Building a MS Visual Studio Code Project for 4diac FORTE with CMake
 
-In the xref:./install.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
+In the xref:./index.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
 To use Visual Studio Code with CMake, you need to specify the options (All the options are shown in CMake-GUI when you choose source
-folder FORTE_FOLDER_ROOT, refer to xref:./install.adoc#generateFilesForCompiling[Build a project with CMake].) for CMake in settings.json for the project in Visual Studio Code.
+folder FORTE_FOLDER_ROOT, refer to xref:./index.adoc#generateFilesForCompiling[Build a project with CMake].) for CMake in settings.json for the project in Visual Studio Code.
 The correct architecture is Win32. 
 Below is an example of settings.json for forte with OPC DA compiled.
 
@@ -39,8 +39,8 @@ Below is an example of settings.json for forte with OPC DA compiled.
 == Compile and debug 4diac FORTE with Visual Studio Code
 
 . Install compiler. 
-  For example, msbuild tools if you want to compile OPC DA, install the components according to xref:../communication/opc.adoc#msbuildtools[ms buildtools]. 
-  Or if you prefer mingw-w64, follow xref:./minGW.html[mingw-w64]. 
+  For example, msbuild tools if you want to compile OPC DA, install the components according to xref:../communication/opcDA.adoc#msbuildtools[ms buildtools]. 
+  Or if you prefer mingw-w64, follow xref:./minGW.adoc[mingw-w64]. 
 . Install "CMake tools" plugin in visual studio code.
 . Open command palette(ctrl + shift + p), compile or debug in below command:
 +

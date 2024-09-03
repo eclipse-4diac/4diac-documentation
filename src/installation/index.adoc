@@ -15,7 +15,7 @@ If you only want to use available Function Blocks, you are ready to go.
 === [[ownIDE]]Building Your own 4diac IDE From Source
 
 Running 4diac IDE from source has the advantage that you can easily keep up with the developments performed in the Git repository. 
-If you want to run 4diac IDE from source, follow the xref:../development/building4diac.html#buildFromSource[installation steps]. 
+If you want to run 4diac IDE from source, follow the xref:../development/building4diac.adoc#buildFromSource[installation steps]. 
 This option aims mainly at 4diac IDE developers or people who wish to extend 4diac IDE.
 
 == [[FORTE]]4diac FORTE
@@ -23,7 +23,7 @@ This option aims mainly at 4diac IDE developers or people who wish to extend 4d
 4diac FORTE can be used in two ways: For conducting first experiments with Eclipse 4diac, you can use the pre-built version of 4diac FORTE which is available as https://eclipse.dev/4diac/en_dow.php[download] for Linux and Windows. 
 It can be used for applications unless you need own Function Blocks. 
 The step by step tutorial will direct you to making a simple application with 4diac IDE and pre-built 4diac FORTE. 
-If you want to start using 4diac IDE right away, you can skip the rest of the page and go directly to the xref:../tutorials/overview.html[step by step tutorial] or the xref:../index.adoc[Start Here-page].
+If you want to start using 4diac IDE right away, you can skip the rest of the page and go directly to the xref:../tutorials/overview.adoc[step by step tutorial] or the xref:../index.adoc[Start Here-page].
 
 If you want to develop your own Function Blocks or to run 4diac FORTE on control devices, you have to download and set up 4diac FORTE for the specific platform you are using as shown in the next sections.
 
@@ -43,7 +43,7 @@ You'll need to perform several steps:
 . link:#generateFilesForCompiling[Build a project with CMake]
 . link:#FORTEcompile[Compile] the project
 . link:#externalModules[Add external modules]: your own FBs
-. (optional) Install a development environment for C++ such as xref:./eclipse.html[Eclipse] or xref:./visualStudio.html[MS Visual Studio]
+. (optional) Install a development environment for C++ such as xref:./eclipse.adoc[Eclipse] or xref:./visualStudio.adoc[MS Visual Studio]
 
 ==== [[FORTEWindows]]C++ Compiler for Windows
 
@@ -173,7 +173,7 @@ link:#FORTEsteps[back]
 
 Let's see how to add your own Function Blocks to 4diac FORTE. 
 When you create and export your own types, you need to add them to your compilation. 
-The export is described in the xref:../tutorials/createOwnTypes.html#exportTypes[tutorial step 4]. 
+The export is described in the xref:../tutorials/createOwnTypes.adoc#exportTypes[tutorial step 4]. 
 As an example, we show how to add the four FBs BasicTest, CompositeTest, and ServiceTest, SimpleTest from this tutorial. 
 The name of the module will be EXAMPLE_TEST. 
 Follow the instructions:

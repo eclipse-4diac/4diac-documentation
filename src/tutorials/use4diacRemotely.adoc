@@ -31,7 +31,7 @@ image:Step3/remoteArchitecture.png[architecture for the current step]
   The cheap options are Raspberry Pi, BeagleBoneBlack or another small board that runs Linux. 
   Another option would be to use another computer in your network.
 . Compile 4diac FORTE for your PLC or other Hardware. 
-  Check link:..//installation/install.adoc#FORTEWindowsUnix[here] for more information.
+  Check link:..//installation/index.adoc#FORTEWindowsUnix[here] for more information.
 . Go to the System Configuration of the _BlinkTest_ and change the address from localhost to the IP address of your device. 
   This is the easiest way to interact with an external device. +
   However, certain devices require a special device type. 
@@ -100,9 +100,9 @@ After that everything should work fine.
 == Where to go from here?
 
 * In the next step you will see how to create your own Function Blocks: +
-xref:./createOwnTypes.html[Step 4 - Create Your own Function Block Types]
+xref:./createOwnTypes.adoc[Step 4 - Create Your own Function Block Types]
 * If you want to go back to the distributed application running completely locally, here's a link: +
-xref:./distribute4diac.html[Step 2 - Distribute 4diac Applications]
+xref:./distribute4diac.adoc[Step 2 - Distribute 4diac Applications]
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../index.adoc[Where to Start]
 

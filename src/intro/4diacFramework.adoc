@@ -53,7 +53,7 @@ As described, you can create FBs in 4diac IDE.
 At this point, however, the run-time environment doesn't know that the FB exists nor how to execute it. 
 Within 4diac IDE, you therefore have the possibility to export your created FB into 4diac FORTE code (i.e., C++ files). 
 You then need to add your exported code to the source code of 4diac FORTE and compile all as explained in the
-xref:../installation/install.adoc#FORTE[Compile 4diac FORTE] section of the installation documentation. 
+xref:../installation/index.adoc#FORTE[Compile 4diac FORTE] section of the installation documentation. 
 This is possible only for Basic and Composite Function Blocks (BFB and CFB), since both definitions are in the standard. 
 However, for Service Interface Function Blocks (SIFBs) only the interface is defined. 
 The internal implementation of an SIFB has to be coded manually in C++, the language 4diac FORTE is written in.
@@ -69,7 +69,7 @@ Currently, the most commonly used protocols are MQTT or OPC UA.
 
 * Now that you have a better understanding of the IEC 61499 standard, and know about the tools around Eclipse 4diac, is time to start using them.
 Take a look at the following page: +
-xref:../installation/install.adoc[Installation]
+xref:../installation/index.adoc[Installation]
 * If you want to go back to the Where to Start page, we leave you here a fast access: +
 xref:../index.adoc[Where to Start]
 

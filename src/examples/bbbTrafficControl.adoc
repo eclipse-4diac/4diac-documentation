@@ -72,8 +72,8 @@ Next go to the folder `bin/posix` inside your 4diac FORTE folder, and there exe
 the BBB is not as fast as a normal computer. 
 That's why a cross-compiler might be a good idea. When the compilation is finished, you will find the 4diac FORTE executable in the folder `bin/posix/src` inside your 4diac FORTE folder.
 
-If you have trouble with building 4diac FORTE, you can follow the steps as the xref:../installation/raspi.html#building[Raspberry Pi].
-If some softwares are missing in the BBB, find more information in the xref:../installation/raspi.html#preparation[preparation] part of the Raspberry Pi.
+If you have trouble with building 4diac FORTE, you can follow the steps as the xref:../installation/raspi.adoc#building[Raspberry Pi].
+If some softwares are missing in the BBB, find more information in the xref:../installation/raspi.adoc#preparation[preparation] part of the Raspberry Pi.
 
 == Configure the system in 4diac IDE
 
@@ -130,7 +130,7 @@ After that everything should work fine.
 
 Go back to Examples index:
 
-xref:./index.html[Examples Index]
+xref:./index.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

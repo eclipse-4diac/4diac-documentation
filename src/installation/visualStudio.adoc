@@ -7,7 +7,7 @@ endif::[]
 
 
 The following describes how to compile 4diac FORTE with win32-architecture using Visual Studio. 
-In the installation tutorial xref:./install.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
+In the installation tutorial xref:./index.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
 Additionally, other tools are described there.
 
 IMPORTANT: If you are using a Visual Studio version older then 2010 you might need to extend it with a stdint.h file. 
@@ -15,7 +15,7 @@ See for example http://stackoverflow.com/questions/12970293/why-microsoft-visual
 
 == Building a MS Visual Studio Project for 4diac FORTEwith CMake
 
-In the xref:./install.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
+In the xref:./index.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
 To use Visual Studio, you need to however select the tool MS Visual Studio. 
 The correct architecture is Win32.
 
@@ -25,7 +25,7 @@ The correct architecture is Win32.
 . Press the [.button4diac]#Configure# button and choose the version of Visual Studio that is used and native default compilers. 
   Press the [.button4diac]#Finish# button afterwards.
 . For the option [.specificText]#FORTE_ARCHITECTURE#, select Win32. 
-  Other modules and configurations options can be set following the tutorial step link:./install.adoc#generateFilesForCompiling[Build a project with CMake].
+  Other modules and configurations options can be set following the tutorial step link:./index.adoc#generateFilesForCompiling[Build a project with CMake].
 . Press the [.button4diac]#Configure# button, check red rows and repeat this until no row appears red. Afterwards, press the button [.button4diac]#Generate#.
 
 == Compile 4diac FORTEwith Visual Studio

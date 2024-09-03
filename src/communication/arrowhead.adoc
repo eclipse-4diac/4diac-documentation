@@ -42,7 +42,7 @@ The provided library can be used with HTTP using the provided link before, or OP
 == Enabling the Arrowhead Module in 4diac FORTE 
 
 The first thing that's needed is to have a version of 4diac FORTE with the Arrowhead Module enabled. For that, you'll need to compile your own 4diac FORTE. 
-To do that, follow these xref:../installation/install.adoc#ownFORTE[steps] and in CMake set the variable `FORTE_MODULE_Arrowhead` and `FORTE_COM_HTTP` or/and `FORTE_COM_OPC_UA` to TRUE.
+To do that, follow these xref:../installation/index.adoc#ownFORTE[steps] and in CMake set the variable `FORTE_MODULE_Arrowhead` and `FORTE_COM_HTTP` or/and `FORTE_COM_OPC_UA` to TRUE.
 
 After 4diac FORTE compiles, you'll be ready to use the FBs library in 4diac IDE.
 

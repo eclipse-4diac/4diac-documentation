@@ -309,7 +309,7 @@ We only show a few of the methods here, for more information check source code.
 
 Go back to Development index:
 
-xref:./index.html[Development Index]
+xref:./index.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

@@ -66,7 +66,7 @@ There you can see 2 incomplete FBs at the E_SR FB or E_PERMIT.
 They symbolize the broken connections between the two devices. 
 Currently they have no opportunity to communicate with each other. 
 We fix it by adding special Communications FBs. 
-You can find more information about broken connections xref:../intro/iec61499.html#brokenConnection[here on our Homepage].
+You can find more information about broken connections xref:../intro/iec61499.adoc#brokenConnection[here on our Homepage].
 
 image:Step2/incompleteFBs.png[incomplete FBs show die broken connection between two devices]
 
