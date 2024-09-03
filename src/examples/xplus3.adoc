@@ -148,7 +148,7 @@ To download and test your IEC 61499 [.element61499]#Application#:
 
 Go back to Examples index:
 
-xref:./index.html[Examples Index]
+xref:./index.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

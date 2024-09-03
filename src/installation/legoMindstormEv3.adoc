@@ -3,7 +3,7 @@
 
 
 This page is for compiling 4diac FORTE for the Lego Mindstorm EV3. 
-For information about the parameters to be used, go to the link:../../html/parameters/parameters.html#ev3[Parameters] page.
+For information about the parameters to be used, go to the link:../io_config/EV3.adoc[EV3 IO configuration] page.
 
 == [[ev3_introduction]]About the Lego Mindstorm EV3 and ev3dev
 
@@ -112,7 +112,7 @@ Next, you should go into the bin/ev3dev folder and simply execute "make" to star
 If you want to compile directly in your EV3, then start at step 4 and perform everything with the command prompt of your EV3 (to get the command prompt inside of your EV3, connect to it with PuTTY).
 
 Remember, when you create your own FBs, you should add these to the 4diac FORTE folder, adjust the CMakefiles.txt and compile again. 
-In the link:./install.adoc#ownFORTE[example] section, it is explained how to do this.
+In the link:./index.adoc#ownFORTE[example] section, it is explained how to do this.
 
 == Troubleshooting
 

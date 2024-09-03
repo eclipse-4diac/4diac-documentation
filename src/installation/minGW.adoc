@@ -50,7 +50,7 @@ This is because this file is the one you will use to compile 4diac FORTE, and "
 
 == Next steps
 
-Now that you successfully installed a compiler, you can continue with the next step of the xref:./install.adoc#FORTEsteps[installation tutorial]. 
+Now that you successfully installed a compiler, you can continue with the next step of the xref:./index.adoc#FORTEsteps[installation tutorial]. 
 All information in the installation tutorial is based on a setup with MinGW-w64. 
 For users with previous experience in building a 4diac FORTE, the details are listed:
 

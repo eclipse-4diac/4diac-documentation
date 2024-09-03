@@ -22,7 +22,7 @@ With both FMUs in hand, a co-simulation tool can be used to connect the inputs a
 === How to export and FMU in 4diac IDE?
 
 . First, a special 4diac FORTE has to be compiled. 
- Follow the xref:..//installation/install.adoc#ownFORTE[steps to build your own FBs]. 
+ Follow the xref:..//installation/index.adoc#ownFORTE[steps to build your own FBs]. 
  In the step 3 where the features to be compiled are selected, select also `FORTE_ENABLE_FMU`. 
  The `FORTE_FMU_INCLUDE` variable should be set to the path where the headers files from the fmi standard are located. 
  This will generate a dynamic library, whose name will depend on the operative system 4diac FORTE was compiled. 

@@ -112,9 +112,9 @@ Nevertheless, users without command line experience should stick to Eclipse.
 +
 The first thing to do is to get all the software. 
 For 4diac FORTE download Eclipse for C++ and install it. 
-The installation of the toolchain is described xref:../installation/install.html#ownIDE[here]. 
+The installation of the toolchain is described xref:../installation/index.adoc#ownIDE[here]. 
 If you already have an Eclipse IDE but it's not configured for C++, you don't need to download another Eclipse, but only the C++ plugin. See a tutorial http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Fgetting_started%2Fcdt_w_install_cdt.htm[here].
-To install Eclipse IDE for developing 4diac IDE use this xref:../development/building4diac.html#buildFromSource[instruction].
+To install Eclipse IDE for developing 4diac IDE use this xref:../development/building4diac.adoc#buildFromSource[instruction].
 EGit should be installed automatically with your Eclipse, otherwise follow the steps http://www.vogella.com/tutorials/EclipseGit/article.html#eclipseinstallationgit[here] to install it.
 . Configure EGit
 +
@@ -602,7 +602,7 @@ Contributors:
 
 Back to Development index:
 
-xref:./index.html[Development Index]
+xref:./index.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access:
 

@@ -266,7 +266,7 @@ NOTE: In Windows machines, the used Multicast address is not always detected and
 application in the PC. 
 This happens often if the PC is connected to the EV3 through an ad-hoc connection. 
 To overcome this, try adding the address route with gateway to your own machine in the as presented in the Troubleshooting part at the bottom of the
-link:./bbbTrafficControl.html#troubleshooting[Traffic Control with BBB example]
+link:./bbbTrafficControl.adoc#troubleshooting[Traffic Control with BBB example]
 
 == Tuning the PID
 
@@ -296,7 +296,7 @@ image:pidMotor/PIDTuned.png[Final tun of the PID controller]
 
 Go back to Examples index:
 
-link:./examplesIndex.html[Examples Index]
+link:./index.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

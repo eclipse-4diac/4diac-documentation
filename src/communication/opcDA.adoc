@@ -12,7 +12,7 @@ Download the following packages:
 * http://www.boost.org[Boost Lexical Cast]
 * https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=17[Visual Studio Installer 2022]
 
-== Prepare and compile OPC Client Toolkit
+== [[msbuildtools]]Prepare and compile OPC Client Toolkit
 
 . Unzip Boost C++ Libraries
 . Install Visual Studio Build Tools with the components shown in the below.
@@ -44,12 +44,12 @@ cmake:install         //install
 
 == Compile 4diac FORTE with OPC DA Client Support
 
-. Create a MS Visual Studio Code Project of 4diac FORTE with CMake as described in xref:../installation/visualStudioCode.html[Compiling and Debugging 4diac FORTE with MS Visual Studio Code] and add the following variables in `settings.json` which are required for OPC Client support:
+. Create a MS Visual Studio Code Project of 4diac FORTE with CMake as described in xref:../installation/visualStudioCode.adoc[Compiling and Debugging 4diac FORTE with MS Visual Studio Code] and add the following variables in `settings.json` which are required for OPC Client support:
 * `FORTE_COM_OPC` : ON,
 * `FORTE_COM_OPC_LIB_ROOT`: Your path to opc lib root,
 * `FORTE_COM_OPC_BOOST_ROOT`: Your path to boost root,
 . Open the 4diac FORTE Project with MS Visual Studio Code.
-. xref:../installation/visualStudioCode.html[compile or debug] 4diac FORTE
+. xref:../installation/visualStudioCode.adoc[compile or debug] 4diac FORTE
 
 == Create OPC Client
 

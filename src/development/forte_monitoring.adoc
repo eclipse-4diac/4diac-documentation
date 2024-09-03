@@ -61,7 +61,7 @@ Currently the following monitoring commands are supported:
 
 Go back to Development index:
 
-link:./index.html[Development Index]
+link:./index.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

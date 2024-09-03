@@ -8,7 +8,7 @@ Currently only `GET`, `POST` or `PUT` requests are supported.
 == Configuration
 
 4diac Forte must be compiled from source code for the HTTP module to work. 
-Follow the xref:../installation/install.html#ownFORTE[steps to build your own FBs]. 
+Follow the xref:../installation/index.adoc#ownFORTE[steps to build your own FBs]. 
 In the step 3 where the features to be compiled are selected, select also `FORTE_COM_HTTP`. 
 Then follow the same procedure, compile 4diac FORTE, et voilà, you have HTTP support on your 4diac FORTE.
 

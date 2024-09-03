@@ -31,7 +31,7 @@ Instead of directly compiled into 4diac FORTE, the FBs are downloaded as LUA Co
 Before we can use the Dynamic Type Loader, we have to compile a new 4diac FORTE with the Lua JIT (Just-In-Time Compiler). 
 Therefore we are going to need a C-compiler. 
 If you have done the tutorial, on how to create your own 4diac FORTE, everything you need should already be installed. 
-Otherwise, follow the steps xref:../installation/install.adoc[here].
+Otherwise, follow the steps xref:../installation/index.adoc[here].
 
 We recommend using the minGW compiler.
 
@@ -63,7 +63,7 @@ Then create an folder where we are going to build our 4diac FORTE in.
 Open CMake and set the source folder, to the folder where your 4diac FORTE source files are in. 
 Then set the build folder, to folder where you want to build 4diac FORTE in.
 
-Before configuring the Lua options, please enable all options, shown in this xref:../installation/install.html#generateFilesForCompiling[tutorial].
+Before configuring the Lua options, please enable all options, shown in this xref:../installation/index.adoc#generateFilesForCompiling[tutorial].
 Before pressing generate, we have to configure all Lua options.
 
 . Set `FORTE_USE_LUATYPES` to `LUAJIT` and press configure

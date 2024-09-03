@@ -20,7 +20,7 @@ image:eclipseInstallNewSoftware.png[Install new software in Eclipse]
 
 == Compile 4diac FORTE with Eclipse
 
-The build process is described in the xref:./install.adoc#FORTEsteps[installation tutorial]. 
+The build process is described in the xref:./index.adoc#FORTEsteps[installation tutorial]. 
 Perform the steps described there but consider the following adaption:
 
 When generating a project with CMake you must choose the correct project type. 

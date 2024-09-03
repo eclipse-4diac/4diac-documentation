@@ -15,7 +15,7 @@ Since you need MQTT Paho, you need to install the libraries in your computer.
 Therefore you need to download the code and compile it. 
 You will need the same tools needed for 4diac FORTE (git, cmake, compilers). 
 The process is based on the normal compilation of 4diac FORTE, but the MQTT feature is enabled.
-xref:../installation/install.html#ownFORTE[Here's] a quick link to 4diac FORTE's compilation. 
+xref:../installation/index.adoc#ownFORTE[Here's] a quick link to 4diac FORTE's compilation. 
 For the installation please follow the next steps:
 
 . Checkout and build MQTT Paho (if you are using Windows, some commands might change):
