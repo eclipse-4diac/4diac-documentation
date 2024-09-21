@@ -1,0 +1,167 @@
+= [[Wago]]Wago
+:lang: en
+:imagesdir: ./src/io_config/img
+ifdef::env-github[]
+:imagesdir: img
+endif::[]
+
+Wago PFC200 series is a PLC designed to work in small and medium enterprises for small-scale automation and runs on an ARM cortex A8, 600 Mhz controller with real-time Linux 3.6 (RT preemption patch). 
+
+== Setup your hardware
+
+Put the several modules together by the rails on each Wago module and as last module the end module 750-600 otherwise the KBus cannot be initialized correctly.
+The core module provides the power supply for all modules connect all 0V and 24V of your core module with your 24V power supply.
+In case you use an analog input module 750-459 consider that each analog input has a corresponding 0V connection that also has to be connected.
+When you use the Wago core module for the first time, it will startup with CODESYS.
+According to the https://github.com/WAGO/pfc-howtos/tree/master/HowTo_ADI-MyKBusApplikation[Wago GitHub How To]:
+
+[IMPORTANT]
+====
+"_The ADI/DAL could only be used by one master, it could be the CODESYS-Runtime or your own application, but not both_". This means you have to stop the CODESYS-Runtime when you want to use 4diac FORTE. Login to your PFC200 to stop the CODESYS-Runtime with one of the following methods:
+
+For temporary stop:
+
+	>/etc/init.d/runtime stop
+
+for permanent stop:
+
+	#//Delete symbolic link
+	>rm /etc/rc.d/S98_runtime
+	#Recover symbolic link
+	>ln -s /etc/init.d/runtime /etc/rc.d/S98_runtime
+====
+
+A general explanation about how the process image of Wago modules is created, can be found within the PDF https://github.com/WAGO/pfc-howtos/blob/master/HowTo_ADI-MyKBusApplikation/a800010_en%20-%20ADI-DAL%20for%20PFC%20firmware%2011%20patch%202.pdf[ADI/DAL PFC Firmware] provided by Wago. This document is useful especially when integrating new Wago modules or other modules that use the KBus.
+
+== Compile 4diac for PFC200
+
+To compile 4diac FORTE for Wago PFC200 best use https://github.com/eclipse-4diac/4diac-fbe[4diac FORTE's build environment].
+Since Wago PFC200 has dependencies you have to add a new recipe containing information for these dependencies.
+Under _fordiac-fbe/dependencies/recipes/_ create a folder called _wago_ and add the following files and file contents:
+	
+- the file _build.cmake_ with the following content:
+
+	project(wago C)
+	CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+	install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/. DESTINATION include)
+	install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/OsLinux/. DESTINATION include)
+	install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib/. DESTINATION lib)
+	
+- the file _wago.7z_ with your dependencies, which you might find in the sdk-builder container created according to https://github.com/WAGO/pfc-firmware-sdk-G2[pfc-firmware-sdk-G2]:
+
+	wago/include/ldkc_kbus_information.h
+	wago/include/ldkc_kbus_register_communication.h
+	wago/include/dal/adi_application_interface.h
+	wago/include/dal/canopen_types.h
+	wago/include/dal/dal_caps.h
+	wago/include/dal/dal_limits.h
+	wago/include/dal/dal_types.h
+	wago/include/dal/libcanopen.h
+	wago/include/dal/sdi_stack_interface.h
+	wago/include/dal/events/events.h
+	wago/include/OsLinux/OsCommon.h
+	wago/lib/libdal.a
+	wago/lib/libdbus-1.so
+	wago/lib/libdbus-1.so.3
+	wago/lib/libdbus-1.so.3.19.9
+	wago/lib/libdbus-glib-1.so
+	wago/lib/libdbus-glib-1.so.2
+	wago/lib/libdbus-glib-1.so.2.3.2
+	wago/lib/libdbuskbuscommon.so
+	wago/lib/libdbuskbuscommon.so.0
+	wago/lib/libdbuskbuscommon.so.0.0.0
+	wago/lib/libffi.so
+	wago/lib/libffi.so.6
+	wago/lib/libffi.so.6.0.4
+	wago/lib/libgio-2.0.so
+	wago/lib/libgio-2.0.so.0
+	wago/lib/libgio-2.0.so.0.5701.0
+	wago/lib/libglib-2.0.so
+	wago/lib/libglib-2.0.so.0
+	wago/lib/libglib-2.0.so.0.5701.0
+	wago/lib/libgmodule-2.0.so
+	wago/lib/libgmodule-2.0.so.0
+	wago/lib/libgmodule-2.0.so.0.5701.0
+	wago/lib/libgobject-2.0.so
+	wago/lib/libgobject-2.0.so.0
+	wago/lib/libgobject-2.0.so.0.5701.0
+	wago/lib/liblibloader.so
+	wago/lib/liblibloader.so.0
+	wago/lib/liblibloader.so.0.0.0
+	wago/lib/liboslinux.so
+	wago/lib/liboslinux.so.0
+	wago/lib/liboslinux.so.0.0.0
+	wago/lib/libpcre.so
+	wago/lib/libpcre.so.1
+	wago/lib/libpcre.so.1.2.8
+	wago/lib/libtypelabel.so
+	wago/lib/libwago_dbus.so
+	wago/lib/libz.so
+	wago/lib/libz.so.1
+	wago/lib/libz.so.1.2.11
+		
+- the file _package.txt_ with the following content. You should determine the ssh256 for your _wago.7z_ file and add it instead of the example shown here:
+
+	wago.7z -H sha256:75bd3904f6b68ba937dbf1d59de44fd07ded7892c9c8c4e8bf86a439ab180613 -X build.cmake	
+
+After this preparation follow the instructions of 4diac FORTE's build environment to install and setup a configuration.
+Your configuration file for Wago PFC200 for this build environment could be like the following:
+
+----
+ARCH=arm-linux-gnueabihf
+
+DEPS=tinyxml
+DEPS=wago
+
+COM=ETH,FBDK,LOCAL,HTTP
+
+MODULE=CONVERT,IEC61131,UTILS,UTILS_ADDON,CUSTOM_FBS
+MODULE=WagoKbus
+
+// address sanitizer doesn't work with static linking
+TOOLCHAIN_EXTRA_C_FLAGS=-fno-sanitize=address -fno-lto
+TOOLCHAIN_EXTRA_LINKER_FLAGS=-fno-sanitize=address -fno-lto
+
+FORTE_IO=ON
+
+// no local additions
+#FORTE_EXTERNAL_MODULES_DIRECTORY=/nonexistant
+----
+
+After successful compilation the runtime can be found within the folder _build/yourConfigurationFileName/output/bin_ of 4diac FORTE's build environment.
+Copy the whole content to your Wago PFC200 core module by e.g. https://winscp.net/eng/index.php[WinSCP], possibly within a folder _/home/forte_.
+You should set execution rights for for all copied files to run it.
+Login to your Wago PFC200 core module by e.g. https://putty.org/[Putty], navigate to the folder where you put your executable and run it by _./forte_.
+Now you can deploy the desired IEC 61499 resources on your Wago PFC200.
+
+== Configure your hardware in 4diac
+
+Within 4diac IDE create a new IEC 61499 device with one IEC 61499 resource. 
+Maybe call it _IO_CONFIG_RES_.
+This _IO_CONFIG_RES_ contains your hardware setup in terms of function blocks.
+In case you have one Wago PFC200 core module, two DI, two DO, and one AIO module, it could be like in the following image.
+
+image:wago_ioconfig.png[IO_CONFIG function block network]
+
+Within your IEC 61499 application you might have a function block like shown within the following image.
+Take it's IEC 61499 application name and it's instance name separated by a dot and add it as input for the desired input of the corresponding _IO_CONFIG_ function block.
+
+image:revpi_ioFb.png[I/O function block in your IEC 61499 application]
+
+When all I/Os are wired and named within your _IO_CONFIG_ function block network correspondingly, your IEC 61499 application is ready to be deployed and to access the hardware.
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/index.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/index.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../index.adoc[Where to Start]
+
+Or link:#topOfPage[Go to top]
