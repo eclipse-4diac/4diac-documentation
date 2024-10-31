@@ -9,6 +9,6 @@ endif::[]
 * link:#SWTBotTestStructure[SWTBot Test Structure]
 
 == [[SWTBotHierachy]]SWTBot Hierachy with Extentions for 4diac IDE
-
+image::SWTBotHierachie.png[SWTBot Hierachy,width=800]
 
 == [[SWTBotTestStructure]]SWTBot Test Structure
