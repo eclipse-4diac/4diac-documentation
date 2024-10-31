@@ -5,6 +5,10 @@ ifdef::env-github[]
 :imagesdir: img/SWTBot
 endif::[]
 
-* link:#SWTBotHierachy[SWTBot Hierachy]
+* link:#SWTBotHierachy[SWTBot Hierachy with Extentions for 4diac IDE]
+* link:#SWTBotTestStructure[SWTBot Test Structure]
 
-== [[SWTBotHierachy]]SWTBot Hierachy
+== [[SWTBotHierachy]]SWTBot Hierachy with Extentions for 4diac IDE
+
+
+== [[SWTBotTestStructure]]SWTBot Test Structure
