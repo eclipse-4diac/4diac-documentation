@@ -1,1 +1,10 @@
-# SWTBot Tests Structure
+= [[topOfPage]]SWTBot Tests Structure
+:lang: en
+:imagesdir: ./src/development/img/SWTBot
+ifdef::env-github[]
+:imagesdir: img/SWTBot
+endif::[]
+
+* link:#SWTBotHierachy[SWTBot Hierachy]
+
+== [[SWTBotHierachy]]SWTBot Hierachy
