@@ -2,7 +2,7 @@
 :lang: en
 :imagesdir: ./src/development/img/SWTBot
 ifdef::env-github[]
-:imagesdir: img/SWTBOT
+:imagesdir: img/SWTBot
 endif::[]
 
 * link:#ImprovementThroughAutomatedTesting[Eclipse 4diac IDE User Interface Quality Improvement Through Automated Testing]
