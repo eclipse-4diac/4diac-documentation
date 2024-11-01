@@ -14,6 +14,7 @@ image::SWTBotHierachie.png[SWTBot Hierachy,width=800]
 == [[SWTBotTestStructure]]SWTBot Test Structure
 The UI tests with Eclipse SWTBot can be found in the package **/org.eclipse.fordiac.ide.test.ui**. Is is devided into the following packages:
 
+image::SWTBotPackages.png[SWTBot Packages Overview,width=500]
 
 **/org.eclipse.fordiac.ide.test.ui.swt:** +
 Here you will find the 4diac specific extensions as 4diac has some features that require these extensions. For example, SWTBot would jump from one point to another when dragging. However, 4diac also needs a small mouse movement to perform this action
