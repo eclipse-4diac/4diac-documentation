@@ -42,6 +42,7 @@ As the name suggests, the *supporting Bot classes* _(orange)_ contain a Bot for 
 image::Bot_helper_classes.png[SWTBot UI Helper Classes,width=800]
 
 === [[SWTBotTestSet]]SWTBot UI Test Set
+The tests are divided into serveral packages and classes.
 
 image::SWTTestSetAndPackages.png[SWTBot UI Test Set,width=800]
 
