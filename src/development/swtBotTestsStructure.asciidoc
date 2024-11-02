@@ -1,20 +1,30 @@
-= [[topOfPage]]SWTBot Tests Structure
+= [[topOfPage]]SWTBot UI Test Set and Test Structure
 :lang: en
 :imagesdir: ./src/development/img/SWTBot
 ifdef::env-github[]
 :imagesdir: img/SWTBot
 endif::[]
 
+* link:#SWTBotTestStructure[Where are the SWTBot UI tests located in the 4diac IDE source code?]
 * link:#SWTBotHierachy[SWTBot Hierachy with Extentions for 4diac IDE]
-* link:#SWTBotTestStructure[SWTBot Test Structure]
 
-== [[SWTBotHierachy]]SWTBot Hierachy with Extentions for 4diac IDE
-image::SWTBotHierachie.png[SWTBot Hierachy,width=800]
-
-== [[SWTBotTestStructure]]SWTBot Test Structure
+== [[SWTBotTestStructure]]Where are the SWTBot UI tests located in the 4diac IDE source code?
 The UI tests with Eclipse SWTBot can be found in the package **/org.eclipse.fordiac.ide.test.ui**. Is is devided into the following packages:
 
 image::SWTBotPackages.png[SWTBot Packages Overview,width=500]
 
-**/org.eclipse.fordiac.ide.test.ui.swt:** +
-Here you will find the 4diac specific extensions as 4diac has some features that require these extensions. For example, SWTBot would jump from one point to another when dragging. However, 4diac also needs a small mouse movement to perform this action
+
+=== [[SWTBotHierachy]]SWTBot Hierachy with Extentions for 4diac IDE
+In the package *_org.eclipse.fordiac.ide.test.ui.swtbot_* contains the 4diac IDE specific extensions, as 4diac has some characteristics that require these extensions to the test framework. E.g. SWTBot would jump from one point to another when dragging a FB. However, 4diac also needs a small mouse movement to perform this action. The overwritten method mouseDrag of the class SWTBot4diacFigureCanvas adds the necessary mouse movement, and also the necessary changes of the calling classes were made. 
+
+The 4 classes are:
+
+* SWT4diacGefBot extends SWTGefBot
+* SWTBot4diacGefEditor extends SWTBotGefEditor
+* SWTBot4diacGefViewer extends SWTBotGefViewer and
+* SWTBot4diacFigureCanvas extends SWTBotGefFigureCanvas. 
+
+image::SWTBotHierachie.png[SWTBot Hierachy,width=800]
+
+=== [[SWTBotHierachy]]SWTBot UI Test Structure
+
