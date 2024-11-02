@@ -10,14 +10,11 @@ endif::[]
 ** link:#Requirement[Requirement]
 ** link:#Settings[Settings to run SWTBot tests]
 * link:#Structure[Test Set and Test Structure]
-** link:#NewSystem[New System]
-** link:#TestsWith1FB[Tests with 1 FB]
-** link:#TestsWith2FBs[Tests with 2 FBs]
-** link:#TestsWithMultipleFBs[Tests with multiple FBs]
 * link:#Execute[Execute SWTBot tests]
 * link:#CreateNewTests[Create a new test class or test method]
 ** link:#SettingsBeforeAll[Settings that have to be executed in @BeforeAll]
 * link:#ResultsEvaluation[Results and Evaluation of the tests]
+
 
 == [[ImprovementThroughAutomatedTesting]]Eclipse 4diac IDE User Interface Quality Improvement Through Automated Testing
 
@@ -41,7 +38,6 @@ from https://wiki.eclipse.org/SWTBot:
 > SWTBot can record and playback tests and integrates with Eclipse, and build technologies (Tycho, Ant) to make it easy to use in Continuous Integration.
 
 
-
 === [[Requirement]]Requirement
 
 All SWTBot related files can be found in the *4diac IDE source code* in the folder *org.eclipse.fordiac.ide.test.ui*.
@@ -62,17 +58,17 @@ All settings necessary to run the SWTBot test have been made and no further sett
 
 == [[Structure]]Test Set and Test Structure
 
-In order to get a test administration, the test were divided into categories to provide a better overview. 
-Each category is implemented in a class of its own. 
-These are currently _New4diacProjectTest_, _Abstract4diacUITEsts_, _Basic1FBNetworkEditingTests_, _Basic2FBNetworkEditingTests_, _BasicMultipleFBNetworkEditingTests_, _CompositeInstanceViewerTests_, and _ErrorMarkerTests_. 
+In order to get a test administration, packages were created to provide a better overview. Each package has one or more testing classes. 
 All test classes inherit from Abstract4diacUITest except for New4dacProjectTest which is independent because it requires a different @beforeAll method.
 
 Ideas that have not yet been implemented ware collected in the corresponding test class with an empty method an a Javadoc. 
 Future tests are marked as `@Disabled("until implementation")`.
 
-The test structure can also be found in https://wiki.eclipse.org/Eclipse_4diacWiki/Development/User_Interface_Quality_Improvement[SWTBot Tests Documentation].
+The test structure can also be found in https://github.com/eclipse-4diac/4diac-documentation/blob/main/src/development/swtBotTestsStructure.asciidoc[SWTBot Test Structure].
 
 == [[Execute]]Execute SWTBot tests
+
+*_Important:_* It has been noticed that you are not allowed to manually click the mouse during the automated execution of the tests, because it disturbs the bot and the tests fail as a result. 
 
 To run all tests of a class in the folder `org.eclipse.fordiac.ide.test.ui`, *right click on the class → Run As → SWTBot Test.*
 
