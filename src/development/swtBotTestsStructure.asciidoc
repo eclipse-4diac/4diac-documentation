@@ -27,7 +27,11 @@ The 4 classes are:
 image::SWTBotHierachie.png[SWTBot Hierachy,width=800]
 
 === [[SWTBotHierachy]]SWTBot UI Test Structure
-The *_Abstract4diacUITests_* class is the base class for all SWTBot UI Tests and it has 2 types of assisting classes in the package *_org.eclipse.fordiac.ide.test.ui.helpers_*. The final helper classes and the supporting Bot classes.
+The base class for all SWTBot UI tests is the *Abstract4diacUITests* class in package *_org.eclipse.fordiac.ide.test.ui_*. It takes care of the generally defined @BeforeAll, @AfterEach and test execution methods. The class is not intended for tests but for smooth test execution so that every test has the same execution conditions.
+
+An exception is the class *New4diacProjectTest*, which does not require any preparatory actions, as it tests whether a project can be created with permitted and non-permitted names. 
+
+The *Abstract4diacUITests* class is the base class for all SWTBot UI Tests and it has 2 types of assisting classes in the package *_org.eclipse.fordiac.ide.test.ui.helpers_*. The final helper classes and the supporting Bot classes.
 
 In the *final helper classes* _(blue)_ are all static constants of names outsourced. 
 As the name suggests, the *supporting Bot classes* _(orange)_ contain a Bot for a particular sub-test task.
