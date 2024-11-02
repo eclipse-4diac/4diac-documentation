@@ -64,7 +64,7 @@ All test classes inherit from Abstract4diacUITest except for New4dacProjectTest 
 Ideas that have not yet been implemented ware collected in the corresponding test class with an empty method an a Javadoc. 
 Future tests are marked as `@Disabled("until implementation")`.
 
-The test structure can also be found in https://github.com/eclipse-4diac/4diac-documentation/blob/main/src/development/swtBotTestsStructure.asciidoc[SWTBot Test Structure].
+The test structure can also be found in xref:./swtBotTestsStructure.asciidoc[SWTBot Test Structure].
 
 == [[Execute]]Execute SWTBot tests
 
