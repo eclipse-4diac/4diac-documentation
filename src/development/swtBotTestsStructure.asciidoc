@@ -9,6 +9,7 @@ endif::[]
 * link:#SWTBotHierachy[SWTBot Hierachy with Extentions for 4diac IDE]
 * link:#SWTBotTestStructure[SWTBot UI Test Structure]
 * link:#SWTBotTestSet[SWTBot UI Test Set]
+* link:#SWTBotDevDocu[4diac Developer SWTBot UI Test Documentation]
 
 == [[SWTBotTestStructure]]Where are the SWTBot UI tests located in the 4diac IDE source code?
 The UI tests with Eclipse SWTBot can be found in the package **/org.eclipse.fordiac.ide.test.ui**. Is is devided into the following packages:
@@ -42,4 +43,11 @@ image::Bot_helper_classes.png[SWTBot UI Helper Classes,width=800]
 
 === [[SWTBotTestSet]]SWTBot UI Test Set
 
-image::UI_test_classes.png[SWTBot supporting Bot Classes,width=800]
+image::SWTTestSetAndPackages.png[SWTBot UI Test Set,width=800]
+
+== [[SWTBotDevDocu]]4diac IDE Developer SWTBot UI Test Documentation
+Development documentation has been created so that all 4diac IDE developers can contribute new tests. +
+This can be found in the *installed 4diac IDE* under +
+_Help -> Help Contents -> 4diac User Guide -> Development Documentation -> 4DIAC-IDE -> SWTBot testing_ +
+or +
+_https://github.com/eclipse-4diac/4diac-documentation/blob/main/src/development/swtBotTestsDocumentation.asciidoc_
