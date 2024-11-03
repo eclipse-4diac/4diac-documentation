@@ -1,0 +1,54 @@
+= [[topOfPage]]SWTBot UI Test Set and Test Structure
+:lang: en
+:imagesdir: ./src/development/img/SWTBot
+ifdef::env-github[]
+:imagesdir: img/SWTBot
+endif::[]
+
+* link:#SWTBotTestStructure[Where are the SWTBot UI tests located in the 4diac IDE source code?]
+* link:#SWTBotHierachy[SWTBot Hierachy with Extentions for 4diac IDE]
+* link:#SWTBotTestStructure[SWTBot UI Test Structure]
+* link:#SWTBotTestSet[SWTBot UI Test Set]
+* link:#SWTBotDevDocu[4diac Developer SWTBot UI Test Documentation]
+
+== [[SWTBotTestStructure]]Where are the SWTBot UI tests located in the 4diac IDE source code?
+The UI tests with Eclipse SWTBot can be found in the package **/org.eclipse.fordiac.ide.test.ui**. Is is devided into the following packages:
+
+image::SWTBotPackages.png[SWTBot Packages Overview,width=500]
+
+
+=== [[SWTBotHierachy]]SWTBot Hierachy with Extentions for 4diac IDE
+In the package *_org.eclipse.fordiac.ide.test.ui.swtbot_* contains the 4diac IDE specific extensions, as 4diac has some characteristics that require these extensions to the test framework. E.g. SWTBot would jump from one point to another when dragging a FB. However, 4diac also needs a small mouse movement to perform this action. The overwritten method mouseDrag of the class SWTBot4diacFigureCanvas adds the necessary mouse movement, and also the necessary changes of the calling classes were made. 
+
+The 4 classes are:
+
+* SWT4diacGefBot extends SWTGefBot
+* SWTBot4diacGefEditor extends SWTBotGefEditor
+* SWTBot4diacGefViewer extends SWTBotGefViewer and
+* SWTBot4diacFigureCanvas extends SWTBotGefFigureCanvas. 
+
+image::SWTBotHierachie.png[SWTBot Hierachy,width=800]
+
+=== [[SWTBotTestStructure]]SWTBot UI Test Structure
+The base class for all SWTBot UI tests is the *Abstract4diacUITests* class in package *_org.eclipse.fordiac.ide.test.ui_*. It takes care of the generally defined @BeforeAll, @AfterEach and test execution methods. The class is not intended for tests but for smooth test execution so that every test has the same execution conditions.
+
+An exception is the class *New4diacProjectTest*, which does not require any preparatory actions, as it tests whether a project can be created with permitted and non-permitted names. 
+
+The *Abstract4diacUITests* class is the base class for all SWTBot UI Tests and it has 2 types of assisting classes in the package *_org.eclipse.fordiac.ide.test.ui.helpers_*. The final helper classes and the supporting Bot classes.
+
+In the *final helper classes* _(blue)_ are all static constants of names outsourced. 
+As the name suggests, the *supporting Bot classes* _(orange)_ contain a Bot for a particular sub-test task.
+
+image::Bot_helper_classes.png[SWTBot UI Helper Classes,width=800]
+
+=== [[SWTBotTestSet]]SWTBot UI Test Set
+The tests are divided into serveral packages and classes.
+
+image::SWTTestSetAndPackages.png[SWTBot UI Test Set,width=800]
+
+== [[SWTBotDevDocu]]4diac IDE Developer SWTBot UI Test Documentation
+Development documentation has been created so that all 4diac IDE developers can contribute new tests. +
+This can be found in the *installed 4diac IDE* under +
+_Help -> Help Contents -> 4diac User Guide -> Development Documentation -> 4DIAC-IDE -> SWTBot testing_ +
+or +
+_xref:./swtBotTestsDocumentation.asciidoc[SWT Bot Tests Documentation]_
