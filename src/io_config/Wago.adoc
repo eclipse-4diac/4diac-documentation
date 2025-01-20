@@ -31,7 +31,16 @@ for permanent stop:
 	>ln -s /etc/init.d/runtime /etc/rc.d/S98_runtime
 ====
 
-A general explanation about how the process image of Wago modules is created, can be found within the PDF https://github.com/WAGO/pfc-howtos/blob/master/HowTo_ADI-MyKBusApplikation/a800010_en%20-%20ADI-DAL%20for%20PFC%20firmware%2011%20patch%202.pdf[ADI/DAL PFC Firmware] provided by Wago. This document is useful especially when integrating new Wago modules or other modules that use the KBus.
+A general explanation about how the process image of Wago modules is created, can be found within the PDF https://github.com/WAGO/pfc-howtos/blob/master/HowTo_ADI-MyKBusApplikation/a800010_en%20-%20ADI-DAL%20for%20PFC%20firmware%2011%20patch%202.pdf[ADI/DAL PFC Firmware] provided by Wago. This document is useful especially when integrating new Wago modules or other modules that use the KBus. This document states the following important information:
+
+[IMPORTANT]
+====
+"_Every I/O-Module offers some fixed sized process data values and configuration information. Process data size varies from 2 bit up to 24 bytes. Process data values also have a direction, named “input process data” or “output process data”. Also IO-Modules are classified as “digital” or “complex”. Configuration of IO-Modules is stored inside “registers”, accessible via “register-communication” or “parameter-channel”. Every WAGO Output-Module monitors elapsed time since the last kbus-cycle. If the elapsed time exceeds 50ms, Output-Modules shut down their outputs to a failsafe state._" 
+
+"_With adi->OpenDevice the device driver identifies all connected IO-Modules and constructs two process images: Process-Image-of-Inputs (PII) and Process-Image-of-Outputs (PIO)_"
+====
+
+Consider that each Wago module has its own manual, which describes the bits of its process image in detail.
 
 == Compile 4diac for PFC200
 
