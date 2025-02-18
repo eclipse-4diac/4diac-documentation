@@ -37,29 +37,29 @@ The best teacher is practice, so use 4diac FORTE or 4diac IDE as your example 
 You can't break anything. 
 Git is bullet-proof.
 
-== Gerrit
+== Github 
 
 You know how Git works, and have maybe already used it. 
-But now, a new player is in the game: Gerrit. 
+But now, a new player is in the game: Github. 
 What is it? 
-The information in https://en.wikipedia.org/wiki/Gerrit_%28software%29[Wikipedia] helps, but putting it simple, it is the firewall of contributions. 
-It's used by many platforms, including the Eclipse Foundation where the 4diac FORTE and 4diac IDE repositories are. 
-When someone, a programmer with the best intentions, wants to contribute to 4diac FORTE code, he clones the Git repository, makes changes, commits and then pushes to the repository in the Eclipse Foundation. 
+When someone, a programmer with the best intentions, wants to contribute to 4diac FORTE code, s/he clones the Github repository, makes changes, commits, and then pushes the changes to the repository in the Eclipse Foundation. 
 But of course, the change doesn't go directly to the repository. 
-First, it has to be accepted by people in charge of 4diac FORTE or 4diac IDE. 
-Therefore, the contributors push to Gerrit. 
-Gerrit checks legal requirements, and then notifies the people responsible of 4diac FORTE that some new change has arrived. 
-They then visit Gerrit, see the new change and can accept or deny it. 
+First, it has to be accepted by the people in charge of 4diac FORTE or 4diac IDE. 
+Therefore, the contributors create a pull request on Github. 
+Github automatically checks legal requirements (copyright headers!), and then notifies the people responsible of Eclipse 4diac that some new change has arrived. 
+They then visit Github, see the new pull request, and can accept or deny it. 
+Most of the time you will get comments to improve your code.
 Easy, right?
 
-But to better understand Gerrit, it's better to work with it. 
-We'll go step-by-step toward pushing code to Gerrit in order to contribute to 4diac FORTE.
+But to better understand Github, it's better to work with it. 
+Create a Github account on www.github.com.
+We'll go step-by-step toward pushing code to Github in order to contribute to Eclipse 4diac.
 
 == Help 4diac IDE and 4diac FORTE - NOW!
 
-As said before, we'll learn to contribute to 4diac FORTE step-by-step.
+As said before, we'll learn to contribute to 4diac IDE and 4diac FORTE step-by-step.
 However, if you want to contribute, you'll need to sign some link:#ECA[legal documents] online. 
-If you don't wish to sign them, you can still get the code of 4diac FORTE and play with it.
+If you don't wish to sign them, you can still get the code of 4diac IDE or 4diac FORTE and play with it.
 
 === [[EclipseAccount]]Create an Eclipse account
 
@@ -73,17 +73,14 @@ The email address indicated during account registration should also be used late
 
 === [[BugReport]]Submit bug reports
 
-If you notice an issue related to Eclipse 4diac, you should report a bug via the following link:
-https://bugs.eclipse.org/bugs/enter_bug.cgi?product=4DIAC[Bugzilla]
-
-You can report issues and suggestions for 4diac IDE, 4diac FORTE, the webpage, etc. after logging into your (new) Eclipse account. 
-Follow the https://bugs.eclipse.org/bugs/page.cgi?id=bug-writing.html[bug writing guidelines] in order to allow other users to understand your issue. 
-First, select the component that needs to be improved. 
-Then, enter details about your system: the program version in use as well as your system. 
-If the bug is not related to a certain operating system, choose All. 
-The Summary will be the title of the bug and should be concise and descriptive. 
+If you notice an issue related to Eclipse 4diac, you should report an issue on the Github issue tracker.
+This will help the project - even if you have no idea how to fix it! 
+For 4diac IDE, follow: https://github.com/eclipse-4diac/4diac-ide/issues - for 4diac FORTE, follow: https://github.com/eclipse-4diac/4diac-forte/issues
+You can report issues and suggestions for 4diac IDE, 4diac FORTE, the webpage, etc. after logging into your (new) Github account. 
+The title of the bug or feature request should be concise and descriptive. 
 Further details are then added in the description field. 
-Provide all information required to understand and possibly also reproduce a bug. 
+Provide all information required to understand and possibly also reproduce a bug.
+Add your operating system if there is an issue with installation or graphical user interfaces - this may help to reproduce your bug.
 Don't hesitate to also report minor issues.
 
 
@@ -132,37 +129,14 @@ As you created the Eclipse account and signed the ECA in the previous link:#ECA[
 +
 In Eclipse, go to File → Import...→ Git → Projects from Git. 
 Click Next and then select Clone URI. 
-Next, paste https://github.com/eclipse-4diac/4diac-forte.git or https://git.eclipse.org/r/4diac/org.eclipse.4diac.ide in the URI field and then Next. 
+Next, paste https://github.com/eclipse-4diac/4diac-forte.git or https://github.com/eclipse-4diac/4diac-ide.git in the URI field and then Next. 
 Eclipse will connect to the repository and retrieve all its branches. 
 Select all and click Next. 
 The branches represent various development stages. 
 For small updates/fixes to the current version, you can use the branch with the latest version number. 
 Select the destination folder of the repository in your local machine and click Next. 
 Wait while the repository is being downloaded. Click Next until the assistant is finished.
-. Configure Gerrit
-+
-Access the https://git.eclipse.org/r[Gerrit] page in Eclipse to manage your account details regarding Gerrit. 
-Click Sign In in the upper-right corner. 
-The username is the email address registered with your Eclipse account created in link:#EclipseAccount[step 1.1]. 
-Log in with the password of your Eclipse account. 
-Then, click on your name on the upper-right corner and choose Settings. 
-There you can change your preferences concerning messages, follow projects, manage your password, etc. 
-You can push changes to Gerrit via SSH or https. In this example, we'll use https. 
-SSH requires you to create public and private keys, which are stored in files. 
-Eclipse use these files to connect to Gerrit. 
-To know more about creating keys and configuring Eclipse, visit http://www.vogella.com/tutorials/EclipseGit/article.html#github[here], and then add the key in the SSH Public Keys setting in Gerrit.
-+
-Go to HTTP Password in the Settings page of Gerrit, copy the username that appears and click Generate Password. 
-You'll get a random long password that you'll use every time you want to push something to Gerrit. 
-Go to Eclipse, right-click on the project → Team → Show in Repositories View. 
-Then, expand Remotes, and right-click on origin → Gerrit Configuration.... 
-In this step, you can choose ssh, https or another communication protocol. 
-Choose https and paste your username from Gerrit to the field User. This will change the Push URI. 
-In the Destination branch field, you should set the branch to push to. 
-You can't push to a branch that doesn't exist in the Gerrit repository. 
-Note that the destination branch begins with refs/for/. 
-Click finish and see in the Repositories View that the Origin remote has changed the push URI. 
-This means that when you send something to 4diac FORTE or 4diac IDE, it will send to Gerrit, but when you get something from it, you'll get it from the actual repository.
+
 . (Optional) Look around and move between branches
 +
 Now you have the newest 4diac FORTE or 4diac IDE code. 
@@ -199,8 +173,8 @@ After you downloaded the current code, you can start creating contributions.
 . Find a bug to work on
 +
 In order to contribute, you need to first find a bug to work on. 
-All your changes should be related to a bug recorded in link:#BugReport[Bugzilla]. 
-You can look into the code and find something wrong or you can go to the https://bugs.eclipse.org/bugs/buglist.cgi?list_id=14410991&product=4DIAC&query_format=advanced[list of bugs] and see the ones that refer to the 4diac FORTE project. 
+Larger changes should be related to a bug recorded in the issue tracker.
+You can look into the code and find something wrong or you can go to the list of bugs on Github and see the ones that refer to the 4diac  IDE or 4diac FORTE project. 
 If you find an error, or even missing documentation, you should report the bug.
 In order to learn how to contribute you may want to edit some documentation. 
 Maybe you find a typo or you'd like to add some details. 
@@ -208,8 +182,7 @@ Bug fixes are a metric that shows how the software development progresses.
 But be aware that when reporting a bug, it should have a clear way of fixing it. 
 For a reported bug such as "Missing documentation", it is unclear when the bugfix is complete. 
 Therefore, state for example which documentation is missing. 
-Each bug in Bugzilla has an ID. 
-Let's say we are working on bug number 123456.
+
 . Make changes and prepare to commit
 +
 Now you actually change the code. 
@@ -225,27 +198,17 @@ The selected files will be moved to Staged Changes.
 +
 Committing changes is a very important step. 
 The changes are first committed locally. 
-The commit message is essential for pushing to Gerrit, you can find example messages below. 
-In Gerrit, the commit is first verified to ensure that everything is fine and the changes are then accepted. 
-The commit message is created in the Git Staging View and consists of three parts: the subject, the body and the footer. 
-The three parts are separated by an empty line.
+The commit message is essential for pushing to Github, you can find example messages below. 
+In Github, the commit is first verified to ensure that everything is fine and the changes are then accepted. 
+The commit message is created in the Git Staging View and consists of two parts: the subject and the body.
+The parts are separated by an empty line.
 
-* The subject must contain the number of the bug you are working on, listed between square brackets and followed by a short explanation of what the commit contains. 
+* The subject must contain a short explanation of what the commit contains. 
 Try to keep it shorter than 50 characters and, for better readability, start the message with a capital letter. 
 Don't use a period at the end of the subject.
 * The body contains all the explanation of what was done. 
 Use it to explain what and why, but not how. 
-* The footer must have two parts (three if the Change-Id is needed):
-.. [ALWAYS] the link to the bug (Bug: https://bugs.eclipse.org/bugs/show_bug.cgi?id=123456 )
-.. [ONLY TO OVERWRITE A COMMIT] the Change-Id field is used when you are adding the second commit to a change already pushed before (for example: Change-Id: If0b359ad15268ed179194cf5ad4fb5b2d09b3290). 
-See NOTE 2 to know more about when to use it.
-Sign via the button showing a brush that is located above the Commit Message. 
-The signature at the end is checked by Gerrit to verify that the committer has signed the ECA.
-+
-NOTE: Empty lines are only allowed (and mandatory) between the subject, body and footer, not between the inner parts of the footer.
-+
-NOTE: The Change-Id is not edited, when a commit is pushed to Gerrit for the first time (CommitOne). 
-Gerrit generates the Change-Id. 
+
 If CommitOne is rejected (erroneous code, missing information, etc.), you must revise the commit and amend (overwrite) the CommitOne. 
 This generates CommitTwo. (You could also delete CommitOne completely, and create a new commit as CommitTwo). 
 Remember that CommitTwo is a completely new commit. 
@@ -257,12 +220,10 @@ Instead, CommitTwo will appear below CommitOne on the same page. Now CommitTwo i
 Example for CommitOne: 
 +
 ----
-[123456] Change the initial value of temp variable
+Change the initial value of temp variable
 
 The initial value of the temp variable was changed to 1 instead of zero
 because of weather conditions
-
-Bug: https://bugs.eclipse.org/bugs/show_bug.cgi?id=123456 
 ----
 + 
 With the message done, click commit.
@@ -270,13 +231,10 @@ With the message done, click commit.
 Example for CommitTwo:
 + 
 ----
-[123456] Change the initial value of temp variable
+Change the initial value of temp variable
 
-The initial value of the temp variable was changed to 1 instead of zero
+The initial value of the temp variable was changed to 2 instead of zero
 because of weather conditions
-
-Bug: https://bugs.eclipse.org/bugs/show_bug.cgi?id=123456 
-Change-Id: If0b359ad15268ed179194cf5ad4fb5b2d09b3290 
 ----
 +
 With the message done, click commit.
@@ -288,9 +246,6 @@ So far, the commit is only stored locally, and no one else knows about it.
 It's time to push it to the repository in Eclipse. 
 Right-click on your last commit → Push commit.... A dialog opens. 
 With the configurations shown, you are trying to push to the develop branch of the Gerrit called `refs/heads/develop`. 
-But, according to the Gerrit documentation, you should push to the magic branch named `refs/for/[branch]`. 
-So, in the dialog, instead of the standard develop branch, change to `refs/for/develop` (instead of `reds/heads/develop`).
-Click next, and you'll be asked to introduce your https Gerrit password generated link:#ConfigureGerrit[above]. 
 The push confirmation notifies that a new branch is being created. 
 Don't worry about that, and click Finish. 
 Enter the password again, and then the push should succeed. 
