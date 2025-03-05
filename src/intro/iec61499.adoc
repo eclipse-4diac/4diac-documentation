@@ -122,9 +122,9 @@ For event connections, both a fan-in and a fan-out are possible.
 In the graph, each event input is connected to several data inputs via lines and small squares. 
 Similarly, each event output is connected to several data outputs. 
 This connection defines which data inputs/outputs are refreshed when an input/output event occurs. 
-The behavior of the function block depends on its Event Execution Control (ECC). 
-The ECC is a state machine, which receives the input events. 
-Based on the current state, the ECC executes a certain part of the encapsulated functionality.
+The behavior of the function block depends on its Event Execution Control. 
+When an FB is triggered by an input event, the Event Execution Control coordinates the execution of encapsulated functionalities and sending of output events.
+Depending on the kind of FB (see below), the Event Execution Control is implemented in different ways.
 
 image:functionBlockInterfaces.png[Interfaces of a Function Block]
 
@@ -137,7 +137,7 @@ image:functionBlockSequence.png[Sequence of how a Function Block is activated]
 
 . An input events arrives at the FB.
 . The data inputs related to the incoming event are refreshed.
-. The event is passed on to the ECC.
+. The event is passed on to the Event Execution Control.
 . Depending on the FB type and execution control, internal functionality is triggered for execution.
 . The internal functionality finishes the execution and provides new output data.
 . The output data related to the output event are refreshed
