@@ -1,14 +1,16 @@
+---
+title: "Step 0 - 4diac IDE - Overview"
+url: doc/tutorials/overview.html
+---
+
 = [[topOfPage]] Step 0 - 4diac IDE - Overview
 :lang: en
-:imagesdir: ./src/tutorials/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
 [start=0]
-. xref:overview.adoc[4diac IDE Overview (YOU ARE HERE!)]
+. 4diac IDE Overview (YOU ARE HERE!)
 . xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
 . xref:use4diacRemotely.adoc[Deploy Applications Remotely]
@@ -151,6 +153,6 @@ First, select the FB by clicking onto it and, then, click on the FB again to edi
 * Now that you got an overview of the major parts of 4diac IDE, you can start using it: +
 xref:use4diacLocally.adoc[Step 1 - Use 4diac IDE Locally]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

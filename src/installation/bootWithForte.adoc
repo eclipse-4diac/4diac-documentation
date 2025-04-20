@@ -1,3 +1,8 @@
+---
+title: "Start 4diac FORTE after boot on Linux based systems"
+url: doc/installation/bootWithForte.html
+---
+
 = [[topOfPage]]Start 4diac FORTE after boot on Linux based systems
 :lang: en
 
@@ -87,11 +92,11 @@ xref:../tutorials/overview.adoc[Step by step tutorial]
 
 If you want to build 4diac FORTE, here is a quick link back:
 
-xref:./index.adoc[Install Eclipse 4diac]
+xref:./installation.adoc[Install Eclipse 4diac]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

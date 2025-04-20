@@ -1,3 +1,8 @@
+---
+title: "HTTP"
+url: doc/communication/HTTP.html
+---
+
 = [[topOfPage]]HTTP
 
 This section shows how to make applications communicate using the HTTP protocol. 
@@ -8,7 +13,7 @@ Currently only `GET`, `POST` or `PUT` requests are supported.
 == Configuration
 
 4diac Forte must be compiled from source code for the HTTP module to work. 
-Follow the xref:../installation/index.adoc#ownFORTE[steps to build your own FBs]. 
+Follow the xref:../installation/installation.adoc#ownFORTE[steps to build your own FBs]. 
 In the step 3 where the features to be compiled are selected, select also `FORTE_COM_HTTP`. 
 Then follow the same procedure, compile 4diac FORTE, et voilà, you have HTTP support on your 4diac FORTE.
 
@@ -59,8 +64,8 @@ The values are stored in the RDs in the order they arrived and treated as `STRIN
 == Where to go from here?
 
  * Go back to Protocols index: +
-xref:index.adoc[Communication Index]
+xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

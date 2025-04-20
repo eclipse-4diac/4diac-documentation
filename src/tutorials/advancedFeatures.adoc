@@ -1,9 +1,11 @@
+---
+title: "Step 6 - Advanced Features"
+url: doc/tutorials/advancedFeatures.html
+---
+
 = [[topOfPage]]Step 6 - Advanced Features
 :lang: en
-:imagesdir: ./src/tutorials/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This page is part of a guide that gives a walk-through over the major
 4diac IDE features.
@@ -73,14 +75,14 @@ Further examples for the usage of adapters can be found within the FestoMPS exam
 == Where to go from here?
 
 * If you want to see some examples, behind the following link is an index of the available examples in the documentation: +
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 * If you have a specific platform that has input and outputs and is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, go to following page: +
 xref:../io_config/io_config.adoc[Parameters for Different Platforms]
 * If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, go this page: +
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 * If you want to go back to see again the basic features, here's a link: +
 xref:./otherUseful.adoc[Step 5 - Other Basic Features]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../index.adoc#wheretostart[Where to Start]
+xref:../doc_overview.adoc#wheretostart[Where to Start]
 
 link:#topOfPage[Go to top]

@@ -1,9 +1,11 @@
+---
+title: "SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)"
+url: doc/io_config/SysFs.html
+---
+
 = [[sysfs]]SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)
 :lang: en
-:imagesdir: ./src/io_config/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 The following picture shows an example application from the xref:../tutorials/use4diacLocally.adoc[Blinking tutorial] which is extended with IX and QX function blocks. 
 The extended application periodically toggles on pin number 8. 
@@ -24,14 +26,14 @@ Remember that if you have any problem and cannot find the solution in the docume
 
 You can see the supported protocols:
 
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

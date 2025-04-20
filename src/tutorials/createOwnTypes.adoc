@@ -1,9 +1,11 @@
+---
+title: "Step 4 - Create Your own Function Block Types"
+url: doc/tutorials/createOwnTypes.html
+---
+
 = [[topOfPage]]Step 4 - Create Your own Function Block Types
 :lang: en
-:imagesdir: ./src/tutorials/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 
 This page is part of a guide that gives a walk-through of the major 4diac IDE features.
@@ -290,6 +292,6 @@ xref:./otherUseful.adoc[Step 5 - Other Basic Features]
 * If you want to go back to the distributed application running remotely, here's a link +
 xref:./use4diacRemotely.adoc[Step 3 - Deploy Applications Remotely]
 * If you want to go back to the Start Here page, we leave you here a fast access +
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

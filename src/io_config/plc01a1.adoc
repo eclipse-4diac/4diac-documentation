@@ -1,3 +1,8 @@
+---
+title: "Use the PLC01A1 Module from STM32"
+url: doc/io_config/plc01a1.html
+---
+
 = Use the PLC01A1 Module from STM32
 :lang: en
 
@@ -164,14 +169,14 @@ which saves the current log and the previous one, in case the board reboots.
 
 You can see the supported protocols:
 
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

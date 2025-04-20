@@ -1,21 +1,23 @@
-= [[topOfPage]]Compiling and Debugging 4diac FORTEwith MS Visual Studio
+---
+title: "Compiling and Debugging 4diac FORTE with MS Visual Studio"
+url: doc/installation/visualStudio.html
+---
+
+= [[topOfPage]]Compiling and Debugging 4diac FORTE with MS Visual Studio
 :lang: en
-:imagesdir: ./src/installation/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 
 The following describes how to compile 4diac FORTE with win32-architecture using Visual Studio. 
-In the installation tutorial xref:./index.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
+In the installation tutorial xref:./installation.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
 Additionally, other tools are described there.
 
 IMPORTANT: If you are using a Visual Studio version older then 2010 you might need to extend it with a stdint.h file. 
 See for example http://stackoverflow.com/questions/12970293/why-microsoft-visual-studio-cannot-find-stdint-h[here.]
 
-== Building a MS Visual Studio Project for 4diac FORTEwith CMake
+== Building a MS Visual Studio Project for 4diac FORTE with CMake
 
-In the xref:./index.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
+In the xref:./installation.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
 To use Visual Studio, you need to however select the tool MS Visual Studio. 
 The correct architecture is Win32.
 
@@ -25,23 +27,23 @@ The correct architecture is Win32.
 . Press the [.button4diac]#Configure# button and choose the version of Visual Studio that is used and native default compilers. 
   Press the [.button4diac]#Finish# button afterwards.
 . For the option [.specificText]#FORTE_ARCHITECTURE#, select Win32. 
-  Other modules and configurations options can be set following the tutorial step link:./index.adoc#generateFilesForCompiling[Build a project with CMake].
+  Other modules and configurations options can be set following the tutorial step link:./installation.adoc#generateFilesForCompiling[Build a project with CMake].
 . Press the [.button4diac]#Configure# button, check red rows and repeat this until no row appears red. Afterwards, press the button [.button4diac]#Generate#.
 
-== Compile 4diac FORTEwith Visual Studio
+== Compile 4diac FORTE with Visual Studio
 
-. Open the generated 4diac FORTEproject (.sln file) with Visual Studio in `FORTE_FOLDER_ROOT/bin/win32`. 
+. Open the generated 4diac FORTE project (.sln file) with Visual Studio in `FORTE_FOLDER_ROOT/bin/win32`. 
   You can change from Debug to Release mode if you don't want to debug.
 +
 image:VSreleaseDebug.png[Release Mode of Visual Studio ]
-. Build 4diac FORTEafterwards by right-clicking on [.button4diac]#forte# in the Solution Explorer window and then clicking [.button4diac]#Build#.
+. Build 4diac FORTE afterwards by right-clicking on [.button4diac]#forte# in the Solution Explorer window and then clicking [.button4diac]#Build#.
   A file `forte.exe` should be generated in `FORTE_FOLDER_ROOT/bin/win32/src/Release`.
 +
 image:VSCompile.png[Compile by right-clicking on 4diac FORTE in the Solution Explorer window, and then click Build]
 
 == Debugging
 
-. If you want to Debug using Visual Studio, select the Debug mode and set 4diac FORTEas the main project.
+. If you want to Debug using Visual Studio, select the Debug mode and set 4diac FORTE as the main project.
 +
 image:VSstartProject.png[Set 4diac FORTE as main project in Visual Studio ]
 . Finally, press [.button4diac]#F5# or click [.button4diac]#Debug → Start Debugging#
@@ -51,7 +53,7 @@ image:VSstartProject.png[Set 4diac FORTE as main project in Visual Studio ]
 
 If you want to build a 4diac FORTE, here is a quick link back:
 
-xref:./index.adoc[Install Eclipse 4diac]
+xref:./installation.adoc[Install Eclipse 4diac]
 
 After you installed all required tools, it's time to start using them.
 Take a look at the following page:
@@ -61,6 +63,6 @@ xref:../tutorials/overview.adoc[Step by step tutorial]
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

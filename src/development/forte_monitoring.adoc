@@ -1,4 +1,9 @@
-= [[topOfPage]]Development - Monitoring
+---
+title: "Monitoring"
+url: doc/development/forte_monitoring.html
+---
+
+= [[topOfPage]]Monitoring
 :lang: en
 
 DTD will be added, after finishing all the implementation work and the interface for all commands is stable. 
@@ -61,10 +66,10 @@ Currently the following monitoring commands are supported:
 
 Go back to Development index:
 
-link:./index.adoc[Development Index]
+link:./development.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

@@ -1,9 +1,11 @@
+---
+title: "SWTBot UI Test Set and Test Structure"
+url: doc/development/swtBotTestsStructure.html
+---
+
 = [[topOfPage]]SWTBot UI Test Set and Test Structure
 :lang: en
-:imagesdir: ./src/development/img/SWTBot
-ifdef::env-github[]
 :imagesdir: img/SWTBot
-endif::[]
 
 * link:#SWTBotTestStructure[Where are the SWTBot UI tests located in the 4diac IDE source code?]
 * link:#SWTBotHierachy[SWTBot Hierachy with Extentions for 4diac IDE]

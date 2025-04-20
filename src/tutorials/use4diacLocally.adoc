@@ -1,9 +1,11 @@
+---
+title: "Step 1 - Use 4diac Locally"
+url: doc/tutorials/use4diacLocally.html
+---
+
 = [[topOfPage]]Step 1 - Use 4diac Locally
 :lang: en
-:imagesdir: ./src/tutorials/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
@@ -217,7 +219,7 @@ Before we test our application, let's briefly summarize the elements we've worke
 In this step, the Blink application will be deployed to 4diac FORTE running locally on your computer.
 
 . You have to select a 4diac FORTE. +
-You can either build your own 4diac FORTE as xref:../installation/index.adoc#ownFORTE[shown here] or you can download the 4diac FORTE image that is provided for you for this tutorial on https://eclipse.dev/4diac/en_dow.php[our Homepage]. 
+You can either build your own 4diac FORTE as xref:../installation/installation.adoc#ownFORTE[shown here] or you can download the 4diac FORTE image that is provided for you for this tutorial on https://eclipse.dev/4diac/en_dow.php[our Homepage]. 
 You can save the .exe wherever you like, we have chosen `F:\4diac\4diac IDE\`. 
 Go to [.menu4diac]#Windows → Preferences → 4diac IDE → FORTE Preferences#, and in [.addressDoc]#FORTE Location# look for the 4diac FORTE executable and then click _Apply and Close_. +
 image:Step1/selectForte.png[select your 4diac FORTE,width=600]
@@ -287,6 +289,6 @@ xref:./distribute4diac.adoc[Step 2 - Distribute 4diac Applications]
 * If you want to go the back to see an overall overview of 4diac IDE, here's a link +
 xref:./overview.adoc[Step 0 - 4diac IDE Overview] +
 * If you want to go back to the Start Here page, we leave you here a fast access +
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

@@ -1,9 +1,11 @@
+---
+title: "Step 2 - Distribute 4diac Applications"
+url: doc/tutorials/distribute4diac.html
+---
+
 = [[topOfPage]]Step 2 - Distribute 4diac Applications
 :lang: en
-:imagesdir: ./src/tutorials/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
@@ -133,6 +135,6 @@ xref:./use4diacRemotely.adoc[Step 3 - Deploy Applications Remotely]
 * If you want to go back to the original Blinking application without buttons, here's a link +
 link:./use4diacLocally.adoc[Step 1 - Use 4diac Locally (Blinking Tutorial)]
 * If you want to go back to the Start Here page, we leave you here a fast access +
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

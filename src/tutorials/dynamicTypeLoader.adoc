@@ -1,9 +1,11 @@
+---
+title: "Step 7 - Deploying new FBs with the Dynamic Type Loader"
+url: doc/tutorials/dynamicTypeLoader.html
+---
+
 = [[topOfPage]]Step 7 - Deploying new FBs with the Dynamic Type Loader
 :lang: en
-:imagesdir: ./src/tutorials/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This page is part of a guide that gives a walk-through of the major 4diac IDE features.
 
@@ -31,7 +33,7 @@ Instead of directly compiled into 4diac FORTE, the FBs are downloaded as LUA Co
 Before we can use the Dynamic Type Loader, we have to compile a new 4diac FORTE with the Lua JIT (Just-In-Time Compiler). 
 Therefore we are going to need a C-compiler. 
 If you have done the tutorial, on how to create your own 4diac FORTE, everything you need should already be installed. 
-Otherwise, follow the steps xref:../installation/index.adoc[here].
+Otherwise, follow the steps xref:../installation/installation.adoc[here].
 
 We recommend using the minGW compiler.
 
@@ -63,7 +65,7 @@ Then create an folder where we are going to build our 4diac FORTE in.
 Open CMake and set the source folder, to the folder where your 4diac FORTE source files are in. 
 Then set the build folder, to folder where you want to build 4diac FORTE in.
 
-Before configuring the Lua options, please enable all options, shown in this xref:../installation/index.adoc#generateFilesForCompiling[tutorial].
+Before configuring the Lua options, please enable all options, shown in this xref:../installation/installation.adoc#generateFilesForCompiling[tutorial].
 Before pressing generate, we have to configure all Lua options.
 
 . Set `FORTE_USE_LUATYPES` to `LUAJIT` and press configure
@@ -97,7 +99,7 @@ Everything should be set up and you can deploy your FBs, like you learned earlie
 == Where to go from here?
 
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../index.adoc#wheretostart[Where to Start]
+xref:../doc_overview.adoc#wheretostart[Where to Start]
 
 link:#topOfPage[Go to top]
 

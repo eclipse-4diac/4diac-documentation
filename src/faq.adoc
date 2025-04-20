@@ -1,4 +1,9 @@
-= [[topOfPage]] Eclipse 4diac FAQ
+---
+title: "Eclipse 4diac FAQs"
+url: doc/faq.html
+---
+
+= [[topOfPage]] Eclipse 4diac FAQs
 
 == 4diac IDE FAQ
 
@@ -165,4 +170,4 @@ The message indicates the end of the download process when 4diac IDE disconnect
 
 link:#topOfPage[Go to top]
 
-Or xref:./index.adoc[Go to the Start Here Page]
+Or xref:./doc_overview.adoc[Go to the Start Here Page]

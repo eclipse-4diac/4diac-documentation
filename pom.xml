@@ -35,6 +35,9 @@
 						 	<sourceDirectory>src</sourceDirectory>
                             <backend>html5</backend>
                             <preserveDirectories>true</preserveDirectories>
+                            <attributes>
+                                <skip-front-matter>true</skip-front-matter>
+                            </attributes>
 						</configuration>
 					</execution>
 				</executions>

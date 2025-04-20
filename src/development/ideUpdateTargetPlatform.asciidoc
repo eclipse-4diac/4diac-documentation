@@ -1,3 +1,8 @@
+---
+title: "Updating the Target Platform used by 4diac IDE"
+url: doc/development/ideUpdateTargetPlatform.html
+---
+
 = [[topOfPage]]Updating the Target Platform used by 4diac IDE
 :lang: en
 

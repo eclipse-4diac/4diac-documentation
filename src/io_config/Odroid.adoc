@@ -1,9 +1,11 @@
+---
+title: "Odroid"
+url: doc/io_config/Odroid.html
+---
+
 = [[odroid]]Odroid
 :lang: en
-:imagesdir: ./src/io_config/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 https://wiki.odroid.com/[Odroid] is an embedded board that you can say it's a more powerful Rapsberry Pi, and it has analog inputs. 
 In order to use the I/O of this board. 
@@ -16,14 +18,14 @@ image:odroidFBs.png[FBs example for Odroid platform]
 
 You can see the supported protocols:
 
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]
