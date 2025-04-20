@@ -1,9 +1,11 @@
+---
+title: "Installation"
+url: doc/installation/installation.html
+---
+
 = [[topOfPage]]Installation
 :lang: en
-:imagesdir: ./src/installation/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 == [[IDE]]4diac IDE
 
@@ -23,7 +25,7 @@ This option aims mainly at 4diac IDE developers or people who wish to extend 4d
 4diac FORTE can be used in two ways: For conducting first experiments with Eclipse 4diac, you can use the pre-built version of 4diac FORTE which is available as https://eclipse.dev/4diac/en_dow.php[download] for Linux and Windows. 
 It can be used for applications unless you need own Function Blocks. 
 The step by step tutorial will direct you to making a simple application with 4diac IDE and pre-built 4diac FORTE. 
-If you want to start using 4diac IDE right away, you can skip the rest of the page and go directly to the xref:../tutorials/overview.adoc[step by step tutorial] or the xref:../index.adoc[Start Here-page].
+If you want to start using 4diac IDE right away, you can skip the rest of the page and go directly to the xref:../tutorials/overview.adoc[step by step tutorial] or the xref:../doc_overview.adoc[Start Here-page].
 
 If you want to develop your own Function Blocks or to run 4diac FORTE on control devices, you have to download and set up 4diac FORTE for the specific platform you are using as shown in the next sections.
 
@@ -240,6 +242,6 @@ xref:../tutorial/overview.adoc[Step 0 - 4diac IDE Overview]
 
 If you want to go back to the Where to Start page, we leave you here a fast access:
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

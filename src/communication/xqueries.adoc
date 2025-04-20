@@ -1,9 +1,11 @@
+---
+title: "Access BaseX Database with XQueries"
+url: doc/communication/xqueries.html
+---
+
 = [[topOfPage]]Access BaseX Database with XQueries
 :lang: en
-:imagesdir: ./src/communication/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This section will show you how to make applications communicate with a http://basex.org/[BaseX] database through XQueries. 
 This allows a component, to initialize itself by accessing its asset administration shell, in terms of an XML database. 
@@ -25,7 +27,7 @@ git clone https://github.com/BaseXdb/basex.git
 ----
 
 Then configure CMake to build the 4diac FORTE. 
-If you do not know how to build the 4diac FORTE read the xref:../installation/index.adoc#ownFORTE[build instructions first]. 
+If you do not know how to build the 4diac FORTE read the xref:../installation/installation.adoc#ownFORTE[build instructions first]. 
 Besides the usual configuration activate the Xquery Client in the 4diac FORTE CMake configuration: 
 ----
 FORTE_COM_XqueryClient=ON
@@ -140,7 +142,7 @@ st_xSuccessor().append("' "
 Please consider that your XQuery is dependent on the data structure of your database. 
 In this case it is the structure of an AutomationML file for a xref:./img/xquery/BaSys_PalletSystem_Model.aml[_Pallet System_].
 After you have created your test function block, export it and build your 4diac FORTE with it. 
-Please have a look at the xref:../installation/index.adoc#ownFORTE[build instructions] if you do not know how to build your own function block.
+Please have a look at the xref:../installation/installation.adoc#ownFORTE[build instructions] if you do not know how to build your own function block.
 
 Now you can use your test function block within an application. 
 To send the XQueries to your BaseX database, add a `CLIENT_1` for each query you want to send. 
@@ -175,9 +177,9 @@ If you monitor your application you should get the results from the XQuery reque
 == Where to go from here?
 
 * Go back to Protocols index: +
-xref:index.adoc[Communication Index]
+xref:./communication.adoc[Communication Index]
 
 * If you want to go back to the Start Here page, we leave you here a fast access +
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

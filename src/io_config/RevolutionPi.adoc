@@ -1,9 +1,11 @@
+---
+title: "Revolution Pi"
+url: doc/io_config/RevolutionPi.html
+---
+
 = [[RevolutionPi]]Revolution Pi
 :lang: en
-:imagesdir: ./src/io_config/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 The Revolution Pi by KUNBUS GmbH has been implemented by the _IO_CONFIG_ based I/O concept.
 Revolution Pi is a modular PLC, where you always have at least one core module and maybe one or more expansion modules for I/Os.
@@ -75,14 +77,14 @@ When all I/Os are wired and named within your _IO_CONFIG_ function block network
 
 You can see the supported protocols:
 
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

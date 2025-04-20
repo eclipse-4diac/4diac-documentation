@@ -1,9 +1,11 @@
-= [[topOfPage]] Implement a PID controller for the position of an EV3 motor
+---
+title: "Implement a PID Controller for the Position of an EV3 motor"
+url: doc/examples/pidMotor.html
+---
+
+= [[topOfPage]] Implement a PID Controller for the Position of an EV3 motor
 :lang: en
-:imagesdir: ./src/examples/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 
 In this tutorial, an implementation of a PID controller for an EV3 motor is presented. 
@@ -296,10 +298,10 @@ image:pidMotor/PIDTuned.png[Final tun of the PID controller]
 
 Go back to Examples index:
 
-link:./index.adoc[Examples Index]
+link:./examples.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 link:#topOfPage[Go to top]

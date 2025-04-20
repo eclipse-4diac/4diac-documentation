@@ -1,3 +1,8 @@
+---
+title: "Bosch Rexroth PLC (MLPI)"
+url: doc/io_config/mlpi.html
+---
+
 == [[mlpi]]Bosch Rexroth PLC (MLPI)
 
 The MLPI interface was tested on a http://www.boschrexroth.com/dcc/Vornavigation/VorNavi.cfm?PageID=p650746&Language=en[IndraControl
@@ -18,14 +23,14 @@ An example was tested where the Digital Inputs were called di01, di01, di02 and 
 
 You can see the supported protocols:
 
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

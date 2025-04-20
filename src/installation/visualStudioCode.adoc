@@ -1,20 +1,22 @@
+---
+title: "Compiling and Debugging 4diac FORTE with MS Visual Studio Code"
+url: doc/installation/visualStudioCode.html
+---
+
 = [[topOfPage]]Compiling and Debugging 4diac FORTE with MS Visual Studio Code
 :lang: en
-:imagesdir: ./src/installation/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 
 The following describes how to compile 4diac FORTE with win32-architecture using Visual Studio Code. 
-In the installation tutorial xref:./index.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
+In the installation tutorial xref:./installation.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
 Additionally, visual studio code is described there.
 
 == Building a MS Visual Studio Code Project for 4diac FORTE with CMake
 
-In the xref:./index.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
+In the xref:./installation.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
 To use Visual Studio Code with CMake, you need to specify the options (All the options are shown in CMake-GUI when you choose source
-folder FORTE_FOLDER_ROOT, refer to xref:./index.adoc#generateFilesForCompiling[Build a project with CMake].) for CMake in settings.json for the project in Visual Studio Code.
+folder FORTE_FOLDER_ROOT, refer to xref:./installation.adoc#generateFilesForCompiling[Build a project with CMake].) for CMake in settings.json for the project in Visual Studio Code.
 The correct architecture is Win32. 
 Below is an example of settings.json for forte with OPC DA compiled.
 
@@ -62,7 +64,7 @@ image:visualcodeDebug.png[debug or release]
 
 If you want to build a 4diac FORTE, here is a quick link back:
 
-xref:./index.adoc[Install Eclipse 4diac]
+xref:./installation.adoc[Install Eclipse 4diac]
 
 After you installed all required tools, it's time to start using them.
 Take a look at the following page:
@@ -72,6 +74,6 @@ xref:../tutorials/overview.adoc[Step by step tutorial]
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

@@ -1,9 +1,14 @@
+---
+title: "Lego Mindstorms EV3"
+url: doc/io_config/EV3.html
+---
+
 = [[ev3]]Lego Mindstorms EV3
 
 This section is a reference of the parameters that can be used in 4diac FORTE to access the I/O of the LMSEV3. 
 Reading this section carefully without using them could be quite boring and even useless, because the details will be forgotten if not used. 
 We recommend to give a quick reading in order to know what can be accessed using 4diac FORTE. 
-The link:..//examples/pidMotor.adoc[example] presents the control of a motor using a PID controller.
+The xref:../examples/pidMotor.adoc[example] presents the control of a motor using a PID controller.
 
 
 == [[ev3_standard_parameters]]Standard Access
@@ -313,14 +318,14 @@ Example: 58
 
 You can see the supported protocols:
 
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

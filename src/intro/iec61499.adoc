@@ -1,9 +1,11 @@
+---
+title: "IEC 61499 101"
+url: doc/intro/iec61499.html
+---
+
 = [[topOfPage]]IEC 61499 101
 :lang: en
-:imagesdir: ./src/intro/img
-ifdef::env-github[]
-:imagesdir: img
-endif::[]
+:imagesdir: ./img
 
 
 == [[PLC]]PLC Programming according to IEC 61131-3
@@ -11,7 +13,7 @@ endif::[]
 A https://en.wikipedia.org/wiki/Programmable_logic_controller[PLC] is, basically, a small computer used in industry. 
 It has inputs and outputs for controlling various systems. 
 In general, buttons and sensors generate the inputs, while the outputs control motors. 
-If you have an IT background, you may want to imagine a PLC as a https://www.raspberrypi.org/[Raspberry Pi], an https://www.arduino.cc/ [Arduino], a https://beagleboard.org/[Beagle Bone Black] or a similar embedded board with inputs and outputs. 
+If you have an IT background, you may want to imagine a PLC as a https://www.raspberrypi.org/[Raspberry Pi], an https://www.arduino.cc/[Arduino], a https://beagleboard.org/[Beagle Bone Black] or a similar embedded board with inputs and outputs. 
 A PLC is however specifically prepared for use in industry. 
 The PLC is programmed according to the required application. 
 Like computers, PLCs can be acquired from many different manufacturers. 
@@ -240,6 +242,6 @@ You can see the Compliance Profile as a way of filling the gaps due to the abstr
 * Now that you have a better understanding of the IEC 61499 standard, it's time to understand what Eclipse 4diac is and which tools are related to it. Take a look at the following page: +
 xref:4diacFramework.adoc[Eclipse 4diac Framework]
 * In case you'd like to return to the "Where to Start"-page, we leave here a fast access for you: +
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

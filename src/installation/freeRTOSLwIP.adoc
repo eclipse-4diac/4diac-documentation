@@ -1,9 +1,11 @@
+---
+title: "Building 4diac FORTE for freeRTOS + LwIP"
+url: doc/installation/freeRTOSLwIP.html
+---
+
 = [[topOfPage]]Building 4diac FORTE for freeRTOS + LwIP
 :lang: en
-:imagesdir: ./src/installation/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 
 == Introduction
@@ -154,11 +156,11 @@ xref:../tutorials/overview.adoc[Step 0 - 4diac IDE Overview]
 
 If you want to compile 4diac FORTE for another platform or want to know more about that, here's a quick link back:
 
-xref:./index.adoc[Install Eclipse 4diac]
+xref:./installation.adoc[Install Eclipse 4diac]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

@@ -1,9 +1,11 @@
+---
+title: "Modbus"
+url: doc/communication/modbus.html
+---
+
 = [[topOfPage]]Modbus
 :lang: en
-:imagesdir: ./src/communication/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 == Installation Instructions
 
@@ -127,8 +129,8 @@ image:modbus/modbus_8Q.png[modbus with 8Q set]
 == Where to go from here?
 
 * Go back to Protocols index: +
-xref:index.adoc[Communication Index]
+xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access +
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

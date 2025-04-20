@@ -1,3 +1,8 @@
+---
+title: "Tutorials"
+url: doc/tutorials/tutorials.html
+---
+
 = Eclipse 4diac Tutorials
 
 == xref:overview.adoc[Step 0 - 4diac IDE Overview]

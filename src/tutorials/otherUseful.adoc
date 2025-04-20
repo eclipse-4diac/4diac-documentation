@@ -1,9 +1,11 @@
+---
+title: "Step 5 - Other Basic Features"
+url: doc/tutorials/otherUseful.html
+---
+
 = [[CreateTypes]]Step 5 - Other Basic Features
 :lang: en
-:imagesdir: ./src/tutorials/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
@@ -66,15 +68,15 @@ Before using it you need to rename it to forte.fboot.
 * The last step is optional, and shows some advanced features of 4diac IDE that you might use in more complicated applications: +
 xref:./advancedFeatures.adoc[Step 6 - Advanced Features]
 * If you want to see some examples, the following link is an index of the available examples in the documentation: +
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 * If you have a specific platform that has input and outputs that is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, go to following page: +
 xref:../io_config/io_config.adoc[I/O Configuration Parameters for Different Platforms]
 * If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, go to this
 page: +
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 * If you want to go back to see again how to create your own Function Blocks, here's a link: +
 xref:./createOwnTypes.adoc[Step 4 - Create Your own Function Block Types]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 link:#topOfPage[Go to top]

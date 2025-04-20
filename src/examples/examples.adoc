@@ -1,4 +1,9 @@
-= [[topOfPage]]4diac Examples
+---
+title: "Examples"
+url: doc/examples/examples.html
+---
+
+= [[topOfPage]]Eclipse 4diac Examples
 :lang: en
 
 This page is intended to serve as index for 4diac examples that help understand and develop applications. 
@@ -24,4 +29,4 @@ For the following examples, you'll need specific hardware to try them:
   This is the Traffic Control that comes with Eclipse 4diac, but instead of running locally, the control runs on a BBB and the HMI locally. 
   This example is important because it finds many networking issues that are solved.
 
-Go to xref:../index.adoc[Where to Start]
+Go to xref:../doc_overview.adoc[Where to Start]

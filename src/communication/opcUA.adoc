@@ -1,9 +1,11 @@
+---
+title: "OPC UA with IEC 61499 Tutorial"
+url: doc/communication/opcUA.html
+---
+
 = [[topOfPage]]OPC UA with IEC 61499 Tutorial
 :lang: en
-:imagesdir: ./src/communication/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This tutorial shows how you can use https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC 61499 Application using available FBs. You should first complete the xref:../tutorials/use4diacLocally.adoc[First Steps in Eclipse 4diac Tutorial] to get familiar with the 4diac IDE. 
 4diac FORTE uses the http://open62541.org/[open62541] OPC UA stack which is open source and can also be used in commercial projects free of charge.
@@ -491,8 +493,8 @@ You're done. Now, when your application tries to connect to `opc.tcp://192.168.1
 == Where to go from here?
 
  * Go back to Protocols index: +
-xref:./index.adoc[Communication Index]
+xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

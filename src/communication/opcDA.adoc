@@ -1,9 +1,11 @@
+---
+title: "OPC DA"
+url: doc/communication/opcDA.html
+---
+
 = [[topOfPage]]OPC DA
 :lang: en
-:imagesdir: ./src/communication/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This section will show you how to create an OPC DA Client with 4diac IDE and how to use it with 4diac FORTE. 
 Download the following packages: 
@@ -100,9 +102,9 @@ image:opc_festoOPCserverIO.png[Festo OPC Server IO]
 == Where to go from here?
 
  * Go back to Protocols index: +
-xref:index.adoc[Communication Index]
+xref:./communication.adoc[Communication Index]
 
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

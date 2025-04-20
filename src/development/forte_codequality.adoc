@@ -1,3 +1,8 @@
+---
+title: "Assuring 4diac FORTE Code Quality"
+url: doc/development/forte_codequality.html
+---
+
 = [[topOfPage]]Assuring 4diac FORTE Code Quality
 :lang: en
 
@@ -137,10 +142,10 @@ Write positive and negative test cases for your unit tests.
 
 Go back to Development index:
 
-xref:./index.adoc[Development Index]
+xref:./development.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

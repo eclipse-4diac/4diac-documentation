@@ -1,9 +1,11 @@
+---
+title: "MQTT with Eclipse Paho"
+url: doc/communication/mqttPaho.html
+---
+
 = [[topOfPage]]MQTT with Eclipse Paho
 :lang: en
-:imagesdir: ./src/communication/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This section will show you how to make applications communicate using http://www.eclipse.org/paho/[MQTT Paho]. 
 4diac FORTE uses a layered communication architecture. 
@@ -15,7 +17,7 @@ Since you need MQTT Paho, you need to install the libraries in your computer.
 Therefore you need to download the code and compile it. 
 You will need the same tools needed for 4diac FORTE (git, cmake, compilers). 
 The process is based on the normal compilation of 4diac FORTE, but the MQTT feature is enabled.
-xref:../installation/index.adoc#ownFORTE[Here's] a quick link to 4diac FORTE's compilation. 
+xref:../installation/installation.adoc#ownFORTE[Here's] a quick link to 4diac FORTE's compilation. 
 For the installation please follow the next steps:
 
 . Checkout and build MQTT Paho (if you are using Windows, some commands might change):
@@ -60,8 +62,8 @@ The raw-layer is just accepting strings and sends the raw string content.
 == Where to go from here?
 
 * Go back to Protocols index: +
-xref:index.adoc[Communication Index]
+xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access +
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

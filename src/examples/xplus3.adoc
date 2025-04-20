@@ -1,9 +1,11 @@
+---
+title: "X+3 Tutorial"
+url: doc/examples/xplus3.html
+---
+
 = [[topOfPage]] X+3 Tutorial
 :lang: en
-:imagesdir: ./src/examples/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 == Explore an Existing System
 
@@ -148,11 +150,11 @@ To download and test your IEC 61499 [.element61499]#Application#:
 
 Go back to Examples index:
 
-xref:./index.adoc[Examples Index]
+xref:./examples.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 link:#topOfPage[Go to top]

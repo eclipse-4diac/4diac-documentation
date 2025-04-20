@@ -1,9 +1,11 @@
+---
+title: "Communication Architecture"
+url: doc/development/forte_communicationArchitecture.html
+---
+
 = [[topOfPage]]Communication Architecture
 :lang: en
-:imagesdir: ./src/development/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 == Layered Network Interface
 
@@ -309,10 +311,10 @@ We only show a few of the methods here, for more information check source code.
 
 Go back to Development index:
 
-xref:./index.adoc[Development Index]
+xref:./development.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]

@@ -1,9 +1,11 @@
+---
+title: "µMIC.200"
+url: doc/io_config/uMIC.html
+---
+
 = [[umic]]µMIC.200
 :lang: en
-:imagesdir: ./src/io_config/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 This module uses the library provided for the http://www.microcontrol.net/en/products/control-systems/umic200/[µMIC.200].
 You need the `umic_dio.h`, `umic_relay.h` and `umic_led.h` headers and also the `umic.so` library to be present in your system and accessible by the compiler.
@@ -71,14 +73,14 @@ If you don't want to use the relay and led, or you don't want to change the head
 
 You can see the supported protocols:
 
-xref:../communication/index.adoc[Supported Communication Protocols]
+xref:../communication/communication.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/index.adoc[4diac Examples]
+xref:../examples/examples.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 
-xref:../index.adoc[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 Or link:#topOfPage[Go to top]

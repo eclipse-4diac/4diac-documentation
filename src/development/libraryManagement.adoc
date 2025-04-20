@@ -1,9 +1,11 @@
+---
+title: "Library Management"
+url: doc/development/libraryManagement.html
+---
+
 = [[topOfPage]]Library Management
 :lang: en
-:imagesdir: ./src/development/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 image::LibraryExample.png[Library Example]
 

@@ -1,9 +1,11 @@
+---
+title: "Run the controller of the traffic light example in the BeagleBoardBlack (BBB)"
+url: doc/examples/bbbTrafficControl.html
+---
+
 = [[topOfPage]]Run the controller of the traffic light example in the BeagleBoardBlack (BBB)
 :lang: en
-:imagesdir: ./src/examples/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 A good practice to get used to the 4diac IDE and the concept of distributed automation, is to apply the Traffic Light example, but instead of running completely in a computer or other platform, we will put the controller part of the Traffic Light example into the BBB, and the lights and Enable/Disable buttons will run in a normal computer using the FBRT runtime.
 
@@ -130,11 +132,11 @@ After that everything should work fine.
 
 Go back to Examples index:
 
-xref:./index.adoc[Examples Index]
+xref:./examples.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
 
-xref:../index.adoc[Start Here page]
+xref:../doc_overview.adoc[Start Here page]
 
 link:#topOfPage[Go to top]

@@ -1,9 +1,11 @@
+---
+title: "Building and Running 4diac IDE"
+url: doc/development/building4diac.html
+---
+
 = [[topOfPage]]Building and Running 4diac IDE
 :lang: en
-:imagesdir: ./src/development/img
-ifdef::env-github[]
 :imagesdir: img
-endif::[]
 
 You have 2 options for building and running 4diac IDE:
 
@@ -143,9 +145,9 @@ Alternatively you can run `.mvn .install`  on the command line in the root folde
 
 == Where to go from here?
 
-Go back to xref:./index.adoc[Development Index]
+Go back to xref:./development.adoc[Development Index]
 
-Go back to xref:../index.adoc[Eclipse 4diac Documentation page]
+Go back to xref:../doc_overview.adoc[Eclipse 4diac Documentation page]
  
 Or link:#topOfPage[Go to top]
 

@@ -1,0 +1,8 @@
+---
+# this file is for getting a better experience on Eclipse 4diac's webpage
+
+title: "Documentation"
+layout: "single"
+---
+
+include::doc_overview.adoc[]

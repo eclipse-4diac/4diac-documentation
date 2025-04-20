@@ -1,3 +1,8 @@
+---
+title: "Development of 4diac IDE or 4diac FORTE"
+url: doc/development/development.html
+---
+
 = [[topOfPage]]Development of 4diac IDE or 4diac FORTE
 :lang: en
 
@@ -15,6 +20,6 @@ This page is intended to give an overview of the topics you can find in the docu
 * Contributing
 ** xref:./contribute.adoc[Contribute to 4diac IDE or 4diac FORTE]
 
-Go to xref:../index.adoc[Start Here page]
+Go to xref:../doc_overview.adoc[Start Here page]
 
 Or link:#topOfPage[Go to top]
