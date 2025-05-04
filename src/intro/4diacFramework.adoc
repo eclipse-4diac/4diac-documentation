@@ -1,6 +1,6 @@
 ---
 title: "The Eclipse 4diac Project"
-url: doc/intro/4diacFramework.html
+url: doc/intro/4diacframework.html
 ---
 
 = [[topOfPage]]The Eclipse 4diac Project
