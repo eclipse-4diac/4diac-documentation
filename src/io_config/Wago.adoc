@@ -7,6 +7,16 @@ endif::[]
 
 Wago PFC200 series is a PLC designed to work in small and medium enterprises for small-scale automation and runs on an ARM cortex A8, 600 Mhz controller with real-time Linux 3.6 (RT preemption patch). 
 
+== Currently supported Wago modules
+
+- *WagoMaster*: Wago core module PFC 200
+- *Wago1405_6*: 16 digital inputs, Wago module 750-1405 and 750-1406
+- *Wago1504_5*: 16 digital outputs, Wago module 750-1504 (positive switching) and 750-1505 (negative switching)
+- *Wago1506*: 8 digital IOs, Wago module 750-1506 
+- *Wago459*: 4 Analog inputs, Wago module 750-459
+- *Wago636*: DC-Drive-Controller 24V 5A, Wago module 750-636 
+
+
 == Setup your hardware
 
 Put the several modules together by the rails on each Wago module and as last module the end module 750-600 otherwise the KBus cannot be initialized correctly.
