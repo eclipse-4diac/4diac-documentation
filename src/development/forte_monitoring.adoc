@@ -38,11 +38,9 @@ Currently the following monitoring commands are supported:
 	<FB name="fbName"> 
 		<Port name=\"portname">  
 			<--if variable port --> 
-			<Data value="value" forced="true | false">
-			</Data>
+			<Data value="value" forced="true | false"/>
 			<-- if event port --> 
-			<Data value="value" time="time">
-			</Data> 
+			<Data value="value" />
 		</Port>
 	</FB> 
 </Resource>
