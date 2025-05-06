@@ -40,6 +40,7 @@ For the supported platforms have a look on the following chapters:
 
 . xref:./plc01a1.adoc[PLC01A1]
 . xref:./RevolutionPi.adoc[Revolution Pi]
+. xref:./Wago.adoc[Wago]
 
 
 == Where to go from here?
