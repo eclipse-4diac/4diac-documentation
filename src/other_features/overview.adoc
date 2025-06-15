@@ -6,7 +6,7 @@ url: doc/other_features/overview.html
 = [[Overview]] Overview
 :lang: en
 
-This page contains other features which do not fit into the other categories of the 4diac IDE tutorial.
+This page contains other features which do not fit into the other categories of the Eclipse 4diac IDE tutorials.
 
 
 . xref:replayDebugger.adoc[Replay Debugger]
