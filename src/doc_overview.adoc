@@ -46,6 +46,8 @@ If you have a specific platform with input and outputs that is supported by 4dia
 If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, follow the link.
 * xref:./development/development.adoc[Development of 4diac FORTE and 4diac IDE]: 
 If you are a developer or you want to know more deep stuff about 4diac FORTE or 4diac IDE, you'll have fun here.
+* xref:./other_features/overview.adoc[Other Features]:
+Eclipse 4diac is a nice place for research & development, so new and exiting features are being developed all the time.
 * https://github.com/eclipse-4diac[File a bug for 4diac FORTE or 4diac IDE]: 
 You found a bug? File it here.
 * xref:./faq.adoc[Frequently Asked Questions]: If you have troubles with something, visit the FAQs page.
