@@ -3,7 +3,7 @@ title: "Step 7 - Deploying new FBs with the Dynamic Type Loader"
 url: doc/tutorials/dynamicTypeLoader.html
 ---
 
-= [[topOfPage]]Step 7 - Deploying new FBs with the Dynamic Type Loader
+= Step 7 - Deploying new FBs with the Dynamic Type Loader
 :lang: en
 :imagesdir: img
 
@@ -101,5 +101,5 @@ Everything should be set up and you can deploy your FBs, like you learned earlie
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc#wheretostart[Where to Start]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 

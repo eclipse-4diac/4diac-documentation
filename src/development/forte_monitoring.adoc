@@ -3,7 +3,7 @@ title: "Monitoring"
 url: doc/development/forte_monitoring.html
 ---
 
-= [[topOfPage]]Monitoring
+= Monitoring
 :lang: en
 
 DTD will be added, after finishing all the implementation work and the interface for all commands is stable. 
@@ -70,4 +70,4 @@ If you want to go back to the Start Here page, we leave you here a fast access
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

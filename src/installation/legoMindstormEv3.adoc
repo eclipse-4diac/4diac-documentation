@@ -3,7 +3,7 @@ title: "Using Eclipse 4diac with a Lego Mindstorm EV3"
 url: doc/installation/legoMindstormEv3.html
 ---
 
-= [[topOfPage]]Using Eclipse 4diac with a Lego Mindstorm EV3
+= Using Eclipse 4diac with a Lego Mindstorm EV3
 :lang: en
 
 
@@ -158,4 +158,4 @@ access
 
 xref:../doc_overview.adoc[Where to Start]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

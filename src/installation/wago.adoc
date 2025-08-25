@@ -3,7 +3,7 @@ title: "Building 4diac FORTE for Wago"
 url: doc/installation/wago.html
 ---
 
-= [[topOfPage]]Building 4diac FORTE for Wago
+= Building 4diac FORTE for Wago
 :lang: en
 :imagesdir: img
 
@@ -179,4 +179,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

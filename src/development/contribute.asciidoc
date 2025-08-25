@@ -3,7 +3,7 @@ title: "Contributing to Eclipse 4diac"
 url: doc/development/contribute.html
 ---
 
-= [[topOfPage]]Contributing to Eclipse 4diac
+= Contributing to Eclipse 4diac
 :lang: en
 :imagesdir: img
 
@@ -565,4 +565,4 @@ If you want to go back to the Start Here page, we leave you here a fast access:
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

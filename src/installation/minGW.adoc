@@ -3,7 +3,7 @@ title: "Setting up MinGW-w64"
 url: doc/installation/minGW.html
 ---
 
-= [[topOfPage]]Setting up MinGW-w64
+= Setting up MinGW-w64
 :lang: en
 
 == Install latest MinGW-w64 via MSYS2
@@ -75,4 +75,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

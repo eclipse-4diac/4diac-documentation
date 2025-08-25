@@ -3,7 +3,7 @@ title: "Step 3 - Deploy Applications Remotely"
 url: doc/tutorials/use4diacRemotely.html
 ---
 
-= [[topOfPage]]Step 3 - Deploy Applications Remotely
+= Step 3 - Deploy Applications Remotely
 :lang: en
 :imagesdir: img
 
@@ -108,4 +108,4 @@ xref:./distribute4diac.adoc[Step 2 - Distribute 4diac Applications]
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../doc_overview.adoc[Where to Start]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

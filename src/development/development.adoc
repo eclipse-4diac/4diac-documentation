@@ -3,7 +3,7 @@ title: "Development of 4diac IDE or 4diac FORTE"
 url: doc/development/development.html
 ---
 
-= [[topOfPage]]Development of 4diac IDE or 4diac FORTE
+= Development of 4diac IDE or 4diac FORTE
 :lang: en
 
 This page is intended to give an overview of the topics you can find in the documentation about developing 4diac IDE or 4diac FORTE.
@@ -22,4 +22,4 @@ This page is intended to give an overview of the topics you can find in the docu
 
 Go to xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

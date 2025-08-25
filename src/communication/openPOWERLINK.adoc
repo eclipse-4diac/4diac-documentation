@@ -3,7 +3,7 @@ title: "openPOWERLINK"
 url: doc/communication/openPOWERLINK.html
 ---
 
-= [[topOfPage]]openPOWERLINK
+= openPOWERLINK
 
 http://openpowerlink.sourceforge.net/web/[openPOWERLINK] is an Open Source Industrial Ethernet stack implementing the https://en.wikipedia.org/wiki/Ethernet_Powerlink[Ethernet POWERLINK] protocol.
 
@@ -41,4 +41,4 @@ xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

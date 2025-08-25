@@ -3,7 +3,7 @@ title: "Documentation"
 url: doc/doc_overview.html
 ---
 
-= [[topOfPage]] Eclipse 4diac Documentation
+=  Eclipse 4diac Documentation
 :lang: en
 :imagesdir: intro/img
 
@@ -75,4 +75,4 @@ This application might not be intended for only one device, but for a whole syst
 In that case, some FBs will need to run on one device, and some on others - a distributed system is created.
 With 4diac IDE you can design your distributed application and deploy it.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

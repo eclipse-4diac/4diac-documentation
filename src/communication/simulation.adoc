@@ -3,7 +3,7 @@ title: "Communicating with Simulation Tools"
 url: doc/communication/simulation.html
 ---
 
-= [[topOfPage]]Communicating with Simulation Tools
+= Communicating with Simulation Tools
 :lang: en
 :imagesdir: img
 
@@ -106,4 +106,4 @@ xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access + 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

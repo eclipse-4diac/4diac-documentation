@@ -3,7 +3,7 @@ title: "OPC DA"
 url: doc/communication/opcDA.html
 ---
 
-= [[topOfPage]]OPC DA
+= OPC DA
 :lang: en
 :imagesdir: img
 
@@ -107,4 +107,4 @@ xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

@@ -3,7 +3,7 @@ title: "Examples"
 url: doc/examples/examples.html
 ---
 
-= [[topOfPage]]Eclipse 4diac Examples
+= Eclipse 4diac Examples
 :lang: en
 
 This page is intended to serve as index for 4diac examples that help understand and develop applications. 

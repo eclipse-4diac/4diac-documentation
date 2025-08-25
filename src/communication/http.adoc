@@ -3,7 +3,7 @@ title: "HTTP"
 url: doc/communication/HTTP.html
 ---
 
-= [[topOfPage]]HTTP
+= HTTP
 
 This section shows how to make applications communicate using the HTTP protocol. 
 You should use the client and server FBs according to your needs.
@@ -68,4 +68,4 @@ xref:./communication.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

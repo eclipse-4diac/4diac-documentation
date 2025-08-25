@@ -3,7 +3,7 @@ title: "I/O Configuration for Different Platforms"
 url: doc/io_config/io_config.html
 ---
 
-= [[topOfPage]]I/O Configuration for Different Platforms
+= I/O Configuration for Different Platforms
 :lang: en
 
 Using QX, IX and similar allows you to access the inputs and outputs of a supported hardware. 
@@ -57,4 +57,4 @@ If you want to go back to the Where to Start page, we leave you here a fast acce
 
 xref:../doc_overview.adoc[Where to Start]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

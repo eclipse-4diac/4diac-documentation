@@ -3,7 +3,7 @@ title: "X+3 Tutorial"
 url: doc/examples/xplus3.html
 ---
 
-= [[topOfPage]] X+3 Tutorial
+=  X+3 Tutorial
 :lang: en
 :imagesdir: img
 
@@ -157,4 +157,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

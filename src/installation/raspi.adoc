@@ -3,7 +3,7 @@ title: "Building 4diac FORTE on Raspberry Pi"
 url: doc/installation/raspi.html
 ---
 
-= [[topOfPage]]Building 4diac FORTE on Raspberry Pi
+= Building 4diac FORTE on Raspberry Pi
 :lang: en
 :imagesdir: img
 
@@ -187,4 +187,4 @@ If you want to go back to the Start Here page, we leave you here a fast access
 
 xref:../doc_overview.adoc[Where to Start]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

@@ -3,7 +3,7 @@ title: "The Eclipse 4diac Project"
 url: doc/intro/4diacframework.html
 ---
 
-= [[topOfPage]]The Eclipse 4diac Project
+= The Eclipse 4diac Project
 :lang: en
 :imagesdir: img
 
@@ -75,4 +75,4 @@ xref:../installation/installation.adoc[Installation]
 * If you want to go back to the Where to Start page, we leave you here a fast access: +
 xref:../doc_overview.adoc[Where to Start]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]
