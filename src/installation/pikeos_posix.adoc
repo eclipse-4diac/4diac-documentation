@@ -3,7 +3,7 @@ title: "Setting up 4diac FORTE for Posix PikeOS 5.x"
 url: doc/installation/pikeos_posix.html
 ---
 
-= [[topOfPage]]Setting up 4diac FORTE for Posix PikeOS 5.x
+= Setting up 4diac FORTE for Posix PikeOS 5.x
 :lang: en
 :imagesdir: img
 
@@ -149,10 +149,10 @@ Repeat this procedure for `POSIX Process`.
 
 [Cols="1,1,1,1"]
 |===
-| Key | Value | Example for QEMU with Usermode NW | Example for QEMU with TUN/TAP NW |
+| Key | Value | Example for QEMU with Usermode NW | Example for QEMU with TUN/TAP NW 
 
-|Interface Address | e.g. "POSIX Process" +1 | 10.0.2.17 | 192.168.0.4
-|Netmask | 255.x.x.x | 255.255.255.0 | 255.255.255.0
+|Interface Address | e.g. "POSIX Process" +1 | 10.0.2.17 | 192.168.0.4 
+|Netmask | 255.x.x.x | 255.255.255.0 | 255.255.255.0 
 |Gateway address | Gateway in target NW to reach the host | 10.0.2.2 | 192.168.0.1
 |===
 

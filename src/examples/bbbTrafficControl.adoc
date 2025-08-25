@@ -3,7 +3,7 @@ title: "Run the controller of the traffic light example in the BeagleBoardBlack 
 url: doc/examples/bbbTrafficControl.html
 ---
 
-= [[topOfPage]]Run the controller of the traffic light example in the BeagleBoardBlack (BBB)
+= Run the controller of the traffic light example in the BeagleBoardBlack (BBB)
 :lang: en
 :imagesdir: img
 
@@ -139,4 +139,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

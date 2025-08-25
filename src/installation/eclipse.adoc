@@ -3,7 +3,7 @@ title: "Compiling and Debugging 4diac FORTE with Eclipse"
 url: doc/installation/eclipse.html
 ---
 
-= [[topOfPage]]Compiling and Debugging 4diac FORTE with Eclipse
+= Compiling and Debugging 4diac FORTE with Eclipse
 :lang: en
 :imagesdir: img
 
@@ -80,4 +80,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

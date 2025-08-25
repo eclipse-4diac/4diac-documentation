@@ -3,7 +3,7 @@ title: "Eclipse 4diac FAQs"
 url: doc/faq.html
 ---
 
-= [[topOfPage]] Eclipse 4diac FAQs
+=  Eclipse 4diac FAQs
 
 == 4diac IDE FAQ
 
@@ -39,7 +39,7 @@ There are two possibilities to do that:
   By searching through the items you can reopen an accidentally closed view. 
   This option is especially of interest when you have a custom perspective layout you don't like to lose by resetting the perspective.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 === [[IDE_FAQ2]] Download not possible! Defined profile () for RMT_XXX.xxx not supported
 * Go to the System Configuration
@@ -47,7 +47,7 @@ link:#topOfPage[Go to top]
 * Change the properties [.menu4diac]#Dialog → Advanced → Misc → Profile#
 * Set Profile to HOLOBLOC
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[IDE_FAQ3]]When I download my application, I get an UNSUPPORTED TYPE error message in the [.view4diac]#Deployment Console#
@@ -57,14 +57,14 @@ This message appears for multiple problems:
 ** In 4diac IDE [.menu4diac]#Window → Preferences → 4diac IDE → FORTE Preferences# the path to your correct [.fileLocation]#forte.exe# has to be defined.
 ** Or start your [.fileLocation]#forte.exe# directly (development tool specific)
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[IDE_FAQ4]]When I download my application, I get a STATUS ACCESS VIOLATION error messages in the [.view4diac]#Deployment Console#
 Check if you used [.element4diac]#Composite Function Blocks# within your [.element4diac]#Application#. 
 Make sure that you have the source code (*.cpp, *.h) of all [.element4diac]#Function Blocks# within the [.element4diac]#Composite's Network#. Also check if all  source files are listed within a [.fileLocation]#CMakeLists.txt# file.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[IDE_FAQ5]]When I download my application, I get a Create FB Instance failed error
@@ -72,7 +72,7 @@ Verify that the interface of the Function Block you want to download is the same
 In case you download a Composite Function Block, please make sure that its Function Block Network matches the Function Block Network within your 4diac FORTE executable. 
 When in doubt, export your Function Block and compile 4diac FORTE before you download again.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[IDE_FAQ6]]When I want to download my application, I get a connection refused# message
@@ -82,27 +82,27 @@ Examine the following topics:
 * Check in Task Manager (Windows) if an "old" crashed 4diac FORTE blocks the port 
 * Check if Monitoring has been started before downloading (FORTE only supports a single connection at the management interface)
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[IDE_FAQ7]]How do I use ARRAYs?
 When you create a new Function Block, choose the desired type for your array elements in the [.menu4diac]#Type# drop down of the specific data and set the desired array size [.menu4diac]#ArraySize#. 
 For initializing, put the values in curly brackets (e.g., [.inlineCode]#\{1,2,3}#).
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[IDE_FAQ8]]What does [.command4diac]#CLEAN Device# do?
 [.command4diac]#CLEAN Device# deletes all existing [.element4diac]#Resources# and the FBs in the [.element4diac]#Resources#. 
 After [.command4diac]#CLEAN Device#, you can deploy any other FB Network.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[IDE_FAQ9]]What does [.command4diac]#KILL Device# do?
 [.command4diac]#KILL Devices# terminates 4diac FORTE.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 == 4diac FORTE answers
 
@@ -111,7 +111,7 @@ link:#topOfPage[Go to top]
   Maybe your system misses something.
 * Do you have spaces in the path to your 4diac FORTE? Some Cygwin versions have problems with these.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[fortefaq2]]CMake/Cygwin: Can not find C and C++ compilers
@@ -128,7 +128,7 @@ your C compiler: CMAKE_C_COMPILER-NOTFOUND was not found. Please set CMAKE_C_COM
 In this case, you need to tick the check box Advanced and look for [.specificText]#CMAKE_CXXX_COMPILER# and [.specificText]#CMAKE_C_COMPILER# and set the path and executable for your C and C++ compiler. 
 As an example, for Cygwin this could be [.fileLocation]#c:\cygwin\bin\g++-3.exe# for the C++ compiler and [.fileLocation]#c:\cygwin\bin\gcc-3.exe# for the C compiler.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[fortefaq3]]CMake/Cygwin: Can not find RC Compilers
@@ -142,7 +142,7 @@ your RC compiler: CMAKE_RC_COMPILER-NOTFOUND was not found. Please set
 Again you need to tick the check box Advanced and look for [.specificText]#CMAKE_RC_COMPILER#. 
 For Cygwin or MinGW on Windows, it needs a file called windres.exe (e.g., C:\cygwin\bin\windres.exe).
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 === [[fortefaq4]]FORTE is C++, why are you then using the C-style include files for the standard c library instead of the C++ style include files?
@@ -151,7 +151,7 @@ This especially applies to real-time OS such as eCos where you can freely config
 Using C++ style C include files on these platforms would pull lots of stuff from the compilers in and result in a bigger image or even worse it would not
 compile. So as to current experience, C style include files are more reliable.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 === [[fortefaq5]]Within my 4diac FORTE console, I get UDP-Socket Send failed: Network is unreachable
 Consider to explicitly set up multicast IP routing in the kernel with the [.inlineCode]#route# command. 
@@ -161,13 +161,13 @@ route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
 ----
 The IPs are the desired multicast IPs.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 === [[fortefaq6]]Within my 4diac FORTE console, I get connection closed by peer
 The TCP port is opened by a server in the RMT_RES. 
 This server handles the communication with the tool for download and monitoring. 
 The message indicates the end of the download process when 4diac IDE disconnects.
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 Or xref:./doc_overview.adoc[Go to the Start Here Page]

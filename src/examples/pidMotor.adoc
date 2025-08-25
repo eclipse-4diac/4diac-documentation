@@ -3,7 +3,7 @@ title: "Implement a PID Controller for the Position of an EV3 motor"
 url: doc/examples/pidMotor.html
 ---
 
-= [[topOfPage]] Implement a PID Controller for the Position of an EV3 motor
+=  Implement a PID Controller for the Position of an EV3 motor
 :lang: en
 :imagesdir: img
 
@@ -304,4 +304,4 @@ If you want to go back to the Start Here page, we leave you here a fast access
 
 xref:../doc_overview.adoc[Start Here page]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

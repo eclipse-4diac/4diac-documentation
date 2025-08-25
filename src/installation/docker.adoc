@@ -3,7 +3,7 @@ title: "Building 4diac FORTE Docker Images"
 url: doc/installation/docker.html
 ---
 
-= [[topOfPage]]Building 4diac FORTE Docker Images
+= Building 4diac FORTE Docker Images
 :lang: en
 
 
@@ -96,4 +96,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

@@ -3,7 +3,7 @@ title: "Step 6 - Advanced Features"
 url: doc/tutorials/advancedFeatures.html
 ---
 
-= [[topOfPage]]Step 6 - Advanced Features
+= Step 6 - Advanced Features
 :lang: en
 :imagesdir: img
 
@@ -85,4 +85,4 @@ xref:./otherUseful.adoc[Step 5 - Other Basic Features]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc#wheretostart[Where to Start]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

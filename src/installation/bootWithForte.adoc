@@ -3,7 +3,7 @@ title: "Start 4diac FORTE after boot on Linux based systems"
 url: doc/installation/bootWithForte.html
 ---
 
-= [[topOfPage]]Start 4diac FORTE after boot on Linux based systems
+= Start 4diac FORTE after boot on Linux based systems
 :lang: en
 
 Usually programmable logic controllers start their runtime directly after boot, that the user can either manually download the user defined control application without login at the programmable logic controller, or that a boot file which contains the user defined application is loaded when the runtime starts. 
@@ -99,4 +99,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

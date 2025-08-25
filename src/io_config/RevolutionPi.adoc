@@ -87,4 +87,4 @@ If you want to go back to the Where to Start page, we leave you here a fast acce
 
 xref:../doc_overview.adoc[Where to Start]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

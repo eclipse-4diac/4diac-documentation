@@ -3,7 +3,7 @@ title: "Step 4 - Create Your own Function Block Types"
 url: doc/tutorials/createOwnTypes.html
 ---
 
-= [[topOfPage]]Step 4 - Create Your own Function Block Types
+= Step 4 - Create Your own Function Block Types
 :lang: en
 :imagesdir: img
 
@@ -294,4 +294,4 @@ xref:./use4diacRemotely.adoc[Step 3 - Deploy Applications Remotely]
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../doc_overview.adoc[Where to Start]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

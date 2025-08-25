@@ -3,7 +3,7 @@ title: "Compiling and Debugging 4diac FORTE with MS Visual Studio"
 url: doc/installation/visualStudio.html
 ---
 
-= [[topOfPage]]Compiling and Debugging 4diac FORTE with MS Visual Studio
+= Compiling and Debugging 4diac FORTE with MS Visual Studio
 :lang: en
 :imagesdir: img
 
@@ -65,4 +65,4 @@ access
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

@@ -3,7 +3,7 @@ title: "Step 2 - Distribute 4diac Applications"
 url: doc/tutorials/distribute4diac.html
 ---
 
-= [[topOfPage]]Step 2 - Distribute 4diac Applications
+= Step 2 - Distribute 4diac Applications
 :lang: en
 :imagesdir: img
 
@@ -137,4 +137,4 @@ link:./use4diacLocally.adoc[Step 1 - Use 4diac Locally (Blinking Tutorial)]
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../doc_overview.adoc[Where to Start]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

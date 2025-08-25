@@ -3,7 +3,7 @@ title: "Library Management"
 url: doc/development/libraryManagement.html
 ---
 
-= [[topOfPage]]Library Management
+= Library Management
 :lang: en
 :imagesdir: img
 

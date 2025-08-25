@@ -3,7 +3,7 @@ title: "Supported Communication Protocols"
 url: doc/communication/communication.html
 ---
 
-= [[topOfPage]] Eclipse 4diac Supported Communication Protocols
+=  Eclipse 4diac Supported Communication Protocols
 
 This page is intended to serve as index for communication protocols that
 are supported by 4diac FORTE.

@@ -3,7 +3,7 @@ title: "SWTBot UI Test Set and Test Structure"
 url: doc/development/swtBotTestsStructure.html
 ---
 
-= [[topOfPage]]SWTBot UI Test Set and Test Structure
+= SWTBot UI Test Set and Test Structure
 :lang: en
 :imagesdir: img/SWTBot
 

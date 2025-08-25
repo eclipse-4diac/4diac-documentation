@@ -3,7 +3,7 @@ title: "Updating the Target Platform used by 4diac IDE"
 url: doc/development/ideUpdateTargetPlatform.html
 ---
 
-= [[topOfPage]]Updating the Target Platform used by 4diac IDE
+= Updating the Target Platform used by 4diac IDE
 :lang: en
 
 For upgrading to new Eclipse platform versions the following steps need to be done:

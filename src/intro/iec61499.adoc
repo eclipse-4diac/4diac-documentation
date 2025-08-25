@@ -3,7 +3,7 @@ title: "IEC 61499 101"
 url: doc/intro/iec61499.html
 ---
 
-= [[topOfPage]]IEC 61499 101
+= IEC 61499 101
 :lang: en
 :imagesdir: ./img
 
@@ -244,4 +244,4 @@ xref:4diacFramework.adoc[Eclipse 4diac Framework]
 * In case you'd like to return to the "Where to Start"-page, we leave here a fast access for you: +
 xref:../doc_overview.adoc[Where to Start]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]

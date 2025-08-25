@@ -3,7 +3,7 @@ title: "Step 0 - 4diac IDE - Overview"
 url: doc/tutorials/overview.html
 ---
 
-= [[topOfPage]] Step 0 - 4diac IDE - Overview
+=  Step 0 - 4diac IDE - Overview
 :lang: en
 :imagesdir: img
 
@@ -155,4 +155,4 @@ xref:use4diacLocally.adoc[Step 1 - Use 4diac IDE Locally]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc[Where to Start]
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]

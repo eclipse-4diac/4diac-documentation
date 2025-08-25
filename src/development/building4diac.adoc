@@ -3,7 +3,7 @@ title: "Building and Running 4diac IDE"
 url: doc/development/building4diac.html
 ---
 
-= [[topOfPage]]Building and Running 4diac IDE
+= Building and Running 4diac IDE
 :lang: en
 :imagesdir: img
 
@@ -127,7 +127,7 @@ See link:#buildBinary[Building a binary 4diac IDE package from source] for deta
 
 In addition we offer a nightly build of 4diac IDE https://download.eclipse.org/4diac/updates/nightly/[here].
 
-link:#topOfPage[Go to top]
+link:#top[Go to top]
 
 
 == [[buildBinary]]2 Building a Binary 4diac IDE Package from Source
@@ -149,5 +149,5 @@ Go back to xref:./development.adoc[Development Index]
 
 Go back to xref:../doc_overview.adoc[Eclipse 4diac Documentation page]
  
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]
 

@@ -3,7 +3,7 @@ title: "SWTBot Tests Documentation"
 url: doc/development/swtBotTestsDocumentation.html
 ---
 
-= [[topOfPage]]SWTBot Tests Documentation
+= SWTBot Tests Documentation
 :lang: en
 :imagesdir: img/SWTBot
 
@@ -127,4 +127,4 @@ image:TestResults.png[Test results,width=800]
 
 xref:../doc_overview.adoc[Start Here page]
 
-Or link:#topOfPage[Go to top]
+Or link:#top[Go to top]
