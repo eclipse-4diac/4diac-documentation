@@ -64,7 +64,7 @@ Currently the following monitoring commands are supported:
 
 Go back to Development index:
 
-link:./development.adoc[Development Index]
+xref:./development.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

@@ -40,7 +40,7 @@ We recommend using the minGW compiler.
 == [[getLua]]Downloading Lua
 
 Now we need to download the Lua source code and build the libraries. 
-We are using http://luajit.org/git/luajit-2.0.git[LuaJit]. 
+We are using https://luajit.org/luajit.html[LuaJit]. 
 Open the folder, you want to build Lua in. 
 Start Git Bash there and enter this commands:
 
@@ -55,10 +55,10 @@ image:Step7/LuaJitCompiled.png[Compile Lua Jit]
 
 == [[CompileForte]]Compiling 4diac Forte with the LuaJit
 
-At first download the 4diac FORTE source code from https://eclipse.dev/4diac/en_dow.php[here] or clone the 4diac FORTE repository.
+At first download the 4diac FORTE source code from https://eclipse.dev/4diac/download/[here] or clone the 4diac FORTE repository.
 
 ----
-$ git clone git://git.eclipse.org/gitroot/4diac/org.eclipse.4diac.forte.git
+$ git clone https://github.com/eclipse-4diac/4diac-forte.git.git
 ----
 
 Then create an folder where we are going to build our 4diac FORTE in.

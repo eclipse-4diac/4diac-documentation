@@ -9,7 +9,7 @@ url: doc/installation/installation.html
 
 == [[IDE]]4diac IDE
 
-To install 4diac IDE, simply download the latest version for your operating system under https://eclipse.dev/4diac/en_dow.php[downloads].
+To install 4diac IDE, simply download the latest version for your operating system under https://eclipse.dev/4diac/download/[downloads].
 Unzip it to any desired folder and start the 4diac IDE. 
 It already contains a Function Block library. 
 If you only want to use available Function Blocks, you are ready to go.
@@ -22,7 +22,7 @@ This option aims mainly at 4diac IDE developers or people who wish to extend 4d
 
 == [[FORTE]]4diac FORTE
 
-4diac FORTE can be used in two ways: For conducting first experiments with Eclipse 4diac, you can use the pre-built version of 4diac FORTE which is available as https://eclipse.dev/4diac/en_dow.php[download] for Linux and Windows. 
+4diac FORTE can be used in two ways: For conducting first experiments with Eclipse 4diac, you can use the pre-built version of 4diac FORTE which is available as https://eclipse.dev/4diac/download/[download] for Linux and Windows. 
 It can be used for applications unless you need own Function Blocks. 
 The step by step tutorial will direct you to making a simple application with 4diac IDE and pre-built 4diac FORTE. 
 If you want to start using 4diac IDE right away, you can skip the rest of the page and go directly to the xref:../tutorials/overview.adoc[step by step tutorial] or the xref:../doc_overview.adoc[Start Here-page].
@@ -40,7 +40,7 @@ You'll need to perform several steps:
 . Install a compiler for link:#FORTEWindows[Windows] or link:#FORTEUnix[Unix-based systems]
 . Install link:#FORTEcmake[cmake]
 . Create a link:#FORTEfolders[folder tree]
-. Download the 4diac FORTE source code as zip-File https://eclipse.dev/4diac/en_dow.php[here]
+. Download the 4diac FORTE source code as zip-File https://eclipse.dev/4diac/download/[here]
 . Extract the source code to your desired 4diac FORTE source folder
 . link:#generateFilesForCompiling[Build a project with CMake]
 . link:#FORTEcompile[Compile] the project
@@ -90,7 +90,7 @@ Again, the file path should not contain any spaces.
 We recommend using a main folder `C:/FORTE_dev` (in this tutorial, we refer to it as FORTE_FOLDER_ROOT). 
 Within that folder, use subfolders for the code (e.g., org.eclipse.forte), the built version (e.g., build) and your own modules (e.g., ext_modules).
 
-The 4diac FORTE source code is available for download as zip-File https://eclipse.dev/4diac/en_dow.php[here]. 
+The 4diac FORTE source code is available for download as zip-File https://eclipse.dev/4diac/download/[here]. 
 Extract the source code to your desired 4diac FORTE source folder, e.g. C:/FORTE_dev/org.eclipse.forte).
 
 link:#FORTEsteps[back]
@@ -226,10 +226,10 @@ link:#FORTEsteps[back]
 
 == [[forteOtherPlatforms]]Building 4diac FORTE for Other Platforms
 
-* link:./raspi.adoc[Setting up 4diac FORTE for RaspberryPi]
-* link:./wago.adoc[Setting up 4diac FORTE for Wago PFCs SPS]
-* link:./legoMindstormEv3.adoc[Setting up 4diac FORTE for Lego Mindstorms EV3]
-* link:./freeRTOSLwIP.adoc[Setting up 4diac FORTE for freeRTOS + LwIP]
+* xref:./raspi.adoc[Setting up 4diac FORTE for RaspberryPi]
+* xref:./wago.adoc[Setting up 4diac FORTE for Wago PFCs SPS]
+* xref:./legoMindstormEv3.adoc[Setting up 4diac FORTE for Lego Mindstorms EV3]
+* xref:./freeRTOSLwIP.adoc[Setting up 4diac FORTE for freeRTOS + LwIP]
 
 == [[bootWithForte]]xref:./bootWithForte.adoc[Start 4diac FORTE after boot on Linux based systems]
 
@@ -238,7 +238,7 @@ link:#FORTEsteps[back]
 
 Now that you installed the required tools, it's time to start using them. Take a look at the tutorials - A step by step guide:
 
-xref:../tutorial/overview.adoc[Step 0 - 4diac IDE Overview]
+xref:../tutorials/overview.adoc[Step 0 - 4diac IDE Overview]
 
 If you want to go back to the Where to Start page, we leave you here a fast access:
 
