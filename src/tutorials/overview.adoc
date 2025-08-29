@@ -125,7 +125,7 @@ For now it is good to know that there are different preference pages, where vari
 In order to use the Runtime Launcher, the location of the run-time executable files must be set in the properties. 
 Currently two runtime environments are supported:
 
-. http://www.eclipse.dev/4diac/en_rte.php[4diac Forte]: [.fileLocation]#path/forte.exe#
+. https://eclipse.dev/4diac/4diac_forte/[4diac Forte]: [.fileLocation]#path/forte.exe#
 . https://www.holobloc.com/[Holobloc's FBRT]: [.fileLocation]#path/fbrt.jar#
 
 image:properties/4DIACpreferences.png[4diac IDE Preferences]

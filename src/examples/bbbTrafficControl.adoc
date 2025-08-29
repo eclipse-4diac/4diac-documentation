@@ -13,7 +13,7 @@ A good practice to get used to the 4diac IDE and the concept of distributed aut
 
 The BBB has the feature that can emulate an Ehternet port through its USB interface. 
 In order to do this, it is required special drivers in the machine on the other side of the connection. 
-For an accurate information on how to get the BBB ready, take a look at the official http://beagleboard.org/getting-started[BeagleBone Page]
+For an accurate information on how to get the BBB ready, take a look at the official https://www.beagleboard.org/getting-started[BeagleBone Page]
 
 Once the BBB is connected, it normally has the IP address 192.168.7.2, so a ping from the computer should be successful.
 
@@ -21,7 +21,7 @@ Once the BBB is connected, it normally has the IP address 192.168.7.2, so a ping
 
 With the BBB connected to the computer through the USB, the next step is to connect to it through SSH. 
 In order to do that, a SSH client is needed. 
-For Linux machines, it's already installed and the connection can be done through the terminal, but for Windows machines the simplest solution is to use http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[Putty].
+For Linux machines, it's already installed and the connection can be done through the terminal, but for Windows machines the simplest solution is to use https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[Putty].
 To connect to the BBB using Putty, just enter the IP address of the BBB (192.168.7.2), port 22 and clicking on open should open a Terminal window.
 
 image:bbbTrafficController/Putty_interface.png[Putty Interface]

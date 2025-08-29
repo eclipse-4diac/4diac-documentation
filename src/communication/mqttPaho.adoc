@@ -7,7 +7,7 @@ url: doc/communication/mqttPaho.html
 :lang: en
 :imagesdir: img
 
-This section will show you how to make applications communicate using http://www.eclipse.org/paho/[MQTT Paho]. 
+This section will show you how to make applications communicate using https://eclipse.dev/paho/[MQTT Paho]. 
 4diac FORTE uses a layered communication architecture. 
 For MQTT Paho, a bottom layer has been realized, connecting MQTT Paho and the FBDK layer.
 
