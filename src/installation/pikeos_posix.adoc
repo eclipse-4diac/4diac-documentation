@@ -28,7 +28,7 @@ Assuming you have a CODEO workspace with 4 projects:
 Imported project using CODEOs (Eclipse) import wizard (`File → Import → General → Projects from Folder or Archive`). 
 After importing the project was renamed to "forte-incubation". 
 +
-The import source may be a cloned git repository (`git://git.eclipse.org/gitroot/4diac/org.eclipse.4diac.forte.git`) or the ZIP-File "4diac FORTE Source" downloaded from https://eclipse.dev/4diac/en_dow.php[eclipse.org/4diac].
+The import source may be a cloned git repository (`git://git.eclipse.org/gitroot/4diac/org.eclipse.4diac.forte.git`) or the ZIP-File "4diac FORTE Source" downloaded from https://eclipse.dev/4diac/download/[eclipse.org/4diac].
 ** *🗁 lwip.app* 
 +
 PikeOS 5.x Application Project of type _Posix Project / lwip-build_.

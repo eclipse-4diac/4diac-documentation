@@ -29,7 +29,7 @@ Run through the following steps to build and execute the 4diac IDE from source:
 The 4diac IDE requires at least a version 21 Java JRE.
 Higher version JREs are supported, but may require additional Eclipse IDE configuration (see step 4 of chapter link:#importPlugins[Import plug-ins into workspace]).
 
-Get the latest https://eclipse.org/downloads/eclipse-packages/[Eclipse IDE].
+Get the latest https://www.eclipse.org/downloads/packages/[Eclipse IDE].
 Use [.specificText]#Eclipse Modeling Tools# edition.
 
 

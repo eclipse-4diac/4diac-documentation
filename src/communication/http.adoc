@@ -1,6 +1,6 @@
 ---
 title: "HTTP"
-url: doc/communication/HTTP.html
+url: doc/communication/http.html
 ---
 
 = HTTP

@@ -29,7 +29,7 @@ For this reason, an automated test set for the 4diac IDE user interface would b
 
 === [[WhatIsEclipseSWTBot]]What is Eclipse SWTBot
 
-from https://wiki.eclipse.org/SWTBot: 
+from https://wiki.eclipse.org/SWTBot/: 
 
 > Eclipse SWTBot™ is a Java based UI/functional testing tool for testing SWT and Eclipse based applications. 
 > SWTBot provides APIs that are simple to read and write. 
@@ -66,7 +66,7 @@ All test classes inherit from Abstract4diacUITest except for New4dacProjectTest 
 Ideas that have not yet been implemented ware collected in the corresponding test class with an empty method an a Javadoc. 
 Future tests are marked as `@Disabled("until implementation")`.
 
-The test structure can also be found in xref:./swtBotTestsStructure.asciidoc[SWTBot Test Structure].
+The test structure can also be found in xref:./swtBotTestsStructure.adoc[SWTBot Test Structure].
 
 == [[Execute]]Execute SWTBot tests
 
@@ -96,7 +96,7 @@ However, it was noticed that sometimes the first 1-2 test runs do not go through
 In this case, repeat the above steps.
 
 The annotations for the tests are the same as in Junit5. 
-The  introduction to JUnit 5 can be read the introduction https://junit.org/junit5/docs/current/user-guide/[here]
+The introduction to JUnit 5 can be read the introduction https://docs.junit.org/current/user-guide/[here]
 
 === [[SettingsBeforeAll]]Settings that have to be executed in @BeforeAll
 

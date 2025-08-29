@@ -7,7 +7,7 @@ url: doc/io_config/uMIC.html
 :lang: en
 :imagesdir: img
 
-This module uses the library provided for the http://www.microcontrol.net/en/products/control-systems/umic200/[µMIC.200].
+This module uses the library provided for the https://www.microcontrol.net/portfolio/steuerungen/mmic-200/[µMIC.200].
 You need the `umic_dio.h`, `umic_relay.h` and `umic_led.h` headers and also the `umic.so` library to be present in your system and accessible by the compiler.
 
 The parameters should be the type and its number separated by a dot:

@@ -7,7 +7,7 @@ url: doc/communication/fbdkip.html
 :lang: en
 :imagesdir: img
 
-This section will show you how to make applications communicate using the default FBDK/ip protocol as defined in the http://holobloc.com/doc/ita/index.htm[IEC 61499 Compliance Profile for Feasibility Demonstrations]. 
+This section will show you how to make applications communicate using the default FBDK/ip protocol as defined in the https://holobloc.com/doc/ita/index.htm[IEC 61499 Compliance Profile for Feasibility Demonstrations]. 
 Because we are going to use the default protocol, we don't have to put it as a parameter in the beginning of the ID input of the Communication Function Blocks. 
 We only have to provide an IP address and port in the following format:
 ----

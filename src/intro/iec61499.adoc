@@ -13,7 +13,7 @@ url: doc/intro/iec61499.html
 A https://en.wikipedia.org/wiki/Programmable_logic_controller[PLC] is, basically, a small computer used in industry. 
 It has inputs and outputs for controlling various systems. 
 In general, buttons and sensors generate the inputs, while the outputs control motors. 
-If you have an IT background, you may want to imagine a PLC as a https://www.raspberrypi.org/[Raspberry Pi], an https://www.arduino.cc/[Arduino], a https://beagleboard.org/[Beagle Bone Black] or a similar embedded board with inputs and outputs. 
+If you have an IT background, you may want to imagine a PLC as a https://www.raspberrypi.org/[Raspberry Pi], an https://www.arduino.cc/[Arduino], a https://www.beagleboard.org/[Beagle Bone Black] or a similar embedded board with inputs and outputs. 
 A PLC is however specifically prepared for use in industry. 
 The PLC is programmed according to the required application. 
 Like computers, PLCs can be acquired from many different manufacturers. 
@@ -234,7 +234,7 @@ image:serviceFunctionBlock.png[Service Interface Function Block]
 As the standard is intended to be abstract, many "things" needed for proper execution of a system, such as communication, are not included.
 But the standard does state how these "things" must be specified. 
 The specifications are called Compliance Profiles. 
-An example of a Compliance Profile is the http://www.holobloc.com/doc/ita/[IEC 61499 Compliance Profile for Feasibility Demonstrations] provided by http://www.holobloc.com[Holobloc Inc.] 
+An example of a Compliance Profile is the https://www.holobloc.com/doc/ita/[IEC 61499 Compliance Profile for Feasibility Demonstrations] provided by https://www.holobloc.com/[Holobloc Inc.] 
 You can see the Compliance Profile as a way of filling the gaps due to the abstraction of the standard.
 
 == Where to go from here?

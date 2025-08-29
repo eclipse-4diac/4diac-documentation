@@ -175,7 +175,7 @@ The `IF` and `ELSEIF` are the limits of the value, and in the `ELSE` allowed val
 The output limitation is straightforward, but the windup solution can be confusing. 
 What is done is to activate the integration part only when the desired output is inside the limits (in the `ELSE`), `OR` when it is outside the limits `AND` the error is forcing the way back inside the limits. 
 
-Information about anti-windup can for example be found https://pdfs.semanticscholar.org/9774/270fa07e4be5dbe77dc7bf2a285167b82b68.pdf[here.]
+Information about anti-windup can for example be found https://www.semanticscholar.org/paper/Anti-windup-Schemes-for-Proportional-Integral-and-Ghoshal-John/9774270fa07e4be5dbe77dc7bf2a285167b82b68?p2df[here.]
 
 With the algorithms done, the FB is ready to be exported and compiled with 4diac FORTE.
 
@@ -186,7 +186,7 @@ Then explore the folder tree on the left and select the PID FB created on the ri
 Choose where to export and then click Finish.
 
 To get the source code ready for compiling your 4diac FORTE with the created FB, the generated .cpp and .h files have to be added to the CMake configuration. 
-The easiest way to do that is to put both files into the folder src/modules/lms_ev3 and add a file CMakeLists.txt in that folder, with the following line at the end:
+The easiest way to do that is to put both files into the folder `src/modules/lms_ev3` and add a file `CMakeLists.txt` in that folder, with the following line at the end:
 ----
 forte_add_sourcefile_hcpp(PID)
 ----
@@ -194,7 +194,7 @@ forte_add_sourcefile_hcpp(PID)
 The next thing to do is to compile 4diac FORTE for the EV3. 
 The easiest way to do it is to copy all the code to the EV3, get the compiling tools inside the EV3 and compile it. 
 The process is really slow compared if it is done in a normal computer, but for compiling once it is much faster than setting all the cross-compiling environment explained http://www.ev3dev.org/docs/tutorials/using-brickstrap-to-cross-compile/[here.]
-More details are presented in the link:../installation/legoMindstormEv3.adoc#ev3_introduction[section] above.
+More details are presented in the xref:../installation/legoMindstormEv3.adoc#ev3_introduction[section] above.
 
 == Creating the PID Application in 4diac IDE
 
@@ -268,7 +268,7 @@ NOTE: In Windows machines, the used Multicast address is not always detected and
 application in the PC. 
 This happens often if the PC is connected to the EV3 through an ad-hoc connection. 
 To overcome this, try adding the address route with gateway to your own machine in the as presented in the Troubleshooting part at the bottom of the
-link:./bbbTrafficControl.adoc#troubleshooting[Traffic Control with BBB example]
+xref:./bbbTrafficControl.adoc#troubleshooting[Traffic Control with BBB example]
 
 == Tuning the PID
 
@@ -298,7 +298,7 @@ image:pidMotor/PIDTuned.png[Final tun of the PID controller]
 
 Go back to Examples index:
 
-link:./examples.adoc[Examples Index]
+xref:./examples.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

@@ -14,13 +14,13 @@ Wago PFC 200 series is a PLC designed to work in small and medium enterprises fo
 This tutorial helps setting up 4diac FORTE on the WAGO embedded platform. 
 The essentials for following this tutorial are:
 
-* http://wiki.ubuntuusers.de/Downloads[Ubuntu 14.04 LTS] host system with minimum 25 GB Hard Disk space (e.g. as a https:// www.virtualbox.org/[VirtualBox] VM)
+* https://wiki.ubuntuusers.de/Downloads/[Ubuntu 14.04 LTS] host system with minimum 25 GB Hard Disk space (e.g. as a https:// www.virtualbox.org/[VirtualBox] VM)
 * Within Ubuntu, download :
-** https://www.wago.com/public-download/support/BSP/WAGO-PFC-BSP-latest.zip[WAGO-PFC-BSP] Board Support Package (BSP) for configuring and building customized applications on Wago PFCs.
+** https://dwnarea.wago.com/Download-Area/support/BSP/WAGO-PFC-BSP-latest.zip[WAGO-PFC-BSP] Board Support Package (BSP) for configuring and building customized applications on Wago PFCs.
 ** Dependencies for Wago BSP
-*** http://debian.pengutronix.de/debian[OSELAS cross tool chain 2012.12.1] for Crotex A8 boards
-*** http://www.ptxdist.org/software/ptxdist/download/[PTXDist-2013.03.0] a GPL-licensed build system for building target embedded Linux kernel and root system from sources.
-** http://www.eclipse.org/4diac/en_dow.php[Latest version of 4diac FORTE source] which contains the [.specicificText]#processInterface# for Wago at `forte/src/modules/wagokbus`. 
+*** https://debian.pengutronix.de/debian/[OSELAS cross tool chain 2012.12.1] for Crotex A8 boards
+*** https://public.pengutronix.de/software/ptxdist/[PTXDist-2013.03.0] a GPL-licensed build system for building target embedded Linux kernel and root system from sources.
+** https://eclipse.dev/4diac/download/[Latest version of 4diac FORTE source] which contains the [.specicificText]#processInterface# for Wago at `forte/src/modules/wagokbus`. 
   The `processInterface` facilitates using Wago analog and digital IOs with generic IX,QX and IW,QW blocks from 4diac IDE.
 
 

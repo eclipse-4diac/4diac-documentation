@@ -49,7 +49,7 @@ $ sudo apt-get install git cmake make gcc g++
 $ cd ~ $ git clone
 ----
 +
-https://git.eclipse.org/r/4diac/org.eclipse.4diac.forte
+https://github.com/eclipse-4diac/4diac-forte.git
 . Prepare the 4diac FORTE project structure for the Posix architecture.
 +
 ----

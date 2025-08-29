@@ -73,7 +73,7 @@ The configuration folder of the 4diac FBE also contains an example configuration
 Get BaseX for your system from http://basex.org/download/[here]. 
 After starting the BaseX, load your AutomationML or XML file into BaseX by clicking _Database/open and manage_. 
 As an example AutomationML file you can use the xref:./img/xquery/BaSys_PalletSystem_Model.aml[_Pallet System Model_]. 
-This example AutomationML file has been created during the https://www.basys40.de/[BaSys4.0 project], which receives funding of the https://www.bmbf.de/en/index.html[Federal Ministry of Education and Research]. 
+This example AutomationML file has been created during the https://eclipse.dev/basyx/[BaSys4.0 project], which receives funding of the https://www.bmftr.bund.de/EN/Home/home_node.html[Federal Ministry of Research Technology and Space]. 
 Within the _General_ tab enter the path to your file and select the proper input format. 
 In case you use an AutomationML file or XML, choose XML. 
 Then press OK. 
@@ -86,7 +86,7 @@ To create it, select _command_ within the drop down under the menubar and type t
 ----
 
 You can now test any XQuery within the GUI of BaseX. 
-For further explanation or in case of any problems please have a look at the http://docs.basex.org/wiki/Main_Page[manual of BaseX].
+For further explanation or in case of any problems please have a look at the https://docs.basex.org/main/Main_Page[manual of BaseX].
 
 To start the entire BaseX server change to the _bin_ directory of your BaseX installation. 
 Start the BaseX server there. The output should be the BaseX version and the port where you can reach your database.

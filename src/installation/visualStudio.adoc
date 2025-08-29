@@ -27,7 +27,7 @@ The correct architecture is Win32.
 . Press the [.button4diac]#Configure# button and choose the version of Visual Studio that is used and native default compilers. 
   Press the [.button4diac]#Finish# button afterwards.
 . For the option [.specificText]#FORTE_ARCHITECTURE#, select Win32. 
-  Other modules and configurations options can be set following the tutorial step link:./installation.adoc#generateFilesForCompiling[Build a project with CMake].
+  Other modules and configurations options can be set following the tutorial step xref:./installation.adoc#generateFilesForCompiling[Build a project with CMake].
 . Press the [.button4diac]#Configure# button, check red rows and repeat this until no row appears red. Afterwards, press the button [.button4diac]#Generate#.
 
 == Compile 4diac FORTE with Visual Studio

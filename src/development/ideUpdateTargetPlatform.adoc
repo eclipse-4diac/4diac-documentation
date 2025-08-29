@@ -19,7 +19,7 @@ For upgrading to new Eclipse platform versions the following steps need to be do
 ** Update tycho-repo.url to the new target platform version
 ** Check org.eclipse.equinox.executable version range. 
   Attention this has to be done on two places in the file. +
-For the version check the latest https://download.eclipse.org/oomph/archive/reports/download.eclipse.org/releases/index.html[release overview page]. 
+For the version check the latest https://download.eclipse.org/eclipse/downloads/[release overview page]. 
 There check for _Eclipse Platform Launcher Executables_.
 * Regenerate all model and model edit code from the models plug-in.
 * Run product from Eclipse IDE using product editor, i.e., press the synchronize button and then the "Launch an Eclipse Application"

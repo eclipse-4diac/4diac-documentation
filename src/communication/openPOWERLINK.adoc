@@ -5,7 +5,7 @@ url: doc/communication/openPOWERLINK.html
 
 = openPOWERLINK
 
-http://openpowerlink.sourceforge.net/web/[openPOWERLINK] is an Open Source Industrial Ethernet stack implementing the https://en.wikipedia.org/wiki/Ethernet_Powerlink[Ethernet POWERLINK] protocol.
+https://sourceforge.net/projects/openpowerlink/[openPOWERLINK] is an Open Source Industrial Ethernet stack implementing the https://en.wikipedia.org/wiki/Ethernet_Powerlink[Ethernet POWERLINK] protocol.
 
 == Prerequisites
 

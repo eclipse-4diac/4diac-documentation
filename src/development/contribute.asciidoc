@@ -54,7 +54,7 @@ Most of the time you will get comments to improve your code.
 Easy, right?
 
 But to better understand Github, it's better to work with it. 
-Create a Github account on www.github.com.
+Create a Github account on https://www.github.com.
 We'll go step-by-step toward pushing code to Github in order to contribute to Eclipse 4diac.
 
 == Help 4diac IDE and 4diac FORTE - NOW!
@@ -90,7 +90,7 @@ Don't hesitate to also report minor issues.
 
 The next step is to sign the ECA (Eclipse Contributor Agreement). 
 This is mandatory in order to contribute to the projects. 
-Go to the ECA https://eclipse.org/legal/ECA.php[page] to read it and learn more about it. 
+Go to the https://www.eclipse.org/legal/eca/[ECA page] to read it and learn more about it. 
 The ECA protects for example copyrights. Basically, when you sign it, you declare that you have full rights of every contributed change, which helps protecting intellectual property, including your own. 
 If your contribution is part of your work at some company, you should talk first with your superior and the legal department to fully understand how to approach this.
 
@@ -112,7 +112,7 @@ Nevertheless, users without command line experience should stick to Eclipse.
 The first thing to do is to get all the software. 
 For 4diac FORTE download Eclipse for C++ and install it. 
 The installation of the toolchain is described xref:../installation/installation.adoc#ownIDE[here]. 
-If you already have an Eclipse IDE but it's not configured for C++, you don't need to download another Eclipse, but only the C++ plugin. See a tutorial http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Fgetting_started%2Fcdt_w_install_cdt.htm[here].
+If you already have an Eclipse IDE but it's not configured for C++, you don't need to download another Eclipse, but only the C++ plugin. See a tutorial https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Fgetting_started%2Fcdt_w_install_cdt.htm[here].
 To install Eclipse IDE for developing 4diac IDE use this xref:../development/building4diac.adoc#buildFromSource[instruction].
 EGit should be installed automatically with your Eclipse, otherwise follow the steps http://www.vogella.com/tutorials/EclipseGit/article.html#eclipseinstallationgit[here] to install it.
 . Configure EGit
@@ -300,10 +300,10 @@ johndoe@linuxmint ~/$ cd develop/repos
 ----
 +
 Now it's time to clone the sources. In the following example the repository URL for 4diac FORTE is used. 
-For 4diac IDE use https://git.eclipse.org/r/4diac/org.eclipse.4diac.ide instead.
+For 4diac IDE use https://github.com/eclipse-4diac/4diac-ide.git instead.
 +
 ----
-johndoe@linuxmint ~/develop/repos$ git clone https://git.eclipse.org/r/4diac/org.eclipse.4diac.forte
+johndoe@linuxmint ~/develop/repos$ git clone https://github.com/eclipse-4diac/4diac-forte.git
 Cloning into 'org.eclipse.4diac.forte'...
 remote: Counting objects: 1, done
 remote: Finding sources: 100% (1/1)
@@ -550,7 +550,6 @@ Contributors:
 * Always contribute to a bug.
 * Put the bug number between brackets in the subject of the commit message, and the link to the bug in the footer.
 * Don't forget to sign the commit.
-* Use the Gerrit https://git.eclipse.org/r[website] to see the commits you pushed and their status.
 * Don't be afraid of contributing code.
 * Use the forums in case of doubt.
 * Find more info https://wiki.eclipse.org/Development_Resources/Contributing_via_Git[here].

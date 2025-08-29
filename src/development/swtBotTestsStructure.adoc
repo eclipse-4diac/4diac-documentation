@@ -53,4 +53,4 @@ Development documentation has been created so that all 4diac IDE developers can 
 This can be found in the *installed 4diac IDE* under +
 _Help -> Help Contents -> 4diac User Guide -> Development Documentation -> 4DIAC-IDE -> SWTBot testing_ +
 or +
-_xref:./swtBotTestsDocumentation.asciidoc[SWT Bot Tests Documentation]_
+_xref:./swtBotTestsDocumentation.adoc[SWT Bot Tests Documentation]_

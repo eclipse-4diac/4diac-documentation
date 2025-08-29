@@ -16,8 +16,8 @@ Put the several modules together by connecting them through the PiBridge.
 Also wire each of your modules with +24V and 0V through the primary power supply X4 and the secondary (in case your module has one) power supply X2.
 All power supply connections need to be connected that the devices work properly and all LEDs are green.
 
-When you use the Revolution Pi core module for the first time, it has to be configured by https://revolutionpi.com/en/tutorials/was-ist-pictory-2[Pictory]. 
-To connect any analog I/O consider the corresponding https://revolutionpi.com/en/tutorials/uebersicht-aio-2/analoge-eingaenge-konfigurieren-2[tutorial].
+When you use the Revolution Pi core module for the first time, it has to be configured by https://revolutionpi.com/en/docs/pictory[Pictory]. 
+To connect any analog I/O consider the corresponding https://revolutionpi.com/en/docs/revpi-aio#_analog_inputs[tutorial].
 The data sheet of your analog sensor determines the settings within Pictory.
 In case you get too less values, you might have to increase the ADC frequency within the AIO settings of Pictory.
 

@@ -8,7 +8,7 @@ url: doc/communication/opcUA.html
 :imagesdir: img
 
 This tutorial shows how you can use https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC 61499 Application using available FBs. You should first complete the xref:../tutorials/use4diacLocally.adoc[First Steps in Eclipse 4diac Tutorial] to get familiar with the 4diac IDE. 
-4diac FORTE uses the http://open62541.org/[open62541] OPC UA stack which is open source and can also be used in commercial projects free of charge.
+4diac FORTE uses the https://open62541.org/[open62541] OPC UA stack which is open source and can also be used in commercial projects free of charge.
 
 After version 1.11.0 of 4diac FORTE, the OPC UA module has changed its API, so applications developed before this version won't be compatible. 
 The changes give more stability to 4diac FORTE and also brings new features. 
@@ -33,7 +33,7 @@ IMPORTANT: You need https://www.python.org/[python] installed on your computer i
 . Download the 4diac FORTE source from https://github.com/eclipse-4diac/4diac-forte:
 +
 ----
-$ mkdir ~/4diac && cd "$_" $ git clone -b develop https://github.com/eclipse-4diac/4diac-forte.git forte $ cd forte && mkdir build
+$ mkdir ~/4diac && cd "$_" $ git clone -b develop https://github.com/eclipse-4diac/4diac-forte.git.git forte $ cd forte && mkdir build
 ----
 . Download the source for open62541 from https://github.com/open62541/open62541:
 +
@@ -66,7 +66,7 @@ $ make -j
 === Windows with Visual Studio
 
 . Use a Git tool under Windows and download the 4diac FORTE source from https://github.com/eclipse-4diac/4diac-forte and use the develop branch. 
-The following steps show the commands for https://git-for-windows.github.io/[Git Bash].
+The following steps show the commands for https://gitforwindows.org/[Git Bash].
 +
 ----
 $ mkdir "$HOME/4diac" && cd "$HOME/4diac"
@@ -307,7 +307,7 @@ image:opc_ua_flipFlop_uaExpert_2.png[OPC UA Flip-Flop in UaExpert]
 The two _VariableNodes_ `Flip` and `Flop` are created out of the SUBSCRIBE and PUBLISH function block. 
 The data type of the variables is derived from the type of the connected FB's port datatype (E_SWITCH.G and E_SR.Q) +
 . Optionally you can now monitor the Application in 4diac FORTE, e.g., watch the values of SUBSCRIBE and PUBLISH FB. 
-  See link:../tutorials/use4diacLocally.adoc#monitoringApplication[Use Eclipse 4diac locally Tutorial - Monitor] on how to do that.
+  See xref:../tutorials/use4diacLocally.adoc#monitoringApplication[Use Eclipse 4diac locally Tutorial - Monitor] on how to do that.
 . In UaExpert drag the two variables `Flip` and `Flop` into the Data Access View. 
   Here you can now change the value of `Flip`. 
   This will cause the IND port of SUBSCRIBE to fire an event and 4diac FORTE will read the new variable value, negate it and set `Q` to the negated value. 

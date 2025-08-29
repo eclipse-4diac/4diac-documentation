@@ -5,7 +5,7 @@ url: doc/io_config/mlpi.html
 
 == [[mlpi]]Bosch Rexroth PLC (MLPI)
 
-The MLPI interface was tested on a http://www.boschrexroth.com/dcc/Vornavigation/VorNavi.cfm?PageID=p650746&Language=en[IndraControl
+The MLPI interface was tested on a https://www.boschrexroth.com/dcc/Vornavigation/VorNavi.cfm?PageID=p650746&Language=en[IndraControl
 XM22] PLC from Bosch Rexroth. 
 In order for 4diac FORTE to access the I/O, a PLC program must be running already in the PLC. 
 4diac FORTE will connect to this program and send/receive information to/from it.

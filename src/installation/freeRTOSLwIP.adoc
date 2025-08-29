@@ -14,7 +14,7 @@ This guide is for compiling 4diac FORTE for freeRTOS and LwIP.
 https://www.freertos.org/[freeRTOS] is a free real-time operative system which is not attached to a specific hardware, but it can run in many different ones. 
 The operative system is very small and simple, and initially didn't have any TCP/IP support, that's why a common practice
 was to use it together with https://savannah.nongnu.org/projects/lwip/[LwIP], a small TCP/IP stack.
-freeRTOS now also have an extra support for TCP/IP (see https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/index.html[here]) but for now 4diac FORTE is compiled using LwIP.
+freeRTOS now also have an extra support for TCP/IP (see https://www.freertos.org/Documentation/03-Libraries/02-FreeRTOS-plus/02-FreeRTOS-plus-TCP/01-FreeRTOS-Plus-TCP[here]) but for now 4diac FORTE is compiled using LwIP.
 
 This guide helps you make 4diac FORTE run on some hardware where freeRTOS and LwIP are already able to run. 
 Since you can be using any hardware, no support for IO is provided here and this guide will help you compile 4diac FORTE as a static library that you can later add to some project you already have working on your hardware, so the following points are assumed before starting this guide

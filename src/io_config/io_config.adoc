@@ -19,7 +19,7 @@ You find here the values to be set to PARAMS for the following supported platfor
 
 . xref:./SysFs.adoc[SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)]
 . xref:./Odroid.adoc[Odroid]
-. xref:./Piface.adoc[PiFace Digital 2]
+. xref:./PiFace.adoc[PiFace Digital 2]
 . xref:./uMIC.adoc[µMIC.200]
 . xref:./mlpi.adoc[Bosch Rexroth PLC (MLPI)]
 . xref:./EV3.adoc[Lego Mindstorms EV3]
