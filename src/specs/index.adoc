@@ -1,0 +1,6 @@
+[[topOfPage]]
+= Specifications and White Papers provided by Eclipse 4diac
+
+This page is intended to serve as index for any specification provided and maintained by the Eclipse 4diac project.
+
+* xref:FBrunscommunicationmodelWP.pdf[Modelling Network Communication in IEC 61499]
