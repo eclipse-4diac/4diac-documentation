@@ -3,5 +3,4 @@
 
 This page is intended to serve as index for any specification provided and maintained by the Eclipse 4diac project.
 
-* xref:opcua_configurabilty.adoc[IEC 61499 Compliance Profile for Configurabilty using OPC UA]
 * xref:FBrunscommunicationmodelWP.pdf[Modelling Network Communication in IEC 61499]
