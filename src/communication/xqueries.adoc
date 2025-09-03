@@ -15,7 +15,7 @@ The section is divided into three parts.
 The first part explains how to build 4diac FORTE to run an application which sends XQueries. 
 The second part explains how to setup your BaseX database. 
 And the third part shows how to create an application within the 4diac IDE which sends XQueries. 
-The example AutomationML file as well as this implementation has been realized as part of the https://www.basys40.de/[BaSys4.0 project], which receives funding of the https://www.bmbf.de/en/index.html[Federal Ministry of Education and Research].
+The example AutomationML file as well as this implementation has been realized as part of the https://www.basys40.de/[BaSys4.0 project], which receives funding of the https://www.bmftr.bund.de/EN/Home/home_node.html[Federal Ministry of Research, Technology and Space].
 
 This integration has been tested on Ubuntu 24.04 with BaseX 10.4.
 Please use a BaseX server of the same version than the client.
