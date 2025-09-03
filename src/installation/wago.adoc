@@ -14,7 +14,7 @@ Wago PFC 200 series is a PLC designed to work in small and medium enterprises fo
 This tutorial helps setting up 4diac FORTE on the WAGO embedded platform. 
 The essentials for following this tutorial are:
 
-* https://wiki.ubuntuusers.de/Downloads/[Ubuntu 14.04 LTS] host system with minimum 25 GB Hard Disk space (e.g. as a https:// www.virtualbox.org/[VirtualBox] VM)
+* https://wiki.ubuntuusers.de/Downloads/[Ubuntu 14.04 LTS] host system with minimum 25 GB Hard Disk space (e.g. as a https://www.virtualbox.org/[VirtualBox] VM)
 * Within Ubuntu, download :
 ** https://dwnarea.wago.com/Download-Area/support/BSP/WAGO-PFC-BSP-latest.zip[WAGO-PFC-BSP] Board Support Package (BSP) for configuring and building customized applications on Wago PFCs.
 ** Dependencies for Wago BSP
