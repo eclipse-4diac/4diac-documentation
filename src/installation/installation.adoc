@@ -85,8 +85,8 @@ To avoid any problems, you should choose an installation path that does not cont
 
 Please follow the instructions below for setting up the compiler of your choice:
 
-* xref:./minGW.adoc[Setting up MinGW-w64 (recommended)]
-* xref:./visualStudio.adoc[Setting up Microsoft Visual Studio]
+* xref:./mingw.adoc[Setting up MinGW-w64 (recommended)]
+* xref:./visualstudio.adoc[Setting up Microsoft Visual Studio]
 
 The remaining instructions are focused on MinGW-w64, which is therefore particularly recommended for less experienced users.
 --
@@ -146,7 +146,7 @@ The following steps will walk you through how to build your own modules for 4dia
 
 First, you will need to set up a build environment according to the link:#FORTEPrerequisites[instructions] above.
 You will then need to export your module from 4diac IDE.
-The export is described in xref:../tutorials/createOwnTypes.adoc#exportTypes[step 4] of the tutorial.
+The export is described in xref:../tutorials/createowntypes.adoc#exportTypes[step 4] of the tutorial.
 When exporting the module, please make sure you check the _Export CMakeLists.txt_ option.
 
 You can then use the following commands to build and install your module in a local subfolder:
@@ -167,16 +167,16 @@ link:#FORTE[back]
 === [[forteOtherPlatforms]]Building 4diac FORTE for other platforms
 
 * xref:./raspi.adoc[Setting up 4diac FORTE for RaspberryPi]
-* xref:./wago.adoc[Setting up 4diac FORTE for Wago PFCs SPS]
-* xref:./legoMindstormEv3.adoc[Setting up 4diac FORTE for Lego Mindstorms EV3]
-* xref:./freeRTOSLwIP.adoc[Setting up 4diac FORTE for freeRTOS + LwIP]
+* xref:./wago.adoc[Setting up 4diac FORTE for Wago PFCs PLC]
+* xref:./legomindstormev3.adoc[Setting up 4diac FORTE for Lego Mindstorms EV3]
+* xref:./freertos_lwip.adoc[Setting up 4diac FORTE for freeRTOS + LwIP]
 
 == [[whereToGoFromHere]]Where to go from here?
 
 Now that you installed the required tools, it's time to start using them. Take a look at the tutorials
 
 * xref:../tutorials/overview.adoc[A step by step guide]
-* xref:./bootWithForte.adoc[Start 4diac FORTE after boot on Linux based systems]
+* xref:./bootwithforte.adoc[Start 4diac FORTE after boot on Linux based systems]
 
 If you want to go back to the Where to Start page, we leave you here a fast access:
 

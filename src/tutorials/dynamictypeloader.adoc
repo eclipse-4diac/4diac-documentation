@@ -1,6 +1,6 @@
 ---
 title: "Step 7 - Deploying new FBs with the Dynamic Type Loader"
-url: doc/tutorials/dynamicTypeLoader.html
+url: doc/tutorials/dynamictypeloader.html
 ---
 
 = Step 7 - Deploying new FBs with the Dynamic Type Loader
@@ -11,12 +11,12 @@ This page is part of a guide that gives a walk-through of the major 4diac IDE f
 
 [start=0]
 . xref:overview.adoc[4diac IDE Overview]
-. xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
+. xref:use4diaclocally.adoc[Use 4diac Locally (Blinking tutorial)]
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
-. xref:use4diacRemotely.adoc[Deploy Applications Remotely]
-. xref:createOwnTypes.adoc[Create Your own Function Block Types]
-. xref:otherUseful.adoc[Other Basic Features]
-. xref:advancedFeatures.adoc[Advanced Features]
+. xref:use4diacremotely.adoc[Deploy Applications Remotely]
+. xref:createowntypes.adoc[Create Your own Function Block Types]
+. xref:otheruseful.adoc[Other Basic Features]
+. xref:advancedfeatures.adoc[Advanced Features]
 . Deploying new FBs with the Dynamic Type Loader (YOU ARE HERE!)
 
 In this tutorial, you will learn how to deploy and test your function blocks, without compiling and adding them to 4diac FORTE .

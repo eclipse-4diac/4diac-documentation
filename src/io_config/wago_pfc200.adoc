@@ -1,4 +1,10 @@
-= [[Wago]]Wago
+---
+title: "Wago PFC200"
+url: doc/io_config/wago_pfc200.html
+---
+
+
+= [[Wago]]Wago PFC200
 :lang: en
 :imagesdir: ./src/io_config/img
 ifdef::env-github[]

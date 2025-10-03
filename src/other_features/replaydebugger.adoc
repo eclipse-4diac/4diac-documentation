@@ -1,6 +1,6 @@
 ---
 title: "Replay Debugger"
-url: doc/other_features/replayDebugger.html
+url: doc/other_features/replaydebugger.html
 ---
 
 = [[topOfPage]] Replay Debugger

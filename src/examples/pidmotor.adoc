@@ -1,6 +1,6 @@
 ---
 title: "Implement a PID Controller for the Position of an EV3 motor"
-url: doc/examples/pidMotor.html
+url: doc/examples/pidmotor.html
 ---
 
 =  Implement a PID Controller for the Position of an EV3 motor
@@ -194,7 +194,7 @@ forte_add_sourcefile_hcpp(PID)
 The next thing to do is to compile 4diac FORTE for the EV3. 
 The easiest way to do it is to copy all the code to the EV3, get the compiling tools inside the EV3 and compile it. 
 The process is really slow compared if it is done in a normal computer, but for compiling once it is much faster than setting all the cross-compiling environment explained http://www.ev3dev.org/docs/tutorials/using-brickstrap-to-cross-compile/[here.]
-More details are presented in the xref:../installation/legoMindstormEv3.adoc#ev3_introduction[section] above.
+More details are presented in the xref:../installation/legomindstormev3.adoc#ev3_introduction[section] above.
 
 == Creating the PID Application in 4diac IDE
 
@@ -268,7 +268,7 @@ NOTE: In Windows machines, the used Multicast address is not always detected and
 application in the PC. 
 This happens often if the PC is connected to the EV3 through an ad-hoc connection. 
 To overcome this, try adding the address route with gateway to your own machine in the as presented in the Troubleshooting part at the bottom of the
-xref:./bbbTrafficControl.adoc#troubleshooting[Traffic Control with BBB example]
+xref:./bbbtrafficcontrol.adoc#troubleshooting[Traffic Control with BBB example]
 
 == Tuning the PID
 

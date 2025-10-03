@@ -1,6 +1,6 @@
 ---
 title: "Updating the Target Platform used by 4diac IDE"
-url: doc/development/ideUpdateTargetPlatform.html
+url: doc/development/ideUpdatetargetplatform.html
 ---
 
 = Updating the Target Platform used by 4diac IDE

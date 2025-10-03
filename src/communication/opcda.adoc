@@ -1,6 +1,6 @@
 ---
 title: "OPC DA"
-url: doc/communication/opcDA.html
+url: doc/communication/opcda.html
 ---
 
 = OPC DA
@@ -46,12 +46,12 @@ cmake:install         //install
 
 == Compile 4diac FORTE with OPC DA Client Support
 
-. Create a MS Visual Studio Code Project of 4diac FORTE with CMake as described in xref:../installation/visualStudioCode.adoc[Compiling and Debugging 4diac FORTE with MS Visual Studio Code] and add the following variables in `settings.json` which are required for OPC Client support:
+. Create a MS Visual Studio Code Project of 4diac FORTE with CMake as described in xref:../installation/visualstudiocode.adoc[Compiling and Debugging 4diac FORTE with MS Visual Studio Code] and add the following variables in `settings.json` which are required for OPC Client support:
 * `FORTE_COM_OPC` : ON,
 * `FORTE_COM_OPC_LIB_ROOT`: Your path to opc lib root,
 * `FORTE_COM_OPC_BOOST_ROOT`: Your path to boost root,
 . Open the 4diac FORTE Project with MS Visual Studio Code.
-. xref:../installation/visualStudioCode.adoc[compile or debug] 4diac FORTE
+. xref:../installation/visualstudiocode.adoc[compile or debug] 4diac FORTE
 
 == Create OPC Client
 
@@ -81,7 +81,7 @@ Add a second [.specificText]#CLIENT_1# Function Block to the [.element61499]#App
 
 Start 4diac FORTE and deploy the Application.
 Switch the System into online mode and start watching the in- and outputs. 
-For further information about xref:../tutorials/use4diacLocally.adoc#monitoringApplication[Monitoring functionalities] follow the link.
+For further information about xref:../tutorials/use4diaclocally.adoc#monitoringApplication[Monitoring functionalities] follow the link.
 
 After triggering the INIT event, the OPC-client tries to connect with the OPC-server. 
 In this example the OPC-server is `FestoDidactic.EzOPC.2`. 

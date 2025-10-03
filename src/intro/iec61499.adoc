@@ -240,7 +240,7 @@ You can see the Compliance Profile as a way of filling the gaps due to the abstr
 == Where to go from here?
 
 * Now that you have a better understanding of the IEC 61499 standard, it's time to understand what Eclipse 4diac is and which tools are related to it. Take a look at the following page: +
-xref:4diacFramework.adoc[Eclipse 4diac Framework]
+xref:4diacframework.adoc[Eclipse 4diac Framework]
 * In case you'd like to return to the "Where to Start"-page, we leave here a fast access for you: +
 xref:../doc_overview.adoc[Where to Start]
 

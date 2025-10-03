@@ -1,6 +1,6 @@
 ---
 title: "PiFace Digital 2"
-url: doc/io_config/PiFace.html
+url: doc/io_config/piface.html
 ---
 
 = [[piface]]PiFace Digital 2

@@ -1,6 +1,6 @@
 ---
 title: "Step 1 - Use 4diac Locally"
-url: doc/tutorials/use4diacLocally.html
+url: doc/tutorials/use4diaclocally.html
 ---
 
 = Step 1 - Use 4diac Locally
@@ -13,11 +13,11 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 . xref:overview.adoc[4diac IDE Overview]
 . Use 4diac Locally (Blinking tutorial) (YOU ARE HERE!)
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
-. xref:use4diacRemotely.adoc[Deploy Applications Remotely]
-. xref:createOwnTypes.adoc[Create Your own Function Block Types]
-. xref:otherUseful.adoc[Other Basic Features]
-. xref:advancedFeatures.adoc[Advanced Features]
-. xref:dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:use4diacremotely.adoc[Deploy Applications Remotely]
+. xref:createowntypes.adoc[Create Your own Function Block Types]
+. xref:otheruseful.adoc[Other Basic Features]
+. xref:advancedfeatures.adoc[Advanced Features]
+. xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
 In this tutorial you create a simple Blinking application. 
 It's the "Hello World" of automation programs, so it teaches the key aspects and workflow of 4diac IDE. 

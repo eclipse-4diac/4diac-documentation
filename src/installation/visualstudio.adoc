@@ -1,6 +1,6 @@
 ---
 title: "Compiling and Debugging 4diac FORTE with MS Visual Studio"
-url: doc/installation/visualStudio.html
+url: doc/installation/visualstudio.html
 ---
 
 = Compiling and Debugging 4diac FORTE with MS Visual Studio

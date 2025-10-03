@@ -1,6 +1,6 @@
 ---
 title: "openPOWERLINK"
-url: doc/communication/openPOWERLINK.html
+url: doc/communication/openpowerlink.html
 ---
 
 = openPOWERLINK

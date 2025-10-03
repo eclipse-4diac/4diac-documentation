@@ -1,6 +1,6 @@
 ---
 title: "Library Management"
-url: doc/development/libraryManagement.html
+url: doc/development/librarymanagement.html
 ---
 
 = Library Management
