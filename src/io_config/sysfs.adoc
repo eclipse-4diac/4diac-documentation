@@ -1,13 +1,13 @@
 ---
 title: "SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)"
-url: doc/io_config/SysFs.html
+url: doc/io_config/sysfs.html
 ---
 
 = [[sysfs]]SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)
 :lang: en
 :imagesdir: img
 
-The following picture shows an example application from the xref:../tutorials/use4diacLocally.adoc[Blinking tutorial] which is extended with IX and QX function blocks. 
+The following picture shows an example application from the xref:../tutorials/use4diaclocally.adoc[Blinking tutorial] which is extended with IX and QX function blocks. 
 The extended application periodically toggles on pin number 8. 
 It can be started and stopped via pin number 2. 
 You can connect an LED to obtain a blinking light.

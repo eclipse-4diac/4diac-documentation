@@ -17,12 +17,12 @@ In order to access the I/O of a hardware, you need to set the PARAMS data input 
 4diac FORTE should be compiled with the corresponding module, that can be selected in CMake. 
 You find here the values to be set to PARAMS for the following supported platforms:
 
-. xref:./SysFs.adoc[SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)]
-. xref:./Odroid.adoc[Odroid]
-. xref:./PiFace.adoc[PiFace Digital 2]
-. xref:./uMIC.adoc[µMIC.200]
+. xref:./sysfs.adoc[SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)]
+. xref:./odroid.adoc[Odroid]
+. xref:./piface.adoc[PiFace Digital 2]
+. xref:./umic.adoc[µMIC.200]
 . xref:./mlpi.adoc[Bosch Rexroth PLC (MLPI)]
-. xref:./EV3.adoc[Lego Mindstorms EV3]
+. xref:./ev3.adoc[Lego Mindstorms EV3]
 
 == IO_CONFIG Based I/Os
 
@@ -39,8 +39,8 @@ This concept of I/O support let your IEC 61499 Application be completely hardwar
 For the supported platforms have a look on the following chapters:
 
 . xref:./plc01a1.adoc[PLC01A1]
-. xref:./RevolutionPi.adoc[Revolution Pi]
-. xref:./Wago.adoc[Wago]
+. xref:./revolutionpi.adoc[Revolution Pi]
+. xref:./wago_pfc200.adoc[Wago PFC200]
 
 
 == Where to go from here?

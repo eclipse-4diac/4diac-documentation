@@ -1,6 +1,6 @@
 ---
 title: "MQTT with Eclipse Paho"
-url: doc/communication/mqttPaho.html
+url: doc/communication/mqttpaho.html
 ---
 
 = MQTT with Eclipse Paho

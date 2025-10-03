@@ -11,7 +11,7 @@ url: doc/installation/raspi.html
 == Introduction
 
 This guide is for compiling FORTE for the Raspberry Pi. 
-For information about the parameters to be used, go to xref:../io_config/SysFs.adoc[Parameters].
+For information about the parameters to be used, go to xref:../io_config/sysfs.adoc[Parameters].
 
 https://www.raspberrypi.org/[Raspberry Pi] (RPI) is one of the most famous low-cost embedded systems. 
 In its third generation, the Raspberry Pi 3 was launched in February 2016. 

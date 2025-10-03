@@ -1,6 +1,6 @@
 ---
 title: "Building 4diac FORTE for freeRTOS + LwIP"
-url: doc/installation/freeRTOSLwIP.html
+url: doc/installation/freertos_lwip.html
 ---
 
 = Building 4diac FORTE for freeRTOS + LwIP

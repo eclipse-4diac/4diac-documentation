@@ -1,6 +1,6 @@
 ---
 title: "Compiling and Debugging 4diac FORTE with MS Visual Studio Code"
-url: doc/installation/visualStudioCode.html
+url: doc/installation/visualstudiocode.html
 ---
 
 = Compiling and Debugging 4diac FORTE with MS Visual Studio Code
@@ -41,8 +41,8 @@ Below is an example of settings.json for forte with OPC DA compiled.
 == Compile and debug 4diac FORTE with Visual Studio Code
 
 . Install compiler. 
-  For example, msbuild tools if you want to compile OPC DA, install the components according to xref:../communication/opcDA.adoc#msbuildtools[ms buildtools]. 
-  Or if you prefer mingw-w64, follow xref:./minGW.adoc[mingw-w64]. 
+  For example, msbuild tools if you want to compile OPC DA, install the components according to xref:../communication/opcda.adoc#msbuildtools[ms buildtools]. 
+  Or if you prefer mingw-w64, follow xref:./mingw.adoc[mingw-w64]. 
 . Install "CMake tools" plugin in visual studio code.
 . Open command palette(ctrl + shift + p), compile or debug in below command:
 +

@@ -1,6 +1,6 @@
 ---
 title: "Communication Architecture"
-url: doc/development/forte_communicationArchitecture.html
+url: doc/development/forte_communicationarchitecture.html
 ---
 
 = Communication Architecture

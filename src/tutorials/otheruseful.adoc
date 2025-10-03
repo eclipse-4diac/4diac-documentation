@@ -1,6 +1,6 @@
 ---
 title: "Step 5 - Other Basic Features"
-url: doc/tutorials/otherUseful.html
+url: doc/tutorials/otheruseful.html
 ---
 
 = [[CreateTypes]]Step 5 - Other Basic Features
@@ -11,13 +11,13 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 
 [start=0]
 . xref:overview.adoc[4diac IDE Overview]
-. xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
+. xref:use4diaclocally.adoc[Use 4diac Locally (Blinking tutorial)]
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
-. xref:use4diacRemotely.adoc[Deploy Applications Remotely]
-. xref:createOwnTypes.adoc[Create Your own Function Block Types]
+. xref:use4diacremotely.adoc[Deploy Applications Remotely]
+. xref:createowntypes.adoc[Create Your own Function Block Types]
 . Other Basic Features (YOU ARE HERE!)
-. xref:advancedFeatures.adoc[Advanced Features]
-. xref:dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:advancedfeatures.adoc[Advanced Features]
+. xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
 This page shows the following interesting features in 4diac IDE that might improve your work:
 
@@ -66,7 +66,7 @@ Before using it you need to rename it to forte.fboot.
 == Where to go from here?
 
 * The last step is optional, and shows some advanced features of 4diac IDE that you might use in more complicated applications: +
-xref:./advancedFeatures.adoc[Step 6 - Advanced Features]
+xref:./advancedfeatures.adoc[Step 6 - Advanced Features]
 * If you want to see some examples, the following link is an index of the available examples in the documentation: +
 xref:../examples/examples.adoc[4diac Examples]
 * If you have a specific platform that has input and outputs that is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, go to following page: +
@@ -75,7 +75,7 @@ xref:../io_config/io_config.adoc[I/O Configuration Parameters for Different Plat
 page: +
 xref:../communication/communication.adoc[Supported Communication Protocols]
 * If you want to go back to see again how to create your own Function Blocks, here's a link: +
-xref:./createOwnTypes.adoc[Step 4 - Create Your own Function Block Types]
+xref:./createowntypes.adoc[Step 4 - Create Your own Function Block Types]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc[Where to Start]
 

@@ -1,6 +1,6 @@
 ---
 title: "SWTBot UI Test Set and Test Structure"
-url: doc/development/swtBotTestsStructure.html
+url: doc/development/swtbottestsstructure.html
 ---
 
 = SWTBot UI Test Set and Test Structure
@@ -53,4 +53,4 @@ Development documentation has been created so that all 4diac IDE developers can 
 This can be found in the *installed 4diac IDE* under +
 _Help -> Help Contents -> 4diac User Guide -> Development Documentation -> 4DIAC-IDE -> SWTBot testing_ +
 or +
-_xref:./swtBotTestsDocumentation.adoc[SWT Bot Tests Documentation]_
+_xref:./swtbottestsdocumentation.adoc[SWT Bot Tests Documentation]_

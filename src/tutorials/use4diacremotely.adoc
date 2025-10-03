@@ -1,6 +1,6 @@
 ---
 title: "Step 3 - Deploy Applications Remotely"
-url: doc/tutorials/use4diacRemotely.html
+url: doc/tutorials/use4diacremotely.html
 ---
 
 = Step 3 - Deploy Applications Remotely
@@ -11,13 +11,13 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 
 [start=0]
 . xref:overview.adoc[4diac IDE Overview]
-. xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
+. xref:use4diaclocally.adoc[Use 4diac Locally (Blinking tutorial)]
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
 . Deploy Applications Remotely (YOU ARE HERE!)
-. xref:createOwnTypes.adoc[Create Your own Function Block Types]
-. xref:otherUseful.adoc[Other Basic Features]
-. xref:advancedFeatures.adoc[Advanced Features]
-. xref:dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:createowntypes.adoc[Create Your own Function Block Types]
+. xref:otheruseful.adoc[Other Basic Features]
+. xref:advancedfeatures.adoc[Advanced Features]
+. xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
 In this step, the Blink application from xref:./distribute4diac.adoc[Step 2] will not run locally, but in another device. 
 This has not too much to show, but it helps understand the workflow when using real PLCs. 
@@ -29,7 +29,7 @@ image:Step3/remoteArchitecture.png[architecture for the current step]
 == [[stepsToDeployRem]]Steps to Deploy Remotely
 
 . Select the PLC hardware or other hardware that can run 4diac FORTE.
-  You can check xref:../intro/4diacFramework.adoc#4diacFramework[here] the list of supported platforms. 
+  You can check xref:../intro/4diacframework.adoc#4diacFramework[here] the list of supported platforms. 
   The cheap options are Raspberry Pi, BeagleBoneBlack or another small board that runs Linux. 
   Another option would be to use another computer in your network.
 . Compile 4diac FORTE for your PLC or other Hardware. 
@@ -102,7 +102,7 @@ After that everything should work fine.
 == Where to go from here?
 
 * In the next step you will see how to create your own Function Blocks: +
-xref:./createOwnTypes.adoc[Step 4 - Create Your own Function Block Types]
+xref:./createowntypes.adoc[Step 4 - Create Your own Function Block Types]
 * If you want to go back to the distributed application running completely locally, here's a link: +
 xref:./distribute4diac.adoc[Step 2 - Distribute 4diac Applications]
 * If you want to go back to the Start Here page, we leave you here a fast access +

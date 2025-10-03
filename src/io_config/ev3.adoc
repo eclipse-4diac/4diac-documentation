@@ -1,6 +1,6 @@
 ---
 title: "Lego Mindstorms EV3"
-url: doc/io_config/EV3.html
+url: doc/io_config/ev3.html
 ---
 
 = [[ev3]]Lego Mindstorms EV3
@@ -8,7 +8,7 @@ url: doc/io_config/EV3.html
 This section is a reference of the parameters that can be used in 4diac FORTE to access the I/O of the LMSEV3. 
 Reading this section carefully without using them could be quite boring and even useless, because the details will be forgotten if not used. 
 We recommend to give a quick reading in order to know what can be accessed using 4diac FORTE. 
-The xref:../examples/pidMotor.adoc[example] presents the control of a motor using a PID controller.
+The xref:../examples/pidmotor.adoc[example] presents the control of a motor using a PID controller.
 
 
 == [[ev3_standard_parameters]]Standard Access

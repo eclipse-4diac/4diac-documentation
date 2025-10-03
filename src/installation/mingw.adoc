@@ -1,6 +1,6 @@
 ---
 title: "Setting up MinGW-w64"
-url: doc/installation/minGW.html
+url: doc/installation/mingw.html
 ---
 
 = Setting up MinGW-w64

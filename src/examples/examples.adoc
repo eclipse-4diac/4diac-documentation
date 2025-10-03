@@ -22,10 +22,10 @@ For the following examples, you don't need any special hardware:
 
 For the following examples, you'll need specific hardware to try them:
 
-* xref:./pidMotor.adoc[PID control on Lego Mindstorms Motor]: 
+* xref:./pidmotor.adoc[PID control on Lego Mindstorms Motor]: 
   This example uses the Lego Mindstorms EV3. 
   It creates a Basic Function Block that implements a PID control on the position of a motor.
-* xref:./bbbTrafficControl.adoc[Traffic control example running on a Beagle Bone Black]: 
+* xref:./bbbtrafficcontrol.adoc[Traffic control example running on a Beagle Bone Black]: 
   This is the Traffic Control that comes with Eclipse 4diac, but instead of running locally, the control runs on a BBB and the HMI locally. 
   This example is important because it finds many networking issues that are solved.
 

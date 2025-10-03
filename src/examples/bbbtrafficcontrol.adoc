@@ -1,6 +1,6 @@
 ---
 title: "Run the controller of the traffic light example in the BeagleBoardBlack (BBB)"
-url: doc/examples/bbbTrafficControl.html
+url: doc/examples/bbbtrafficcontrol.html
 ---
 
 = Run the controller of the traffic light example in the BeagleBoardBlack (BBB)

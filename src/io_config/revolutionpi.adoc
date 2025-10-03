@@ -1,6 +1,6 @@
 ---
 title: "Revolution Pi"
-url: doc/io_config/RevolutionPi.html
+url: doc/io_config/revolutionpi.html
 ---
 
 = [[RevolutionPi]]Revolution Pi

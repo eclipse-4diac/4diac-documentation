@@ -11,13 +11,13 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 
 [start=0]
 . 4diac IDE Overview (YOU ARE HERE!)
-. xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
+. xref:use4diaclocally.adoc[Use 4diac Locally (Blinking tutorial)]
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
-. xref:use4diacRemotely.adoc[Deploy Applications Remotely]
-. xref:createOwnTypes.adoc[Create Your own Function Block Types]
-. xref:otherUseful.adoc[Other Basic Features]
-. xref:advancedFeatures.adoc[Advanced Features]
-. xref:dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:use4diacremotely.adoc[Deploy Applications Remotely]
+. xref:createowntypes.adoc[Create Your own Function Block Types]
+. xref:otheruseful.adoc[Other Basic Features]
+. xref:advancedfeatures.adoc[Advanced Features]
+. xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
 An overview is presented in this step 0 - about elements, perspectives and properties of 4diac IDE that you need to know about to use it smoothly.
 
@@ -119,7 +119,7 @@ image:perspective/debugPerspective.png[Debug Perspective Button]
 
 Before starting the engineering process of IEC 61499 [.element61499]#Applications#, you should set the preferences for the 4diac IDE under [.menu4diac]#Window → Preferences → 4diac IDE#.
 
-Later in xref:./use4diacLocally.adoc[Step 1 - Use 4diac IDE locally], you'll learn more about the preferences. 
+Later in xref:./use4diaclocally.adoc[Step 1 - Use 4diac IDE locally], you'll learn more about the preferences. 
 For now it is good to know that there are different preference pages, where various parameter for the 4diac IDE can be set
 (e.g. connection colors). 
 In order to use the Runtime Launcher, the location of the run-time executable files must be set in the properties. 
@@ -151,7 +151,7 @@ First, select the FB by clicking onto it and, then, click on the FB again to edi
 == Where to go from here?
 
 * Now that you got an overview of the major parts of 4diac IDE, you can start using it: +
-xref:use4diacLocally.adoc[Step 1 - Use 4diac IDE Locally]
+xref:use4diaclocally.adoc[Step 1 - Use 4diac IDE Locally]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc[Where to Start]
 

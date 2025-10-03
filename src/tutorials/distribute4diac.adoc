@@ -12,13 +12,13 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 
 [start=0]
 . xref:overview.adoc[4diac IDE Overview]
-. xref:use4diacLocally.adoc[Use 4diac Locally (Blinking tutorial)]
+. xref:use4diaclocally.adoc[Use 4diac Locally (Blinking tutorial)]
 . Distribute 4diac Applications (YOU ARE HERE!)
-. xref:use4diacRemotely.adoc[Deploy Applications Remotely]
-. xref:createOwnTypes.adoc[Create Your own Function Block Types]
-. xref:otherUseful.adoc[Other Basic Features]
-. xref:advancedFeatures.adoc[Advanced Features]
-. xref:dynamicTypeLoader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:use4diacremotely.adoc[Deploy Applications Remotely]
+. xref:createowntypes.adoc[Create Your own Function Block Types]
+. xref:otheruseful.adoc[Other Basic Features]
+. xref:advancedfeatures.adoc[Advanced Features]
+. xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 
 This guide extends the blinking application of xref:./use4diacLocally.adoc[Step 1]. 
 We want to count how many times the light has turned on. 
@@ -131,9 +131,9 @@ image:Step2/monitoringApp.png[monitoring of the application]
 == Where to go from here?
 
 * In the next step you will see how 4diac FORTE runs in another machine. +
-xref:./use4diacRemotely.adoc[Step 3 - Deploy Applications Remotely]
+xref:./use4diacremotely.adoc[Step 3 - Deploy Applications Remotely]
 * If you want to go back to the original Blinking application without buttons, here's a link +
-xref:./use4diacLocally.adoc[Step 1 - Use 4diac Locally (Blinking Tutorial)]
+xref:./use4diaclocally.adoc[Step 1 - Use 4diac Locally (Blinking Tutorial)]
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../doc_overview.adoc[Where to Start]
 

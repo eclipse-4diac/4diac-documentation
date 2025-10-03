@@ -1,13 +1,13 @@
 ---
 title: "OPC UA with IEC 61499 Tutorial"
-url: doc/communication/opcUA.html
+url: doc/communication/opcua.html
 ---
 
 = OPC UA with IEC 61499 Tutorial
 :lang: en
 :imagesdir: img
 
-This tutorial shows how you can use https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC 61499 Application using available FBs. You should first complete the xref:../tutorials/use4diacLocally.adoc[First Steps in Eclipse 4diac Tutorial] to get familiar with the 4diac IDE. 
+This tutorial shows how you can use https://en.wikipedia.org/wiki/OPC_Unified_Architecture[OPC UA] in an IEC 61499 Application using available FBs. You should first complete the xref:../tutorials/use4diaclocally.adoc[First Steps in Eclipse 4diac Tutorial] to get familiar with the 4diac IDE. 
 4diac FORTE uses the https://open62541.org/[open62541] OPC UA stack which is open source and can also be used in commercial projects free of charge.
 
 After version 1.11.0 of 4diac FORTE, the OPC UA module has changed its API, so applications developed before this version won't be compatible. 
@@ -265,7 +265,7 @@ they should match
 In this step you will create a simple Flip-Flop [.element61499]#Application#, which uses PUBLISH and SUBSCRIBE function blocks to create Variables in the address space of the OPC UA Server. 
 Clients can then read from those variables or write new values.
 
-Follow the steps in the xref:../tutorials/use4diacLocally.adoc[Blinking Tutorial] to create a new [.element61499]#System#, [.element61499]#Application#, and [.element61499]#Device#. 
+Follow the steps in the xref:../tutorials/use4diaclocally.adoc[Blinking Tutorial] to create a new [.element61499]#System#, [.element61499]#Application#, and [.element61499]#Device#. 
 When you have created the empty Application, continue with the following steps.
 
 In the following steps we create a Flip-Flop application where a boolean value is read from an OPC UA Variable and then its negated value
@@ -307,7 +307,7 @@ image:opc_ua_flipFlop_uaExpert_2.png[OPC UA Flip-Flop in UaExpert]
 The two _VariableNodes_ `Flip` and `Flop` are created out of the SUBSCRIBE and PUBLISH function block. 
 The data type of the variables is derived from the type of the connected FB's port datatype (E_SWITCH.G and E_SR.Q) +
 . Optionally you can now monitor the Application in 4diac FORTE, e.g., watch the values of SUBSCRIBE and PUBLISH FB. 
-  See xref:../tutorials/use4diacLocally.adoc#monitoringApplication[Use Eclipse 4diac locally Tutorial - Monitor] on how to do that.
+  See xref:../tutorials/use4diaclocally.adoc#monitoringApplication[Use Eclipse 4diac locally Tutorial - Monitor] on how to do that.
 . In UaExpert drag the two variables `Flip` and `Flop` into the Data Access View. 
   Here you can now change the value of `Flip`. 
   This will cause the IND port of SUBSCRIBE to fire an event and 4diac FORTE will read the new variable value, negate it and set `Q` to the negated value. 
@@ -370,7 +370,7 @@ The changes will be seen also in UaExpert
 In this step you will see how you can create OPC UA methods in an IEC 61499 application. 
 It uses the SERVER function block which creates the corresponding OPC UA method automatically in the address model.
 
-Follow the steps in the xref:../tutorials/use4diacLocally.adoc[First Steps in Eclipse 4diac Tutorial] to create a new System, Application, and Device. 
+Follow the steps in the xref:../tutorials/use4diaclocally.adoc[First Steps in Eclipse 4diac Tutorial] to create a new System, Application, and Device. 
 When you have created the empty Application, continue with the following steps.
 
 . Create the following application:

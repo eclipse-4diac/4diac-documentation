@@ -1,6 +1,6 @@
 ---
 title: "Start 4diac FORTE after boot on Linux based systems"
-url: doc/installation/bootWithForte.html
+url: doc/installation/bootwithforte.html
 ---
 
 = Start 4diac FORTE after boot on Linux based systems

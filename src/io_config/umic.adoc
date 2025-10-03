@@ -1,6 +1,6 @@
 ---
 title: "µMIC.200"
-url: doc/io_config/uMIC.html
+url: doc/io_config/umic.html
 ---
 
 = [[umic]]µMIC.200

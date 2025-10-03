@@ -1,6 +1,6 @@
 ---
 title: "Odroid"
-url: doc/io_config/Odroid.html
+url: doc/io_config/odroid.html
 ---
 
 = [[odroid]]Odroid
