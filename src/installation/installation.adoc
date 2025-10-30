@@ -118,24 +118,24 @@ Linux::
 [source,bash]
 ----
 cd 4diac-forte
-cmake -G Ninja --preset posix-debug -DBUILD_SHARED_LIBS=ON
-cmake --build build/posix-debug
-cmake --install build/posix-debug
+cmake -G Ninja --preset posix-shared-debug
+cmake --build build/posix-shared-debug
+cmake --install build/posix-shared-debug
 ----
 +
-The last command will install 4diac FORTE into `install/posix-debug`.
+The last command will install 4diac FORTE into `install/posix-shared-debug`.
 
 Windows::
 +
 [source,bash]
 ----
 cd 4diac-forte
-cmake -G Ninja --preset windows-debug -DBUILD_SHARED_LIBS=ON
-cmake --build build/windows-debug
-cmake --install build/windows-debug
+cmake -G Ninja --preset windows-shared-debug
+cmake --build build/windows-shared-debug
+cmake --install build/windows-shared-debug
 ----
 +
-The last command will install 4diac FORTE into `install/windows-debug`.
+The last command will install 4diac FORTE into `install/windows-shared-debug`.
 ====
 
 link:#FORTE[back]
@@ -160,7 +160,7 @@ cmake --install build
 ----
 
 If you downloaded a pre-built version of 4diac FORTE, `path/to/forte` should point to the contents of the extracted archive.
-If you built your own version of 4diac FORTE, it should point to the sub-folder inside `install`, for example, `4diac-forte/install/*-debug`.
+If you built your own version of 4diac FORTE, it should point to the sub-folder inside `install`, for example, `4diac-forte/install/*-shared-debug`.
 
 link:#FORTE[back]
 
