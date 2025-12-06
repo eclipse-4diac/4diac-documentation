@@ -24,7 +24,8 @@ This page shows some advanced features about 4diac IDE that are usually used in
 
 . link:#adaptersUsage[Adapter Usage]
 . Subapplications (implemented since version 1.9)
-
+. xref:gitissuereporting.adoc[Git Issue Reporting]
+. xref:replaydebugger.adoc[Replay Debugger]
 
 == [[adaptersUsage]]Adapter Usage
 

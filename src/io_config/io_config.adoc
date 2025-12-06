@@ -10,7 +10,7 @@ Using QX, IX and similar allows you to access the inputs and outputs of a suppor
 Of course, in the case of a normal computer, this doesn't apply since it doesn't have I/O that you can control directly like you do on a PLC (normally boolean). 
 Currently there are two I/O integration concepts, the parameter based and the _IO_CONFIG_ based one.
 
-== Parameter Based I/Os
+== [[ParameterBased]]Parameter Based I/Os
 
 The parameter based I/O support uses the PARAMS data input of the IX, QX, ... function blocks.
 In order to access the I/O of a hardware, you need to set the PARAMS data input to a corresponding value to select which I/O to access. 
@@ -24,7 +24,7 @@ You find here the values to be set to PARAMS for the following supported platfor
 . xref:./mlpi.adoc[Bosch Rexroth PLC (MLPI)]
 . xref:./ev3.adoc[Lego Mindstorms EV3]
 
-== IO_CONFIG Based I/Os
+== [[IO_CONFIGBased]]IO_CONFIG Based I/Os
 
 The _IO_CONFIG_ based I/O support uses an IEC 61499 Resource, that could be called _IO_CONFIG_RES_, but the naming is up to you. 
 This IEC 61499 Resource contains a function block or a function block network that represents your hardware.
