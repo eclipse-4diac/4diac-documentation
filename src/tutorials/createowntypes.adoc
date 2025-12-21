@@ -19,6 +19,7 @@ This page is part of a guide that gives a walk-through of the major 4diac IDE f
 . xref:otheruseful.adoc[Other Basic Features]
 . xref:advancedfeatures.adoc[Advanced Features]
 . xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:opcuadeployment.adoc[Deploying Applications with OPC UA]
 
 In this tutorial, you will learn how to create your own Function Block (FB). 
 There are several different types of Function Blocks, we will show how to create a Basic, a Simple, a Composite and a Service Interface Function Block. 
