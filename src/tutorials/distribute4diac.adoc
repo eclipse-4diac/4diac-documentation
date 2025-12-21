@@ -19,6 +19,7 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 . xref:otheruseful.adoc[Other Basic Features]
 . xref:advancedfeatures.adoc[Advanced Features]
 . xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:opcuadeployment.adoc[Deploying Applications with OPC UA]
 
 This guide extends the blinking application of xref:./use4diacLocally.adoc[Step 1]. 
 We want to count how many times the light has turned on. 

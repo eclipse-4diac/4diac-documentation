@@ -18,6 +18,7 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 . xref:otheruseful.adoc[Other Basic Features]
 . xref:advancedfeatures.adoc[Advanced Features]
 . xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:opcuadeployment.adoc[Deploying Applications with OPC UA]
 
 In this step, the Blink application from xref:./distribute4diac.adoc[Step 2] will not run locally, but in another device. 
 This has not too much to show, but it helps understand the workflow when using real PLCs. 

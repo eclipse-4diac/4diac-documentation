@@ -19,6 +19,7 @@ This page is part of a guide that gives a walk-through over the major
 . xref:otheruseful.adoc[Other Basic Features]
 . Advanced Features (YOU ARE HERE!)
 . xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
+. xref:opcuadeployment.adoc[Deploying Applications with OPC UA]
 
 This page shows some advanced features about 4diac IDE that are usually used in more complicated applications:
 

@@ -18,6 +18,7 @@ This page is part of a guide that gives a walk-through of the major 4diac IDE f
 . xref:otheruseful.adoc[Other Basic Features]
 . xref:advancedfeatures.adoc[Advanced Features]
 . Deploying new FBs with the Dynamic Type Loader (YOU ARE HERE!)
+. xref:opcuadeployment.adoc[Deploying Applications with OPC UA]
 
 In this tutorial, you will learn how to deploy and test your function blocks, without compiling and adding them to 4diac FORTE .
 
@@ -98,6 +99,8 @@ Everything should be set up and you can deploy your FBs, like you learned earlie
 
 == Where to go from here?
 
+* If you want to continue and check out deploying Applications with OPC UA, here is a link +
+xref:opcuadeployment.adoc[Deploying Applications with OPC UA]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc#wheretostart[Where to Start]
 
