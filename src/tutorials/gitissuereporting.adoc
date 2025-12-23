@@ -1,6 +1,6 @@
 ---
 title: "Git Issue Reporting"
-url: doc/other_features/gitissuereporting.html
+url: doc/tutorials/gitissuereporting.html
 ---
 
 == [[topOfPage]] Git Issue Reporting
