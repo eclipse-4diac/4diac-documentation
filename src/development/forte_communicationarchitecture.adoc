@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Communication Architecture"
 url: doc/development/forte_communicationarchitecture.html
+sidebar: 
+  - sb-doc
 ---
 
 = Communication Architecture

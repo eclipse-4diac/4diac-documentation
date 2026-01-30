@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "SWTBot UI Test Set and Test Structure"
 url: doc/development/swtbottestsstructure.html
+sidebar: 
+  - sb-doc
 ---
 
 = SWTBot UI Test Set and Test Structure

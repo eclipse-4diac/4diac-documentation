@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Using Eclipse 4diac with a Lego Mindstorm EV3"
 url: doc/installation/legomindstormev3.html
+sidebar: 
+  - sb-doc
 ---
 
 = Using Eclipse 4diac with a Lego Mindstorm EV3

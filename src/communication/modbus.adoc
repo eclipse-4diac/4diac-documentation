@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Modbus"
 url: doc/communication/modbus.html
+sidebar: 
+  - sb-doc
 ---
 
 = Modbus

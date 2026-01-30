@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Updating the Target Platform used by 4diac IDE"
 url: doc/development/ideUpdatetargetplatform.html
+sidebar: 
+  - sb-doc
 ---
 
 = Updating the Target Platform used by 4diac IDE

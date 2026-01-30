@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Access BaseX Database with XQueries"
 url: doc/communication/xqueries.html
+sidebar: 
+  - sb-doc
 ---
 
 = Access BaseX Database with XQueries

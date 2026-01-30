@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "FBDK/IP"
 url: doc/communication/fbdkip.html
+sidebar: 
+  - sb-doc
 ---
 
 = FBDK/IP

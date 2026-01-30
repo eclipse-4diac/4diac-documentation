@@ -3,6 +3,8 @@
 
 title: "Documentation"
 layout: "single"
+sidebar: 
+  - sb-doc
 ---
 
 include::doc_overview.adoc[]

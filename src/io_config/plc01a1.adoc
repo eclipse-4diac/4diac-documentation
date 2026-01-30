@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Use the PLC01A1 Module from STM32"
 url: doc/io_config/plc01a1.html
+sidebar: 
+  - sb-doc
 ---
 
 = Use the PLC01A1 Module from STM32

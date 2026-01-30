@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "I/O Configuration for Different Platforms"
 url: doc/io_config/io_config.html
+sidebar: 
+  - sb-doc
 ---
 
 = I/O Configuration for Different Platforms

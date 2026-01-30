@@ -1,4 +1,11 @@
-[[topOfPage]]
+---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
+title: "Specifications and White Papers provided by Eclipse 4diac"
+sidebar: 
+  - sb-doc
+---
+
+
 = Specifications and White Papers provided by Eclipse 4diac
 
 This page is intended to serve as index for any specification provided and maintained by the Eclipse 4diac project.

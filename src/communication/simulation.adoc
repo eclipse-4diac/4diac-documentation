@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Communicating with Simulation Tools"
 url: doc/communication/simulation.html
+sidebar: 
+  - sb-doc
 ---
 
 = Communicating with Simulation Tools

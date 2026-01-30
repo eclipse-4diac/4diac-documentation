@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Monitoring"
 url: doc/development/forte_monitoring.html
+sidebar: 
+  - sb-doc
 ---
 
 = Monitoring

@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "X+3 Tutorial"
 url: doc/examples/xplus3.html
+sidebar: 
+  - sb-doc
 ---
 
 =  X+3 Tutorial

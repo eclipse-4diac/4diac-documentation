@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "IEC 61499 101"
 url: doc/intro/iec61499.html
+sidebar: 
+  - sb-doc
 ---
 
 = IEC 61499 101
