@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "The Eclipse 4diac Project"
 url: doc/intro/4diacframework.html
+sidebar: 
+  - sb-doc
 ---
 
 = The Eclipse 4diac Project

@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "HTTP"
 url: doc/communication/http.html
+sidebar: 
+  - sb-doc
 ---
 
 = HTTP

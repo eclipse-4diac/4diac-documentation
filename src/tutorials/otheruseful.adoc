@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Step 5 - Other Basic Features"
 url: doc/tutorials/otheruseful.html
+sidebar: 
+  - sb-doc
 ---
 
 = [[CreateTypes]]Step 5 - Other Basic Features

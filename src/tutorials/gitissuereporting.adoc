@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Git Issue Reporting"
 url: doc/tutorials/gitissuereporting.html
+sidebar: 
+  - sb-doc
 ---
 
 == [[topOfPage]] Git Issue Reporting

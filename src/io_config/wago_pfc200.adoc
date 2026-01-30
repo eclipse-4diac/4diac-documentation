@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Wago PFC200"
 url: doc/io_config/wago_pfc200.html
+sidebar: 
+  - sb-doc
 ---
 
 

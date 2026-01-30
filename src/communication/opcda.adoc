@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "OPC DA"
 url: doc/communication/opcda.html
+sidebar: 
+  - sb-doc
 ---
 
 = OPC DA

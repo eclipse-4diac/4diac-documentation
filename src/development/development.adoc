@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Development of 4diac IDE or 4diac FORTE"
 url: doc/development/development.html
+sidebar: 
+  - sb-doc
 ---
 
 = Development of 4diac IDE or 4diac FORTE

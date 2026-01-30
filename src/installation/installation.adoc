@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Installation"
 url: doc/installation/installation.html
+sidebar: 
+  - sb-doc
 ---
 
 = Installation

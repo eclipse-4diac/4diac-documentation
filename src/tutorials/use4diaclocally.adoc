@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Step 1 - Use 4diac Locally"
 url: doc/tutorials/use4diaclocally.html
+sidebar: 
+  - sb-doc
 ---
 
 = Step 1 - Use 4diac Locally

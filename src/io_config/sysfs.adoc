@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)"
 url: doc/io_config/sysfs.html
+sidebar: 
+  - sb-doc
 ---
 
 = [[sysfs]]SysFs (Raspberry Pi, Beagle Bone Black and Similar Boards)

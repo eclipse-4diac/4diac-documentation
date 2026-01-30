@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "MQTT with Eclipse Paho"
 url: doc/communication/mqttpaho.html
+sidebar: 
+  - sb-doc
 ---
 
 = MQTT with Eclipse Paho

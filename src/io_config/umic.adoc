@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "µMIC.200"
 url: doc/io_config/umic.html
+sidebar: 
+  - sb-doc
 ---
 
 = [[umic]]µMIC.200

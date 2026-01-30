@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Building 4diac FORTE on Raspberry Pi"
 url: doc/installation/raspi.html
+sidebar: 
+  - sb-doc
 ---
 
 = Building 4diac FORTE on Raspberry Pi

@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "External Event SIFB"
 url: doc/development/externalevent_example.html
+sidebar: 
+  - sb-doc
 ---
 
 = External Event SIFB

@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Run the controller of the traffic light example in the BeagleBoardBlack (BBB)"
 url: doc/examples/bbbtrafficcontrol.html
+sidebar: 
+  - sb-doc
 ---
 
 = Run the controller of the traffic light example in the BeagleBoardBlack (BBB)

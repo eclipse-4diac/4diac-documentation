@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Start 4diac FORTE after boot on Linux based systems"
 url: doc/installation/bootwithforte.html
+sidebar: 
+  - sb-doc
 ---
 
 = Start 4diac FORTE after boot on Linux based systems

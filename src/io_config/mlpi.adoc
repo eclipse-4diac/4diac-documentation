@@ -1,6 +1,9 @@
 ---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Bosch Rexroth PLC (MLPI)"
 url: doc/io_config/mlpi.html
+sidebar: 
+  - sb-doc
 ---
 
 == [[mlpi]]Bosch Rexroth PLC (MLPI)
