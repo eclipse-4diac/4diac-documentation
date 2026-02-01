@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Implement a PID Controller for the Position of an EV3 motor"
 url: doc/examples/pidmotor.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -301,7 +302,7 @@ image:pidMotor/PIDTuned.png[Final tun of the PID controller]
 
 Go back to Examples index:
 
-xref:./examples.adoc[Examples Index]
+xref:./overview.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

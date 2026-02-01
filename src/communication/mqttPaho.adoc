@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "MQTT with Eclipse Paho"
 url: doc/communication/mqttpaho.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -20,7 +21,7 @@ Since you need MQTT Paho, you need to install the libraries in your computer.
 Therefore you need to download the code and compile it. 
 You will need the same tools needed for 4diac FORTE (git, cmake, compilers). 
 The process is based on the normal compilation of 4diac FORTE, but the MQTT feature is enabled.
-xref:../installation/installation.adoc#ownFORTE[Here's] a quick link to 4diac FORTE's compilation. 
+xref:../installation/overview.adoc#ownFORTE[Here's] a quick link to 4diac FORTE's compilation. 
 For the installation please follow the next steps:
 
 . Checkout and build MQTT Paho (if you are using Windows, some commands might change):
@@ -65,7 +66,7 @@ The raw-layer is just accepting strings and sends the raw string content.
 == Where to go from here?
 
 * Go back to Protocols index: +
-xref:./communication.adoc[Communication Index]
+xref:./overview.adoc[Communication Index]
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../doc_overview.adoc[Start Here page]
 

@@ -2,6 +2,8 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Step 0 - 4diac IDE - Overview"
 url: doc/tutorials/overview.html
+page_css_file: /4diac/css/4diac_doc.css
+layout: "doc-overview"
 sidebar: 
   - sb-doc
 ---

@@ -1,7 +1,10 @@
 ---
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "I/O Configuration for Different Platforms"
-url: doc/io_config/io_config.html
+url: doc/io_config/overview.html
+page_css_file: /4diac/css/4diac_doc.css
+layout: "doc-overview"
+type: "section"
 sidebar: 
   - sb-doc
 ---
@@ -50,11 +53,11 @@ For the supported platforms have a look on the following chapters:
 
 You can see the supported protocols:
 
-xref:../communication/communication.adoc[Supported Communication Protocols]
+xref:../communication/overview.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/examples.adoc[4diac Examples]
+xref:../examples/overview.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 

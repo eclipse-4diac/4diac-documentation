@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Access BaseX Database with XQueries"
 url: doc/communication/xqueries.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -37,7 +38,7 @@ git clone https://github.com/BaseXdb/basex.git
 ----
 
 Then configure CMake to build the 4diac FORTE. 
-If you do not know how to build the 4diac FORTE read the xref:../installation/installation.adoc#ownFORTE[build instructions first]. 
+If you do not know how to build the 4diac FORTE read the xref:../installation/overview.adoc#ownFORTE[build instructions first]. 
 Besides the usual configuration activate the Xquery Client in the 4diac FORTE CMake configuration: 
 ----
 FORTE_COM_XqueryClient=ON
@@ -157,7 +158,7 @@ xSuccessor := CONCAT('xquery ', STRING#'let $$name := $'', name, STRING#'$' ',
 Please consider that your XQuery is dependent on the data structure of your database. 
 In this case it is the structure of an AutomationML file for a xref:./img/xquery/BaSys_PalletSystem_Model.aml[_Pallet System_].
 After you have created your test function block, export it and build your 4diac FORTE with it. 
-Please have a look at the xref:../installation/installation.adoc#ownFORTE[build instructions] if you do not know how to build your own function block, or use the 4diac FBE.
+Please have a look at the xref:../installation/overview.adoc#ownFORTE[build instructions] if you do not know how to build your own function block, or use the 4diac FBE.
 
 Now you can use your test function block within an application. 
 To send the XQueries to your BaseX database, add a `CLIENT_1` for each query you want to send. 
@@ -192,7 +193,7 @@ If you monitor your application you should get the results from the XQuery reque
 == Where to go from here?
 
 * Go back to Protocols index: +
-xref:./communication.adoc[Communication Index]
+xref:./overview.adoc[Communication Index]
 
 * If you want to go back to the Start Here page, we leave you here a fast access +
 xref:../doc_overview.adoc[Start Here page]
