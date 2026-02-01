@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Contributing to Eclipse 4diac"
 url: doc/development/contribute.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -114,7 +115,7 @@ Nevertheless, users without command line experience should stick to Eclipse.
 +
 The first thing to do is to get all the software. 
 For 4diac FORTE download Eclipse for C++ and install it. 
-The installation of the toolchain is described xref:../installation/installation.adoc#ownIDE[here]. 
+The installation of the toolchain is described xref:../installation/overview.adoc#ownIDE[here]. 
 If you already have an Eclipse IDE but it's not configured for C++, you don't need to download another Eclipse, but only the C++ plugin. See a tutorial https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Fgetting_started%2Fcdt_w_install_cdt.htm[here].
 To install Eclipse IDE for developing 4diac IDE use this xref:../development/building4diac.adoc#buildFromSource[instruction].
 EGit should be installed automatically with your Eclipse, otherwise follow the steps http://www.vogella.com/tutorials/EclipseGit/article.html#eclipseinstallationgit[here] to install it.
@@ -561,7 +562,7 @@ Contributors:
 
 Back to Development index:
 
-xref:./development.adoc[Development Index]
+xref:./overview.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access:
 

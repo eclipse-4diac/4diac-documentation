@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "X+3 Tutorial"
 url: doc/examples/xplus3.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -153,7 +154,7 @@ To download and test your IEC 61499 [.element61499]#Application#:
 
 Go back to Examples index:
 
-xref:./examples.adoc[Examples Index]
+xref:./overview.adoc[Examples Index]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access

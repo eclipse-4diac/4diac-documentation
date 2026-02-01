@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "PiFace Digital 2"
 url: doc/io_config/piface.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -18,11 +19,11 @@ https://github.com/eclipse-4diac/4diac-forte/issues[issue].
 
 You can see the supported protocols:
 
-xref:../communication/communication.adoc[Supported Communication Protocols]
+xref:../communication/overview.adoc[Supported Communication Protocols]
 
 You can see the examples:
 
-xref:../examples/examples.adoc[4diac Examples]
+xref:../examples/overview.adoc[4diac Examples]
 
 If you want to go back to the Where to Start page, we leave you here a fast access
 

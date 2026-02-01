@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Step 3 - Deploy Applications Remotely"
 url: doc/tutorials/use4diacremotely.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -37,7 +38,7 @@ image:Step3/remoteArchitecture.png[architecture for the current step]
   The cheap options are Raspberry Pi, BeagleBoneBlack or another small board that runs Linux. 
   Another option would be to use another computer in your network.
 . Compile 4diac FORTE for your PLC or other Hardware. 
-  Check xref:../installation/installation.adoc#FORTEWindowsUnix[here] for more information.
+  Check xref:../installation/overview.adoc#FORTEWindowsUnix[here] for more information.
 . Go to the System Configuration of the _BlinkTest_ and change the address from localhost to the IP address of your device. 
   This is the easiest way to interact with an external device. +
   However, certain devices require a special device type. 
