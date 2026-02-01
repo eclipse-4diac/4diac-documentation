@@ -1,7 +1,7 @@
 ---
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Documentation"
-url: doc/doc_overview.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -39,17 +39,17 @@ At first, take therefore a look at this explanation about the standards and tech
 If you know about IEC 61499 and what PLCs are, but you don't understand what 4diac IDE is, or what's the relation with 4diac FORTE, then you should take a look at this topic about the 4diac IDE framework.
 * xref:./tutorials/tutorials.adoc[Step by Step Tutorials]: 
 To understand the basics of 4diac IDE, it is best to start using it.
-* xref:./installation/installation.adoc[Install Eclipse 4diac]: 
+* xref:./installation/overview.adoc[Install Eclipse 4diac]: 
 If you understand all of the above, and you want to start using Eclipse 4diac, you will need to first install it.
-* xref:./examples/examples.adoc[4diac IDE examples]: 
+* xref:./examples/overview.adoc[4diac IDE examples]: 
 If you want to see some examples using 4diac IDE, this link is your friend.
-* xref:./io_config/io_config.adoc[IO Configuration for the different platforms]: 
+* xref:./io_config/overview.adoc[IO Configuration for the different platforms]: 
 If you have a specific platform with input and outputs that is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, use this topic.
-* xref:./communication/communication.adoc[Communication Protocols]: 
+* xref:./communication/overview.adoc[Communication Protocols]: 
 If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, follow the link.
 * xref:./specs/index.adoc[Specifications]: 
 Specifications provided and maintained by the Eclipse 4diac project (e.g., compliance profiles and statements).
-* xref:./development/development.adoc[Development of 4diac FORTE and 4diac IDE]: 
+* xref:./development/overview.adoc[Development of 4diac FORTE and 4diac IDE]: 
 If you are a developer or you want to know more deep stuff about 4diac FORTE or 4diac IDE, you'll have fun here.
 * xref:./other_features/overview.adoc[Other Features]:
 Eclipse 4diac is a nice place for research & development, so new and exiting features are being developed all the time.

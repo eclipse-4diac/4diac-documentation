@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Using Eclipse 4diac with a Lego Mindstorm EV3"
 url: doc/installation/legomindstormev3.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -120,7 +121,7 @@ Next, you should go into the bin/ev3dev folder and simply execute "make" to star
 If you want to compile directly in your EV3, then start at step 4 and perform everything with the command prompt of your EV3 (to get the command prompt inside of your EV3, connect to it with PuTTY).
 
 Remember, when you create your own FBs, you should add these to the 4diac FORTE folder, adjust the CMakefiles.txt and compile again. 
-In the xref:./installation.adoc#ownFORTE[example] section, it is explained how to do this.
+In the xref:./overview.adoc#ownFORTE[example] section, it is explained how to do this.
 
 == Troubleshooting
 
@@ -149,7 +150,7 @@ In this case, a module called "EV3" is added.
 
 If you want to build a 4diac FORTE, here is a quick link back:
 
-xref:./installation.adoc[Install Eclipse 4diac]
+xref:./overview.adoc[Install Eclipse 4diac]
 
 After you installed all required tools, it's time to start using them. 
 Take a look at the tutorials - a step by step guide:

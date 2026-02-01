@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Step 6 - Advanced Features"
 url: doc/tutorials/advancedfeatures.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -80,11 +81,11 @@ Further examples for the usage of adapters can be found within the FestoMPS exam
 == Where to go from here?
 
 * If you want to see some examples, behind the following link is an index of the available examples in the documentation: +
-xref:../examples/examples.adoc[4diac Examples]
+xref:../examples/overview.adoc[4diac Examples]
 * If you have a specific platform that has input and outputs and is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, go to following page: +
-xref:../io_config/io_config.adoc[Parameters for Different Platforms]
+xref:../io_config/overview.adoc[Parameters for Different Platforms]
 * If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, go this page: +
-xref:../communication/communication.adoc[Supported Communication Protocols]
+xref:../communication/overview.adoc[Supported Communication Protocols]
 * If you want to go back to see again the basic features, here's a link: +
 xref:./otheruseful.adoc[Step 5 - Other Basic Features]
 * If you want to go back to the Start Here page, we leave you here a fast access: +

@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "How to use Eclipse 4diac's Time Sensitive Networking Communication Interface"
 url: doc/communication/tsn.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -89,7 +90,7 @@ $ sudo ifconfig eth0.3 netmask "your_favorite_netmask"
 == Where to go from here?
 
 * Go back to Protocols index: +
-xref:./communication.adoc[Communication Index]
+xref:./overview.adoc[Communication Index]
 
 * If you want to go back to the Start Here page, we leave you here a fast access: +
 xref:../doc_overview.adoc[Start Here page]

@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Deploying FBs with OPC UA"
 url: doc/tutorials/opcuadeployment.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -23,7 +24,7 @@ This page is part of a guide that gives a walk-through of the major 4diac IDE f
 . xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 . Deploying Applications with OPC UA (YOU ARE HERE!)
 
-This tutorial shows how OPC UA can be used to deploy an IEC 61499 Application. Before the OPC UA deployment can be used it is necessary to xref:../installation/installation.adoc[build a 4diac FORTE] with the xref:../communication/opcua.adoc[OPC UA protocol] enabled. Alternatively, https://github.com/eclipse-4diac/4diac-fbe[4diac FBE] can be used to build a FORTE with OPC UA configuration.
+This tutorial shows how OPC UA can be used to deploy an IEC 61499 Application. Before the OPC UA deployment can be used it is necessary to xref:../installation/overview.adoc[build a 4diac FORTE] with the xref:../communication/opcua.adoc[OPC UA protocol] enabled. Alternatively, https://github.com/eclipse-4diac/4diac-fbe[4diac FBE] can be used to build a FORTE with OPC UA configuration.
 
 == Deploying IEC 61499 Applications
 
@@ -78,7 +79,7 @@ INFO: T#1766345564220032810: [OPC UA LOGGER] info/network       TCP     | Listen
 
 == Exporting Custom FBs
 
-Exporting custom FBs works the same way as with the regular deployment profile. A tutorial can be found xref:createowntypes.adoc[here]. A description of building custom modules can be found on the xref:../installation/installation.adoc[build a 4diac FORTE] page, or in the https://github.com/eclipse-4diac/4diac-fbe[4diac FBE description], depending on the used setup.
+Exporting custom FBs works the same way as with the regular deployment profile. A tutorial can be found xref:createowntypes.adoc[here]. A description of building custom modules can be found on the xref:../installation/overview.adoc[build a 4diac FORTE] page, or in the https://github.com/eclipse-4diac/4diac-fbe[4diac FBE description], depending on the used setup.
 
 == Where to go from here?
 
