@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "External Event SIFB"
 url: doc/development/externalevent_example.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -27,7 +28,7 @@ Consider that this is just an example that does not follow the IEC 61499 standar
 === The Interface
 
 T Flip-Flop as SIFB with integrated Timer.
-xref:../tutorials/createowntypes.adoc#exportTypes[Export the interface to 4diac FORTE] (`*.h` and `*.cpp` files) and xref:../installation/installation.adoc#externalModules[include them to your build].
+xref:../tutorials/createowntypes.adoc#exportTypes[Export the interface to 4diac FORTE] (`*.h` and `*.cpp` files) and xref:../installation/overview.adoc#externalModules[include them to your build].
 
 image:flipFlop_integratedTimer.jpg[Interface of the T Flip-Flop as SIFB with integrated Timer]
 
@@ -122,7 +123,7 @@ if(sm_poDeviceExecution->extEvHandlerIsAllowed(m_nExtEvHandID)) {
 
 Go back to Development index:
 
-xref:./development.adoc[Development Index]
+xref:./overview.adoc[Development Index]
 
 If you want to go back to the Start Here page, we leave you here a fast access
 

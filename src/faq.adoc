@@ -1,6 +1,7 @@
 ---
 title: "Eclipse 4diac FAQs"
 url: doc/faq.html
+page_css_file: /4diac/css/4diac_doc.css
 ---
 
 =  Eclipse 4diac FAQs

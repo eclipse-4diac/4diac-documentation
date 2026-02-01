@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Compiling and Debugging 4diac FORTE with MS Visual Studio Code"
 url: doc/installation/visualstudiocode.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -12,14 +13,14 @@ sidebar:
 
 
 The following describes how to compile 4diac FORTE with win32-architecture using Visual Studio Code. 
-In the installation tutorial xref:./installation.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
+In the installation tutorial xref:./overview.adoc#ownFORTE[(back)] you find more details on building your own 4diac FORTE. 
 Additionally, visual studio code is described there.
 
 == Building a MS Visual Studio Code Project for 4diac FORTE with CMake
 
-In the xref:./installation.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
+In the xref:./overview.adoc#ownFORTE[installation tutorial], the steps on building a project with CMake are described in detail. 
 To use Visual Studio Code with CMake, you need to specify the options (All the options are shown in CMake-GUI when you choose source
-folder FORTE_FOLDER_ROOT, refer to xref:./installation.adoc#generateFilesForCompiling[Build a project with CMake].) for CMake in settings.json for the project in Visual Studio Code.
+folder FORTE_FOLDER_ROOT, refer to xref:./overview.adoc#generateFilesForCompiling[Build a project with CMake].) for CMake in settings.json for the project in Visual Studio Code.
 The correct architecture is Win32. 
 Below is an example of settings.json for forte with OPC DA compiled.
 
@@ -67,7 +68,7 @@ image:visualcodeDebug.png[debug or release]
 
 If you want to build a 4diac FORTE, here is a quick link back:
 
-xref:./installation.adoc[Install Eclipse 4diac]
+xref:./overview.adoc[Install Eclipse 4diac]
 
 After you installed all required tools, it's time to start using them.
 Take a look at the following page:

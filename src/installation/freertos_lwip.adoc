@@ -2,6 +2,7 @@
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Building 4diac FORTE for freeRTOS + LwIP"
 url: doc/installation/freertos_lwip.html
+page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
@@ -159,7 +160,7 @@ xref:../tutorials/overview.adoc[Step 0 - 4diac IDE Overview]
 
 If you want to compile 4diac FORTE for another platform or want to know more about that, here's a quick link back:
 
-xref:./installation.adoc[Install Eclipse 4diac]
+xref:./overview.adoc[Install Eclipse 4diac]
 
 If you want to go back to the Start Here page, we leave you here a fast
 access
