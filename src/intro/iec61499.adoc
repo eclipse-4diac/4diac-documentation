@@ -12,6 +12,15 @@ sidebar:
 :imagesdir: ./img
 
 
+want to hear this as Podcast ? 
+listen: 
+
+This Episode English:
+https://creators.spotify.com/pod/profile/eclipse-4diac-en/episodes/The-Future-of-Industrial-Control-Decoding-IEC-61499-e36cjlj[The Future of Industrial Control: Decoding IEC 61499]
+
+This Episode German:
+https://creators.spotify.com/pod/profile/eclipse-4diac-de/episodes/Von-der-SPS-zur-verteilten-Intelligenz-IEC-61499-fr-Industrie-4-0-verstehen-e36a78o[Von der SPS zur verteilten Intelligenz: IEC 61499 für Industrie 4.0 verstehen]
+
 == [[PLC]]PLC Programming according to IEC 61131-3
 
 A https://en.wikipedia.org/wiki/Programmable_logic_controller[PLC] is, basically, a small computer used in industry. 
