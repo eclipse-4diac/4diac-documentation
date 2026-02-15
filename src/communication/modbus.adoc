@@ -35,7 +35,11 @@ modbus[(protocol:)ip:port:(slaveId):pollFrequency:readAddresses:sendAddresses(:r
 ** Connection to a Modbus-RTU to Modbus-TCP Gateway (e.g., EX9133C-2-MTCP): The Slave ID determines which device on the serial line is addressed.
 ** Specific devices (e.g., Siemens SENTRON PAC power meters) require a specific Slave ID (standard is 0xFF or 1) to accept the connection.
 ** The factory default for many devices is 1.
-* *pollFrequency*: polling frequency in milliseconds.
+* *pollFrequency*: Polling frequency in milliseconds.
+** **Value > 0**: Enables **autonomous polling**. FORTE will read the `readAddresses` cyclically in the background. After each cycle, a `CNF` event is triggered at the FB. You only need to trigger `REQ` once to start this process.
+** **Value = 0**: Disables autonomous polling.
+*** **For Reading:** If you define `readAddresses` with frequency 0, the data will **not** be updated from the server.
+*** **For Writing:** Schreib-Operationen (`sendAddresses`) work independently of this frequency. Every `REQ` event at the FB triggers an immediate Modbus write command. Use `0` for blocks that only send data to minimize background load.
 * *readAddresses*: addresses can be specified between 0-65535. More than one address (max 100) can be specified. **Note on Efficiency:** Using ranges (e.g., `h51` as a bitmask for 16 inputs) is much faster than polling 16 individual coils.
 ** comma for separate addresses: `0,2,65500`
 ** dots for interval: `5..10`
