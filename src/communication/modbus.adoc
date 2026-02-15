@@ -191,7 +191,7 @@ For `h40001`, use `CLIENT_1` with `WORD`. +
 * **FB:** `CLIENT_1`.
 * **Configuration:** Set `RD_1` to type `REAL`. The FB automatically reads 2 registers (10 and 11) and combines them into one Float.
 
-#### Scenario D: AkYtec / Bitmasks (Holding Register)
+#### Scenario D: AkYtec (e.g. AkYtec МК210-301/311)  / Bitmasks (Holding Register)
 * **Hardware:** Input states are packed into one 16-Bit Register (Bitmask) at Address 51.
 * **String:** `modbus[tcp:192.168.1.99:502::500:h51:]`
 * **FB:** `CLIENT_1`.
