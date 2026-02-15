@@ -31,17 +31,20 @@ modbus[(protocol:)ip:port:(slaveId):pollFrequency:readAddresses:sendAddresses(:r
 * *protocol*: tcp (tcp is default)
 * *ip*: address of Modbus server, e.g. 127.0.0.1
 * *port*: preferably above 1024, default is 502
-* *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection. Also if you use a Modbus-RTU to Modbus-TCP Gateway like for Example EX9133C-2-MTCP then this slaveID does tell which Device on the RTU Side you want to connect to.
-* *pollFrequency*: polling frequency in milliseconds
-* *readAddresses*: addresses can be specified between 0-65535 more than one address (max 100) can be specified using
-** comma for separate addresses 0,2,65500
-** dots for interval 5..10
-** combination 0,5..10,2,65500
-** function is by default holding register, and can be changed with a prefixed letter
-*** 'c' for coil
-*** 'd' for discrete input
-*** 'h' for holding register
-*** 'i' for input register
+* *slaveId* (optional): The unit identifier (Slave ID). While often ignored in pure Modbus TCP, it is **mandatory** in the following cases:
+** Connection to a Modbus-RTU to Modbus-TCP Gateway (e.g., EX9133C-2-MTCP): The Slave ID determines which device on the serial line is addressed.
+** Specific devices (e.g., Siemens SENTRON PAC power meters) require a specific Slave ID (standard is 0xFF or 1) to accept the connection.
+** The factory default for many devices is 1.
+* *pollFrequency*: polling frequency in milliseconds.
+* *readAddresses*: addresses can be specified between 0-65535. More than one address (max 100) can be specified. **Note on Efficiency:** Using ranges (e.g., `h51` as a bitmask for 16 inputs) is much faster than polling 16 individual coils.
+** comma for separate addresses: `0,2,65500`
+** dots for interval: `5..10`
+** combination: `0,5..10,2,65500`
+** function is by default holding register, and can be changed with a prefixed letter:
+*** 'c' for coil (Read/Write bits)
+*** 'd' for discrete input (Read-only bits)
+*** 'h' for holding register (Read/Write 16-bit words)
+*** 'i' for input register (Read-only 16-bit words)
 *** --> see below for a Detailed Table
 * *sendAddresses*: addresses can be specified between 0-65535 if data is only read sendAddresses should be left empty more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
@@ -72,11 +75,11 @@ modbus[protocol:port:baudrate:parity:databits:stopbits:flow:(slaveId):pollFreque
 * *stopbits*: number of stop bits, e.g., 1
 * *flow*:
 ** leave empty for none
-** arduino - disable DTR and wait for Arduino to boot just in case
-** delay - wait 2 seconds after connecting
-** longdelay - wait 3 seconds after connecting
-* all other paramters are as for TCP
-** except the *slaveId*, while it is optional in some cases for Modbus-TCP, is is mandatory for Modbus-RTU, and in most cases the factory default of devices is 1
+** arduino - disables DTR and waits for the Arduino to boot (useful for direct USB connection to Arduino-based IO).
+** delay - waits 2 seconds after connecting. This is often necessary for RS485-to-USB converters or devices that need time to stabilize the serial line after the port is opened.
+** longdelay - waits 3 seconds after connecting.
+* all other parameters are the same as for TCP.
+** except the *slaveId*, which is **mandatory** for Modbus-RTU. The factory default for most devices is 1.
 * to reuse a previous connection define only port and leave everything up to slaveId empty
 
 Example:
