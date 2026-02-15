@@ -109,6 +109,24 @@ Understanding how 4diac FORTE maps IEC data types to Modbus calls is critical. U
 *** **64-Bit Types:** `LWORD`, `LINT`, `LREAL` map to **4 consecutive Registers**.
 ** **Example:** Reading `h10..11` can be done with a `CLIENT_1` using type `REAL` (combines both registers into one float).
 
+=== Triggering and Cyclic Behavior (INIT / REQ)
+
+To ensure stable communication and prevent unnecessary CPU load, follow these rules for triggering the Event Inputs:
+
+* **INIT (Initialization)**:
+** **Rule:** Call `INIT` with `QI=TRUE` **exactly once** at application startup.
+** **Avoid cyclic calls:** Do NOT trigger `INIT` repeatedly.
+** **Auto-INIT:** If you leave the `INIT` pin of a Modbus client FB unconnected within a SubApplication, 4diac typically handles the initialization automatically (Auto-INIT feature).
+
+* **REQ (Request)**:
+** **Behavior with `pollFrequency > 0`**:
+*** If a polling frequency is defined in the connection string (e.g., `500` for 500ms), the FB handles the communication autonomously.
+*** **Rule:** Call `REQ` **only once** after successful initialization (e.g., by connecting `INITO` to `REQ`).
+*** **Result:** The FB will then automatically and cyclically perform the Modbus transaction and trigger the `CNF` output event at the specified frequency.
+** **Behavior with `pollFrequency = 0`**:
+*** If the frequency is `0` (or omitted), the FB only communicates when it receives an event at `REQ`.
+*** **Rule:** You must trigger `REQ` manually whenever you want to read or write data.
+
 === detailed Configuration Table
 
 [cols="1,1,1,1,3", options="header"]
