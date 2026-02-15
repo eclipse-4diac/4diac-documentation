@@ -91,52 +91,51 @@ modbus[rtu:/dev/ttyUSB0:19200:N:8:1::1:2000:i6142,i6132,i6137:h64025..64028,h639
 
 The choice of the Modbus function (Parameter prefix `c`, `d`, `h`, `i`) dictates which IEC 61499 Function Block (FB) and which Data Types you **must** use. Using the wrong combination will lead to communication errors or misaligned data.
 
-=== Internal Data Mapping
-Understanding how 4diac FORTE maps IEC data types to Modbus calls is crucial:
+=== Internal Data Mapping (Crucial for FB Configuration)
+
+Understanding how 4diac FORTE maps IEC data types to Modbus calls is critical. Using the wrong types will lead to data corruption or alignment offsets.
 
 * **Coils (`c`) and Discrete Inputs (`d`)**:
-** Internally, `libmodbus` expects **1 Byte per Bit**.
-** Therefore, for every single coil/input address defined in the string (e.g., `c0`), you need **one** corresponding input/output on the FB.
-** **Correct Types:** `BOOL` (recommended), `BYTE`, `SINT`, `USINT`. All these take up 1 Byte internally and map to 1 Modbus Bit.
-** **Example:** Reading `c0..7` (8 Bits) requires a `CLIENT_8` FB with 8 `BOOL` outputs.
+** **Requirement:** You **must** use 8-bit data types like **`BYTE`**, `SINT`, or `USINT`.
+** **Why not `BOOL`?** Internally, `libmodbus` represents each bit as a full `uint8_t` (1 byte). While `BOOL` might work on some systems, the C++ size of `bool` is implementation-defined. If your compiler uses 4 bytes for `bool`, the data pointer will misalign, and communication will fail.
+** **Mapping:** 1 Modbus Address = 1 IEC Byte.
+** **Example:** Reading `c0..7` (8 bits) requires a `CLIENT_8` FB with 8 pins of type **`BYTE`**. Each byte will contain either `0` or `1`.
 
 * **Holding (`h`) and Input Registers (`i`)**:
-** Internally, these are **16-Bit Words** (2 Bytes).
-** **Correct Types:** `WORD`, `INT`, `UINT` map exactly to 1 Register.
-** **32-Bit Types:** `DWORD`, `DINT`, `UDINT`, `REAL` map to **2 Registers**.
-** **64-Bit Types:** `LWORD`, `LINT`, `ULINT`, `LREAL` map to **4 Registers**.
-** **Example 1:** Reading `h10` (1 Register) requires a `CLIENT_1` FB with 1 `WORD` output.
-** **Example 2:** Reading `h10..11` (2 Registers) could use:
-*** A `CLIENT_2` FB with 2 `WORD` outputs.
-*** OR a `CLIENT_1` FB with 1 `DWORD` output (interpreting the 2 registers as one 32-bit value).
+** **Requirement:** Use 16-bit data types like **`WORD`**, `INT`, or `UINT`.
+** **Mapping:** 1 Modbus Register = 2 IEC Bytes (16 bits).
+** **Multi-Register Types:**
+*** **32-Bit Types:** `DWORD`, `DINT`, `REAL` map to **2 consecutive Registers**.
+*** **64-Bit Types:** `LWORD`, `LINT`, `LREAL` map to **4 consecutive Registers**.
+** **Example:** Reading `h10..11` can be done with a `CLIENT_1` using type `REAL` (combines both registers into one float).
 
 === detailed Configuration Table
 
 [cols="1,1,1,1,3", options="header"]
 |===
-| Prefix | Modbus Type | Data Size | Recommended IEC Types | FB Selection Rule
+| Prefix | Modbus Type | Data Size | Mandatory IEC Type | FB Selection Rule
 
 | **c**
 | Coil (Read/Write)
 | 1 Bit
-| `BOOL`
+| **`BYTE`** (recommended), `SINT`, `USINT`
 | **1 FB-Pin per Address.** +
-For `c0..7` (8 addresses), use `CLIENT_8` with `BOOL` pins.
+For `c0..7` (8 addresses), use `CLIENT_8` with `BYTE` pins.
 
 | **d**
 | Discrete Input (Read Only)
 | 1 Bit
-| `BOOL`
+| **`BYTE`**
 | **1 FB-Pin per Address.** +
-For `d0` (1 address), use `CLIENT_1` with `BOOL` pin.
+For `d0..3`, use `CLIENT_4` with `BYTE` pins.
 
 | **h**
 | Holding Register (Read/Write)
 | 16 Bit
 | `WORD`, `INT`, `UINT`
 | **1 FB-Pin per Address (for 16-bit types).** +
-For `h40001` (1 address), use `CLIENT_1` with `WORD`. +
-For 32-bit types (`REAL`, `DWORD`), 1 Pin covers 2 Addresses.
+For `h40001`, use `CLIENT_1` with `WORD`. +
+**Note:** A `REAL` pin covers 2 addresses.
 
 | **i**
 | Input Register (Read Only)
@@ -150,14 +149,14 @@ For 32-bit types (`REAL`, `DWORD`), 1 Pin covers 2 Addresses.
 #### Scenario A: Reading 8 Switches (Discrete Inputs)
 * **Hardware:** 8 Digital Inputs at Modbus addresses 0 to 7.
 * **String:** `modbus[tcp:192.168.1.10:502::1000:d0..7:]`
-* **FB:** `CLIENT_8` (from `modbus` library or generic `CLIENT_8`).
-* **Configuration:** Set all 8 Outputs (`RD_1` to `RD_8`) to type `BOOL`.
+* **FB:** `CLIENT_8`.
+* **Configuration:** Set all 8 Outputs (`RD_1` to `RD_8`) to type **`BYTE`**. Each byte will be `1` (Input ON) or `0` (Input OFF).
 
 #### Scenario B: Controlling 8 Relais (Coils)
 * **Hardware:** 8 Relais at addresses 0 to 7.
 * **String:** `modbus[rtu:/dev/ttyUSB0:9600:N:8:1::1:1000:c0..7:c0..7]`
 * **FB:** `CLIENT_8`.
-* **Configuration:** Set all 8 Inputs (`SD_1` to `SD_8`) and Outputs (`RD_1` to `RD_8`) to type `BOOL`.
+* **Configuration:** Set all 8 Inputs (`SD_1` to `SD_8`) and Outputs (`RD_1` to `RD_8`) to type **`BYTE`**.
 
 #### Scenario C: Reading a Temperature (Float, 32-bit)
 * **Hardware:** Sensor maps float value to Registers 10 and 11.
