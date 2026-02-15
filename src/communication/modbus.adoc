@@ -197,6 +197,12 @@ For `h40001`, use `CLIENT_1` with `WORD`. +
 * **FB:** `CLIENT_1`.
 * **Configuration:** Set `RD_1` to type `WORD`. You will receive an Integer (e.g., 5 means Input 1 and 3 are active). Use `WORD_TO_BOOL` conversion FBs to extract individual bits if needed.
 
+== Example: Writing Outputs of a 8-Output Relay Card:
+----
+modbus[rtu:/dev/uart/1:9600:N:8:1::1:2000:c0..7:c0..7]
+----
+
+image:modbus/modbus_8Q.png[modbus with 8Q set]
 
 
 == Where to go from here?
