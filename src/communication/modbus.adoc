@@ -40,6 +40,7 @@ modbus[(protocol:)ip:port:(slaveId):pollFrequency:readAddresses:sendAddresses(:r
 *** A `REQ` event at the FB does **not** trigger a Modbus read; it only copies the current (cached) data to the outputs.
 *** Therefore, to receive any data from the server, you **must** set a frequency > 0.
 *** Successful updates from the server will automatically trigger a `CNF` event at the FB.
+*** [CAUTION] **WARNING:** Do **not** set `pollFrequency` to `0` if you have `readAddresses` defined. Internally, a frequency of 0 is interpreted as "as fast as possible" (busy waiting). This will result in **100% CPU load** for the Modbus thread and flood your network/bus with requests. If you want to disable reading, leave `readAddresses` empty instead.
 ** **Writing (Single-Shot)**: Write operations (`sendAddresses`) are **independent** of the polling frequency. 
 *** Every `REQ` event at the FB triggers an immediate Modbus write command. 
 *** For blocks that only send data, set `pollFrequency` to `0` to avoid unnecessary background polling.
