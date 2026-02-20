@@ -111,11 +111,38 @@ image:TargetPlatform.png[Eclipse target platform configuration]
 . Press [.button4diac]#Set as Active Target Platform# within the upper right corner and wait until the workspace is built.
 
 === [[devMode]]1.5 Run in Development Mode
-. To use 4diac IDE directly under this (development) Eclipse you need a type library and templates.
-Both are part of the 4diac IDE repository and can be found in the `data` directory. 
-In order that your development 4diac IDE can find this they have to put into the directory where the target platform is stored. 
-For that copy the `template` and the `typelibrary` directory into the `.metadata/.plugins/org.eclipse.pde.core/.bundle_pool` directory.
-. Open the `org.eclipse.fordiac.ide.product` from the `org.eclipse.fordiac.ide.product` plug-in.
+. To use 4diac IDE directly under this (development) Eclipse you need a type library and templates. Both are part of the 4diac IDE repository and can be found in the data directory. In order that your development 4diac IDE can find this they have to put into the directory where the target platform is stored. For that copy the `template` and the `typelibrary` directory into the `.metadata/.plugins/org.eclipse.pde.core/.bundle_pool` directory.
+
+. Navigate to your cloned 4diac IDE repository folder and open:
+
+`org.eclipse.fordiac.ide/data/`
+
+. Copy the following two directories:
+
+* `template`
+* `typelibrary`
+
+. Next, navigate to your active Eclipse workspace (the same workspace from which Eclipse is currently running).
+
+. The `.metadata` folder inside the workspace is hidden by default.
+
+*On Windows:*  
+Enable *Hidden Items* from the View menu in File Explorer.
+
+*On macOS:*  
+Press `Command + Shift + .` to show hidden files.
+
+. Open the `.metadata` folder.
+
+. Inside the workspace open the following path:
+
+`.metadata/.plugins/org.eclipse.pde.core/.bundle_pool`
+
+. Inside the `.bundle_pool` directory paste the copied `template` and `typelibrary` folders.
+
+. After pasting, return to Eclipse and run the product.
+
+Open the `org.eclipse.fordiac.ide.product` from the `org.eclipse.fordiac.ide.product` plug-in.
 +
 image:productConfigKepler.png[Eclipse product configuration]
 . In the [.menu4diac]#Testing# Section of the [.tab4diac]#Overview# tab press [.button4diac]#Synchronize#
