@@ -1,3 +1,4 @@
+---
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
 title: "Building and Running 4diac IDE"
 url: doc/development/building4diac.html
@@ -114,7 +115,9 @@ image:TargetPlatform.png[Eclipse target platform configuration]
 +
 [NOTE]
 ====
+
 The `.metadata` folder inside the workspace is hidden by default. 
+
 * **Windows:** Enable "Hidden items" in the View menu of File Explorer.
 * **macOS:** Press `Command + Shift + .` to toggle hidden files.
 * **Linux (Gnome):** Press `Ctrl + H` to show hidden files.
@@ -162,4 +165,3 @@ Go back to xref:./overview.adoc[Development Index]
 Go back to xref:../doc_overview.adoc[Eclipse 4diac Documentation page]
  
 Or link:#top[Go to top]
-
