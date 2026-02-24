@@ -10,4 +10,4 @@ sidebar:
 
 This page is intended to serve as index for any specification provided and maintained by the Eclipse 4diac project.
 
-* xref:FBrunscommunicationmodelWP.pdf[Modelling Network Communication in IEC 61499]
+* xref:fbrunscommunicationmodelwp.pdf[Modelling Network Communication in IEC 61499]
