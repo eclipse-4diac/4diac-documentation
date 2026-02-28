@@ -1,571 +1,359 @@
 ---
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
-title: "Contributing to Eclipse 4diac"
+title: "Eclipse 4diac Contribution Guidelines"
 url: doc/development/contribute.html
 page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
 
-= Contributing to Eclipse 4diac
+= Eclipse 4diac Contribution Guidelines
 :lang: en
 :imagesdir: img
 
 
-The projects 4diac IDE and 4diac FORTE are stored as a Git repository in the Eclipse platform. 
-It's open source, so you can download the project and you can even change things and improve it. 
-But of course, it's not that simple, otherwise changes would be added without any control and could mess up the code. 
-If you wish to report a bug, see the section link:#BugReport[Bug report].
 
-== Git repository
+Thank you for your interest in contributing to Eclipse 4diac™. 
 
-If you don't know what Git is, don't worry, we have all been there.
-Basically, Git is a distributed system that is used to control various versions of anything, 
-but mostly of software code. The code is stored in a so-called repository which contains all files related to the software.
-After changing the code, instead of saving new files (fileV1, fileV2, fileFinalVersion, fileThisIsReallyTheFinalVersion, fileThisIsReallyTheFinalVersion2) in a new folder, you just "commit" the change and the changes are saved in the repository. 
-To see older versions of the software, you go to the specific commit. 
-The good thing about Git is the word "distributed" in its definition (I bet you didn't notice it). 
-There's not only one repository, but anyone who wishes to contribute to the repository, copies the whole content of the repository to his/her computer and works there, changes there and commits there.
-Then, the user pushes to the repository where he/she copied from.
+Eclipse 4diac is an open-source ecosystem for distributed industrial automation based on IEC 61499. 
+The project is developed collaboratively by researchers, students, industrial users, and open-source contributors worldwide.
 
-This is only the basic principle of Git, but it should give an idea of how it works. 
-The step-by-step tutorial following below helps to set up Git for your first contributions. 
-Plenty of information online helps to learn more about Git. 
-Instead of starting from zero, I would recommend having a look at https://git-scm.com/ where you can download everything necessary to start contributing to any Git project. 
-The documentation https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.pdf[book] about Git provides a good overview.  
-Although the book is very long, you'll only need Chapters 1 and 2 to understand how Git works, and Chapter 3 to understand branches.
+== Getting Started
 
-But I should warn you, young padawan, learning Git is hard. 
-It's a very powerful tool, but it takes time to understand it. 
-Simply, read the basics and follow the step-to-step guide. 
-It is not necessary to try to understand everything before jumping to contributions. 
-The best teacher is practice, so use 4diac FORTE or 4diac IDE as your example for practicing. 
-You can't break anything. 
-Git is bullet-proof.
+=== Our Philosophy
+* **Everyone is Welcome:** You do not need to be an expert or long-time community member to participate.
+* **Diverse Contributions:** We value code, documentation, testing, usability (UX), translations, and industrial feedback.
+* **Step-by-Step Learning:** New contributors are encouraged to start with small improvements and learn the project step-by-step.
 
-== Github 
+=== Code of Conduct
+To ensure a welcoming and professional environment, all contributors and maintainers are expected to follow the link:https://www.eclipse.org/org/documents/Community_Code_of_Conduct.php[Eclipse Community Code of Conduct]. 
+We are committed to making participation a harassment-free experience for everyone.
 
-You know how Git works, and have maybe already used it. 
-But now, a new player is in the game: Github. 
-What is it? 
-When someone, a programmer with the best intentions, wants to contribute to 4diac FORTE code, s/he clones the Github repository, makes changes, commits, and then pushes the changes to the repository in the Eclipse Foundation. 
-But of course, the change doesn't go directly to the repository. 
-First, it has to be accepted by the people in charge of 4diac FORTE or 4diac IDE. 
-Therefore, the contributors create a pull request on Github. 
-Github automatically checks legal requirements (copyright headers!), and then notifies the people responsible of Eclipse 4diac that some new change has arrived. 
-They then visit Github, see the new pull request, and can accept or deny it. 
-Most of the time you will get comments to improve your code.
-Easy, right?
+=== Need Help Before Contributing?
+If you have questions or are unsure how to start, please ask first. 
+The community is happy to help newcomers.
 
-But to better understand Github, it's better to work with it. 
-Create a Github account on https://www.github.com.
-We'll go step-by-step toward pushing code to Github in order to contribute to Eclipse 4diac.
-
-== Help 4diac IDE and 4diac FORTE - NOW!
-
-As said before, we'll learn to contribute to 4diac IDE and 4diac FORTE step-by-step.
-However, if you want to contribute, you'll need to sign some link:#ECA[legal documents] online. 
-If you don't wish to sign them, you can still get the code of 4diac IDE or 4diac FORTE and play with it.
-
-=== [[EclipseAccount]]Create an Eclipse account
-
-First of all, you should create an Eclipse account. 
-All commits that are created by Eclipse accounts without signed ECA will be rejected automatically. 
-If you don't want to contribute, but just want to download the code and play around, skip to the next step.
-
-To create the Eclipse account, simply go to https://www.eclipse.org/ and click "Create Account" on the top-right of the page. 
-Then, just fill in the information to create an account. 
-The email address indicated during account registration should also be used later in Git.
-
-=== [[BugReport]]Submit bug reports
-
-If you notice an issue related to Eclipse 4diac, you should report an issue on the Github issue tracker.
-This will help the project - even if you have no idea how to fix it! 
-For 4diac IDE, follow: https://github.com/eclipse-4diac/4diac-ide/issues - for 4diac FORTE, follow: https://github.com/eclipse-4diac/4diac-forte/issues
-You can report issues and suggestions for 4diac IDE, 4diac FORTE, the webpage, etc. after logging into your (new) Github account. 
-The title of the bug or feature request should be concise and descriptive. 
-Further details are then added in the description field. 
-Provide all information required to understand and possibly also reproduce a bug.
-Add your operating system if there is an issue with installation or graphical user interfaces - this may help to reproduce your bug.
-Don't hesitate to also report minor issues.
+* **Ask Questions and Discuss Ideas:** +
+The preferred place for early discussions is the *GitHub Discussions* area of the specific repository (
+https://github.com/eclipse-4diac/4diac-ide/discussions[4diac IDE],
+https://github.com/eclipse-4diac/4diac-forte/discussions[4diac FORTE],
+https://github.com/eclipse-4diac/4diac-fbe/discussions[4diac FBE]
+https://github.com/eclipse-4diac/4diac-documentation/discussions[4diac Documentation] 
+https://github.com/eclipse-4diac/4diac-examples[4diac Examples], or
+https://github.com/eclipse-4diac/4diac-website-hugo[4diac Website]).
+* **Discussion-First Approach:** +
+For larger changes, starting a discussion before implementation is strongly encouraged to align with project goals and avoid duplicated work.
+* **Community Meetings:** +
+Joining our link:https://eclipse.dev/4diac/events/virt-community/[virtual community meetings] is often the fastest way to find a suitable topic.
+* **When to Open an Issue:** +
+Issues should be reserved for reproducible bugs, agreed-upon feature requests, or tracking active development. 
+If you are unsure, start with a discussion.
 
 
-=== [[ECA]]Sign the ECA
 
-The next step is to sign the ECA (Eclipse Contributor Agreement). 
-This is mandatory in order to contribute to the projects. 
-Go to the https://www.eclipse.org/legal/eca/[ECA page] to read it and learn more about it. 
-The ECA protects for example copyrights. Basically, when you sign it, you declare that you have full rights of every contributed change, which helps protecting intellectual property, including your own. 
-If your contribution is part of your work at some company, you should talk first with your superior and the legal department to fully understand how to approach this.
+== Preparing to Contribute
 
-The signing is done online after logging in to your account and selecting the "Eclipse Contributor Agreement". 
-You need to check boxes and complete a textbox with "I AGREE". 
-There's no tangible outcome. 
-Eclipse stores your information together with the version of the ECA that you signed. 
-You can print the ECA, but you won't get a certificate to print that says that you signed it. 
-Your account will show that you have signed the ECA and there's a tool in Eclipse validating whether an account has signed it.
+Before you can contribute code or documentation, the Eclipse Foundation requires a few administrative steps to manage intellectual property correctly.
 
-=== [[EGit]]Use EGit to contribute: Preparations
+. *Create an Eclipse Account* +
+You need an Eclipse Foundation account to sign legal agreements and track your contributions.
+* **Register:** link:https://accounts.eclipse.org/user/register[Eclipse Registration Page]
+* **Important:** Use the same email address for this account that you intend to use for your Git commit author information.
 
-The first example uses Eclipse and all the Git work will be done using EGit, normally installed automatically together with the Eclipse IDE. 
-If you think GUI is for weaks and a real programmer should use command line, you can follow the instructions given link:#CommandLine[below].
-Nevertheless, users without command line experience should stick to Eclipse.
+. *Sign the Eclipse Contributor Agreement (ECA)* +
+The ECA is a digital agreement confirming you have the right to contribute the code you are submitting.
+* **Sign here:** link:https://www.eclipse.org/legal/eca/[Eclipse Contributor Agreement]
+* You only need to do this once, and it covers all your contributions to any Eclipse Foundation project.
 
-. Get all required software
+. *Link your GitHub Account* +
+Since Eclipse 4diac uses GitHub for development, you must link your GitHub username to your Eclipse account so our automated tools can verify your ECA status.
+* Log in to your link:https://accounts.eclipse.org/user/edit[Eclipse Profile].
+* Enter your GitHub username in the **"GitHub ID"** field.
+* Save your changes.
+
+
+== Your First Contribution in 10 Minutes
+
+The fastest way to contribute to Eclipse 4diac is by fixing typos or improving the documentation. 
+GitHub allows you to do this directly in your browser, handling the technical "Git" background work for you.
+
+=== Fast-Track: Web-Based Contributions
+. **Find a Page:** Navigate to any file in our link:https://github.com/eclipse-4diac[GitHub repositories] (e.g., in the documentation or a README).
+. **Edit:** Click the **"Edit this file"** (pencil icon) at the top right. 
+. **Automatic Fork:** If this is your first time, GitHub will notify you that it is creating a **fork** of the repository for you. 
+This is normal—it's just your personal workspace for the change.
+. **Modify:** Make your changes directly in the web editor.
+. **Propose Changes:** Scroll down, provide a short title for your change (e.g., "Fix typo in installation guide"), and click **"Propose changes"**.
+. **Create Pull Request:** On the next screen, click **"Create pull request"**.
+
+[TIP]
+====
+**Don't worry about the "Fork":** When you use the web editor, GitHub manages the fork and branches for you automatically. You don't need to do anything on your local computer.
+====
+
+[NOTE]
+====
+**Verification:** Even for web edits, the **ECA check** will run. 
+Ensure your GitHub account is linked to your Eclipse account as described in the previous section, otherwise the "Check" will fail on your Pull Request.
+====
+
+
+== Standard Development Workflow
+
+For larger contributions, such as code changes or complex documentation updates, you will need to work on your local machine. 
+We follow the standard "Fork and Pull Request" model common on GitHub.
+
+[IMPORTANT]
+.Check Repository-Specific READMEs
+====
+While the Git workflow below is universal, the specific instructions for **building, compiling, and running local tests** are located in the `README.md` or `CONTRIBUTING.md` file of the **individual repository** you are working on. 
+Always consult those files before starting your local development.
+====
+
+[NOTE]
+.Choose your tools
+====
+The examples below use **Git Bash** (command line) for clarity, but you are welcome to use any Git GUI (like GitHub Desktop, GitKraken, or the integration in Eclipse IDE/VS Code).
+====
+
+=== 1. Fork and Clone
+Instead of working directly on the main repositories, you create your own copy (a fork) and work there.
+
+. **Fork:** Navigate to the specific Eclipse 4diac repository (e.g., `4diac-ide` or `4diac-forte`) on GitHub and click the **"Fork"** button.
+. **Clone:** Clone your fork to your local machine:
 +
-The first thing to do is to get all the software. 
-For 4diac FORTE download Eclipse for C++ and install it. 
-The installation of the toolchain is described xref:../installation/overview.adoc#ownIDE[here]. 
-If you already have an Eclipse IDE but it's not configured for C++, you don't need to download another Eclipse, but only the C++ plugin. See a tutorial https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Fgetting_started%2Fcdt_w_install_cdt.htm[here].
-To install Eclipse IDE for developing 4diac IDE use this xref:../development/building4diac.adoc#buildFromSource[instruction].
-EGit should be installed automatically with your Eclipse, otherwise follow the steps http://www.vogella.com/tutorials/EclipseGit/article.html#eclipseinstallationgit[here] to install it.
-. Configure EGit
-+
-The first thing to do in EGit is to configure the user settings. 
-The main items are the name and email address. 
-This information is attached to your commits. 
-To do that, just follow the simple steps in Section 4.2 of the same http://www.vogella.com/tutorials/EclipseGit/article.html#eclipseinstallationgit[link] as above. 
-In particular, open Window → Preferences → Team → Git → Configuration in Eclipse. 
-Click "Add Entry..." to open a dialog box for a key-value pair. 
-As a key enter `email` and as value enter the email address of your Eclipse account. 
-Click "Add" and add another entry. 
-The  second entry consists of the key `name` and your full name as value. 
-As you created the Eclipse account and signed the ECA in the previous link:#ECA[step], you must use the same email address.
-. Download 4diac FORTE or 4diac IDE repository
-+
-In Eclipse, go to File → Import...→ Git → Projects from Git. 
-Click Next and then select Clone URI. 
-Next, paste https://github.com/eclipse-4diac/4diac-forte.git or https://github.com/eclipse-4diac/4diac-ide.git in the URI field and then Next. 
-Eclipse will connect to the repository and retrieve all its branches. 
-Select all and click Next. 
-The branches represent various development stages. 
-For small updates/fixes to the current version, you can use the branch with the latest version number. 
-Select the destination folder of the repository in your local machine and click Next. 
-Wait while the repository is being downloaded. Click Next until the assistant is finished.
-
-. (Optional) Look around and move between branches
-+
-Now you have the newest 4diac FORTE or 4diac IDE code. 
-After downloading the code of a project, look around first. 
-Check the folders, read the  documentation and readme files. 
-Try to understand the folders and hierarchies.
-+
-Right-click on a project in the Eclipse package explorer and select Team. 
-There you find all possible commands for EGit. 
-Team → Show in History will show you all the commits in the current branch. 
-Normally, master is the main branch. If 4diac FORTE has another branch, and you want to work with it, you'll have to create a local branch that serves as reference of the original branch. 
-That is, the Eclipse repository has a master branch (seen as origin/master), and for example a develop branch (seen as origin/develop). 
-But you, locally, have only a master branch (seen as master). 
-This local master is a reference to the origin/master and everything you change on it, will be then pushed to the origin/master. 
-But if you want to work on the origin/develop branch, you'll need to create a local branch that references it. 
-Details on branches can be found in the https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.pdf[book] mentioned above  (chapter 3).
-+
-Right-click on the project → Team → Switch To → Other.... 
-There you'll see the local and remote branches. 
-Select the remote branch you want to work on, for example origin/develop, and click Checkout. 
-You'll get a message saying that you can watch the remote branch, or you can create a new branch locally to work on it. 
-Click on "Checkout as New Local Branch" and then select a name for the local branch. 
-Usually, the name of the original branch is copied, therefore, we'll call it develop (without the part "origin/") and click finish. 
-Now you can switch between the branches, and the changes in each one will be reflected in the corresponding origin.
-+
-The projects follows the workflow shown http://nvie.com/posts/a-successful-git-branching-model/[here]. 
-Basically, the master branch is used to release versions and the development of new stuff. 
-You should always branch out from develop to work on something new.
-
-=== Create contributions with Eclipse and EGit
-
-After you downloaded the current code, you can start creating contributions.
-
-. Find a bug to work on
-+
-In order to contribute, you need to first find a bug to work on. 
-Larger changes should be related to a bug recorded in the issue tracker.
-You can look into the code and find something wrong or you can go to the list of bugs on Github and see the ones that refer to the 4diac  IDE or 4diac FORTE project. 
-If you find an error, or even missing documentation, you should report the bug.
-In order to learn how to contribute you may want to edit some documentation. 
-Maybe you find a typo or you'd like to add some details. 
-Bug fixes are a metric that shows how the software development progresses. 
-But be aware that when reporting a bug, it should have a clear way of fixing it. 
-For a reported bug such as "Missing documentation", it is unclear when the bugfix is complete. 
-Therefore, state for example which documentation is missing. 
-
-. Make changes and prepare to commit
-+
-Now you actually change the code. 
-Open the files you want to change and edit them. 
-Try to change less then 1000 lines in one commit in order to keep individual commits small. 
-Larger edits can be split to several commits.
-+
-Open the Git Staging View in Eclipse by going to Window → Show View → Other... → Git → Git Staging. 
-In the Unstaged Changes you see all the files that were changed. 
-Right-click on them and then Add to index. 
-The selected files will be moved to Staged Changes.
-. Commit the changes
-+
-Committing changes is a very important step. 
-The changes are first committed locally. 
-The commit message is essential for pushing to Github, you can find example messages below. 
-In Github, the commit is first verified to ensure that everything is fine and the changes are then accepted. 
-The commit message is created in the Git Staging View and consists of two parts: the subject and the body.
-The parts are separated by an empty line.
-
-* The subject must contain a short explanation of what the commit contains. 
-Try to keep it shorter than 50 characters and, for better readability, start the message with a capital letter. 
-Don't use a period at the end of the subject.
-* The body contains all the explanation of what was done. 
-Use it to explain what and why, but not how. 
-
-If CommitOne is rejected (erroneous code, missing information, etc.), you must revise the commit and amend (overwrite) the CommitOne. 
-This generates CommitTwo. (You could also delete CommitOne completely, and create a new commit as CommitTwo). 
-Remember that CommitTwo is a completely new commit. 
-CommitTwo must have the Change-Id that Gerrit generated for CommitOne (Go to the Gerrit webpage, find the change of CommitOne and you'll see its Change-Id). 
-When you push CommitTwo, it won't create a new entry in Gerrit. 
-Instead, CommitTwo will appear below CommitOne on the same page. Now CommitTwo is waiting to be accepted.
-
-+
-Example for CommitOne: 
-+
+[source,bash]
 ----
-Change the initial value of temp variable
+git clone https://github.com/your-username/org.eclipse.4diac.ide.git
+----
 
-The initial value of the temp variable was changed to 1 instead of zero
-because of weather conditions
+. **Add Upstream:** Connect your local repository to the original 4diac repository so you can pull the latest updates:
++
+[source,bash]
 ----
-+ 
-With the message done, click commit.
-+ 
-Example for CommitTwo:
-+ 
+git remote add upstream https://github.com/eclipse-4diac/org.eclipse.4diac.ide.git
 ----
-Change the initial value of temp variable
 
-The initial value of the temp variable was changed to 2 instead of zero
-because of weather conditions
-----
-+
-With the message done, click commit.
-. Push the commit
-+
-In the History View you can see the new commit you have just added. 
-You can access this view by changing the tab from "Git Staging" to "History". 
-So far, the commit is only stored locally, and no one else knows about it. 
-It's time to push it to the repository in Eclipse. 
-Right-click on your last commit → Push commit.... A dialog opens. 
-With the configurations shown, you are trying to push to the develop branch of the Gerrit called `refs/heads/develop`. 
-The push confirmation notifies that a new branch is being created. 
-Don't worry about that, and click Finish. 
-Enter the password again, and then the push should succeed. 
-If anything fails, the error appears in the log.
+[TIP]
+====
+If you are unsure which repository to fork, check the **README** of the individual projects or ask in the **GitHub Discussions**.
+====
 
-=== Option 2: Git on command line
+=== 2. Branching
+**Always create a new branch for every contribution.** 
+This keeps your `develop` branch clean and allows you to work on multiple fixes at once.
 
-Use Git on the command line instead of link:#EGit[EGit] (this one is for the reckless, the knights of the keyboard and especially those afraid of mice).
+* **Base Branch:** In Eclipse 4diac, the primary development branch is 
++
+--
+** `develop` for 4diac IDE, 4diac FORTE, and 4diac FBE
+** `main` for 4diac Documentation, 4diac Examples, and 4diac Website
+--
 
-The following instructions apply to Debian-based Linux systems such as LinuxMint or Ubuntu. 
-It is assumed that you have already created your Eclipse account and signed the ECA as described link:#EclipseAccount[above]. 
-Also the same link:#FindBug[rules] for creating a bug report and working on the 4diac FORTE or 4diac IDE code apply. 
-Of course, you can decide yourself which editor you want to use for coding. 
-There are a lot of possibilities out there: VI, Emacs and many more. 
-For code compilation and linking on a Linux system, the GNU compiler suite usually is the best choice. 
-But the details on that won't be addressed here.
-
-. Check and install Git command line tools
+* **Create a Branch:**
 +
-If you are unsure whether the Git command line tools are already installed on your Linux box, you can enter the following command on Debian based distributions (e.g., LinuxMint, Ubuntu):
-+
+[source,bash]
 ----
-johndoe@linuxmint ~/$ dpkg --get-selections | grep git
+git fetch upstream
+git checkout -b my-fix-description upstream/develop
 ----
-+
-If Git tools are already installed, you should get a reply such as:
-+
-----
-git  install
-git-core  install
-git-gui  install
-git-man  install
-git-review  install
-gitk  install
-----
-+
-If you don't see the output above, you'll need to install the Git tools with the following command:
-+
-----
-johndoe@linuxmint ~/$ sudo apt-get update && sudo apt-get install git
-----
-. Clone 4diac FORTE ord 4diac IDE repository to a directory of your choice
-+
-First, create a directory in your own home directory and change to it.
-In my example, this is `⁄home⁄johndoe⁄develop⁄repos`, but you can also choose another.
-+
-----
-johndoe@linuxmint ~/$ mkdir -p develop/repos                     
-johndoe@linuxmint ~/$ cd develop/repos
-----
-+
-Now it's time to clone the sources. In the following example the repository URL for 4diac FORTE is used. 
-For 4diac IDE use https://github.com/eclipse-4diac/4diac-ide.git instead.
-+
-----
-johndoe@linuxmint ~/develop/repos$ git clone https://github.com/eclipse-4diac/4diac-forte.git
-Cloning into 'org.eclipse.4diac.forte'...
-remote: Counting objects: 1, done
-remote: Finding sources: 100% (1/1)
-Receiving objects: 100% (2283/2283), 1.27 MiB | 458.00 KiB/s, done.
-remote: Total 2283 (delta 0), reused 2283 (delta 0)
-Resolving deltas: 100% (1445/1445), done.
-Checking connectivity... done.
-----
-+
-After cloning, you can have a look at the branches of the repository, but first you'll have to change to the new 4diac FORTE source directory created automatically.
-+
-----
-johndoe@linuxmint ~/develop/repos$ cd org.eclipse.4diac.forte
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git branch -a
-* master
-remotes/origin/1.8.x
-remotes/origin/HEAD → origin/master
-remotes/origin/OPC_UA
-remotes/origin/develop
-remotes/origin/master
-----
-+
-The "*" indicates the current active branch. 
-Now switch to the "develop" branch, because this is the one, where the commits are supposed to go.
-+
-----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git checkout develop
-Branch develop set up to track remote branch develop from origin.
-Switched to a new branch 'develop'
-----
-. Configure your Git installation to work with Gerrit code review
-+
-You should have already created your Eclipse account and Gerrit login, following the description above. 
-Let's assume that your email account is `john.doe@example.com` and the login for Gerrit is `jdoexy5`. 
-We'll set this in the git configuration first.
-+
-----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git config --global user.email "john.doe@example.com"
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git config --global user.name "jdoexy5"
-----
-+
-Please note that `git config --global` settings are generally stored within a user-specific configuration file. 
-This file is named `.gitconfig` and is stored in your own home directory and not in the 4diac FORTE repository. 
-We'll now create an SSH public key which you need to upload to your Gerrit account later on.
-+
-----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ cd ~/.ssh
-johndoe@linuxmint ~/.ssh $ ssh-keygen -t rsa -C "john.doe@example.com"
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/johndoe/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /home/johndoe/.ssh/id_rsa.
-Your public key has been saved in /home/johndoe/.ssh/id_rsa.pub.
-The key fingerprint is:
-4d:c7:4f:8f:71:07:89:cb:c9:dc:e5:ad:54:77:9a:64 john.doe@example.com
-----
-+
-You can just accept the default key file location by hitting the return key. 
-The Eclipse foundation strongly recommends to use a passphrase for additional security. 
-Now copy the newly created public SSH key to your Gerrit account at eclipse.org. Display the contents of the public key file with the following command:
-+
-----
-johndoe@linuxmint ~/.ssh $ cat id_rsa.pub
-----
-+
-Copy everything displayed into your clipboard from the start (including ssh-rsa) to the end (including `john.doe@example.com`). 
-Now login to your gerit account at eclipse.org, click on the small arrow next to your user name displayed in the top-right corner and choose "Settings". 
-In the menu on the left, choose "SSH Public Keys" and click on "Add key...". 
-Now paste everything from the clipboard into the text field and click "Add". 
-Your public key should appear in the list now. We'll check now, whether Gerrit is accepting your key properly. 
-Let's do a small ssh login test.
-+
-----
-johndoe@linuxmint ~/.ssh $ ssh -p 29418 jdoexy5@git.eclipse.org
-The authenticity of host '[git.eclipse.org]:29418 ([198.41.30.196]:29418)' can't be established.
-RSA key fingerprint is 1a:b6:dc:be:0e:1f:ab:01:70:aa:43:82:4d:54:51:37.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '[git.eclipse.org]:29418,[198.41.30.196]:29418' (RSA) to the list of known hosts.
-
-**** Welcome to Gerrit Code Review ****
-
-Hi John, you have successfully connected over SSH.
-
-Unfortunately, interactive shells are disabled.
-To clone a hosted Git repository, use:
-
-git clone ssh://jdoexy5@git.eclipse.org:29418/REPOSITORY_NAME.git
-
-Connection to git.eclipse.org closed.
-----
-+
-You'll have to configure the Gerrit Push URL within your Git configuration. 
-Change to the hidden Git directory within the 4diac FORTE repository and edit the file named "config"
-+
-----
-johndoe@linuxmint ~/.ssh $ cd ..
-johndoe@linuxmint ~/ $ cd develop/repos/org.eclipse.4diac.forte/.git
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte/.git $ nano config
-----
-+
-The following screenshot indicates the parts you need to add or change.
-Save and exit afterwards.
-+
-image:cmdPushUrlConfig.png[Configure Gerrit Push URL]
-. Create your own commit message template (optional)
-+
-You can create a commit message template file, which will be used everytime you do a new commit. 
-You can add helpful comments, so that you don't forget important contents of the message or even add text, which should be part of every commit message. It's just up to you. 
-Change to your home directory and create a new file called `.git_commit_msg_template` with your favorite text editor. 
-Here I used nano for convenience.
-+
-----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte/.git $ cd /home/johndoe
-johndoe@linuxmint ~/ $ nano .git_commit_msg_template
-----
-+
-The following screenshot shows some example content. 
-See link:#CommitChanges[above] for more details of the message guide
-+
-image:cmdCreateCommitMsgTemplate.png[Example of commit message template contents]
-. Do your first command line commit
-+
-A new commit should always be in relation to a bug in Bugzilla as already mentioned link:#FindBug[above]. 
-A bug can also add new functionality to 4diac FORTE. 
-A single commit should not contain more than 1000 lines of code (yes, you are right, this was already mentioned above, but you can never emphasize this too often). 
-A good approach to check whether something was changed in your local 4diac FORTE sources and needs to be committed is the git status command. 
-You should change to your local 4diac FORTE Git repository first.
-+
-----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git status
-On branch develop
-Your branch is up-to-date with 'origin/develop'.
-
-Untracked files:
-(use "git add file..." to include in what will be committed)
-
-src/modules/conmeleon_c1/
-
-nothing added to commit but untracked files present (use "git add" to track)
-----
-+
-In the example above, I only added an empty directory, which is now recognized by Git as untracked. 
-If you want to add some new files, just copy them to your local 4diac FORTE repository or edit existing files.
-Git will recognize the changes and you'll see the files with the "git status" command. 
-To be able to commit anything, the respective files need to be added first. 
-In this way, the files will be moved to the so called staging area. 
-So flex your fingers and add properly.
-+
-----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git add src/modules/conmeleon_c1/util
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git status
-On branch develop
-Your branch is up-to-date with 'origin/develop'.
-
-Changes to be committed:
-(use "git reset HEAD file..." to unstage)
-
-new file: src/modules/conmeleon_c1/util/fileres.cpp
-new file: src/modules/conmeleon_c1/util/fileres.h
-new file: src/modules/conmeleon_c1/util/uncopyable.h
-
-Untracked files:
-(use "git add file..." to include in what will be committed)
-
-src/modules/conmeleon_c1/CMakeLists.txt
-src/modules/conmeleon_c1/gpio/
-src/modules/conmeleon_c1/processinterface.cpp
-src/modules/conmeleon_c1/processinterface.h
-src/modules/conmeleon_c1/spi/
 
 
+=== 3. Commit Messages
+We value a clean and readable commit history. Please follow these guidelines:
+
+* **One Topic per Commit:** Small, atomic commits are easier to review than one giant "Update everything" commit.
+* **Format:** Use a short, descriptive subject line (max 50 characters). 
+* **Reference Issues:** If your work relates to a GitHub Issue, include the reference in the footer (e.g., `Closes #123` or `Addresses #456`).
+* **No Sign-off Required:** You do not need to add a `Signed-off-by` line manually; our CI tools verify your ECA via your GitHub account.
+* **Clean History:** We encourage contributors to submit and maintain a clean commit history. 
+This means:
+** Avoid "work in progress" or "fix typo" commits in your final PR.
+** Use `git commit --amend` for small fixes to your last commit.
+** Use `git rebase -i` (interactive rebase) to squash or rename commits before pushing.
+
+==== Commit Message Template
+[source,text]
 ----
-+
-Now we do the commit itself. 
-Don't forget the -s option for automatic sign-off which is required by the org.eclipse.4diac.forte project and to follow the link:#CommitChanges[message guide] if you didn't do it already as a template. 
-After the git commit command the default editor will be opened with your commit message template and you have to enter the message information (Bugzilla ID, what was changed and why and the URL to the bugzilla entry).
-+
+Short descriptive summary (max 50 chars) #<issue-number>
+
+Optional detailed explanation of what was changed and why. 
+Wrap lines at approximately 72 characters.
+
+Addresses #<issue-link>
 ----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git commit -s
-[develop 3a8de79] [495477] Add conmeleon support to forte
-3 files changed, 272 insertions(+)
-create mode 100644 src/modules/conmeleon_c1/util/fileres.cpp
-create mode 100644 src/modules/conmeleon_c1/util/fileres.h
-create mode 100644 src/modules/conmeleon_c1/util/uncopyable.h
+
+==== Example Commit Message
+[source,text]
 ----
-+
-So far so good. This was not really a big deal, was it? 
-The next step is pushing to Gerrit code review and then your new code will be scrutinized by the never sleeping eyes of the project code reviewer.
-. Push to Gerrit
-+
-This is not difficult, if you followed the steps above. 
-You are just a single command away from finishing.
-+
+Handle referenced projects in library manager #812
+
+Ensure referenced projects trigger a full build when manifests change.
+Prevents inconsistent dependency states after updates.
+
+Fixes https://github.com/eclipse-4diac/4diac-ide/issues/812
 ----
-johndoe@linuxmint ~/develop/repos/org.eclipse.4diac.forte $ git push origin HEAD:refs/for/develop
-Password for 'https://jdoexy5@git.eclipse.org':
-Counting objects: 38, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (9/9), 3.84 KiB | 0 bytes/s, done.
-Total 9 (delta 3), reused 0 (delta 0)
-remote: Resolving deltas: 100% (3/3)
-remote: Processing changes: new: 1, refs: 1, done
-remote: ----------
-remote: Reviewing commit: 3a8de79f
-remote: Authored by: jdoexy5 (john.doe@example.com)
-remote:
-remote: The author is not a committer on the project.
-remote: The author has a current Contributor License Agreement (CLA) on file.
-remote: The author has "signed-off" on the contribution.
-remote:
-remote: This commit passes Eclipse validation.
-remote:
-remote: New Changes:
-remote: https://git.eclipse.org/r/74832 [495477] Add conmeleon support to forte
-remote:
-To https://jdoexy5@git.eclipse.org/r/4diac/org.eclipse.4diac.forte
-* [new branch] HEAD → refs/for/develop
+
+
+=== 4. Staying in Sync
+If the original 4diac repository changes while you are working, you should update your branch to avoid merge conflicts.
+
+[source,bash]
 ----
+git fetch upstream
+git rebase upstream/develop  # Use upstream/main for documentation/examples/website
+----
+
+=== 5. Submitting the Pull Request (PR)
+Once your changes are ready and tested:
+
+. **Push to your fork:**
 +
-You did it, good job! 
-Now it's the reviewer's turn and you'll see his or her comments in the Gerrit code review webpage.
+[source,bash]
+----
+git push origin my-fix-description
+----
+. **Open PR:** Go to the 4diac repository on GitHub. You will usually see a yellow bar at the top suggesting to **"Compare & pull request"**.
+. **Draft PRs:** If your work is still in progress but you want early feedback, open the PR as a **"Draft"**.
+. **Description:** Briefly explain *what* you changed and *why*. If it fixes a bug, make sure the bug number is mentioned.
 
-== Things to keep in mind for contributions:
+=== 4. Updating a PR during Review
+It is common for maintainers to ask for changes during the review process. 
+To keep the history clean:
 
-* When creating new files for the project, add the copyright terms at the beginning. 
-Following the year of modification, add the name. 
-Additionally, add your name below "Contributors", together with a short description of your contribution. 
-Example code: 
+. Apply the requested changes locally.
+. Incorporate them into the relevant existing commits using `git commit --amend` or an interactive rebase.
+. Use `git push --force` to update our Pull Request.
+
+[TIP]
+====
+A clean history makes it much easier for our maintainers to understand the logic of your changes and speeds up the merge process.
+====
+
+=== What Happens Next?
+Once your PR is submitted, it enters the review phase:
+
+* **CI Checks:** Automated tests and ECA validation will run. 
+If they fail, please check the logs and update your branch.
+* **Code Review:** A project committer will review your changes. 
+We try to review PRs promptly, but please be patient as this is a community-driven project.
+* **Feedback:** It is completely normal to be asked to make changes. This is a collaborative process!
+
+
+
+== Coding Style & Testing
+
+To maintain a high-quality codebase that is easy for everyone to read and maintain, we ask that you follow these technical guidelines.
+
+=== 1. Use the Provided Formatters
+Each repository contains specific configuration files for code formatting (e.g., Eclipse Checkstyle, clang-format).
+
+* **4diac IDE:** Follow the Eclipse Java Coding Conventions. Use the formatter profile found in the `org.eclipse.4diac.ide` repository.
+* **4diac FORTE:** Follow the C++ style guide located in the `org.eclipse.4diac.forte` repository.
+* **General:** Always perform a "Format" on your changed files before committing.
+
+=== 2. Copyright and License Headers
+Every new source file must start with the Eclipse Public License 2.0 (EPL-2.0) header. 
+
+* **New Files:** Use the template below.
+* **Existing Files:** If you make a significant change, add your name or your company's name to the "Contributors" list and a short description of the change.
+* **Official Reference:** For detailed rules on copyright and attribution, please refer to the link:https://www.eclipse.org/projects/handbook/#resources-copyright-guidelines[Eclipse Project Handbook - Copyright Guidelines].
+
+.Header Template
+[source,text]
+----
+/*******************************************************************************
+ * Copyright (c) {year} {owner} and others.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   {name} - initial API and implementation and/or description of change
+ *******************************************************************************/
+----
+
+=== 3. Testing Your Changes
+We strive for high stability. 
+A contribution is considered complete only when it includes proof that it works.
+
+* **Run Existing Tests:** Ensure your changes do not break existing functionality. 
+* **Add New Tests:** If you add a new feature or fix a bug, include a corresponding test case (JUnit for 4diac IDE, BoostTest/Integration tests for 4diac FORTE).
+* **Documentation:** If your change affects the user interface or adds a new parameter, please update the corresponding documentation files.
+
+[TIP]
+====
+If you are unsure how to write a test for your specific change, mention it in your **Pull Request** or ask in **GitHub Discussions**. We are happy to guide you!
+====
+
+
+== Becoming a Committer
+
+As you contribute more frequently, you may be invited to become a **Project Committer**. 
+Committers have "write access" to the repositories and are responsible for the long-term health of the project.
+
+=== 1. Criteria for Election
+We don't just look at the amount of code; we look at the **impact** and **sustainability** of your work. 
+An existing committer may nominate you if you meet the following:
+
+* **Consistency:** Significant contributions over a period of at least six months.
+* **Sustainability:** You intend to stay active in the project long-term.
+ We generally do not elect committers whose work is tied to a time-limited project (e.g., a one-year thesis or internship).
+* **Independence:** Your contributions are of high enough quality that they can be merged with minimal core-team intervention.
+* **Beyond Code:** We value non-code contributions equally, such as extensive documentation refactoring, community support, or translation efforts.
+* **Community Culture:** You are an active participant in the community (GitHub Discussions, community meetings, or events).
+* **Personal Connection:** Usually, a personal meeting (virtual or physical) with existing committers occurs to ensure alignment with the project's goals.
+
+=== 2. The Process
+. **Nomination:** An existing committer nominates you based on the criteria above.
+. **Election:** Existing committers vote on the nomination.
+. **Paperwork:** The Eclipse Foundation validates your status and you sign the Committer Agreement.
+. **Official Reference:** For the full legal details on elections and responsibilities, see the link:https://www.eclipse.org/projects/handbook/#roles-committer[Eclipse Project Handbook - Committer Role].
+
+=== 3. Maintaining Committer Status
+To keep the project moving, we expect committers to stay engaged. 
+* **Retaining Status:** Even small contributions or community interactions (reviewing code, helping new users) are enough to remain active.
+* **Retirement:** If a committer is inactive for over a year and cannot be reached, or if future contributions are unlikely, the project may initiate a "Committer Retirement" to keep the active list representative of the current team.
+
+[TIP]
+.Want to be noticed?
+====
+The best way to show you are "committer-ready" is to start **reviewing other people's Pull Requests** and helping newcomers in the Discussions. 
+It demonstrates the leadership and independence we look for.
+====
+
+
+
+== Additional Resources
+
+This section collects useful links for contributors who want to learn more about Eclipse 4diac, the community, and the development process.
+
+* *Eclipse 4diac Contribution Overview* +
+The https://www.eclipse.org/4diac/contribute/[Eclipse 4diac Contribute page] provides an overview of contribution opportunities, onboarding information, and community activities.
+If you are unsure where to start contributing, this page is the best
+entry point.
+
+* *Community and Support* +
+Questions and discussions are welcome in the community spaces.
+If you need help, feedback, or clarification, please use the discussion forums listed on the https://www.eclipse.org/4diac/support/[Eclipse 4diac Support page].
+
+* *GitHub Resources* +
+If you are new to GitHub workflows, the following documentation may help:
 +
-----
-{year} {owner}[ and others]
+** https://docs.github.com/en/pull-requests[About Pull Requests]
+** https://docs.github.com/en/get-started/quickstart/contributing-to-projects[Contributing to Projects]
+** https://docs.github.com/en/get-started/quickstart/github-flow[GitHub Flow]
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
+* *Eclipse Foundation Resources* +
+Eclipse projects follow common development and governance processes. 
+For details see:
++
+** https://www.eclipse.org/projects/handbook/[Eclipse Project Handbook]
+** https://www.eclipse.org/legal/ECA.php[Eclipse Contributor Agreement (ECA)]
 
-SPDX-License-Identifier: EPL-2.0
+* *Developer Documentation* +
+Project-specific technical documentation is maintained in the xref:./overview.adoc[Eclipse 4diac documentation]
 
-Contributors:
-{name} - initial API and implementation
-----
-* Always contribute to a bug.
-* Put the bug number between brackets in the subject of the commit message, and the link to the bug in the footer.
-* Don't forget to sign the commit.
-* Don't be afraid of contributing code.
-* Use the forums in case of doubt.
-* Find more info https://wiki.eclipse.org/Development_Resources/Contributing_via_Git[here].
-
-== Where to go from here?
-
-Back to Development index:
-
-xref:./overview.adoc[Development Index]
-
-If you want to go back to the Start Here page, we leave you here a fast access:
-
-xref:../doc_overview.adoc[Start Here page]
-
-Or link:#top[Go to top]
