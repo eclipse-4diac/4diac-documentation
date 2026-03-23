@@ -163,12 +163,16 @@ We value a clean and readable commit history. Please follow these guidelines:
 
 * **One Topic per Commit:** Small, atomic commits are easier to review than one giant "Update everything" commit.
 * **Format:** Use a short, descriptive subject line (max 50 characters). 
+* **Self Contained:** Commit messages should be self-contained and comprehensible without relying on external links.
 * **No Sign-off Required:** You do not need to add a `Signed-off-by` line manually; our CI tools verify your ECA via your GitHub account.
 * **Clean History:** We encourage contributors to submit and maintain a clean commit history. 
+
 This means:
-** Avoid "work in progress", "fix typo", or "review changes" commits in your final PR.
-** Use `git commit --amend` for small fixes to your last commit.
-** Use `git rebase -i` (interactive rebase) to squash or rename commits before pushing.
+
+* Avoid "work in progress", "fix typo", or "review changes" commits in your final PR.
+* Avoid linking to issues, discussions, or pull requests from your commit messages.
+* Use `git commit --amend` for small fixes to your last commit.
+* Use `git rebase -i` (interactive rebase) to squash or rename commits before pushing.
 
 ==== Commit Message Template
 [source,text]
