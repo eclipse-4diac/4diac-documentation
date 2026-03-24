@@ -167,12 +167,19 @@ We value a clean and readable commit history. Please follow these guidelines:
 * **No Sign-off Required:** You do not need to add a `Signed-off-by` line manually; our CI tools verify your ECA via your GitHub account.
 * **Clean History:** We encourage contributors to submit and maintain a clean commit history. 
 
-This means:
-
+[IMPORTANT]
+.What to avoid
+====
 * Avoid "work in progress", "fix typo", or "review changes" commits in your final PR.
 * Avoid linking to issues, discussions, or pull requests from your commit messages.
+====
+
+[TIP]
+.Amend or rebase your commits
+====
 * Use `git commit --amend` for small fixes to your last commit.
 * Use `git rebase -i` (interactive rebase) to squash or rename commits before pushing.
+====
 
 ==== Commit Message Template
 [source,text]
