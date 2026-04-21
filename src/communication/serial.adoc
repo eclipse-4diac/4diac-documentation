@@ -1,0 +1,60 @@
+---
+title: "Serial"
+url: doc/communication/serial.html
+page_css_file: /4diac/css/4diac_doc.css
+sidebar: 
+  - sb-doc
+---
+= Serial
+
+Serial communication can be used with PUB and SUB function blocks.
+
+== Configuration
+
+To enable serial communication, 4diac FORTE must be compiled from source.
+
+Make sure that the CMake option `FORTE_COM_SER` is enabled.
+
+After compiling FORTE with this option, serial communication support will be available.
+
+== Pub/Sub
+
+To send and receive data over a serial connection, use Publish and Subscribe function blocks.
+
+* Use a Publish FB with one SD input to send data.
+* Use a Subscribe FB with one RD output to receive data.
+
+=== ID Parameter
+
+The ID parameter has the following format:
+
+- Device Path
+- Baudrate
+- Data Bits (5, 6, 7, 8)
+- Stop Bits (1, 1.5, 2)
+- Parity (NONE, ODD, EVEN, MARK, SPACE)
+- Termination Symbol pass:[($$r$$n, $$r, $$n)]
+
+Example:
+
+----
+fbdk[].ser[/dev/serial0,115200,8,1,NONE,$$r$$n]
+----
+
+== Data Transmission
+
+To send plain text over a serial connection, use the `raw[]` layer.
+
+To transmit IEC 61499 data types, use the `fbdk[]` layer.
+
+The `fbdk[]` layer prepends additional bytes to the payload, according to its datatype. When communicating with external devices (e.g., microcontrollers), a good way is to use a hex viewer to identify these additional bytes.
+
+
+== Where to go from here?
+
+ * Go back to Protocols index: +
+xref:./communication.adoc[Communication Index]
+* If you want to go back to the Start Here page, we leave you here a fast access: +
+xref:../doc_overview.adoc[Start Here page]
+
+Or link:#top[Go to top]

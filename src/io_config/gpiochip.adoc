@@ -1,0 +1,62 @@
+---
+title: "GPIOChip (Raspberry Pi, Beagle Bone Black and Similar Boards)"
+url: doc/io_config/gpiochip.html
+page_css_file: /4diac/css/4diac_doc.css
+sidebar: 
+  - sb-doc
+---
+
+= [[gpiochip]]GPIOChip (Raspberry Pi, Beagle Bone Black and Similar Boards)
+:lang: en
+:imagesdir: img
+
+The following picture shows an example application.
+
+The application periodically toggles the output pin 26, while the input pin 16 is high.
+
+You can connect an LED to obtain a blinking light.
+
+image:GPIOChip_fb_network.PNG[Simple blinking application with an IX and QX function block.]
+The inputs of the GPIOChip are the following:
+
+[cols="1,3"]
+|===
+| Name | Description
+
+| VALUE
+| Receiver IX/QX block name
+
+| ChipNumber
+| ID of /dev/gpiochipX device
+
+| LineNumber
+| ID of GPIO line within the selected chip
+
+| ReadWriteMode
+| Reading/Writing mode of line (0=read, 1=write push/pull, 2=open drain, 3=open source)
+
+| BiasMode
+| Bias mode of line (0=none, 1=pull up, 2=pull down)
+
+| ActiveLow
+| True if a logic 1 corresponds to low voltage
+|===
+
+To find out the chip- and line number the `gpioinfo` tool can be used.
+The `VALUE` input defines the IO FB to which it is connected. If the IO Block is placed inside an APP: `VALUE = App-Name.FB-Name`. If it is placed in the Resource: `VALUE = App-Name`.
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/communication.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/examples.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../doc_overview.adoc[Where to Start]
+
+Or link:#top[Go to top]
