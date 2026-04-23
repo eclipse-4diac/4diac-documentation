@@ -7,7 +7,8 @@ sidebar:
 ---
 = Serial
 
-Serial communication can be used with PUB and SUB function blocks.
+Serial communication can be used with Client, Server, PUB and SUB function blocks.
+Best practise is to use a Client block.
 
 == Configuration
 
@@ -17,12 +18,13 @@ Make sure that the CMake option `FORTE_COM_SER` is enabled.
 
 After compiling FORTE with this option, serial communication support will be available.
 
-== Pub/Sub
+== Function Blocks
 
-To send and receive data over a serial connection, use Publish and Subscribe function blocks.
+* To send and receive data over serial, use a CLIENT_1 function block. SD_1 is the output data and RD_1 the input data.
+* For unidirectional data transfer only, PUB and SUB function blocks can also be used:
+** Use a PUBLISH_1 function block to send data.
+** Use a SUBSCRIBE_1 function block to receive data.
 
-* Use a Publish FB with one SD input to send data.
-* Use a Subscribe FB with one RD output to receive data.
 
 === ID Parameter
 
