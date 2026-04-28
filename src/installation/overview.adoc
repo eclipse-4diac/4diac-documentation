@@ -30,7 +30,7 @@ This will allow you to quickly get started with deploying and running applicatio
 
 If you want to start using 4diac IDE right away, you can skip the rest of the page and go directly to the xref:../tutorials/overview.adoc[step by step tutorial] or the xref:../doc_overview.adoc[Start Here-page].
 
-4diac FORTE is highly configurable, so it is the better choice to build FORTE from source so you can enable or disable modules and features depending on your requirements.
+4diac FORTE is highly configurable, so it is the better choice to build 4diac FORTE from source so you can enable or disable modules and features depending on your requirements.
 
 
 === [[ownFORTE]]Building your own 4diac FORTE
