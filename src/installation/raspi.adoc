@@ -7,7 +7,8 @@ sidebar:
   - sb-doc
 ---
 
-= Building 4diac FORTE on Raspberry Pi
+= Building 4diac FORTE on Raspberry Pi (and other embedded Devices)
+
 :lang: en
 :imagesdir: img
 
@@ -18,15 +19,14 @@ This guide describes how to compile 4diac FORTE for embedded Linux platforms bas
 Embedded devices typically feature ARM-based processors, limited resources,
 and hardware interfaces (e.g., GPIO) accessible via standard Linux mechanisms.
 Earlier versions of FORTE used wiringPi and later the deprecated sysfs interface
-for GPIO access. The current version uses the gpiochip interface provided by the Linux kernel,
-which is the better approach.
+for GPIO access. The current version uses the gpiochip interface provided by the Linux kernel.
 
 
 == Building 4diac FORTE on the Device
 
 === Introduction
 
-This section explains how to compile 4diac FORTE on embedded Linux systems.
+This section explains how to compile 4diac FORTE dirctly on the target device.
 
 It is intended for single-board computers running Debian-based distributions
 (e.g., Raspberry Pi, BeagleBone, Banana Pi), but it also works on standard PCs
