@@ -1,173 +1,238 @@
 ---
 # This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
-title: "Building 4diac FORTE on Raspberry Pi"
+title: "Building 4diac FORTE on Raspberry Pi"
 url: doc/installation/raspi.html
 page_css_file: /4diac/css/4diac_doc.css
-sidebar: 
+sidebar:
   - sb-doc
 ---
 
-= Building 4diac FORTE on Raspberry Pi
+= Building 4diac FORTE on Raspberry Pi
 :lang: en
 :imagesdir: img
 
-
 == Introduction
 
-This guide is for compiling FORTE for the Raspberry Pi. 
-For information about the parameters to be used, go to xref:../io_config/sysfs.adoc[Parameters].
+This guide describes how to compile 4diac FORTE for embedded Linux platforms based on a debian OS, such as the Raspberry Pi.
 
-https://www.raspberrypi.org/[Raspberry Pi] (RPI) is one of the most famous low-cost embedded systems. 
-In its third generation, the Raspberry Pi 3 was launched in February 2016. 
-It has a 1.2GHz 64-bit quad-core ARMv8 CPU, 1 GB RAM and several I/O options, among them a 40 pin header.
-The operating system is loaded from a SD card, so it can support many OS. 
-The most popular one is the Debian-based Raspbian. 
-4diac FORTE  previously used the [.specificText]#wiringPi# library, but it has changed to use the sysFs virtual file system.
-
-This tutorial explains first how to compile 4diac FORTE in the RPI, or even cross-compile, and how to easily use the I/O Function Blocks in 4diac FORTE to control the 40 pin header.
-
-=== Getting the RPI ready
-
-This tutorial doesn't show the details of how to make the RPI run, but if you never used before, you should know that beside the RPI board, you need a source power that is connected to the mini-USB port and a mini-SD card. 
-The RPI can be connected to a screen, mouse and keyboard through the HDMI and USB ports, but you also can connect to it headless, meaning that you connect through ssh using the Ethernet or a usb-wifi connector.
-There are plenty of tutorials on how to access the RPI, so this tutorial assumes that you have access to the command line of the RPI, through ssh or directly on it using the GUI, and that the RPI has Internet access.
+Embedded devices typically feature ARM-based processors, limited resources,
+and hardware interfaces (e.g., GPIO) accessible via standard Linux mechanisms.
+Earlier versions of FORTE used wiringPi and later the deprecated sysfs interface
+for GPIO access. The current version uses the gpiochip interface provided by the Linux kernel,
+which is the better approach.
 
 
-== [[onRPI]]Building 4diac FORTE on the RPI
+== Building 4diac FORTE on the Device
+
+=== Introduction
+
+This section explains how to compile 4diac FORTE on embedded Linux systems.
+
+It is intended for single-board computers running Debian-based distributions
+(e.g., Raspberry Pi, BeagleBone, Banana Pi), but it also works on standard PCs
+with Debian or Ubuntu.
 
 === Preparation
 
-Install the additional software needed on your RPI.
-* Git: 4diac FORTE is stored as a Git repository on the Eclipse server.
-* The building tools: cmake, make, gcc, g++
-+
+Install the required software packages:
+
+* Git (to clone the repository)
+* Build tools: `cmake`, `make`, `gcc`, `g++`, `ccmake`
+
+[source,bash]
 ----
-$ sudo apt-get install git cmake make gcc g++
+sudo apt-get update
+sudo apt-get install git cmake make gcc g++ cmake-curses-gui
 ----
 
-=== Building
+=== Cloning the Repository
 
-. Check out 4diac FORTE from the Git repository in your home directory.
-+
+[source,bash]
 ----
-$ cd ~ $ git clone
-----
-+
-https://github.com/eclipse-4diac/4diac-forte.git
-. Prepare the 4diac FORTE project structure for the Posix architecture.
-+
-----
-$ cd org.eclipse.4diac.forte $ chmod +x setup_posix.sh
-----
-+
-You will need to add the SysFs module to the compilation. 
-In order to that, you will need to change the `setup_posix.sh` file, using your preferred text editor. 
-In the file you will find a line that starts with `cmake -G "Unix Makefiles" -DFORTE_ARCHITECTURE=Posix`. 
-At the end of the line, add `-DFORTE_MODULE_SysFs=ON`. 
-This will enable the interface to the 40 pin header of the RPI. 
-Save the file, exit the editor and execute:
-+
-----
-$ ./setup_posix.sh
-----
-+
-When no error occurs, the command creates a folder in bin/posix where all the files to compile 4diac FORTE are stored. 
-Access the folder if not already there.
-. Execute "make", which will start the compilation.
-+
-----
-$ make
+cd ~
+git clone https://github.com/eclipse-4diac/4diac-forte.git
+cd 4diac-forte
 ----
 
-== [[crossCompiling]]Cross-compiling for the RPI
+=== Preparing the Build Environment
 
-The RPI is a very powerful computer, but when developing a project, one sometimes has to compile 4diac FORTE many times. 
-As the RPI is slow compared to the power of a desktop computer, cross-compiling is useful.
-It allows to compile on your desktop machine, and then send the executable to the RPI.
+Run the setup script:
 
-You will need the 4diac FORTE source code, and the same additional tools used in the preparation, except CMake because CMake-GUI will be needed in this case.
+[source,bash]
+----
+./setup_posix.sh
+----
 
-=== [[crossCompilingLinux]]Cross-compiling using Linux
+If successful, it creates the directory `bin/posix`.
 
-. Install needed additional tools:
-* CMake-GUI
-+
+[source,bash]
 ----
-$ sudo apt-get install cmake-gui
+cd ./bin/posix
 ----
-+
-* ARM GNU Cross-compiling Toolchain. 
-  You can download it from the https://developer.arm.com/downloads/-/gnu-a[arm Developer web-site]. 
-  Then, you should de-compress this file
-+
-----
-$ tar -xvf gcc-linaro-4.8-2015.06-x86_64_arm-linux-gnueabihf.tar.xz
-----
-+
-You could avoid downloading and de-compressing the file using the command
-+
-----
-$ sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
-----
-+
-but this method gave some errors in some cases.
-. Open CMake-GUI and complete as shown in the image
-.. Set the 4diac FORTE source path where you cloned the Git repository.
-.. Set path for binaries where you want to create the executable.
-   Normally, `bin/raspPi` is used.
-.. Press [.button4diac]#Configure#
-+
-image:raspiCrossLinux1.png[Selecting folders in CMake]
-. CMake Setup
-.. Select the tool you normally use to compile your programs. 
-   This example follows using UNIX Makefiles from the list.
-.. Select [.button4diac]#Specify tools for cross-compiling#
-.. Press [.button4diac]#Next#
-+
-image:raspiCrossLinux2.png[CMake Setup]
-. CMake Setup
-.. Write a name for the OS (normally Raspbian, it won't affect the compilation).
-.. Select the path to the C cross-compiler called arm-linux-gnueabihf-gcc, in the bin folder of the downloaded tools' folder. 
-   If not found, you could execute:
-+
-----
-$ which arm-linux-gnueabi-gcc
-----
-+
-.. Select the path to the C++ cross-compiler called arm-linux-gnueabihf-g++, in the bin folder of the downloaded tools' folder. 
-   If not found, you could execute:
-+
-----
-$ which arm-linux-gnueabi-g++
-----
-+
-.. The target root field can be left empty.
-.. Click [.button4diac]#Finish#
-+
-image:raspiCrossLinux3.png[Select cross-compiling tools.]
-. Configure the compilation
-+
-A list with all variables of 4diac FORTE in red should be shown in CMake as the picture below.
 
-.. Choose your Eclipse version if you selected it in step 3.1. 
-   Otherwise, it can be left as it is.
-.. Set the FORTE_ARCHITECTURE variable to Posix
-.. Enable FORTE_MODULE_SysFs and all other modules that you want
-.. Click [.button4diac]#Configure# and the variables that need revision will appear again in red and the rest in white. 
-   Check these variables and press [.button4diac]#Configure# until no variable is shown in red.
-+
-image:raspiCrossLinux4.png[Configure 4diac FORTE compilation.]
-. Generate files: Click [.button4diac]#Generate#
-+
-image:raspiCrossLinux5.png[Generate the makefiles.]
-. Build 4diac FORTE: Go to the recently generated folder and execute make (or build it as you normally do)
-+
+=== Configuring the Build
+
+[source,bash]
 ----
-$ cd bin/raspPi $ make
+ccmake .
+----
+
+Follow the on-screen instructions.
+
+==== Important Options
+
+[cols="1,2", options="header"]
+|===
+| Option | Description
+
+| CMAKE_BUILD_TYPE
+| Defines the build type (Debug, Release, etc.)
+
+| FORTE_LOGLEVEL
+| Controls console output verbosity.
+Use at least `LOGINFO` to enable output via `OUT_ANY_CONSOLE`.
+|===
+
+==== Recommended Modules (for SBCs)
+
+[cols="1,3", options="header"]
+|===
+| Module | Description
+
+| FORTE_IO
+| Provides core input/output functionality.
+
+| FORTE_MODULE_GPIOCHIP
+| Enables GPIO access via the gpiochip subsystem (requires FORTE_IO).
+
+| FORTE_COM_SER
+| Enables serial communication (e.g., RS-232).
+|===
+
+After configuration:
+
+* press `c` to configure
+* press `g` to generate build files
+
+=== Building FORTE
+
+[source,bash]
+----
+make
+----
+
+Run FORTE:
+
+[source,bash]
+----
+./forte
 ----
 
 
-=== [[crossCompilingWindows]]Cross-compiling using Windows
+== Cross-compiling for the Raspberry Pi
+
+Embedded devices are typically less powerful than desktop machines,
+therefore cross-compiling is recommended.
+
+This allows you to compile on your PC and transfer the executable
+to the target device.
+
+=== Cross-compiling on Linux
+
+==== Preparation
+
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install git cmake make gcc g++ cmake-curses-gui
+----
+
+==== Cloning the Repository
+
+[source,bash]
+----
+cd ~
+git clone https://github.com/eclipse-4diac/4diac-forte.git
+cd 4diac-forte
+mkdir ./bin/arm
+cd bin/arm
+----
+
+==== Install Compiler and Configure
+
+===== 32-bit Systems
+
+Install the cross-compiler:
+
+----
+sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+----
+
+Configure the build:
+
+----
+cmake -G "Unix Makefiles" \
+  -DCMAKE_SYSTEM_NAME=Linux \
+  -DCMAKE_SYSTEM_PROCESSOR=arm \
+  -DCMAKE_C_COMPILER=/usr/bin/arm-linux-gnueabihf-gcc \
+  -DCMAKE_CXX_COMPILER=/usr/bin/arm-linux-gnueabihf-g++ \
+  -DFORTE_ARCHITECTURE=Posix \
+  -DFORTE_COM_ETH=ON \
+  -DFORTE_COM_SER=ON \
+  -DFORTE_COM_FBDK=ON \
+  -DFORTE_COM_LOCAL=ON \
+  -DFORTE_TESTS=OFF \
+  -DFORTE_IO=ON \
+  -DFORTE_MODULE_GPIOCHIP=ON \
+  -DFORTE_MODULE_CONVERT=ON \
+  -DFORTE_MODULE_IEC61131=ON \
+  -DFORTE_MODULE_UTILS=ON \
+  ../..
+----
+
+===== 64-bit Systems
+
+Install the cross-compiler:
+
+----
+sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+----
+Configure the build:
+----
+cmake -G "Unix Makefiles" \
+  -DCMAKE_SYSTEM_NAME=Linux \
+  -DCMAKE_SYSTEM_PROCESSOR=arm \
+  -DCMAKE_C_COMPILER=/usr/bin/aarch64-linux-gnu-gcc \
+  -DCMAKE_CXX_COMPILER=/usr/bin/aarch64-linux-gnu-g++ \
+  -DFORTE_ARCHITECTURE=Posix \
+  -DFORTE_COM_ETH=ON \
+  -DFORTE_COM_SER=ON \
+  -DFORTE_COM_FBDK=ON \
+  -DFORTE_COM_LOCAL=ON \
+  -DFORTE_TESTS=OFF \
+  -DFORTE_IO=ON \
+  -DFORTE_MODULE_GPIOCHIP=ON \
+  -DFORTE_MODULE_CONVERT=ON \
+  -DFORTE_MODULE_IEC61131=ON \
+  -DFORTE_MODULE_UTILS=ON \
+  ../..
+----
+
+==== Compile
+
+You can adjust the configuration by using `ccmake .` if you need to.
+
+Then build the project:
+
+[source,bash]
+----
+make
+----
+
+After a successful build, the `forte` binary will be available in `bin/arm/`
+and can be transferred to the target device.
+
+=== [[crossCompilingWindows]]Cross-compiling using Windows (not tested)
 
 . Install needed additional tools:
 * CMake from its download https://cmake.org/download/[page]
@@ -181,9 +246,9 @@ $ cd bin/raspPi $ make
 Now that you installed the required tools, it's time to start using
 them. Take a look at the following tutorials:
 
-xref:../tutorials/overview.adoc[Step 0 - 4diac IDE Overview]
+xref:../tutorials/overview.adoc[Step 0 - 4diac IDE Overview]
 
-If you want to compile 4diac FORTE for another platform or want to know more about that, here's a quick link back:
+If you want to compile 4diac FORTE for another platform or want to know more about that, here's a quick link back:
 
 xref:./overview.adoc[Install Eclipse 4diac]
 

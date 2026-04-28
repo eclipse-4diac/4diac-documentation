@@ -30,12 +30,15 @@ This will allow you to quickly get started with deploying and running applicatio
 
 If you want to start using 4diac IDE right away, you can skip the rest of the page and go directly to the xref:../tutorials/overview.adoc[step by step tutorial] or the xref:../doc_overview.adoc[Start Here-page].
 
+4diac FORTE is highly configurable, so it is the better choice to build FORTE from source so you can enable or disable modules and features depending on your requirements.
+
+
 === [[ownFORTE]]Building your own 4diac FORTE
 
 If there is no pre-built version that suits your needs or you just want to try out the latest features, you can also build 4diac FORTE from the sources in the https://github.com/eclipse-4diac/4diac-forte[Git] repository.
 
 The following steps will walk you through how to build 4diac FORTE on your own computer.
-If you want to build 4diac FORTE for an embedded target, please have a look at the link:#forteOtherPlatforms[links] on the bottom of this page.
+If you want to build 4diac FORTE for an embedded target (Raspberry Pi, freeRTOS, etc.), please have a look at the link:#forteOtherPlatforms[links] on the bottom of this page.
 
 ==== [[FORTEPrerequisites]]Prerequisites
 
