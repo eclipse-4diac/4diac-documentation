@@ -156,7 +156,9 @@ Then the necessary steps for generating binary 4diac IDE packages are:
 . Invoke the [.menu4diac]#Run As → Maven Install#.
 . After a successful build you will find the output in `plugins/org.eclipse.fordiac.ide.product/target/products` directory.
 
-Alternatively you can run `.mvn .install`  on the command line in the root folder of 4diac IDE source code.
+Alternatively you can run `mvn clean install` on the command line in the root folder of 4diac IDE source code.
+
+NOTE: When running UI tests directly from an IDE (e.g. Eclipse) on macOS, you must manually add `-XstartOnFirstThread` to your JVM arguments. This is handled automatically by a Maven profile when building from the command line.
 
 == Where to go from here?
 
