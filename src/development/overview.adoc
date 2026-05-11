@@ -17,7 +17,7 @@ This page is intended to give an overview of the topics you can find in the docu
 ** xref:./building4diac.adoc#buildFromSource[Building and Running 4diac IDE from Source]
 ** xref:./building4diac.adoc#buildBinary[Building a Binary 4diac IDE Package from Source]
 ** xref:./swtbottestsdocumentation.adoc#swtBotTesting[SWTBot Tests for 4diac IDE]
-** xref:./ideUpdatetargetplatform.adoc[Update 4diac IDE's Target Platform]
+** xref:./ideupdatetargetplatform.adoc[Update 4diac IDE's Target Platform]
 * 4diac FORTE
 ** xref:./forte_monitoring.adoc[Monitoring 4diac FORTE]
 ** xref:./forte_communicationarchitecture.adoc[Communication Architecture]
