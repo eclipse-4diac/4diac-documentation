@@ -35,17 +35,29 @@ modbus[(protocol:)ip:port:(slaveId):pollFrequency:readAddresses:sendAddresses(:r
 * *protocol*: tcp (tcp is default)
 * *ip*: address of Modbus server, e.g. 127.0.0.1
 * *port*: preferably above 1024, default is 502
-* *slaveId* (optional): the slave id used by the modbus server (0xFF is standard); this is in principle an optional parameter but some modbus devices (e.g. Siemens SENTRON PAC power measurement devices) need this parameter in order to establish a connection. Also if you use a Modbus-RTU to Modbus-TCP Gateway like for Example EX9133C-2-MTCP then this slaveID does tell which Device on the RTU Side you want to connect to.
-* *pollFrequency*: polling frequency in milliseconds
-* *readAddresses*: addresses can be specified between 0-65535 more than one address (max 100) can be specified using
-** comma for separate addresses 0,2,65500
-** dots for interval 5..10
-** combination 0,5..10,2,65500
-** function is by default holding register, and can be changed with a prefixed letter
-*** 'c' for coil
-*** 'd' for discrete input
-*** 'h' for holding register
-*** 'i' for input register
+* *slaveId* (optional): The unit identifier (Slave ID). While often ignored in pure Modbus TCP, it is **mandatory** in the following cases:
+** Connection to a Modbus-RTU to Modbus-TCP Gateway (e.g., EX9133C-2-MTCP): The Slave ID determines which device on the serial line is addressed.
+** Specific devices (e.g., Siemens SENTRON PAC power meters) require a specific Slave ID (standard is 0xFF or 1) to accept the connection.
+** The factory default for many devices is 1.
+* *pollFrequency*: Polling frequency in milliseconds.
+** **Reading (Caching Mechanism)**: FORTE uses an internal cache for Modbus read operations. This cache is updated by a background thread **only** if `pollFrequency > 0`. 
+*** A `REQ` event at the FB does **not** trigger a Modbus read; it only copies the current (cached) data to the outputs.
+*** Therefore, to receive any data from the server, you **must** set a frequency > 0.
+*** Successful updates from the server will automatically trigger a `CNF` event at the FB.
+*** [CAUTION] **WARNING:** Do **not** set `pollFrequency` to `0` if you have `readAddresses` defined. Internally, a frequency of 0 is interpreted as "as fast as possible" (busy waiting). This will result in **100% CPU load** for the Modbus thread and flood your network/bus with requests. If you want to disable reading, leave `readAddresses` empty instead.
+*** [NOTE] **Future Work:** We are working on implementing a true "single-shot" read behavior for `pollFrequency = 0`, where a `REQ` event would trigger exactly one Modbus read. This documentation will be updated once the feature is available.
+** **Writing (Single-Shot)**: Write operations (`sendAddresses`) are **independent** of the polling frequency. 
+*** Every `REQ` event at the FB triggers an immediate Modbus write command. 
+*** For blocks that only send data, set `pollFrequency` to `0` to avoid unnecessary background polling.
+* *readAddresses*: addresses can be specified between 0-65535. More than one address (max 100) can be specified. **Note on Efficiency:** Using ranges (e.g., `h51` as a bitmask for 16 inputs) is much faster than polling 16 individual coils.
+** comma for separate addresses: `0,2,65500`
+** dots for interval: `5..10`
+** combination: `0,5..10,2,65500`
+** function is by default holding register, and can be changed with a prefixed letter:
+*** 'c' for coil (Read/Write bits)
+*** 'd' for discrete input (Read-only bits)
+*** 'h' for holding register (Read/Write 16-bit words)
+*** 'i' for input register (Read-only 16-bit words)
 *** --> see below for a Detailed Table
 * *sendAddresses*: addresses can be specified between 0-65535 if data is only read sendAddresses should be left empty more than one address (max 100) can be specified using
 ** comma for separate addresses 0,2,65500
@@ -76,11 +88,11 @@ modbus[protocol:port:baudrate:parity:databits:stopbits:flow:(slaveId):pollFreque
 * *stopbits*: number of stop bits, e.g., 1
 * *flow*:
 ** leave empty for none
-** arduino - disable DTR and wait for Arduino to boot just in case
-** delay - wait 2 seconds after connecting
-** longdelay - wait 3 seconds after connecting
-* all other paramters are as for TCP
-** except the *slaveId*, while it is optional in some cases for Modbus-TCP, is is mandatory for Modbus-RTU, and in most cases the factory default of devices is 1
+** arduino - disables DTR and waits for the Arduino to boot (useful for direct USB connection to Arduino-based IO).
+** delay - waits 2 seconds after connecting. This is often necessary for RS485-to-USB converters or devices that need time to stabilize the serial line after the port is opened.
+** longdelay - waits 3 seconds after connecting.
+* all other parameters are the same as for TCP.
+** except the *slaveId*, which is **mandatory** for Modbus-RTU. The factory default for most devices is 1.
 * to reuse a previous connection define only port and leave everything up to slaveId empty
 
 Example:
@@ -88,38 +100,106 @@ Example:
 modbus[rtu:/dev/ttyUSB0:19200:N:8:1::1:2000:i6142,i6132,i6137:h64025..64028,h63995..63998]
 ----
 
-== Table of Functions: 
+== Table of Functions and FB Configuration
 
-[cols="4*", options="header"]
+The choice of the Modbus function (Parameter prefix `c`, `d`, `h`, `i`) dictates which IEC 61499 Function Block (FB) and which Data Types you **must** use. Using the wrong combination will lead to communication errors or misaligned data.
+
+=== Internal Data Mapping (Crucial for FB Configuration)
+
+Understanding how 4diac FORTE maps IEC data types to Modbus calls is critical. Using the wrong types will lead to data corruption or alignment offsets.
+
+* **Coils (`c`) and Discrete Inputs (`d`)**:
+** **Requirement:** You **must** use 8-bit data types like **`BYTE`**, `SINT`, or `USINT`.
+** **Why not `BOOL`?** Internally, `libmodbus` represents each bit as a full `uint8_t` (1 byte). While `BOOL` might work on some systems, the C++ size of `bool` is implementation-defined. If your compiler uses 4 bytes for `bool`, the data pointer will misalign, and communication will fail.
+** **Mapping:** 1 Modbus Address = 1 IEC Byte.
+** **Example:** Reading `c0..7` (8 bits) requires a `CLIENT_8` FB with 8 pins of type **`BYTE`**. Each byte will contain either `0` or `1`.
+
+* **Holding (`h`) and Input Registers (`i`)**:
+** **Requirement:** Use 16-bit data types like **`WORD`**, `INT`, or `UINT`.
+** **Mapping:** 1 Modbus Register = 2 IEC Bytes (16 bits).
+** **Multi-Register Types:**
+*** **32-Bit Types:** `DWORD`, `DINT`, `REAL` map to **2 consecutive Registers**.
+*** **64-Bit Types:** `LWORD`, `LINT`, `LREAL` map to **4 consecutive Registers**.
+** **Example:** Reading `h10..11` can be done with a `CLIENT_1` using type `REAL` (combines both registers into one float).
+
+=== Triggering and Cyclic Behavior (INIT / REQ)
+
+To ensure stable communication and prevent unnecessary CPU load, follow these rules for triggering the Event Inputs:
+
+* **INIT (Initialization)**:
+** **Rule:** Call `INIT` with `QI=TRUE` **exactly once** at application startup.
+** **Avoid cyclic calls:** Do NOT trigger `INIT` repeatedly.
+** **Auto-INIT:** If you leave the `INIT` pin of a Modbus client FB unconnected within a SubApplication, 4diac typically handles the initialization automatically (Auto-INIT feature).
+
+* **REQ (Request)**:
+** **Behavior with `pollFrequency > 0`**:
+*** If a polling frequency is defined in the connection string (e.g., `500` for 500ms), the FB handles the communication autonomously.
+*** **Rule:** Call `REQ` **only once** after successful initialization (e.g., by connecting `INITO` to `REQ`).
+*** **Result:** The FB will then automatically and cyclically perform the Modbus transaction and trigger the `CNF` output event at the specified frequency.
+** **Behavior with `pollFrequency = 0`**:
+*** If the frequency is `0` (or omitted), the FB only communicates when it receives an event at `REQ`.
+*** **Rule:** You must trigger `REQ` manually whenever you want to read or write data.
+
+=== detailed Configuration Table
+
+[cols="1,1,1,1,3", options="header"]
 |===
-| 
-| 
-| read 
-| write
+| Prefix | Modbus Type | Data Size | Mandatory IEC Type | FB Selection Rule
 
-| c 
-| coil 
-| https://libmodbus.org/reference/modbus_read_bits/[modbus_read_bits] +
-0x01 (read coil status) 
-| https://libmodbus.org/reference/modbus_write_bits/[modbus_write_bits] +
-0x0F (force multiple coils) 
+| **c**
+| Coil (Read/Write)
+| 1 Bit
+| **`BYTE`** (recommended), `SINT`, `USINT`
+| **1 FB-Pin per Address.** +
+For `c0..7` (8 addresses), use `CLIENT_8` with `BYTE` pins.
 
-| d | discrete input 
-| https://libmodbus.org/reference/modbus_read_input_bits/[modbus_read_input_bits] +
-0x02 (read input status) 
-| 
+| **d**
+| Discrete Input (Read Only)
+| 1 Bit
+| **`BYTE`**
+| **1 FB-Pin per Address.** +
+For `d0..3`, use `CLIENT_4` with `BYTE` pins.
 
-| h | holding register 
-| https://libmodbus.org/reference/modbus_read_registers/[modbus_read_registers] +
-0x03 (read holding registers) 
-| https://libmodbus.org/reference/modbus_write_registers/[modbus_write_registers] +
-0x10 (preset multiple registers)
+| **h**
+| Holding Register (Read/Write)
+| 16 Bit
+| `WORD`, `INT`, `UINT`
+| **1 FB-Pin per Address (for 16-bit types).** +
+For `h40001`, use `CLIENT_1` with `WORD`. +
+**Note:** A `REAL` pin covers 2 addresses.
 
-| i | input register 
-| https://libmodbus.org/reference/modbus_read_input_registers/[modbus_read_input_registers] +
-0x04 (read input registers) 
-| 
+| **i**
+| Input Register (Read Only)
+| 16 Bit
+| `WORD`, `INT`, `UINT`
+| Same as Holding Register.
 |===
+
+=== Examples for common Scenarios
+
+#### Scenario A: Reading 8 Switches (Discrete Inputs)
+* **Hardware:** 8 Digital Inputs at Modbus addresses 0 to 7.
+* **String:** `modbus[tcp:192.168.1.10:502::1000:d0..7:]`
+* **FB:** `CLIENT_8`.
+* **Configuration:** Set all 8 Outputs (`RD_1` to `RD_8`) to type **`BYTE`**. Each byte will be `1` (Input ON) or `0` (Input OFF).
+
+#### Scenario B: Controlling 8 Relais (Coils)
+* **Hardware:** 8 Relais at addresses 0 to 7.
+* **String:** `modbus[rtu:/dev/ttyUSB0:9600:N:8:1::1:1000:c0..7:c0..7]`
+* **FB:** `CLIENT_8`.
+* **Configuration:** Set all 8 Inputs (`SD_1` to `SD_8`) and Outputs (`RD_1` to `RD_8`) to type **`BYTE`**.
+
+#### Scenario C: Reading a Temperature (Float, 32-bit)
+* **Hardware:** Sensor maps float value to Registers 10 and 11.
+* **String:** `modbus[tcp:192.168.1.20:502::500:h10..11:]`
+* **FB:** `CLIENT_1`.
+* **Configuration:** Set `RD_1` to type `REAL`. The FB automatically reads 2 registers (10 and 11) and combines them into one Float.
+
+#### Scenario D: AkYtec (e.g. AkYtec МК210-301/311)  / Bitmasks (Holding Register)
+* **Hardware:** Input states are packed into one 16-Bit Register (Bitmask) at Address 51.
+* **String:** `modbus[tcp:192.168.1.99:502::500:h51:]`
+* **FB:** `CLIENT_1`.
+* **Configuration:** Set `RD_1` to type `WORD`. You will receive an Integer (e.g., 5 means Input 1 and 3 are active). Use `WORD_TO_BOOL` conversion FBs to extract individual bits if needed.
 
 == Example: Writing Outputs of a 8-Output Relay Card:
 ----
@@ -127,7 +207,6 @@ modbus[rtu:/dev/uart/1:9600:N:8:1::1:2000:c0..7:c0..7]
 ----
 
 image:modbus/modbus_8Q.png[modbus with 8Q set]
-
 
 
 == Where to go from here?
