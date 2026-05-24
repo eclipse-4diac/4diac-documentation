@@ -10,74 +10,76 @@ sidebar:
 :lang: en
 :imagesdir: intro/img
 
-== How to contribute to this document
 
-Your feedback can improve the Eclipse 4diac documentation.
-There are several ways to submit feedback:
+Eclipse 4diac is an open source environment for distributed industrial automation based on IEC 61499.
+This documentation provides tutorials, examples, integration guides, communication references, and developer resources for Eclipse 4diac.
 
-* report an https://github.com/eclipse-4diac/4diac-documentation/issues[issue],
-* contribute a https://github.com/eclipse-4diac/4diac-documentation/pulls[pull request] with changes,
-* or start a https://github.com/eclipse-4diac/4diac-documentation/discussions[discussion].
+== Start Here
 
-== [[wheretostart]] Where to start?
+If you are new to Eclipse 4diac, these pages provide the recommended starting points.
 
-This page is intended to work as an overall index of the documentation
-about Eclipse 4diac. Whenever you have doubts about anything, come here
-and you might find the right page to visit. Depending on your
-background's area (automation, mechanics, computer science, or just
-curiosity), you will need different information to understand what
-Eclipse 4diac is and its strengths. But since this might be the first
-page you arrived to, there's a quick link:#quickIntro[intro] below the
-link list.
+[.landing-table]
+[cols="25s,75", options="autowidth", valign="middle"]
+|===
+| xref:./intro/iec61499.adoc[Getting Started]
+| Learn the basics of IEC 61499, Function Blocks, and distributed automation.
 
-Here's a list of the main topics in the documentation:
+| xref:./intro/4diacframework.adoc[4diac Framework]
+| Understand the Eclipse 4diac architecture and the interaction between 4diac IDE and 4diac FORTE.
 
-* xref:./intro/iec61499.adoc[Learn about IEC 61499]: 
-To use Eclipse 4diac, you need to understand the terms of the IEC 61499 standard and how the Function Blocks work. 
-At first, take therefore a look at this explanation about the standards and technology related to Eclipse 4diac.
-* xref:./intro/4diacframework.adoc[Understand the 4diac framework]: 
-If you know about IEC 61499 and what PLCs are, but you don't understand what 4diac IDE is, or what's the relation with 4diac FORTE, then you should take a look at this topic about the 4diac IDE framework.
-* xref:./tutorials/tutorials.adoc[Step by Step Tutorials]: 
-To understand the basics of 4diac IDE, it is best to start using it.
-* xref:./installation/overview.adoc[Install Eclipse 4diac]: 
-If you understand all of the above, and you want to start using Eclipse 4diac, you will need to first install it.
-* xref:./examples/overview.adoc[4diac IDE examples]: 
-If you want to see some examples using 4diac IDE, this link is your friend.
-* xref:./io_config/overview.adoc[IO Configuration for the different platforms]: 
-If you have a specific platform with input and outputs that is supported by 4diac FORTE, for example a Raspberry Pi or a PLC, and you want to use them, use this topic.
-* xref:./communication/overview.adoc[Communication Protocols]: 
-If you want to use a specific communication protocol supported by 4diac FORTE, for example MQTT, OPC UA, Modbus and so on, follow the link.
-* xref:./specs/index.adoc[Specifications]: 
-Specifications provided and maintained by the Eclipse 4diac project (e.g., compliance profiles and statements).
-* xref:./development/overview.adoc[Development of 4diac FORTE and 4diac IDE]: 
-If you are a developer or you want to know more deep stuff about 4diac FORTE or 4diac IDE, you'll have fun here.
-* xref:./other_features/overview.adoc[Other Features]:
-Eclipse 4diac is a nice place for research & development, so new and exiting features are being developed all the time.
-* https://github.com/eclipse-4diac[File a bug for 4diac FORTE or 4diac IDE]: 
-You found a bug? File it here.
-* xref:./faq.adoc[Frequently Asked Questions]: If you have troubles with something, visit the FAQs page.
-* https://www.eclipse.org/forums/index.php?t=thread&frm_id=308[4diac Forum]: 
-And if you still have a question or something you want to share, don't forget to participate in the forum.
+| xref:./installation/overview.adoc[Installation]
+| Install Eclipse 4diac IDE and prepare your target environment.
 
-== [[quickIntro]] Quick Intro
+| xref:./tutorials/tutorials.adoc[Tutorials]
+| Create, model, and deploy your first Eclipse 4diac application step by step.
+|===
 
-4diac IDE is an open source IDE intended for distributed industrial systems. 
-It is also applicable in other areas such as home automation, electrical networks, or wherever you think some automated system is needed. 
-You can "program" an application using Function Blocks and your program will look like the one in image below.
+[.details-table]
+[cols="1,1", options="invisible", width="100%", valign="top"]
+|===
+a|
+=== Using Eclipse 4diac
 
-image:genericApplication.png[A generic application in IEC61499]
+Guides for application design, hardware integration, and industrial communication.
 
-The same application can run on different devices such as a Raspberry Pi, a PLC or your computer, since the application is independent of the device on which it's running.
+[.landing-table]
+[cols="25s,75", options="autowidth"]
+!===
+! xref:./examples/overview.adoc[Examples]
+! Explore reference applications and working systems.
 
-Note that you can run this application not only in one device, but you can distribute it to many devices, as shown in the picture below.
+! xref:./io_config/overview.adoc[IO Access]
+! Connect hardware and configure peripherals for platforms such as Raspberry Pi or PLCs.
 
-image:iec61499Disitribution.png[Distributing an application]
+! xref:./communication/overview.adoc[Communication]
+! Use industrial and IoT protocols such as MQTT, OPC UA, and Modbus.
+!===
 
-Quick reference: each Function Block (FB) is like a normal function that is executed when an event (red incoming line on the left of the FB) arrives. 
-The incoming blue lines are the data inputs (parameters to the function) and the outgoing blue lines are the parameters sent to other FBs (similar to return values, yet they don't always "return" but go forward).
+a|
+=== Reference & Development
 
-This application might not be intended for only one device, but for a whole system with many devices. 
-In that case, some FBs will need to run on one device, and some on others - a distributed system is created.
-With 4diac IDE you can design your distributed application and deploy it.
+Resources for troubleshooting, advanced configuration, and platform extension.
 
-link:#top[Go to top]
+[.landing-table]
+[cols="25s,75", options="autowidth"]
+!===
+! xref:./faq.adoc[FAQs]
+! Answers to common questions and troubleshooting scenarios.
+
+! xref:./development/overview.adoc[Development]
+! Develop custom Function Blocks, 4diac IDE plugins, and 4diac FORTE extensions.
+
+! xref:./specs/index.adoc[Specifications]
+! Review compliance profiles and project-maintained specifications.
+!===
+|===
+
+---
+
+[NOTE]
+.Want to improve the documentation?
+====
+* Report an link:https://github.com/eclipse-4diac/4diac-documentation/issues[issue]
+* Open a link:https://github.com/eclipse-4diac/4diac-documentation/pulls[pull request]
+* Join the conversation on our link:https://github.com/eclipse-4diac/4diac-documentation/discussions[4diac Discussion Forum].
+====

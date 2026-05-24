@@ -121,14 +121,7 @@ Open two local consoles
 . Open Forte with port 61499 and in the other cmd window with port 61500.
 . The command looks like this: forte.exe -c localhost:port
 . Select the elements to deploy. For this tutorial select our devices _Counter_ and _Testee_.
-<<<<<<< Upstream, based on origin/main
-. Click the [.button4diac]#Deploy# button.
-. Check that the _Deployment Console_ shows some output, and that no red warning appears on the right nor left of it. If you get something red, something went wrong.
-
-image:Step2/deployCounter.png[deploying of the application]
-=======
 . Start the program by clicking the green execute button.
->>>>>>> afef47a Added changes to the existing doc.
 
 == [[testApplication]]Test it!
 
