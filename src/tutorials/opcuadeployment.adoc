@@ -86,6 +86,6 @@ Exporting custom FBs works the same way as with the regular deployment profile. 
 * If you want to go back and see again how to deploy new FBs with the Dynamic Type Loader, here is a link +
 xref:dynamictypeloader.adoc[Dynamic Type Loader]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../doc_overview.adoc#wheretostart[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 link:#top[Go to top]

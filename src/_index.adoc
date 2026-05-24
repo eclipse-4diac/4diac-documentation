@@ -3,9 +3,12 @@
 
 title: "Documentation"
 layout: "single"
+hide_page_title: true
 page_css_file: /4diac/css/4diac_doc.css
 sidebar: 
   - sb-doc
 ---
+
+# Eclipse 4diac Documentation
 
 include::doc_overview.adoc[]

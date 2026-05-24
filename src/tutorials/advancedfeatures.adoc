@@ -89,6 +89,6 @@ xref:../communication/overview.adoc[Supported Communication Protocols]
 * If you want to go back to see again the basic features, here's a link: +
 xref:./otheruseful.adoc[Step 5 - Other Basic Features]
 * If you want to go back to the Start Here page, we leave you here a fast access: +
-xref:../doc_overview.adoc#wheretostart[Where to Start]
+xref:../doc_overview.adoc[Where to Start]
 
 link:#top[Go to top]
