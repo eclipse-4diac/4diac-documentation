@@ -58,28 +58,28 @@ You can open the welcome screen again at any time via [.menu4diac]#Help → Welc
 
 Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the standard's elements for work (you can check xref:../intro/iec61499.adoc#IEC61499[here] to revise):
 
-* image:Step0/system_icon.png[System] *System*:
+* image:system.png[System] *System*:
   It contains the [.view4diac]#System Configuration# and its corresponding [.element61499]#Applications#.
-* image:Step0/application.png[Application] *Application*:
+* image:app16.png[Application] *Application*:
   It contains the desired application in terms of a FB network.
-* image:Step0/device.png[Device] *Device*:
-  It represents a hardware device such as a PLC or a microcontroller.
-* image:Step0/resource.png[Resource] *Resource*:
-  It is responsible for executing control logic within its own execution context.
+* image:device16.png[Device] *Device*:
+  It represents a hardware device such as a programmable logic controller (PLC) or a microcontroller.
+* image:resource16.png[Resource] *Resource*:
+  It is responsible for the execution of the control logic within its own execution context.
 * *Function Blocks (FBs)*:
-** image:Step0/Basic%20Function%20Blocks.png[BFB] *Basic FB (BFB)*:
-   The foundational blocks where you write actual control logic.
-   Each BFB has an Execution Control Chart (ECC) — a state machine — that determines when its algorithms run.
-   Algorithms are typically written in Structured Text.
-** image:Step0/Composite%20Function%20Blocks.png[CFB] *Composite FB (CFB)*:
-   Containers that hold a network of other FBs inside them, with no code of their own.
-   Use them to package repetitive logic and keep your main application tidy.
-** image:Step0/Service%20Interface%20Function%20Blocks.png[SIFB] *Service Interface FB (SIFB)*:
-   The bridge between your control logic and the outside world — hardware I/O, communication protocols (MQTT, HTTP, OPC UA), or external systems.
-   If something can't be done with standard IEC 61499 logic, a SIFB is how you do it.
-* image:Step0/adapter.png[Adapter] *Adapter*:
-  Bundles multiple event and data connections into a single plug-and-socket pair, replacing a tangle of individual wires with one clean connection.
-  The socket sits on the receiving side and the plug on the sending side, keeping the application diagram clean and making interfaces reusable across block types.
+** image:basicfb_16.png[BFB] *Basic FB (BFB)*:
+   It uses an execution control chart (ECC) to control event execution.
+   Algorithms are associated with the different states inside an ECC.
+** image:compositefb_16.png[CFB] *Composite FB (CFB)*:
+   It contains a FB network of existing FBs.
+   Its FB interface passes events and data on to the FBs within the CFB, which in turn pass events and data among themselves and out to the CFB's normal output interface.
+** image:sifb_16.png[SIFB] *Service interface FB (SIFB)*:
+   It is usually used for something that cannot be done within the IEC 61499 standard such as communication with devices or network segments.
+   It helps to first understand basic and composite FBs.
+   SIFBs are then used to realize only what cannot be done using a BFB/CFB.
+* image:adapter.png[Adapter] *Adapter*:
+  It combines a set of input/output events and data to one connection.
+  On the one hand it simplifies the IEC 61499 [.element61499]#Application# and on the other hand it better decouples [.element61499]#Application# parts providing an interface concept, which allows adopting the polymorphic concept of object-oriented programming.
 
 
 == [[perspectives]]4diac IDE Perspectives
