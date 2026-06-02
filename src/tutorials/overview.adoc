@@ -63,14 +63,13 @@ Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the s
 * image:Step0/application.png[Application] *Application*:
   It contains the desired application in terms of a FB network.
 * image:Step0/device.png[Device] *Device*:
-  It represents a hardware device such as a PLC or a microcontroller.
+  It represents a hardware device such as a Programmable Logic Controller (PLC) or a microcontroller.
 * image:Step0/resource.png[Resource] *Resource*:
   It is responsible for executing control logic within its own execution context.
 * *Function Blocks (FBs)*:
 ** image:Step0/Basic%20Function%20Blocks.png[BFB] *Basic FB (BFB)*:
-   The foundational blocks where you write actual control logic.
-   Each BFB has an Execution Control Chart (ECC) — a state machine — that determines when its algorithms run.
-   Algorithms are typically written in Structured Text.
+  The foundational blocks where you write actual control logic. Each BFB has an Execution Control Chart (ECC) — a state machine — that determines when its algorithms run. Algorithms are typically written in Structured Text.
+** image:Step0/Basic%20Function%20Blocks.png[BFB] *Simple FB*: A Function Block that contains only one algorithm (same icon as BFB).
 ** image:Step0/Composite%20Function%20Blocks.png[CFB] *Composite FB (CFB)*:
    Containers that hold a network of other FBs inside them, with no code of their own.
    Use them to package repetitive logic and keep your main application tidy.
@@ -86,7 +85,7 @@ Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the s
 
 4diac IDE is built on Eclipse and inherits its concept of *perspectives* — each perspective is a named arrangement of views and editors suited to a particular workflow.
 
-To open a perspective, use [.menu4diac]#Window → Perspective → Open Perspective# from the menu bar:
+To open a perspective, use [.menu4diac]#Window → Perspective → Open Perspective → Other# from the menu bar:
 
 image:Step0/other_way_to_view_perspectives.png[opening a perspective via the Window menu]
 
@@ -99,7 +98,6 @@ The perspectives relevant to 4diac IDE development are:
 * *System (default)* – the main workspace for designing IEC 61499 applications.
 * *Debug* – for monitoring, watching variables, and step-debugging function blocks.
 * *Type Management* – for browsing and managing the function block type library.
-* *Resource* – a generic Eclipse file-system view for advanced project management.
 
 The remaining perspectives (*Git*, *Team Synchronizing*) are standard Eclipse perspectives for version control workflows.
 
@@ -118,6 +116,10 @@ It is divided into the following areas:
 
 image:Step0/system_perspective.png[System Perspective]
 
+=== Managing Elements on the Canvas
+Instance names of Function Blocks, [.element61499]#Resources#, or [.element61499]#Devices# can be changed. You can edit the name directly by double-clicking the instance name on the canvas, using the Properties view at the bottom, or by right-clicking the block and selecting *Rename*.
+
+image:Step0/instance_names_change.png[Change name of an instance]
 
 === [[debugPerspective]]Debug Perspective
 
@@ -175,8 +177,8 @@ This is useful for adapting the editor to your display preferences or for improv
 
 image:Step0/change_colours.png[Colors and Fonts preferences showing 4diac IDE color entries]
 
-In order to use the Runtime Launcher, the location of the run-time executable files must be set in the preferences.
-Currently two runtime environments are supported:
+The Runtime Launcher needs to know where the run-time executable files are located. The default location can be set in the preferences.
+Currently two run-time environments are supported:
 
 . https://eclipse.dev/4diac/4diac_forte/[4diac Forte]: [.fileLocation]#path/forte.exe#
 . https://www.holobloc.com/[Holobloc's FBRT]: [.fileLocation]#path/fbrt.jar#
