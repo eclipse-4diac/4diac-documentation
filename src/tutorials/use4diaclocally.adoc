@@ -3,7 +3,7 @@
 title: "Step 1 - Use 4diac Locally"
 url: doc/tutorials/use4diaclocally.html
 page_css_file: /4diac/css/4diac_doc.css
-sidebar: 
+sidebar:
   - sb-doc
 ---
 
@@ -11,10 +11,10 @@ sidebar:
 :lang: en
 :imagesdir: img
 
-This page is part of a guide that gives a walk-through over the major 4diac IDE features.
+This page is part of a guide that gives a walk-through over the major 4diac IDE features.
 
 [start=0]
-. xref:overview.adoc[4diac IDE Overview]
+. xref:overview.adoc[4diac IDE Overview]
 . Use 4diac Locally (Blinking tutorial) (YOU ARE HERE!)
 . xref:distribute4diac.adoc[Distribute 4diac Applications]
 . xref:use4diacremotely.adoc[Deploy Applications Remotely]
@@ -24,264 +24,236 @@ This page is part of a guide that gives a walk-through over the major 4diac IDE
 . xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 . xref:opcuadeployment.adoc[Deploying Applications with OPC UA]
 
-In this tutorial you create a simple Blinking application. 
-It's the "Hello World" of automation programs, so it teaches the key aspects and workflow of 4diac IDE. 
-The application will run locally, so no connection to any PLC or external hardware is needed. 
-The architecture is shown below.
+In this tutorial you create a simple Blinking application -- the "Hello World" of automation programs.
+It teaches the key workflow of 4diac IDE.
+The application runs locally, so no external hardware or PLC is needed.
 
-image:locallyArchitecture.png[architecture for the current step]
+== [[createSystem]]Create a new IEC 61499 System
 
-After completing Step 0 switch to the system perspective using the image:system.png[System Perspective Button] Button.
-
-== [[createSystem]]Create a new IEC 61499 System
-
-. In the upper left corner of the system perspective there is the main menu. 
-  Create a new project by selecting +
-  [.menu4diac]#File → New → 4diac IDE Project...#
-. Follow the instructions in the creation wizard. 
-  For this tutorial we name our new system _BlinkTest_.
+. Open the System Perspective: Click the image:Step0/system_icon.png[System] system icon in the top-right toolbar (see Step 0 for reference). 
+. In the top menu bar, go to: [.menu4diac]#File → New → 4diac IDE Project...#
+. In the wizard, name your project _BlinkyTest_ and click Finish.
 +
-image:Step1/newSystemWizard.png[Create a new IEC 61499 System]
+image:Step1/blinkyTest_project_create.png[Create a new IEC 61499 System]
 
-The system appears in the [.view4diac]#System Explorer# on the left, click on the _BlinkTest_ to unfold the tree. 
-There you can see three things now:
+After creating the project, the [.view4diac]#System Explorer# on the left shows the project _BlinkyTest_ with the following items:
 
-* *BlinkTestApp*: The automatically generated initial control application. 
-  The name can be freely chosen. 
-  Your application is located here.
-* *System Configuration*: The definition of the devices present in your System.
-* *Type Library*: You find here all the available Function Blocks for this System.
+* *BlinkyTest []* -- the system file; expand it to find _BlinkyTestApp_ (your application) and _System Configuration_ (where you define your hardware/devices)
+* *Type Library* -- the Function Block types available in this project
+* *External Libraries* -- shared type libraries
+* *Standard Libraries* -- standard IEC 61499 type libraries provided in 4diac IDE
+* *MANIFEST.MF* -- a 4diac IDE project manifest file
 
-By default, new systems contain a copy of the types in the Type Library.
-If different types are needed, for example from another project or another IEC 61499 engineering tool, these type files can be easily added by copying them into the project directory to the desired location.
-Furthermore the [.view4diac]#Type Navigator# allows to drag and drop types between projects as well as within a project to a different folder.
+image:Step1/SystemExplorer_left.png[System Explorer showing project structure]
 
-== [[createNetwork]]Create a FB Network for the Blink Application
+== [[createNetwork]]Create the FB Network (Blink Application)
 
-A double-click on an Application in the System Explorer tab on the left opens the Application Editor for this specific application in the editor area.
+Double-click _BlinkyTestApp_ in the [.view4diac]#System Explorer# to open the Application Editor.
+Add the following three Function Blocks to the drawing area:
 
-. Drag and Drop the following Function Blocks (FBs) to the Editor. 
-  Open the palette (if not already open) on the upper right of *editor area* by clicking on the left arrow or use the Type Library in the  System Explorer. 
-  The three FBs are in the [.folderLocation]#events# folder:
 * `E_CYCLE`
 * `E_SWITCH`
 * `E_SR`
 
-+
-You can also double-click the editor area and search for the FBs. 
-image:Step1/blinkFBs.png[Function Blocks for the blink example] +
-The name in the middle of the FB is its type. If you CTRL + click on it, you can access the definition of the type of the FB. 
-There you can see the interface and how it works. 
-Check `E_SWITCH` and `E_SR` and go to the ECC tab to see how they behave. +
-The name on top of the FB is the instance name. 
-Two FBs cannot have the same instance name. 
-You can double-click on it to change it for a better organized application.
-. Create the connections between the FBs
-+
-*Event* (green, on top part of FBs) and *Data* (blue, on lower part of FBs) *connections* can be generated by connecting the Event-/Data in- and outputs. 
-Position the mouse pointer over an Event-/Data in- or output, click and drag to the other end of the connection to create one.
-Remember, Event and Data connections cannot be mixed. Events connections allow fan-in and fan-out. 
-Data connections allow fan-out but not fan-in. 
-+
-image:Step1/blinkWithConnections.png[Function Blocks for the blink example]
-+
-Here are some tips for editing the application:
+You can insert a Function Block using any of these methods:
 
-* If you hover the mouse over a FB or Data or Event connection end, you'll get information about it.
-* If you try to connect Data connections that have incompatible types, you will see a red error in the status bar at the lowest part of 4diac IDE.
-* Selected function blocks in the [.view4diac]#Application Editor# can be parameterized using the [.view4diac]#Properties View# typically located below.
-* The colors of the connections may differ.
-  Remember you can change them in [.menu4diac]#Window → Preferences → 4diac IDE#
-. Set a literal as an input data connection. 
-  The DT input data connection of `E_CYCLE` must be set to a value in order for it to work.
-  You can do it by either:
-* Double click on the data connection in the Application Editor
-* Select the DT of the FB and change the value in the Properties tab below or double-click on DT and set the value directly
-+
-Set the value to `T#1s`, meaning 1 second.
-+
-image:Step1/blinkComplete.png[Function Blocks for the blink example]
+* *Quick Type:* Double-click an empty space on the canvas and start typing the FB type name (auto-completion is available).
+* *Context Menu:* Right-click the canvas → *Insert FB* and type the name.
+* *Drag and Drop:* Drag directly from the type library or palette (e.g. the [.folderLocation]#events# folder).
 
-Now the application is done. 
-You should try to understand how the application works. 
-Something missing is the starting event. 
-This would be done later when the hardware is configured. 
-For now, imagine an event arrives to `E_CYCLE.START`. 
-Every 1 second, an event output will be triggered in `E_CYCLE.EO`. 
-The `E_SWITCH` will trigger an event output `EO0` when `G` is zero, and `EO1` when `G` is one. 
-The value `Q` of `E_SR` will be `TRUE` when an event at `S` arrive and `FALSE` when an event at `R` arrive. 
-Try to follow the flow of events and understand why this application makes `Q` toggle, considering it starts at `0`.
+image:Step1/fbs_in_editor.png[Function Blocks in the Application Editor]
 
-== [[configureHardware]]Configuration of the Automation Hardware
+The name in the middle of each block is its type; the name on top is the instance name.
+By default, a valid instance name is created from the type name — it is strongly recommended to change it to something representative for a better organised application.
+To inspect a block's definition, right-click it and select [.menu4diac]#Open Type in Editor#.
+There you can see the interface and how it works.
+Try opening `E_SWITCH` and `E_SR` and go to the *ECC* tab to see how they behave.
 
-First, let's define the devices that are present in our system. 
-The automation hardware can be modeled with the [.view4diac]#System Configuration Editor#. 
-It can be opened by double clicking on the [.view4diac]#System Configuration# tree node in the [.view4diac]#System Explorer# on the left. 
-By using Drag and Drop, Device, Resource and Segment types can be added from the palette. 
-On an IEC 61499 Device several IEC 61499 Resources can be configured. 
-Resources can be directly added to Devices.
-
-Drag and Drop a
-
-. `FORTE_PC` Device
-. `Ethernet` Segment
-
-from the Palette.
-
-Connect them by clicking on one and dragging to the other. 
-The segment is divided in two areas, the left is for moving, the right for connections. 
-The device can be connected by clicking on the device type (second row). 
-One `EMB_RES` resource is already present in the device. 
-The `MGR_ID` value of `localhost:61499` specifies the `IP:PORT` where the device will run. 
-In this case it'll run locally and will listen at the port `61499`.
-
-image:Step1/systemConfigurationEditor.png[System Configuration Editor]
-
-The color is automatically generated for better orientation in the system. 
-When several devices or segments are in use, you can see at a glance where the FB belongs to. 
-If you like to change the color, click on the device or segment. 
-In the property view on the bottom of the screen you find the tab Appearance. 
-Here you can choose a color you like best.
-
-Check that the Profile in the Properties tab is set to `HOLOBLOC`.
-
-For this tutorial we give the device the name `testee`. 
-Device names help us to distinguish the different devices from each other. 
-Names can be changed in the property view or by double-clicking on the name.
-
-NOTE: The *resource* is automatically generated for your convenience. 
-     You can manually add more resources if needed.
-
-`EMB_RES` stands for Embedded Resource. 
-We named it `Blinky_RES`.
-
-image:Step1/changeResourceName.png[changing the name of the Resource]
-
-Device and Resource parameters can either be specified directly at each Device/Resource or via the Properties View. 
-The [.view4diac]#Properties View# shows the parameters of a IEC 61499 Device/Resource (if it is selected either in the [.view4diac]#System Configuration Editor# or in the [.view4diac]#System Manager View#). 
-The most important parameters are the IP address and the port of the device management interface as they are required for the communication between the engineering tool and the Devices (e.g. Download of IEC 61499 Applications).
-
-=== [[deviceProfileConfiguration]]Configuration of the Device's Configuration Profile
-
-In order to support different device vendors' download mechanism you need to specify the device profile to be used for your device. 
-Currently 4diac IDE supports the following two device profiles:
-
-* `HOLOBLOC` Device conforming to the _"IEC 61499 Compliance Profile for Feasibility Demonstrations"_. 
-   Currently the devices supporting this profile are all `FORTE` devices and `FBDK` devices older than 2009.
-* `FBDK2` for FBDK devices version 2 or later.
-
-== [[mapNetworks]]Mapping of Function Block Networks to Devices/Resources
-
-Mapping FBs means defining in which device each FBs will run. 
-All mapped FBs are changing their fill color to the device's color during the mapping process.
-
-Go to the Application created before, select the FBs you want to map by left-clicking or drawing a rectangle over it (in this case all of them), +
-[.menu4diac]#right click → Map to ... → FORTE_PC → Blinky_RES#
-
-image:Step1/mappingInAppEditor.png[Mapping of Function Block Instances within the Application Editor]
-
-To unmap a Function Block instance from a Resource, use the context menu entry [.menu4diac]#Unmap# of a Function Block in the corresponding [.button4diac]#Application#.
+image:Step1/open_type_in_editor.png[Open type in editor view]
 
 
-== [[configureResource]]Configure the Resource
+=== Connect the FBs
 
-You can open the *Resource Editor* by double clicking the Resource (`Blinky_RES`) in the System Configuration, or in the tree in the System Explorer on the left.
+There are two types of connections, both created the same way: hover over a pin, click, and drag to the target pin.
 
-There you can find a `START` function block in white. 
-This is the default starter function block of the `EMB_RES`. 
-This will trigger a `COLD` event when starting. 
-The `STOP` is triggered when the PLC is set to a stop state, and the `WARM` when the PLC changes from a stop state back to a run state. Connect both `COLD` and `WARM` to `E_CYCLE.START`.
+* *Event connections* (green lines, top part of FBs) -- control the execution flow between blocks.
+* *Data connections* (varying color, e.g. grey for Booleans, lower part of FBs) -- pass values between blocks.
 
-image:Step1/resourceComplete.png[Resource completely connected]
+image:Step1/connected_blocks.png[Connected Function Blocks]
 
-You also see the FBs that were previously mapped. 
-You can add more FBs directly here and they will be already mapped to the resource, or you can unmap the FBs.
+TIP: Hover over any FB, Data, or Event connection end to see details about it.
 
+NOTE: If you connect Data connections with incompatible types, the mouse pointer turns into a red sign and a tooltip appears explaining the problem.
 
-== [[overviewEditors]]Overview of the Editors
+=== Set the Cycle Time (DT Input)
 
-Before we test our application, let's briefly summarize the elements we've worked with.
+The `E_CYCLE` block needs a cycle time.
+Set DT to `T#1s` (1 second) using one of these methods:
 
-[cols=",,,",options="header",]
-|===
-|Element |Creation |Editation |Tutorial Name
-|System |new System |only children can be edited |BlinkTest
+* Double-click the DT pin on the left bottom of the `E_CYCLE` block
+* Select DT and change the value in the Properties tab below
 
-|Application |first is automatically generated, furthermore via menu
-|Application Editor |BlinkTestApp
+image:Step1/set_dt.png[Setting the DT value on E_CYCLE]
 
-|System Configuration |automatically generated, only one per system
-|System Configuration Editor |
+NOTE: DT must be set, otherwise `E_CYCLE` does not know how often to fire.
+`T#1s` means "every 1 second".
 
-|Device |System Configuration Editor |System Configuration Editor
-|Testee
+The blink works as follows: when a `START` event arrives at `E_CYCLE.START`, every second `E_CYCLE.EO` fires.
+`E_SWITCH` routes the event to `EO0` when `G=0`, or `EO1` when `G=1`.
+`E_SR` sets its output `Q` to `TRUE` on `S` and `FALSE` on `R`.
+`Q` feeds back to `G`, so `Q` toggles `TRUE`/`FALSE` every second -- blink!
 
-|Resource |System Configuration Editor |Resource Editor |Blinky_RES
-|===
+== [[configureHardware]]Configure the Hardware (System Configuration)
 
-== [[deployingToForte]]Deploying Application to 4diac FORTE
+Double-click [.view4diac]#System Configuration# in the [.view4diac]#System Explorer# to open the System Configuration Editor.
+Use drag-and-drop from the palette to add:
 
-In this step, the Blink application will be deployed to 4diac FORTE running locally on your computer.
+. `FORTE_PC` (a Device) -- represents your local computer
+. `Ethernet` (a Segment) -- the communication medium
 
-. You have to select a 4diac FORTE. +
-You can either build your own 4diac FORTE as xref:../installation/overview.adoc#ownFORTE[shown here] or you can download the 4diac FORTE image that is provided for you for this tutorial on https://eclipse.dev/4diac/4diac_forte/[our Homepage]. 
-You can save the .exe wherever you like, we have chosen `F:\4diac\4diac IDE\`. 
-Go to [.menu4diac]#Windows → Preferences → 4diac IDE → FORTE Preferences#, and in [.addressDoc]#FORTE Location# look for the 4diac FORTE executable and then click _Apply and Close_. +
-image:Step1/selectForte.png[select your 4diac FORTE,width=600]
-. Start Forte locally on your computer and then simply run the program by clicking on the green arrow. (If you don't have a configuration yet, you can edit/create it with run configuration.)
-. The console in 4diac should show the following output:
+Then connect them by dragging from the Device to the Segment. Your mouse cursor has to turn into the shape of a `+` to create connections.
+The device comes with one `EMB_RES` resource already.
+
+Rename the device to _testee_ (double-click the name or use Properties below).
+
+Device and Resource parameters can be set directly on the element or via the [.view4diac]#Properties View# (visible when a Device or Resource is selected in the System Configuration Editor or System Manager View).
+The most important parameters are the *IP address* and *port* of the device management interface, as these are required for communication between 4diac IDE and the device -- for example, to download an IEC 61499 application.
+
+Check that `MGR_ID` is `localhost:61499` (or similar port).
+Check that the Profile is set to `HOLOBLOC` in the Properties tab.
+
+=== [[deviceProfileConfiguration]]Device Profile Configuration
+
+The device profile controls which download mechanism 4diac IDE uses to communicate with your device.
+4diac IDE currently supports two profiles:
+
+* `HOLOBLOC` -- for devices conforming to the _IEC 61499 Compliance Profile for Feasibility Demonstrations_.
+  This includes all `FORTE` devices and `FBDK` devices older than 2009.
+* `FBDK2` -- for FBDK devices version 2 or later.
+
+image:Step1/system_configuration.png[System Configuration with device renamed and properties configured]
+
+Rename the `EMB_RES` resource to _Blinky_RES_ (from the Properties).
+`EMB_RES` stands for Embedded Resource -- it's where your FBs will actually run.
+
+== [[mapNetworks]]Map FBs to the Device/Resource
+
+Go back to the Application Editor (_BlinkyTestApp_).
+Select all three FBs (click + drag or Ctrl+A), then:
+
+[.menu4diac]#right click → Map To... → testee → Blinky_RES#
+
+image:Step1/map_to.png[Mapping FBs to the resource]
+
+After mapping, the FBs change color to match the device color.
+To unmap, right-click a FB → [.menu4diac]#Unmap#.
+
+== [[configureResource]]Configure the Resource (Add START)
+
+Double-click _Blinky_RES_ in the [.view4diac]#System Explorer# (or in System Configuration) to open the Resource Editor.
+You'll see:
+
+* Your mapped FBs (`E_CYCLE`, `E_SWITCH`, `E_SR`)
+* A white `START` block -- the default starter FB of `EMB_RES`
+
+image:Step1/what_is_this.png[Resource Editor showing the START block and mapped FBs]
+
+The `START` block fires the following events:
+
+* `COLD` -- triggered when the PLC starts
+* `WARM` -- triggered when the PLC transitions from a stop state back to a run state
+* `STOP` -- triggered when the PLC is set to a stop state
+
+Connect both `COLD` and `WARM` outputs of `START` to `E_CYCLE.START`.
+
+== [[deployingToForte]]Deploy to 4diac FORTE
+
+Before deploying, point 4diac IDE to the FORTE executable.
+Go to: [.menu4diac]#4diac IDE → Settings → FORTE Preferences#
+
+In [.addressDoc]#FORTE Location#, browse to your `forte` (or `forte.exe` on Windows) file.
+Click _Apply and Close_.
+
+image:Step1/select_4diac_forte2.png[Selecting the FORTE executable,width=600]
+
+. Start 4diac FORTE (run the executable locally)
+. In 4diac IDE, click the green Run/Deploy arrow in the toolbar
+. The Console should show:
 +
 [source,console]
 ----
-<!--  Connected to device: Testee -->
+<!-- Connected to device: testee -->
 <!--  Disconnected from device: Testee -->
 ----
 
+To redeploy, right-click the Blinky_RES in [.view4diac]#System Explorer# → [.menu4diac]#Delete Resource# to wipe it clean, then deploy again.
 
-[.menu4diac]#Delete All Resources# leaves the Device empty, and [.menu4diac]#Kill Device# stops 4diac FORTE. 
-You can deploy again after cleaning the Device.
+image:Step1/delete_resource.png[Delete Resource option in the context menu]
 
-[.menu4diac]#Delete Resource# deletes just the selected resource:
-
-image:Step1/cleanDeviceOrResource.png[Clean Devive or Resource,width=1024]
-
-== [[monitoringApplication]]Monitoring the Application
+== [[monitoringApplication]]Monitor the Application
 
 To observe the outputs of your Application you can use 4diac's monitoring functionality. 
 You can enable it in the Toolbar under the Toolbar icon: image:properties/startMon.gif[Monitoring] or doing the following:
 
 . Change to Debug Perspective using the image:perspective/debugButton.gif[Debug Perspective Button] button.
-. In the System Explorer, right click on the System → Monitor System
+. In the System Explorer, right click on the System → Monitor As → Monitor
 +
-image:Step1/enableMonitoring.png[Resource completely connected]
+image:Step1/monitor_blinky_RES_as.png[Resource completely connected]
 
-A green circle will appear in the system icon indicating that monitoring is enabled for the system. To watch variables, you can:
+A green circle will appear in the system icon indicating that monitoring is enabled for the system.
 
-* Right Click on a [.menu4diac]#FB → Watch All# or
-* Right Click on a [.menu4diac]#Variable → Watch#
-+
-image:Step1/monitoringWatch.png[Resource completely connected]
+Once monitoring is active, you can watch variables in the Resource Editor in two ways:
 
-The Data and Events are monitored. 
-The Data shows the current value and the Events show the times it was triggered. 
-You can watch on the directly on the Element or in the Watches view.
+* Right-click an *FB* → [.menu4diac]#Watch All# to watch all its variables at once.
+* Right-click a *variable or pin* → [.menu4diac]#Toggle Watch# to watch a single value.
 
-Now you can see that _true_ and _false_ alternate. 
-If a controller output were connected, a light would now blink at 1 second intervals. 
+You can also use [.menu4diac]#Force Value...# from the same menu to manually override a value.
 
-image:Step1/monitoringWatching.png[Resource completely connected]
+image:Step1/toggle_watch_element.png[Right-click context menu showing Toggle Watch and Force Value options]
 
-You can force values to data inputs and trigger events by right clicking on it and selecting the corresponding command.
+The watched values appear in the [.view4diac]#Watch# panel on the right.
+You'll see `Q` alternating between `true` and `false` every second -- your light is blinking!
 
-image:Step1/monitoringForceOrTrigger.png[Force value]
+image:Step1/blinking.png[Light Blinking]
+
+You can also trigger events manually by right-clicking on a pin and selecting [.menu4diac]#Trigger Event#.
+
+image:Step1/trigger_event.png[Right-click context menu showing Toggle Watch and Trigger Event options]
+
+== [[overviewEditors]]Quick Reference
+
+[cols=",,",options="header"]
+|===
+|Element |How to Create |Tutorial Name
+
+|System
+|[.menu4diac]#File → New → 4diac IDE Project#
+|BlinkyTest
+
+|Application
+|Auto-generated
+|BlinkyTestApp
+
+|System Configuration
+|Auto-generated (one per system)
+|--
+
+|Device
+|Drag from palette (System Configuration Editor)
+|testee
+
+|Resource
+|System Configuration Editor
+|Blinky_RES
+|===
 
 == Where to go from here?
 
 * Now that you know how to do a centralized solution, let's try and distribute things: +
 xref:./distribute4diac.adoc[Step 2 - Distribute 4diac Applications]
-* If you want to go the back to see an overall overview of 4diac IDE, here's a link +
-xref:./overview.adoc[Step 0 - 4diac IDE Overview] +
-* If you want to go back to the Start Here page, we leave you here a fast access +
+* If you want to go back to see an overall overview of 4diac IDE: +
+xref:./overview.adoc[Step 0 - 4diac IDE Overview]
+* If you want to go back to the Start Here page: +
 xref:../doc_overview.adoc[Where to Start]
 
 link:#top[Go to top]
