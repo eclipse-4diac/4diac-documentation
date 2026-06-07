@@ -42,7 +42,7 @@ After creating the project, the [.view4diac]#System Explorer# on the left shows 
 * *Type Library* -- the Function Block types available in this project
 * *External Libraries* -- shared type libraries
 * *Standard Libraries* -- standard IEC 61499 type libraries provided in 4diac IDE
-* *MANIFEST.MF* -- the Eclipse project manifest
+* *MANIFEST.MF* -- a 4diac IDE project manifest file
 
 image:Step1/SystemExplorer_left.png[System Explorer showing project structure]
 
@@ -183,6 +183,7 @@ image:Step1/select_4diac_forte2.png[Selecting the FORTE executable,width=600]
 [source,console]
 ----
 <!-- Connected to device: testee -->
+<!--  Disconnected from device: Testee -->
 ----
 
 To redeploy, right-click the Blinky_RES in [.view4diac]#System Explorer# → [.menu4diac]#Delete Resource# to wipe it clean, then deploy again.

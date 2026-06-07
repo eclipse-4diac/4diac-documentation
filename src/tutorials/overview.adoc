@@ -69,7 +69,7 @@ Since 4diac IDE is compliant to the IEC 61499 standard, 4diac IDE provides the s
 * *Function Blocks (FBs)*:
 ** image:Step0/Basic%20Function%20Blocks.png[BFB] *Basic FB (BFB)*:
   The foundational blocks where you write actual control logic. Each BFB has an Execution Control Chart (ECC) — a state machine — that determines when its algorithms run. Algorithms are typically written in Structured Text.
-** image:Step0/Basic%20Function%20Blocks.png[BFB] *Simple FB*: A Function Block that contains only one algorithm (same icon as BFB).
+** image:Step0/simple_function_block.png[SFB] *Simple FB (SFB)*: A Function Block that contains only one algorithm.
 ** image:Step0/Composite%20Function%20Blocks.png[CFB] *Composite FB (CFB)*:
    Containers that hold a network of other FBs inside them, with no code of their own.
    Use them to package repetitive logic and keep your main application tidy.
@@ -108,7 +108,7 @@ The [.view4diac]#System perspective# is the default perspective when 4diac IDE o
 It is divided into the following areas:
 
 . *System Management area* (top-left), which contains two tabs:
-  * [.IDEelement]#System Navigator# – for managing IEC 61499-compliant applications and configuring [.element61499]#Devices# and [.element61499]#Resources#.
+  * [.IDEelement]#System Explorer# – for managing IEC 61499-compliant applications and configuring [.element61499]#Devices# and [.element61499]#Resources#.
   * [.IDEelement]#Type Navigator# – lists the available function block library for every [.element61499]#System# as well as the default library.
 . *Editor area* (centre), which hosts the [.IDEelement]#Application editor# for modeling control applications, the [.IDEelement]#System editor# for modeling the [.element61499]#System# configuration, and the [.IDEelement]#Device# and [.IDEelement]#Resource editor# for modeling [.element61499]#Resource# configurations.
 . *Outline* (bottom-left), which provides a structural overview of the currently active editor.
