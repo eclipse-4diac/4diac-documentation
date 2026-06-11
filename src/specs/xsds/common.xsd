@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2026 Johannes Kepler University Linz
+
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Contributors:
+    Alois Zoitl - initial API and implementation and/or initial documentation
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="Identifier">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z]"/>
+  </xs:restriction>
+</xs:simpleType>
+
+
+<xs:simpleType name="PackageName">
+  <xs:restriction base="xs:string">
+    <!-- Regex from Identifier needs to be duplicated as XSD can not refer to it -->
+    <xs:pattern value="([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z])(::([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z]))*"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="ImportDeclaration">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z])(::([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z]))*(::\*)?"/>
+  </xs:restriction>
+</xs:simpleType>
+
+
+<xs:element name="LibraryElement" type="LibraryElement"/>
+<xs:complexType name="LibraryElement">
+  <xs:sequence>
+    <xs:element ref="Identification"  minOccurs="0"/>
+    <xs:element ref="VersionInfo"     minOccurs="1" maxOccurs="unbounded"/>
+    <xs:element ref="CompilerInfo"    minOccurs="0"/>
+    <xs:element ref="Attribute"       minOccurs="0"/>
+  </xs:sequence>
+  <xs:attribute name="Name"    type="Identifier" use="required"/>
+  <xs:attribute name="Comment" type="xs:string"  use="optional"/>
+</xs:complexType>
+
+<xs:element name="Identification">
+  <xs:complexType>
+    <xs:attribute name="Standard"          type="xs:string" use="optional"/>
+    <xs:attribute name="Classification"    type="xs:string" use="optional"/>
+    <xs:attribute name="ApplicationDomain" type="xs:string" use="optional"/>
+    <xs:attribute name="Function"          type="xs:string" use="optional"/>
+    <xs:attribute name="Type"              type="xs:string" use="optional"/>
+    <xs:attribute name="Description"       type="xs:string" use="optional"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="VersionInfo">
+  <xs:complexType>
+    <xs:attribute name="Organization" type="xs:string"        use="required"/>
+    <xs:attribute name="Version"      type="VersionValueType" use="required"/>
+    <xs:attribute name="Author"       type="xs:string"        use="required"/>
+    <xs:attribute name="Date"         type="xs:string"        use="required"/>
+    <xs:attribute name="Remarks"      type="xs:string"        use="optional"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="CompilerInfo">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="Import"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="packageName" type="PackageName" use="optional"/>
+    <xs:attribute name="header"      type="xs:string"   use="optional"/>
+    <xs:attribute name="classdef"    type="xs:string"   use="optional"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="Import">
+  <xs:complexType>
+    <xs:attribute name="declaration" type="ImportDeclaration" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:simpleType name="VersionValueType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[0-9]{1,2}\.[0-9]{1,2}[a-zA-Z]?"/>
+  </xs:restriction>
+</xs:simpleType>
+
+
+<xs:element name="Attribute">
+  <xs:complexType>
+   <xs:attribute name="Name"    type="Identifier"  use="required"/>
+   <xs:attribute name="Value"   type="xs:string"   use="required"/>
+   <xs:attribute name="Type"    type="PackageName" use="optional"/>
+   <xs:attribute name="Comment" type="xs:string"   use="optional"/>
+  </xs:complexType>
+ </xs:element>
+
+</xs:schema>
