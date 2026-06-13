@@ -13,21 +13,25 @@
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-<xs:include schemaLocation="subappnetwork.xsd"/>
+<xs:include schemaLocation="system.xsd"/>
 
-<xs:element name="SubAppType">
+<xs:element name="DeviceType">
   <xs:complexType>
     <xs:complexContent>
       <xs:extension base="LibraryElement">
         <xs:sequence>
-          <xs:element name="SubAppInterfaceList" type="SubAppInterfaceList"/>
-          <xs:element name="SubAppNetwork"       type="SubAppNetwork"/>
-          <xs:element name="Service"             type="Service" minOccurs="0"/>
-          <xs:group ref="AttributeGroup"/>
+          <xs:element ref="VarDeclaration" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ResourceTypeName" type="ResourceTypeName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Resource"         type="Resource"         minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="DataConnections"  type="DataConnections"  minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
 </xs:element>
+
+<xs:complexType name="ResourceTypeName">
+  <xs:attribute name="Name" type="ImportDeclaration  " use="required"/>
+</xs:complexType>
 
 </xs:schema>
