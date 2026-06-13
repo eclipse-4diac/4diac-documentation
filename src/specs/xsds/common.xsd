@@ -39,10 +39,8 @@
     <xs:element name="Identification" type="Identification" minOccurs="0"/>
     <xs:element name="VersionInfo"    type="VersionInfo"    minOccurs="1" maxOccurs="unbounded"/>
     <xs:element name="CompilerInfo"   type="CompilerInfo"   minOccurs="0"/>
-    <xs:group ref="AttributeGroup"/>
   </xs:sequence>
-  <xs:attribute name="Name"    type="Identifier" use="required"/>
-  <xs:attribute name="Comment" type="xs:string"  use="optional"/>
+  <xs:attributeGroup ref="NameCommentAttributes"/>
 </xs:complexType>
 
 <xs:complexType name="Identification">
@@ -81,11 +79,15 @@
   </xs:restriction>
 </xs:simpleType>
 
-<xs:complexType name="Attribute">
-  <xs:attribute name="Name"    type="Identifier"  use="required"/>
-  <xs:attribute name="Value"   type="xs:string"   use="required"/>
-  <xs:attribute name="Type"    type="PackageName" use="optional"/>
-  <xs:attribute name="Comment" type="xs:string"   use="optional"/>
+<xs:complexType name='Attribute'>
+  <xs:simpleContent>
+    <xs:extension base="xs:string">  <!-- Attributes with Type="CDATA" may have string content instead of value -->
+      <xs:attribute name="Name"    type="PackageName" use="required"/> <!-- For references to attribute declarations full qualified type name may be used -->
+      <xs:attribute name="Type"    type="PackageName" use="optional"/> <!-- For references to attribute declarations type may be omitted -->
+      <xs:attribute name='Value'   type='xs:string'   use='optional'/> <!-- Only optional for attributes with Type="CDATA" and string child content -->
+      <xs:attribute name="Comment" type="xs:string"   use="optional"/>
+    </xs:extension>
+  </xs:simpleContent>
 </xs:complexType>
 
 <xs:group name="AttributeGroup">
@@ -93,5 +95,26 @@
     <xs:element name="Attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded"/>
   </xs:sequence>
 </xs:group>
+
+<xs:attributeGroup name="NameCommentAttributes">
+  <xs:attribute name="Name"    type="Identifier" use="required"/>
+  <xs:attribute name="Comment" type="xs:string"  use="optional"/>
+</xs:attributeGroup>
+
+<xs:attributeGroup name="NameTypeCommentAttributes">
+  <xs:attribute name="Type" type="PackageName" use="required"/>
+  <xs:attributeGroup ref="NameCommentAttributes"/>
+</xs:attributeGroup>
+
+<xs:simpleType name="Coordinate">
+  <xs:restriction base="xs:decimal">
+    <xs:fractionDigits value="2"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:attributeGroup name="PositionAttributes">
+  <xs:attribute name="x" type="Coordinate" use="optional"/>
+  <xs:attribute name="y" type="Coordinate" use="optional"/>
+</xs:attributeGroup>
 
 </xs:schema>
