@@ -15,11 +15,22 @@
 
 <xs:include schemaLocation="common.xsd"/>
 
+<xs:complexType name="FBNetwork">
+  <xs:sequence>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CommonFBNetworkElements"/>
+    </xs:choice>
+    <xs:element name="EventConnections"   type="EventConnections"   minOccurs="0"/>
+    <xs:element name="DataConnections"    type="DataConnections"    minOccurs="0"/>
+    <xs:element name="AdapterConnections" type="AdapterConnections" minOccurs="0"/>
+  </xs:sequence>
+</xs:complexType>
+
 <xs:group name="CommonFBNetworkElements">
   <xs:choice>
-    <xs:element name="FB" type="FB"/>
+    <xs:element name="FB"      type="FB"/>
     <xs:element name="Comment" type="Comment"/>
-    <xs:element name="Group" type="Group"/>
+    <xs:element name="Group"   type="Group"/>
   </xs:choice>
 </xs:group>
 
