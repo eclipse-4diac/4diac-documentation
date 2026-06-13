@@ -15,19 +15,22 @@
 
 <xs:include schemaLocation="subappnetwork.xsd"/>
 
-<xs:element name="SubAppType">
+<xs:element name="ResourceType">
   <xs:complexType>
     <xs:complexContent>
       <xs:extension base="LibraryElement">
         <xs:sequence>
-          <xs:element name="SubAppInterfaceList" type="SubAppInterfaceList"/>
-          <xs:element name="SubAppNetwork"       type="SubAppNetwork"/>
-          <xs:element name="Service"             type="Service" minOccurs="0"/>
-          <xs:group ref="AttributeGroup"/>
+          <xs:element name="FBTypeName"    type="FBTypeName"    minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="VarDeclaration" minOccurs="0"        maxOccurs="unbounded"/>
+          <xs:element name="SubAppNetwork" type="SubAppNetwork" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
 </xs:element>
+
+<xs:complexType name="FBTypeName">
+  <xs:attribute name="Name" type="xs:string" use="required"/>
+</xs:complexType>
 
 </xs:schema>
