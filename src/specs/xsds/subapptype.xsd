@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2026 Johannes Kepler University Linz
+
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Contributors:
+    Alois Zoitl - initial API and implementation and/or initial documentation
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="block-common.xsd"/>
+<xs:include schemaLocation="fbnetwork.xsd"/>
+
+<xs:element name="SubAppType">
+  <xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="LibraryElement">
+        <xs:sequence>
+          <xs:element name="SubAppInterfaceList" type="SubAppInterfaceList"/>
+          <xs:element name="SubAppNetwork"       type="SubAppNetwork"/>
+          <xs:element name="Service"             type="Service" minOccurs="0"/>
+          <xs:group ref="AttributeGroup"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:element>
+
+
+<xs:complexType name="SubAppInterfaceList">
+  <xs:sequence>
+    <xs:element name="SubAppEventInputs"  type="SubAppEventInputs"  minOccurs="0" maxOccurs="1"/>
+    <xs:element name="SubAppEventOutputs" type="SubAppEventOutputs" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="InputVars"          type="InputVars"          minOccurs="0" maxOccurs="1"/>
+    <xs:element name="OutputVars"         type="OutputVars"         minOccurs="0" maxOccurs="1"/>
+    <xs:element name="InOutVars"          type="InOutVars"          minOccurs="0" maxOccurs="1"/>
+    <xs:element name="Sockets"            type="Sockets"            minOccurs="0" maxOccurs="1"/>
+    <xs:element name="Plugs"              type="Plugs"              minOccurs="0" maxOccurs="1"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SubAppEventInputs">
+  <xs:sequence>
+    <xs:element name="SubAppEvent" type="SubAppEvent" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SubAppEventOutputs">
+  <xs:sequence>
+    <xs:element name="SubAppEvent" type="SubAppEvent" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SubAppEvent">
+  <xs:attributeGroup ref="NameTypeCommentAttributes"/>
+</xs:complexType>
+
+<xs:complexType name="SubAppNetwork">
+  <xs:sequence>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CommonFBNetworkElements"/>
+      <xs:element name="SubApp" type="SubApp"/>
+    </xs:choice>
+    <xs:element name="EventConnections"   type="EventConnections"   minOccurs="0"/>
+    <xs:element name="DataConnections"    type="DataConnections"    minOccurs="0"/>
+    <xs:element name="AdapterConnections" type="AdapterConnections" minOccurs="0"/>
+  </xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="SubApp">
+  <xs:annotation>
+    <xs:documentation>
+      Constraint: Type and the children SubAppInterfaceList and SubAppNetwork are mutaly exclusive.
+    </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+    <xs:element name="SubAppInterfaceList" type="SubAppInterfaceList"/>
+    <xs:element name="SubAppNetwork"       type="SubAppNetwork"/>
+  </xs:sequence>
+  <xs:attributeGroup ref="NameCommentAttributes"/>
+  <xs:attributeGroup ref="PositionAttributes"/>
+  <xs:attribute name="Type" type="xs:string" use="optional"/>
+</xs:complexType>
+
+</xs:schema>
