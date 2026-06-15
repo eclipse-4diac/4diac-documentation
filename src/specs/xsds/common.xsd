@@ -34,55 +34,46 @@
 </xs:simpleType>
 
 
-<xs:element name="LibraryElement" type="LibraryElement"/>
-<xs:complexType name="LibraryElement">
+<xs:complexType name="LibraryElement"  abstract="true">
   <xs:sequence>
-    <xs:element ref="Identification"  minOccurs="0"/>
-    <xs:element ref="VersionInfo"     minOccurs="1" maxOccurs="unbounded"/>
-    <xs:element ref="CompilerInfo"    minOccurs="0"/>
-    <xs:element ref="Attribute"       minOccurs="0"/>
+    <xs:element name="Identification" type="Identification" minOccurs="0"/>
+    <xs:element name="VersionInfo"    type="VersionInfo"    minOccurs="1" maxOccurs="unbounded"/>
+    <xs:element name="CompilerInfo"   type="CompilerInfo"   minOccurs="0"/>
+    <xs:group ref="AttributeGroup"/>
   </xs:sequence>
   <xs:attribute name="Name"    type="Identifier" use="required"/>
   <xs:attribute name="Comment" type="xs:string"  use="optional"/>
 </xs:complexType>
 
-<xs:element name="Identification">
-  <xs:complexType>
-    <xs:attribute name="Standard"          type="xs:string" use="optional"/>
-    <xs:attribute name="Classification"    type="xs:string" use="optional"/>
-    <xs:attribute name="ApplicationDomain" type="xs:string" use="optional"/>
-    <xs:attribute name="Function"          type="xs:string" use="optional"/>
-    <xs:attribute name="Type"              type="xs:string" use="optional"/>
-    <xs:attribute name="Description"       type="xs:string" use="optional"/>
-  </xs:complexType>
-</xs:element>
+<xs:complexType name="Identification">
+  <xs:attribute name="Standard"          type="xs:string" use="optional"/>
+  <xs:attribute name="Classification"    type="xs:string" use="optional"/>
+  <xs:attribute name="ApplicationDomain" type="xs:string" use="optional"/>
+  <xs:attribute name="Function"          type="xs:string" use="optional"/>
+  <xs:attribute name="Type"              type="xs:string" use="optional"/>
+  <xs:attribute name="Description"       type="xs:string" use="optional"/>
+</xs:complexType>
 
-<xs:element name="VersionInfo">
-  <xs:complexType>
-    <xs:attribute name="Organization" type="xs:string"        use="required"/>
-    <xs:attribute name="Version"      type="VersionValueType" use="required"/>
-    <xs:attribute name="Author"       type="xs:string"        use="required"/>
-    <xs:attribute name="Date"         type="xs:string"        use="required"/>
-    <xs:attribute name="Remarks"      type="xs:string"        use="optional"/>
-  </xs:complexType>
-</xs:element>
+<xs:complexType name="VersionInfo">
+  <xs:attribute name="Organization" type="xs:string"        use="required"/>
+  <xs:attribute name="Version"      type="VersionValueType" use="required"/>
+  <xs:attribute name="Author"       type="xs:string"        use="required"/>
+  <xs:attribute name="Date"         type="xs:string"        use="required"/>
+  <xs:attribute name="Remarks"      type="xs:string"        use="optional"/>
+</xs:complexType>
 
-<xs:element name="CompilerInfo">
-  <xs:complexType>
-    <xs:sequence>
-      <xs:element ref="Import"  minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-    <xs:attribute name="packageName" type="PackageName" use="optional"/>
-    <xs:attribute name="header"      type="xs:string"   use="optional"/>
-    <xs:attribute name="classdef"    type="xs:string"   use="optional"/>
-  </xs:complexType>
-</xs:element>
+<xs:complexType name="CompilerInfo">
+  <xs:sequence>
+    <xs:element name="Import" type="Import"  minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+  <xs:attribute name="packageName" type="PackageName" use="optional"/>
+  <xs:attribute name="header"      type="xs:string"   use="optional"/>
+  <xs:attribute name="classdef"    type="xs:string"   use="optional"/>
+</xs:complexType>
 
-<xs:element name="Import">
-  <xs:complexType>
-    <xs:attribute name="declaration" type="ImportDeclaration" use="required"/>
-  </xs:complexType>
-</xs:element>
+<xs:complexType name="Import">
+  <xs:attribute name="declaration" type="ImportDeclaration" use="required"/>
+</xs:complexType>
 
 <xs:simpleType name="VersionValueType">
   <xs:restriction base="xs:string">
@@ -90,14 +81,17 @@
   </xs:restriction>
 </xs:simpleType>
 
+<xs:complexType name="Attribute">
+  <xs:attribute name="Name"    type="Identifier"  use="required"/>
+  <xs:attribute name="Value"   type="xs:string"   use="required"/>
+  <xs:attribute name="Type"    type="PackageName" use="optional"/>
+  <xs:attribute name="Comment" type="xs:string"   use="optional"/>
+</xs:complexType>
 
-<xs:element name="Attribute">
-  <xs:complexType>
-   <xs:attribute name="Name"    type="Identifier"  use="required"/>
-   <xs:attribute name="Value"   type="xs:string"   use="required"/>
-   <xs:attribute name="Type"    type="PackageName" use="optional"/>
-   <xs:attribute name="Comment" type="xs:string"   use="optional"/>
-  </xs:complexType>
- </xs:element>
+<xs:group name="AttributeGroup">
+  <xs:sequence>
+    <xs:element name="Attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:group>
 
 </xs:schema>
