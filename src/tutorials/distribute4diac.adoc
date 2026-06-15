@@ -46,7 +46,7 @@ To count the blinking, we need to add 2 new Function Blocks (FBs) to the existin
 
 Remember, Event and Data connections can not be mixed.
 
-image:Step2/counterFBs.png[architecture for the current step]
+image:Step2/insert_new_fbs.png[architecture for the current step]
 
 == [[AddAnotherDevice]]Add Another Device
 
@@ -59,12 +59,12 @@ The counter will run on the new device.
   The devices need to have different localhosts, they can not have the same one.
 . Rename the resource to *Counter_RES*.
 
-image:Step2/addAnotherDevice.png[Add another device to the system]
+image:Step2/add_new_device.png[Add another device to the system]
 
 Change back to the _BlinkTestApp_ Application Editor and map the two new FBs to the Resource _Counter_RES_. 
 You can see the dashed connections between the two devices.
 
-image:Step2/mapToCounter.png[Mapping of Function Block Instances within the Application Editor]
+image:Step2/map_new_fbs.png[Mapping of Function Block Instances within the Application Editor]
 
 == [[SetUpCommunication]]Set up the Communication Between Both Devices
 
@@ -75,7 +75,8 @@ Currently they have no opportunity to communicate with each other.
 We fix it by adding special Communications FBs. 
 You can find more information about broken connections xref:../intro/iec61499.adoc#brokenConnection[here on our Homepage].
 
-image:Step2/incompleteFBs.png[incomplete FBs show die broken connection between two devices]
+image:Step2/blinky_res_editor.png[incomplete FBs show die broken connection between two devices]
+image:Step2/counter_res_editor.png[incomplete FBs show die broken connection between two devices]
 
 === [[SetUpBlinking]]Set up the Blinking Part of the Application
 
@@ -84,9 +85,9 @@ Change to the _Testee.Blinky_RES_ Resource Editor.
 Drag and Drop a *PUBLISH_1* FB from the folder net of the Palette and set up the connections. 
 The PUBLISH FB must be initialized, so it is best to connect its INIT event directly to the START.
 
-image:Step2/blinkyResourceComplete.png[Blinky_RES completely connected]
+image:Step2/insert_publish_fb.png[Blinky_RES completely connected]
 
-Set the `QI` value to `1` and the set the `ID` input data of the `PUBLISH_COUNT` FB to `239.0.0.1:61000`.
+Set the `QI` value to `1` and the set the `ID` input data of the `PUBLISH_COUNT` FB to `"239.0.0.1:61000"`.
 
 === [[SetUpCounting]]Set up the Counting Part of the Application
 
@@ -95,9 +96,9 @@ Change to the `Counter.Counter_RES` Resource Editor.
 Drag and Drop a *SUBSCRIBE_1* FB from the folder net of the Palette and set up the connections. 
 The SUBSCRIBE FB must also be initialized.
 
-image:Step2/counterResourceComplete.png[Counter_RES completely connected]
+image:Step2/insert_subscribe_fb.png[Counter_RES completely connected]
 
-Set the `QI` value to `1` and the set the `ID` input data of the `SUBSCRIBE_COUNT` FB to `239.0.0.1:61000`.
+Set the `QI` value to `1` and the set the `ID` input data of the `SUBSCRIBE_COUNT` FB to `"239.0.0.1:61000"`.
 
 === [[BackgroundCommunicationFBs]]Background of the Communication FBs
 
