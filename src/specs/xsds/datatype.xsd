@@ -34,8 +34,7 @@
   </xs:complexType>
 </xs:element>
 
-<xs:element name="UserDefinedDataType" type="UserDefinedDataType"/>
-<xs:complexType name="UserDefinedDataType">
+<xs:complexType name="UserDefinedDataType"  abstract="true">
   <xs:attribute name="InitialValue" type="xs:string" use="optional"/>
   <xs:attribute name="Comment"      type="xs:string" use="optional"/>
 </xs:complexType>
@@ -54,7 +53,7 @@
   <xs:complexContent>
     <xs:extension base="UserDefinedDataType">
       <xs:sequence>
-        <xs:element ref="EnumeratedValue" maxOccurs="unbounded"/>
+        <xs:element name="EnumeratedValue" type="EnumeratedValue" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:extension>
   </xs:complexContent>
@@ -65,7 +64,7 @@
   <xs:complexContent>
     <xs:extension base="UserDefinedDataType">
       <xs:sequence>
-        <xs:element ref="Subrange"/>
+        <xs:element name="Subrange" type="Subrange"/>
       </xs:sequence>
       <xs:attribute name="BaseType" type="SubrangeBaseType" use="required"/>
     </xs:extension>
@@ -77,7 +76,7 @@
   <xs:complexContent>
     <xs:extension base="UserDefinedDataType">
       <xs:sequence>
-        <xs:element ref="Subrange" maxOccurs="unbounded"/>
+        <xs:element name="Subrange" type="Subrange" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute name="BaseType" type="PackageName" use="required"/>
     </xs:extension>
@@ -93,13 +92,11 @@
   <xs:attribute name="Comment" type="xs:string" use="optional"/>
 </xs:complexType>
 
-<xs:element name="EnumeratedValue" type="EnumeratedValue"/>
 <xs:complexType name="EnumeratedValue">
   <xs:attribute name="Name"    type="Identifier" use="optional"/>
   <xs:attribute name="Comment" type="xs:string"  use="optional"/>
 </xs:complexType>
 
-<xs:element name="Subrange" type="Subrange"/>
 <xs:complexType name="Subrange">
   <xs:attribute name="LowerLimit" type="xs:integer" use="required"/>
   <xs:attribute name="UpperLimit" type="xs:integer" use="required"/>
@@ -120,7 +117,7 @@
   <xs:complexContent>
     <xs:extension base="UserDefinedDataType">
       <xs:sequence>
-        <xs:element ref="Subrange"  maxOccurs="unbounded"/>
+        <xs:element name="Subrange" type="Subrange" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute name="Name" type="Identifier"       use="required"/>
       <xs:attribute name="Type" type="SubrangeBaseType" use="required"/>
