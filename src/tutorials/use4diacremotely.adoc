@@ -45,14 +45,15 @@ image:Step3/remoteArchitecture.png[architecture for the current step]
   To do this, delete the _testee FORTE_PC_ and pull in the new matching device from the Palette and connect it to the network (map, insert communication FB and connect) +
   In our example the device IP address is 192.168.0.8, you may have another one. 
   The port is 61499 by default. +
-  image:Step3/deviceAddress.png[changing the device address]
-. Switch to Deployment Perspective set the port to 61500.
+  image:Step3/testee_ip.png[changing the device address]
+. Stay in System (default) perspective (that’s the 4diac main view).
 . Launch Local Forte
 . Run 4diac FORTE on the device. 
   This depends on the device you are using. 
   Normally it has some type of Terminal or FTP that you can access and launch the executable.
 . Select both devices (i.e., Counter and Testee) in the Deployment Selection
-. Click the [.button4diac]#Deploy# button 
+. Right‑click one of the devices → Run As → [.button4diac]#Deploy# 
+image:Step3/deploy_devices.png[Deploy]
 . Check that the _Deployment Console_ shows some output, and that no red warning appears on the right nor left of it. 
   If you get something red, something went wrong. +
   If an _download error message_ pops up something went wrong too. 
@@ -61,9 +62,9 @@ image:Step3/remoteArchitecture.png[architecture for the current step]
 * the firewall is blocking
 * 4diac FORTE does not run on the external device +
   Here is an example of an error message +
-  image:Step3/downloadError.png[Major Download Error pop-up]
+  image:Step3/error.png[Major Download Error pop-up]
 . You can activate the monitor system and watch the project. Now you can
-see that _true_ and __false__alternate as before.
+see that _true_ and __false__ alternate as before.
 
 == Troubleshooting
 
