@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2026 Johannes Kepler University Linz
+
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Contributors:
+    Alois Zoitl - initial API and implementation and/or initial documentation
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="subappnetwork.xsd"/>
+
+<xs:element name="ResourceType">
+  <xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="LibraryElement">
+        <xs:sequence>
+          <xs:element name="FBTypeName"    type="FBTypeName"    minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="VarDeclaration" minOccurs="0"        maxOccurs="unbounded"/>
+          <xs:element name="SubAppNetwork" type="SubAppNetwork" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:element>
+
+<xs:complexType name="FBTypeName">
+  <xs:attribute name="Name" type="xs:string" use="required"/>
+</xs:complexType>
+
+</xs:schema>
