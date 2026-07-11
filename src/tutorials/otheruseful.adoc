@@ -42,7 +42,7 @@ If 4diac IDE is already running, you can switch the workspace via [.menu4diac]#F
 *Open the import wizard.*
 Go to [.menu4diac]#File → Import…#, then select [.menu4diac]#General → Existing Projects into Workspace# and click Next.
 
-image:/Users/eirini/Documents/GitHub/4diac-documentation/src/tutorials/img/ExistingProjectsIntoWorkspace.png[Existing projects into workspace]
+image:ExistingProjectsIntoWorkspace.png[Existing projects into workspace]
 
 *Select the folder that contains your system.*
 In the Import Projects dialog, next to _Select root directory_, click [.button4diac]#Browse…# and navigate to the folder that contains your project.
@@ -56,10 +56,10 @@ Click [.button4diac]#Finish# to import.
 
 CAUTION: If you do not enable _Copy projects into workspace_ and later delete the system from the IDE, the original project on disk is deleted as well.
 
-image:/Users/eirini/Documents/GitHub/4diac-documentation/src/tutorials/img/ImportProjects.png[Import projects]
+image:ImportProjects.png[Import projects]
 
 *Check that the system imported correctly.*
-  In the [.view4diac]#System Explorer#, open your system and verify that the System Configuration is present with its Devices and Resources, and that the Application view shows the Function Blocks with their event and data connections.
+In the [.view4diac]#System Explorer#, open your system and verify that the System Configuration is present with its Devices and Resources, and that the Application view shows the Function Blocks with their event and data connections.
 
 == [[ImportType]]Import Existing IEC 61499 Types
 
@@ -91,7 +91,7 @@ One boot-file is created for each selected device.
 *Choose the destination folder.*
 Next to [.element4diac]#Destination#, click [.button4diac]#Browse...# and select the folder where the boot-files should be stored.
 
-image:/Users/eirini/Documents/GitHub/4diac-documentation/src/tutorials/img/CreateForteBootFilesWizard.png[Create forte boot files]
+image:CreateForteBootFilesWizard.png[Create forte boot files]
 
 *Generate the boot-files.*
 Click [.button4diac]#Finish#.
@@ -102,7 +102,7 @@ Because only the selected resources are included, you can keep additional resour
 The generated file name is a combination of the system name and the device name with the extension `.fboot`.
 Before using it for startup loading, rename this file to `forte.fboot` and place it in the same directory as the 4diac FORTE executable.
 
-image:/Users/eirini/Documents/GitHub/4diac-documentation/src/tutorials/img/fbootFile.png[Boot file]
+image:fbootFile.png[Boot file]
 
 == Where to go from here?
 
