@@ -17,7 +17,34 @@ Replay Debugging is a powerful tool that allows you to record the execution of y
 Tracing information is already available in 4diac FORTE. However, the current implementation traces a lot of information. Basically, it traces all events, data and also internal data from the function block.
 
 To avoid the overhead of tracing all this information, 4diac FORTE has been extended to support a replay debugging mode. In this mode, only the output events of Service Function Blocks and their related data are traced.
-In a later stage, the rest of the information is generated using a replay algorithm.
+In a later stage, the rest of the information is generated in 4diac IDE using a replay algorithm.
+
+== [[Usage]] Usage
+
+=== [[GenerateTraces]] Generate Traces
+To enable the replay debugging capability, 4diac FORTE must be compiled with the `FORTE_TRACE_CTF` and `FORTE_TRACE_CTF_REPLAY_DEBUGGING` flags enabled.
+This will enable the tracing of the output events of Service Function Blocks and their related data.
+
+When executing 4diac FORTE, provide the `-t FOLDER` flag, where FOLDER is the path where traces will be saved. 
+
+NOTE: FOLDER must exist before executing the command for the traces to be saved.
+
+After the traces are generated, make sure you copy the file from `src/core/trace/replay_debugging/generated/metadata` into FOLDER.
+
+=== [[ReplayGUI]] Start replay debugging in 4diac IDE
+In 4diac IDE, create a new debug configuration of type Replay Debugging, select the resources in the devices that you want to replay debug, and set the path to the FOLDER where the traces are stored. Whenever you select or deselect a device to be replayed (fully or partially), extra fields appear or disappear to set the trace path and remote configurations for each device.
+
+image:replayDebuggingConfigurationTab.png[Example of a Replay Debugging configuration tab]
+
+NOTE: The Remote checkbox is used for the replay algorithm present in 4diac FORTE. This feature is deprecated and should not be used.
+
+NOTE: The trace path can be left empty, which offers the functionality to manually execute the resources by triggering events as you normally do when monitoring a system, without any previous information from traces.
+
+Start the debug configuration. 4diac IDE will load the traces from the provided paths and generate all the data for replay debugging. Open the Replay Debugging view if not already present (Window -> Show View -> Other... -> Other -> Replay Debugging).
+
+The view will show a timeline for each resource. A timeline is a series of steps that occurred while the system was running. Each step represents a new state of the resource and they usually represent a new event being triggered in the resource, but it is not restricted to it. This state of the resource at a given step is seen in the application view, when the watch feature is used as usual. That is, changing the current step in the timeline view will update the state seen in the applicaiton view.
+
+image:replayDebuggingApplication.png[View of an application being replayed]
 
 == [[Implementation]] Implementation
 
@@ -37,32 +64,6 @@ The tests are located link:https://github.com/eclipse-4diac/4diac-forte/blob/dev
 
 The used scenarios come from the reference examples in the link:https://github.com/eclipse-4diac/4diac-examples/tree/master/compliance_tests[example repository]
 
-== [[Usage]] Usage
-
-=== [[GenerateTraces]] Generate Traces
-To enable the replay debugging capability, 4diac FORTE must be compiled with the `FORTE_TRACE_CTF` and `FORTE_TRACE_CTF_REPLAY_DEBUGGING` flags enabled.
-This will enable the tracing of the output events of Service Function Blocks and their related data.
-
-When executing 4diac FORTE, provide the `-t FOLDER` flag, where FOLDER is the path where traces will be saved. 
-
-NOTE: FOLDER must exist before executing the command for the traces to be saved.
-
-After the traces are generated, make sure you copy the file from `src/core/trace/replay_debugging/generated/metadata` into FOLDER.
-
-=== [[ReplayGUI]] Start replay debugging in 4diac IDE
-In 4diac IDE, create a new debug configuration of type Replay Debugging, select the resources in the devices that you want to replay debug, and set the path to the FOLDER where the traces are stored. Whenever you select or deselect a device to be replayed (fully or partially), extra fields appear or disappear to set the trace path and remote configurations. Each device requires its own path to traces.
-
-image:replayDebuggingConfigurationTab.png[Example of a Replay Debugging configuration tab]
-
-NOTE: The Remote checkbox is used to use the replay algorithm present in 4diac FORTE. This feature is deprecated and should not be used.
-
-NOTE: The trace path can be left empty, which offers the functionality to manually execute the resources by triggering events as you normally do when monitoring a system, without any previous information from traces.
-
-Start the debug configuration. 4diac IDE will load the traces from the provided paths and generate all the data for replay debugging. Open the Replay Debugging view if not already present (Window -> Show View -> Other... -> Other -> Replay Debugging).
-
-The view will show a timeline of events for each resource. In the application, toggle the watches you want to observe as usual, and the shown values will change according to the position of the timeline.
-
-image:replayDebuggingApplication.png[View of an application being replayed]
 
 == Where to go from here?
 
