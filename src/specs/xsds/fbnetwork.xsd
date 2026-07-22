@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2026 Johannes Kepler University Linz
+
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Contributors:
+    Alois Zoitl - initial API and implementation and/or initial documentation
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="common.xsd"/>
+
+<xs:complexType name="FBNetwork">
+  <xs:sequence>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CommonFBNetworkElements"/>
+    </xs:choice>
+    <xs:element name="EventConnections"   type="EventConnections"   minOccurs="0"/>
+    <xs:element name="DataConnections"    type="DataConnections"    minOccurs="0"/>
+    <xs:element name="AdapterConnections" type="AdapterConnections" minOccurs="0"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:group name="CommonFBNetworkElements">
+  <xs:choice>
+    <xs:element name="FB"      type="FB"/>
+    <xs:element name="Comment" type="Comment"/>
+    <xs:element name="Group"   type="Group"/>
+  </xs:choice>
+</xs:group>
+
+<xs:complexType name="FB">
+  <xs:sequence>
+    <xs:group ref="ParameterAttributeGroup"/>
+  </xs:sequence>
+  <xs:attributeGroup ref="NameTypeCommentAttributes"/>
+  <xs:attributeGroup ref="PositionAttributes"/>
+</xs:complexType>
+
+<xs:complexType name="Comment">
+  <xs:attribute name="Comment" type="xs:string"  use="optional"/>
+  <xs:attributeGroup ref="PositionAttributes"/>
+  <xs:attribute name="width"   type="Coordinate" use="optional"/>
+  <xs:attribute name="height"  type="Coordinate" use="optional"/>
+</xs:complexType>
+
+<xs:complexType name="Group">
+  <xs:attributeGroup ref="NameCommentAttributes"/>
+  <xs:attributeGroup ref="PositionAttributes"/>
+  <xs:attribute name="width"   type="Coordinate" use="optional"/>
+  <xs:attribute name="height"  type="Coordinate" use="optional"/>
+  <xs:attribute name="locked"  type="xs:boolean" use="optional"/>
+</xs:complexType>
+
+<xs:complexType name="EventConnections">
+  <xs:sequence>
+    <xs:element name="Connection" type="Connection" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DataConnections">
+  <xs:sequence>
+    <xs:element name="Connection" type="Connection" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AdapterConnections">
+  <xs:sequence>
+    <xs:element name="Connection" type="Connection" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Connection">
+  <xs:sequence>
+    <xs:group ref="AttributeGroup"/>
+  </xs:sequence>
+  <xs:attribute name="Source"      type="xs:string"  use="required"/>
+  <xs:attribute name="Destination" type="xs:string"  use="required"/>
+  <xs:attribute name="Comment"     type="xs:string"  use="optional"/>
+  <xs:attribute name="dx1"         type="Coordinate" use="optional"/>
+  <xs:attribute name="dx2"         type="Coordinate" use="optional"/>
+  <xs:attribute name="dy"          type="Coordinate" use="optional"/>
+</xs:complexType>
+
+
+</xs:schema>
