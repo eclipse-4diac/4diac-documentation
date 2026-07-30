@@ -1,0 +1,334 @@
+---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
+title: "Type Management Refactoring Test Suite"
+url: doc/development/typemanagementtests.html
+page_css_file: /4diac/css/4diac_doc.css
+sidebar:
+  - sb-doc
+---
+
+= Type Management Refactoring Test Suite
+:lang: en
+:imagesdir: img/TypeManagementTests
+
+* link:#WhatIsTested[What the suite covers]
+* link:#Location[Where the tests are located]
+* link:#Harness[The RefactoringTestSupport harness]
+* link:#Fixtures[Fixture convention]
+* link:#Lifecycle[Test lifecycle]
+* link:#Assertions[Assertion approach]
+* link:#Execute[Execute the tests]
+* link:#AddNewTest[Add a new test]
+* link:#RegressionCheck[Check that a new test catches a regression]
+* link:#Coverage[Coverage by area]
+
+== [[WhatIsTested]]What the suite covers
+
+The suite drives the type management refactorings of 4diac IDE: renaming, moving and deleting a struct data type or a function block type, and renaming a single model element such as a struct member. Each case also covers the undo and redo, and the condition checks that reject an invalid rename.
+
+The tests are headless. They call the Eclipse LTK refactoring framework directly and read the resulting EMF model, so no workbench is started and no widget is driven. The UI tests of 4diac IDE are different. They use SWTBot, live in a separate bundle, and are described in xref:./swtbottestsdocumentation.adoc[SWTBot Tests Documentation].
+
+The production code under test is the plug-in *_org.eclipse.fordiac.ide.typemanagement_*, in the package *_org.eclipse.fordiac.ide.typemanagement.refactoring_*.
+
+== [[Location]]Where the tests are located
+
+The tests live in the bundle `tests/org.eclipse.fordiac.ide.typemanagement.tests`. Everything sits in one source package, *_org.eclipse.fordiac.ide.typemanagement.tests_*. It holds the test classes, the shared harness *RefactoringTestSupport*, the fixture constant classes, and the two path helpers *StandardLibrary* and *TestRepositoryPaths*.
+
+image::TestBundleOverview.png[Test bundle package overview,width=1000]
+
+The fixture projects sit under `data/`. `build.properties` lists that folder in `bin.includes`, so the fixtures ship with the bundle and resolve from it at runtime. `build.properties` also sets `pom.model.packaging = eclipse-test-plugin`, and the bundle is listed in `tests/.polyglot.pom.tycho`, so Tycho picks it up as a test module of the reactor build.
+
+== [[Harness]]The RefactoringTestSupport harness
+
+*RefactoringTestSupport* is a final class with static methods only. A test class calls it for three things: workspace setup, running a refactoring, and walking to an FB instance.
+
+=== [[HarnessWorkspace]]Workspace setup
+
+`importProjectIntoWorkspace(String projectName, String bundleRelativePath)`::
+Removes any project or leftover directory of the same name, then copies the fixture directory at the given bundle-relative path into the workspace root under `projectName`. It loads the `.project` description, creates, opens and refreshes the project, and returns the `IProject`. The copy matters because a refactoring rewrites type files, and the fixture committed with the bundle has to stay unchanged.
+
+`+linkStandardLibraries(IProject project, String... libraryNames)+`::
+Creates the virtual folders named by `TypeLibraryTags.STANDARD_LIB_FOLDER_NAME` and `TypeLibraryTags.EXTERNAL_LIB_FOLDER_NAME` if they are missing, then imports each named library through `LibraryManager.INSTANCE.importLibrary`. It then drops the project from `TypeLibraryManager` and refreshes its type library, so the `.sys` file re-parses with the libraries in scope.
+
+`deleteProject(IProject project)`::
+Drops the project from `TypeLibraryManager` and deletes it from the workspace.
+
+=== [[HarnessRefactorings]]Running a refactoring
+
+`performRename(IFile file, String newName)`::
+Renames a type file through a `RenameResourceDescriptor`.
+
+`performMove(IFile file, IContainer destination)`::
+Moves a type file through a `MoveResourcesDescriptor`.
+
+`performDelete(IFile file)`::
+Deletes a type file through a `DeleteResourcesDescriptor`.
+
+`performElementRename(URI elementURI, String newName)`::
+Renames the model element with the given URI, a struct member for example, through `RenameElementRefactoringProcessor`, which is the processor behind the Rename Element command, driven here without its wizard.
+
+All four return the undo `Change` of the refactoring, and all four go through the same private method. That method wraps a `CreateChangeOperation`, with `RefactoringStatus.FATAL` as its stop severity, in a `PerformChangeOperation`. It registers the change with `RefactoringCore.getUndoManager()` and runs the whole thing as a workspace operation.
+
+image::TestExecutionFlow.png[How a refactoring test executes,width=320]
+
+`checkRenameConditions(IFile file, String newName)`::
+Runs `CheckConditionsOperation` with `ALL_CONDITIONS` on a file rename and returns the `RefactoringStatus`. A negative case needs this rather than `performRename`, because `CreateChangeOperation` drops a fatal status instead of surfacing it.
+
+=== [[HarnessUndo]]Undo and redo
+
+`undoLastRefactoring()` and `redoLastRefactoring()`::
+Call `performUndo` and `performRedo` on `RefactoringCore.getUndoManager()`. The query they pass in always proceeds, so a validation result cannot block a headless run.
+
+`flushUndoHistory()`::
+Flushes the undo manager. The undo manager is a singleton for the whole process, so a class with an undo test flushes the history before each test, to keep undo states from leaking between tests.
+
+=== [[HarnessNavigation]]Model navigation
+
+`+findInstance(AutomationSystem system, String applicationName, String... namePath)+`::
+Starts at the FB network of the named application, follows all but the last entry of `namePath` as `UntypedSubApp` names, and returns the `FBNetworkElement` carrying the last name.
+
+== [[Fixtures]]Fixture convention
+
+A fixture is a complete 4diac project stored under `data/`.
+
+[source]
+----
+data/StructRenameTest/
+├── .project
+├── StructRenameTest.sys
+└── Type Library/
+    ├── StructConsumer.fbt
+    ├── StructProducer.fbt
+    └── mypackage/
+        ├── InnerStruct.dtp
+        └── OuterStruct.dtp
+----
+
+The `.sys` file holds the system with its applications and FB instances. The `Type Library` folder holds the type files, with one sub-folder per package, so the `mypackage` folder above gives `InnerStruct.dtp` the qualified name `mypackage::InnerStruct`.
+
+`.project` declares the two natures a 4diac project needs:
+
+[source,xml]
+----
+<natures>
+	<nature>org.eclipse.fordiac.ide.systemmanagement.FordiacNature</nature>
+	<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
+</natures>
+----
+
+Its build spec lists `org.eclipse.fordiac.ide.library.builder`, `org.eclipse.xtext.ui.shared.xtextBuilder` and `org.eclipse.fordiac.ide.export.builder`. A fixture has no Maven nature and no m2e builder.
+
+Standard libraries are not copied into a fixture. A test links the ones it needs with `linkStandardLibraries`, which resolves them from `data/typelibrary` in the repository. Their directory names are constants in *StandardLibrary*:
+
+[source,java]
+----
+public static final String CORE = "core-3.0.0";
+public static final String CONVERT = "convert-3.0.0";
+public static final String IEC_61131_3 = "iec61131-3-3.0.0";
+----
+
+The library version is part of the directory name, so an update of `data/typelibrary` is a one line change here.
+
+`TestRepositoryPaths.resolve()` finds `data/typelibrary` by locating the test bundle through OSGi and going two directories up from the bundle root. The bundle sits at `<repository root>/tests/<bundle>`, so nothing depends on the working directory of the JVM.
+
+Names used by more than one test class go into a fixture constant class next to the tests. *StructRenameTestFixture* and *NestedSubAppTestFixture* hold the project name, the project path under `data/`, the system file, the application name, and the project-relative paths and qualified names of the types:
+
+[source,java]
+----
+public static final String PROJECT_NAME = "StructRenameTest";
+public static final String PROJECT_PATH = "data/StructRenameTest";
+public static final String INNER_STRUCT_FILE = "Type Library/mypackage/InnerStruct.dtp";
+public static final String INNER_STRUCT = "mypackage::InnerStruct";
+----
+
+A constant that only one test class uses stays private in that class.
+
+== [[Lifecycle]]Test lifecycle
+
+Every test class follows the same pattern.
+
+[source,java]
+----
+@BeforeAll
+static void preloadSystemManager() {
+	SystemManager.INSTANCE.name();
+}
+
+@BeforeEach
+void loadFixture() throws Exception {
+	RefactoringTestSupport.flushUndoHistory();
+	project = RefactoringTestSupport.importProjectIntoWorkspace(PROJECT_NAME, PROJECT_PATH);
+	RefactoringTestSupport.linkStandardLibraries(project, CORE, CONVERT, IEC_61131_3);
+	typeLibrary = TypeLibraryManager.INSTANCE.getTypeLibrary(project);
+}
+
+@AfterEach
+void disposeFixture() throws Exception {
+	RefactoringTestSupport.deleteProject(project);
+}
+----
+
+`@BeforeAll` touches `SystemManager.INSTANCE` so that its resource change listener is registered before the first fixture project is imported.
+
+`@BeforeEach` gives each test method its own copy of the fixture and caches the project's `TypeLibrary` in a field. The classes that have an undo test also call `flushUndoHistory` here, since the undo manager is shared.
+
+`@AfterEach` deletes the project. A test method always starts from the fixture as committed, and the order the methods run in does not matter.
+
+A test kept for a known open issue is marked `@Disabled` with the issue link in the message.
+
+== [[Assertions]]Assertion approach
+
+Types are compared by their qualified name, as a string.
+
+[source,java]
+----
+assertEquals(expectedQualifiedType, PackageNameHelper.getFullTypeName(inner.getType()));
+----
+
+Comparing the resolved type object by identity does not work here. A refactoring can reload the type library, so the `DataType` a member or a pin resolves to afterwards is a different object from the one before, even when nothing about the type changed. `PackageNameHelper.getFullTypeName` returns the package-qualified name instead, so a value such as `mypackage::InnerStruct` shows both a rename and a move to another package.
+
+An instance in an FB network reports the same string through `FBNetworkElement.getFullTypeName()`, so instance repointing is asserted on that.
+
+The file on disk is checked through its type entry:
+
+[source,java]
+----
+final TypeEntry entry = typeLibrary.getTypeEntry(typeFile);
+assertNotNull(entry);
+assertFalse(entry.hasError());
+assertEquals(expectedFullTypeName, entry.getFullTypeName());
+----
+
+`TypeLibrary.getTypeEntry(IFile)` looks the entry up by file, so the assertion is about the file at that path. `hasError()` reports true when the entry has no file, when the file is gone, or when the loaded type is an `ErrorLibraryElement`. `assertFalse` on it catches a type file left unreadable by a rename or an undo. `IFile.exists()` on the old and the new path covers the file operation itself.
+
+Connections are compared as a set of names built from the block name and the pin name:
+
+[source,java]
+----
+private static final Set<String> APP_DATA_CONNECTIONS = Set.of("Producer.OUT.A -> Consumer.DI.A",
+		"Producer.OUT.C -> Consumer.DI.C", "Producer.OUT -> Container.DI");
+----
+
+The pin part comes from `IInterfaceElement.getRelativeName(block)`, which yields `OUT.A` for an expanded struct member pin. A connection that a refactoring drops or re-points changes the set.
+
+== [[Execute]]Execute the tests
+
+The bundle is an `eclipse-test-plugin`, so the tests run in the Tycho build. To build and run this module on its own:
+
+[source,bash]
+----
+mvn verify -pl tests/org.eclipse.fordiac.ide.typemanagement.tests -am
+----
+
+Tycho resolves the target platform from the Maven artifact `org.eclipse.fordiac:org.eclipse.fordiac.ide.product`. While that artifact is missing from the local repository, a module build fails with `Could not resolve target platform specification artifact`. Install the target file once, with the version of the current development cycle:
+
+[source,bash]
+----
+mvn install:install-file \
+	-Dfile=plugins/org.eclipse.fordiac.ide.product/org.eclipse.fordiac.ide.product.target \
+	-DgroupId=org.eclipse.fordiac -DartifactId=org.eclipse.fordiac.ide.product \
+	-Dversion=3.3.0-SNAPSHOT -Dpackaging=target
+----
+
+Repeat this when the version in the feature and plug-in manifests is raised for a new release cycle.
+
+A single test class is selected with `-Dtest`:
+
+[source,bash]
+----
+mvn verify -pl tests/org.eclipse.fordiac.ide.typemanagement.tests -am \
+	-Dtest=StructDataTypeRenameTest -DfailIfNoTests=false
+----
+
+Appending `#methodName` does not narrow this further, and the whole class still runs.
+
+Setting up the development environment and the target platform is described in xref:./building4diac.adoc[Building and Running 4diac IDE].
+
+== [[AddNewTest]]Add a new test
+
+*1. Create the fixture.*
+Add `data/<Name>/` with a `.project`, a `.sys` file and a `Type Library` folder. Copying an existing fixture and editing it is the shortest route, since only the project `<name>` in `.project` has to change. Keep the fixture to the types and instances the test asserts on.
+
+*2. Add the constants.*
+If more than one test class will use the fixture, add a `<Name>TestFixture` class. It holds the project name, the project path, the system file, the application name, and the paths and qualified names the tests refer to. For a fixture used by one class, keep the constants private in that class.
+
+*3. Wire up the lifecycle.*
+Take the `@BeforeAll`, `@BeforeEach` and `@AfterEach` block from link:#Lifecycle[Test lifecycle]. Pass `linkStandardLibraries` only the libraries the fixture needs; *FBTypeDeleteNestedSubAppTest* links `CORE` alone. Add the `flushUndoHistory` call when the class gets an undo test.
+
+*4. Drive the refactoring through the harness.*
+Use `performRename`, `performMove`, `performDelete` or `performElementRename`, or `checkRenameConditions` for a case that has to be rejected. A new driver belongs in *RefactoringTestSupport*, built from the matching LTK descriptor and routed through the same private method as the others, so its change reaches the undo manager.
+
+*5. Assert model and file state.*
+Assert the state before the refactoring as well as after it. Every test method in the suite does this, so a fixture that never had the expected starting state fails instead of passing for the wrong reason. Assert on qualified names and on `IFile.exists()`, as described in link:#Assertions[Assertion approach].
+
+*6. Add the undo and redo round trip.*
+
+[source,java]
+----
+@Test
+void renameInnerStruct_undoRedoRoundTrip() throws Exception {
+	renameInnerStruct();
+	assertRenamedState();
+
+	RefactoringTestSupport.undoLastRefactoring();
+	assertOriginalState();
+
+	RefactoringTestSupport.redoLastRefactoring();
+	assertRenamedState();
+}
+----
+
+Keep the two state assertions in private methods, so the other test methods of the class can reuse them. Name test methods `<action>_<expectation>`, for example `moveInnerStruct_updatesOuterStructMemberReference`.
+
+== [[RegressionCheck]]Check that a new test catches a regression
+
+Before opening the pull request, confirm the new test fails when the code it guards is broken. Comment out or invert the production line the test depends on, run the test, and check that it fails with a message that points at what you expect. Then restore the line and run the test again.
+
+Change one line rather than a whole method. For a test that guards the update of an FB interface pin after a struct rename, disabling that single update is enough. A test that still passes with the production line removed asserts on something other than what you think, so its fixture or its assertion needs work.
+
+Record the check in the pull request description, together with the line you changed. The author does this by hand, and the build has no tooling for it.
+
+== [[Coverage]]Coverage by area
+
+[cols="1,2,1"]
+|===
+| Test class | What it covers | Fixture
+
+| `StructDataTypeRenameTest`
+| Rename of a struct `.dtp` file: the file name, the data type name in the library, the member reference from `OuterStruct`, and the undo and redo round trip.
+| `StructRenameTest`
+
+| `StructRenameSystemCascadeTest`
+| Rename of a struct used in a system: the interface pin types of `StructProducer` and `StructConsumer`, the data type of the configured `Demultiplexer`, `Multiplexer` and `ConfigurableMoveFB` instances, the configured member visibility of the demultiplexer, the interface pin of the containing sub application, the expanded member connections, and the hidden state of a connection.
+| `StructRenameTest`
+
+| `StructDataTypeMoveTest`
+| Move of a struct to another package folder: the file location, the member reference from `OuterStruct`, the `StructProducer` interface pin, and the undo and redo round trip.
+| `StructRenameTest`
+
+| `StructDataTypeDeleteTest`
+| Delete of a struct: removal from the workspace and from the type library, the `ErrorDataType` the `OuterStruct` member falls back to, and the undo and redo round trip.
+| `StructRenameTest`
+
+| `FBTypeRenameNestedSubAppTest`
+| Rename of an FB type: instances at three nesting levels are repointed, and the undo and redo round trip.
+| `FBTypeDeleteNestedSubAppTest`
+
+| `FBTypeMoveTest`
+| Move of an FB type to another package folder: the file location, the instance type name, and the undo and redo round trip.
+| `StructRenameTest`
+
+| `FBTypeDeleteNestedSubAppTest`
+| Delete of an FB type: removal from the workspace and from the type library, and that the instances and the connections between them survive at all three nesting levels.
+| `FBTypeDeleteNestedSubAppTest`
+
+| `RenameTypeErrorConditionsTest`
+| Condition checks of a rename: a name colliding with an existing file, a reserved keyword rejected by `RenameElementRefactoringProcessor`, and a reserved keyword passing the file rename check.
+| `StructRenameTest`
+|===
+
+The copy refactoring in `org.eclipse.fordiac.ide.typemanagement.refactoring.copy` has no test in this suite yet.
+
+xref:../doc_overview.adoc[Start Here page]
+
+Or link:#top[Go to top]
