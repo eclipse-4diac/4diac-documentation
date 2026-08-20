@@ -24,7 +24,7 @@ Wago PFC200 series is a PLC designed to work in small and medium enterprises for
 - *Wago1504_5*: 16 digital outputs, Wago module 750-1504 (positive switching) and 750-1505 (negative switching)
 - *Wago1506*: 8 digital IOs, Wago module 750-1506 
 - *Wago459*: 4 Analog inputs, Wago module 750-459
-- *Wago636*: DC-Drive-Controller 24V 5A, Wago module 750-636 
+- *Wago636*: DC-Drive-Controller 24V 5A, Wago module 750-636, supports register communication
 
 
 == Setup your hardware
@@ -139,28 +139,20 @@ Your configuration file for Wago PFC200 for this build environment could be like
 ----
 ARCH=arm-linux-gnueabihf
 
-DEPS=tinyxml
 DEPS=wago
 
-COM=ETH,FBDK,LOCAL,HTTP
+COM=ETH,FBDK,LOCAL
 
-MODULE=CONVERT,IEC61131,UTILS,UTILS_ADDON,CUSTOM_FBS
+MODULE=CONVERT,IEC61131,UTILS
 MODULE=WagoKbus
 
-// address sanitizer doesn't work with static linking
-TOOLCHAIN_EXTRA_C_FLAGS=-fno-sanitize=address -fno-lto
-TOOLCHAIN_EXTRA_LINKER_FLAGS=-fno-sanitize=address -fno-lto
-
 FORTE_IO=ON
-
-// no local additions
-#FORTE_EXTERNAL_MODULES_DIRECTORY=/nonexistant
 ----
 
 After successful compilation the runtime can be found within the folder _build/yourConfigurationFileName/output/bin_ of 4diac FORTE's build environment.
 Copy the whole content to your Wago PFC200 core module by e.g. https://winscp.net/eng/index.php[WinSCP], possibly within a folder _/home/forte_.
 You should set execution rights for for all copied files to run it.
-Login to your Wago PFC200 core module by e.g. https://putty.org/[Putty], navigate to the folder where you put your executable and run it by _./forte_.
+Login to your Wago PFC200 core module by e.g. https://putty.org/[Putty] or SSH, navigate to the folder where you put your executable and run it by _./forte_.
 Now you can deploy the desired IEC 61499 resources on your Wago PFC200.
 
 == Configure your hardware in 4diac
@@ -178,6 +170,28 @@ Take it's IEC 61499 application name and it's instance name separated by a dot a
 image:revpi_ioFb.png[I/O function block in your IEC 61499 application]
 
 When all I/Os are wired and named within your _IO_CONFIG_ function block network correspondingly, your IEC 61499 application is ready to be deployed and to access the hardware.
+
+== Register Communication
+
+Some Wago modules support register communication to configure the specific module. 
+Within 4diac register communication has currently been integrated for the Wago 750-636 module.
+Because certain register entries require password authorization, the system internally sets the password register when communication opens and resets it upon closure.
+
+image:wago_RegCom_Adapter.png[Adapter for register communication]
+
+For register communication this module has an input Adapter _RegCom_, as shown above. 
+This Adapter is supposed to be used for the register communication during the initialization phase of the Wago modules.
+This Adapter opens the register communication, send all required read/write commands, and close the register communication afterwards.
+Consider that during register communication the entire process image is replaced by the register and motors can not be controlled within that time.
+For the available register numbers please check the Wago documentation of the specific Wago module.
+A possible setup for register communication in your application is shown within the following image.
+
+image:wago_RegCom_use.png[Use register communication]
+
+The following image shows an example configuration with the register communication.
+It opens the register communication, sets the _Ramp Time_ register with the register number 35 and reads the _Password_ register with the register number 31, and closes the register communication afterwards.
+
+image:wago_example_RegCom.png[Example register communication]
 
 == Where to go from here?
 
