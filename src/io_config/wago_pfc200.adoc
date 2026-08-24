@@ -176,6 +176,7 @@ When all I/Os are wired and named within your _IO_CONFIG_ function block network
 Some Wago modules support register communication to configure the specific module. 
 Within 4diac register communication has currently been integrated for the Wago 750-636 module.
 Because certain register entries require password authorization, the system internally sets the password register when communication opens and resets it upon closure.
+The password (re)set can be turned off by setting _autoPsw_ to _false_.
 
 image:wago_RegCom_Adapter.png[Adapter for register communication]
 
@@ -192,6 +193,14 @@ The following image shows an example configuration with the register communicati
 It opens the register communication, sets the _Ramp Time_ register with the register number 35 and reads the _Password_ register with the register number 31, and closes the register communication afterwards.
 
 image:wago_example_RegCom.png[Example register communication]
+
+[IMPORTANT]
+====
+Due to the protocol architecture of the WAGO K-Bus register communication, do not trigger a read request (Read Event) immediately after a write command (Write Event) for the same register number.
+Because the bus echoes the register number in the status byte during a write operation, an immediate read request will inadvertently read the remaining local echo of the previous write cycle. 
+This results in a _silent failure_ where the application processes outdated data.
+If you need to verify a register perform a command on another register in between to clear the interface buffer.
+====
 
 == Where to go from here?
 
