@@ -30,56 +30,69 @@ Run through the following steps to build and execute the 4diac IDE from source:
 
 === [[devEnvironment]]1.1 Get the Development Environment
 
-The 4diac IDE requires at least a version 21 Java JRE.
+. The 4diac IDE requires at least a version **25 Java JRE**. 
++
+TIP: The currently required Java version can be found in the https://github.com/eclipse-4diac/4diac-ide/blob/develop/pom.xml[pom.xml] file in the root directory of 4diac IDE. The value in the **<maven.compiler.source>** tag in the properties section (as well as <maven.compiler.target>) is the determining factor.
++
 Higher version JREs are supported, but may require additional Eclipse IDE configuration (see step 4 of chapter link:#importPlugins[Import plug-ins into workspace]).
-
-Get the latest https://www.eclipse.org/downloads/packages/[Eclipse IDE].
-Use [.specificText]#Eclipse Modeling Tools# edition.
-
-In order for all dependencies to resolve correctly, the following additional Eclipse packages are required:
-
++
+. Get the latest https://www.eclipse.org/downloads/packages/[Eclipse IDE]. Use **Eclipse IDE for Java and DSL Developers edition**. Please make sure to select this edition, as using other editions may cause issues and setup problems. With this edition, you're all set to go.
++
+If you already have a version of the Eclipse IDE installed and would like to use it, make sure it has the required packages installed. 
+In order for all dependencies to resolve correctly, the additional Eclipse packages listed below are required. To check, select *Help* > *About Eclipse IDE*
++
+* Modeling Project
 * M2E - Maven Integration for Eclipse
 * M2E - PDE Integration
+* EGit
 * XText Complete SDK
++
+image:EclipseRequiredPackages.svg[required packages]
++
+:colon: :
+You can install these packages using your Eclipse IDE by selecting *Help* > *Install New Software...*. Select `Latest Eclipse Simultaneous Release - https{colon}//download.eclipse.org/releases/latest` in _Work with_ drop-down list. You can filter the results by typing _maven_ or _xtext_.
++
+image:installNewSoftwareMenu.png[Install new Software Menu]
 
-You can install these packages using your Eclipse IDE by selecting Help -> Install New Software (Eclipse Repository). 
+TIP: To receive valuable tips and suggestions for improving the source code, we strongly recommend installing *SonarQube for IDE* from the Marketplace. Select *Help* > *Eclipse Marketplace...* and type _SonarQube_ into the search field.
+image:SonarQubeMarketplace.png[SonarQube Marketplace]
 
 === [[checkOutRepos]]1.2 Check out the 4diac IDE Repository
 
-This section shows how to check out (clone) the 4diac IDE repository. 
-You will need https://git-scm.com/downloads[Git] to download it by using the `clone` command from Git to the repository `https://github.com/eclipse-4diac/4diac-ide.git`. 
-If you're using the terminal, do:
-----
-$ cd ~
-$ git clone https://github.com/eclipse-4diac/4diac-ide.git
-----
-The code will be copied to the new created folder
-`~/4diac-ide`.
+Eclipse IDE has **Git** directly integrated. It's common to use two separate folders, one for the workspace settings and one for the source code.
+. change to the **Git perspective** within Eclipse
++
+image:CloneGit_EGit_Options.png[Options of EGit]
+. select _Clone a Git repository_
+. select _Clone URI_
+. copy `+https://github.com/eclipse-4diac/4diac-ide.git+` into the URI field. All other relevant information fields will be auto-completed.
++
+image:CloneGit_SourceGitRepositoryWizard.png[Source Git Repository Wizard]
+. select the branches `release`, `develop` and the `latest milestone branch` (the highest number), named like `z.y.x`. At the time of writing this documentation, the latest milestone branch was _3.3.x_.
++
+image:CloneGit_BranchSelection.png[Clone Git Repository Branch Selection]
+. Make sure that `develop` is the **initial branch**, name the remote branch `upstream`, and select `clone submodules`.
++
+image:CloneGit_LocalDestination.png[Local Destination Wizard]
 
-You can also use the git integrated into Eclipse for this process.
-Please refer to the Eclipse EGit documentation on how to clone a repository.
+If you require further instructions on cloning a repository, you can find them in the Eclipse EGit documentation. More information about contributing can be found in the https://eclipse.dev/4diac/doc/development/contribute.html[contributing guidelines]
 
-Once you have cloned the repository make sure that you switch to the `develop` branch.
-The default branch, `release`, might be out of date and thus incompatible with these setup steps.
-----
-$ cd ~/4diac-ide/
-$ git checkout develop
-----
 
 === [[importPlugins]]1.3 Import Plug-Ins into Workspace
 
-. change to the Git perspective within Eclipse
-. right click on the 4diac IDE git repository and select _Import Projects..._ that opens a dialog. 
-Select everything within this dialog except the following ones 
+. change to the **Git perspective** within Eclipse (if they aren't already in perspective)
+. right click on the 4diac IDE Git repository and select *Projects* > *Import Projects...* that opens a dialog. 
+Select everything within this dialog except the following ones: 
 +
 image:4diacIDE_import.png[4diac IDE not imported folders]
-. Wait till Eclipse finished building the project (look at the progress bar at the right bottom corner of the Eclipse main window)
-. If you have a JRE > 21 installed, you need to make sure the compiler compliance level is set to JDK version 21 in order for the build to succeed.
-Go to Window -> Preferences. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to 21.
-If this step has not been completed properly the "Problems" view will be populated with "XText" errors.
-. Check problems view for errors.
++
+NOTE: The first part of the path — in this case, _4diac-ide_ECC_ — might have a different name on your system. It displays the name of the folder where the cloned repository is located.
+. Wait till Eclipse finished building the project (look at the progress bar at the right bottom corner of the Eclipse main window).
+. Make sure the **compiler compliance level** is set to the current JDK version, see Section <<devEnvironment,4diac IDE requires>> in order for the build to succeed. Go to *Window* > *Preferences*. Search for "Compiler" and in the "JDK Compliance" section, set "Compiler compliance level" to the current version.
+If this step has not been completed properly the "Problems" view will be populated with "XText" errors. If you don't see this view, select *Window* > *Show View* > *Other* > *General* > *Problems*.
+. Check **problems view** for errors.
 If you get [.specificText]#API Baseline# not set errors you need to perform the following steps:
-.. Open the Eclipse preferences: [.menu4diac]#Window → Preferences#
+.. Open the Eclipse preferences: *Window* > *Preferences*
 .. Enter API in the top left search field. 
    You should get three research results: 1. [.specificText]#API Baselines#, 2. [.specificText]#API Errors/Warnings#, and 3.  [.specificText]#API Use Scans#
 .. You now have two options:
@@ -153,7 +166,7 @@ Then the necessary steps for generating binary 4diac IDE packages are:
 
 . Have the 4diac IDE source code in an Eclipse workspace as described in link:#buildFromSource[Building and Running 4diac IDE from Source]
 . Go to the root project `org.eclipse.fordiac.ide` and right-click on the pom.xml
-. Invoke the [.menu4diac]#Run As → Maven Install#.
+. Invoke the *Run As* > *Maven Install*.
 . After a successful build you will find the output in `plugins/org.eclipse.fordiac.ide.product/target/products` directory.
 
 Alternatively you can run `mvn clean install` on the command line in the root folder of 4diac IDE source code.
