@@ -27,6 +27,13 @@
   </xs:restriction>
 </xs:simpleType>
 
+<xs:simpleType name="FullQualifiedInstanceName">
+  <xs:restriction base="xs:string">
+    <!-- Regex from Identifier needs to be duplicated as XSD can not refer to it -->
+    <xs:pattern value="([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z])(\.([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z]))*"/>
+  </xs:restriction>
+</xs:simpleType>
+
 <xs:simpleType name="ImportDeclaration">
   <xs:restriction base="xs:string">
     <xs:pattern value="([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z])(::([_a-zA-Z][a-zA-Z0-9]+(_[a-zA-Z0-9]+)*|[_a-zA-Z]))*(::\*)?"/>
@@ -93,6 +100,24 @@
 <xs:group name="AttributeGroup">
   <xs:sequence>
     <xs:element name="Attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:group>
+
+<xs:complexType name="Parameter">
+  <xs:sequence>
+    <xs:group ref="AttributeGroup"/>
+  </xs:sequence>
+  <xs:attribute name="Name"    type="FullQualifiedInstanceName" use="required"/>
+  <xs:attribute name="Comment" type="xs:string"  use="optional"/>
+  <xs:attribute name="Value" type="xs:string" use="required"/>
+</xs:complexType>
+
+<xs:group name="ParameterAttributeGroup">
+  <xs:sequence>
+   <xs:choice  minOccurs="0" maxOccurs="unbounded">
+     <xs:element name="Parameter" type="Parameter"/>
+     <xs:element name="Attribute" type="Attribute"/>
+   </xs:choice>
   </xs:sequence>
 </xs:group>
 

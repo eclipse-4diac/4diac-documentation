@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2026 Johannes Kepler University Linz
+
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Contributors:
+    Alois Zoitl - initial API and implementation and/or initial documentation
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="block-common.xsd"/>
+<xs:include schemaLocation="fbnetwork.xsd"/>
+
+<xs:element name="FBType">
+  <xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="LibraryElement">
+        <xs:sequence>
+          <xs:element name="InterfaceList" type="InterfaceList"/>
+          <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:element name="BasicFB"     type="BasicFB"/>
+            <xs:element name="SimpleFB"    type="SimpleFB"/>
+            <xs:element name="FBNetwork"   type="FBNetwork"/>
+          </xs:choice>
+          <xs:element name="Service"       type="Service" minOccurs="0"/>
+          <xs:group ref="AttributeGroup"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:element>
+
+<xs:complexType name="BasicFB">
+  <xs:sequence>
+    <xs:element name="InternalVars"      type="InternalVars"      minOccurs="0" maxOccurs="1"/>
+    <xs:element name="InternalConstVars" type="InternalConstVars" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="ECC"               type="ECC" />
+    <xs:element name="Algorithm"         type="Algorithm"         minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SimpleFB">
+  <xs:sequence>
+    <xs:element name="InternalVars"      type="InternalVars"      minOccurs="0" maxOccurs="1"/>
+    <xs:element name="InternalConstVars" type="InternalConstVars" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="ECState"           type="ECState"           maxOccurs="unbounded"/>
+    <xs:element name="Algorithm"         type="Algorithm"         minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InternalVars">
+  <xs:sequence>
+    <xs:choice maxOccurs="unbounded">
+      <xs:element ref="VarDeclaration"/>
+      <xs:element name="FB" type="FB"/>
+    </xs:choice>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InternalConstVars">
+  <xs:sequence>
+    <xs:element ref="VarDeclaration" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ECC">
+  <xs:sequence>
+    <xs:element name="ECState"      type="ECState"      maxOccurs="unbounded"/>
+    <xs:element name="ECTransition" type="ECTransition" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ECState">
+  <xs:sequence>
+    <xs:element name="ECAction" type="ECAction" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+  <xs:attributeGroup ref="NameCommentAttributes"/>
+  <xs:attributeGroup ref="PositionAttributes"/>
+</xs:complexType>
+
+<xs:complexType name="ECTransition">
+  <xs:attribute name="Source"      type="Identifier" use="required"/>
+  <xs:attribute name="Destination" type="Identifier" use="required"/>
+  <xs:attribute name="Condition"   type="xs:string"  use="required"/>
+  <xs:attribute name="Comment"     type="xs:string"  use="required"/>
+  <xs:attributeGroup ref="PositionAttributes"/>
+</xs:complexType>
+
+<xs:complexType name="ECAction">
+  <xs:attribute name="Algorithm" type="Identifier" use="required"/>
+  <xs:attribute name="Output"    type="xs:string"  use="required"/>
+</xs:complexType>
+
+<xs:complexType name="Algorithm">
+  <xs:sequence>
+    <xs:choice>
+      <xs:element name="ST" type="ST"/>
+      <xs:element name="Other" type="Other"/>
+    </xs:choice>
+  </xs:sequence>
+  <xs:attributeGroup ref="NameCommentAttributes"/>
+</xs:complexType>
+
+
+<xs:complexType name="ST">
+  <xs:simpleContent>
+    <xs:extension base="xs:string">
+      <xs:attribute name="Text" type="xs:string" use="optional"/>
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="Other">
+  <xs:simpleContent>
+    <xs:extension base="xs:string">
+      <xs:attribute name="Language" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+</xs:schema>
