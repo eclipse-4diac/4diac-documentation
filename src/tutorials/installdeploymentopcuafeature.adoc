@@ -1,0 +1,38 @@
+---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
+title: 'Install "Deployment OPC UA" Feature'
+url: doc/tutorials/installdeploymentopcuafeature.html
+page_css_file: /4diac/css/4diac_doc.css
+sidebar:
+  - sb-doc
+---
+
+== [[topOfPage]] Install the "Deployment OPC UA" Feature
+:lang: en
+:imagesdir: img
+
+The OPC UA deployment profile is not part of the default 4diac IDE installation. It is provided as an optional feature named *Deployment OPC UA* and must be installed once via the Eclipse Install Manager before the steps described in xref:opcuadeployment.adoc[Deploying Applications with OPC UA] can be carried out.
+
+. Open `Help -> Install New Software...`, select the *Eclipse 4diac Nightly* (or release) update site, and check *Deployment OPC UA* under *Additional 4diac IDE Features*. This feature pulls in the required *Milo Dependencies* automatically.
++
+image:opcuadeployment/install_feature.png[Selecting the Deployment OPC UA feature in the Available Software dialog]
+
+. Confirm the *Install Details* page, which lists *Deployment OPC UA*, its *Milo Dependencies*, and any other selected features.
++
+image:opcuadeployment/install_details.png[Install Details review page]
+
+. Review and accept the license agreements for the selected features.
++
+image:opcuadeployment/review_licenses.png[Review Licenses page]
+
+. Confirm that you trust the signers of the downloaded artifacts to continue the installation.
++
+image:opcuadeployment/trust_artifacts.png[Trust Artifacts dialog]
+
+. Restart 4diac IDE to apply the update.
++
+image:opcuadeployment/restart_ide.png[Restart 4diac IDE prompt]
+
+After the restart, the *OPC UA* profile is available for Devices in the System Configuration Editor, and the OPC UA deployment steps from xref:opcuadeployment.adoc[Deploying Applications with OPC UA] can be followed.
+
+link:#top[Go to top]

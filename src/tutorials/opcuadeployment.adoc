@@ -24,7 +24,7 @@ This page is part of a guide that gives a walk-through of the major 4diac IDE f
 . xref:dynamictypeloader.adoc[Deploying new FBs with the Dynamic Type Loader]
 . Deploying Applications with OPC UA (YOU ARE HERE!)
 
-This tutorial shows how OPC UA can be used to deploy an IEC 61499 Application. Before the OPC UA deployment can be used it is necessary to xref:../installation/overview.adoc[build a 4diac FORTE] with the xref:../communication/opcua.adoc[OPC UA protocol] enabled. Alternatively, https://github.com/eclipse-4diac/4diac-fbe[4diac FBE] can be used to build a FORTE with OPC UA configuration.
+This tutorial shows how OPC UA can be used to deploy an IEC 61499 Application. Before the OPC UA deployment can be used it is necessary to xref:../installation/overview.adoc[build a 4diac FORTE] with the xref:../communication/opcua.adoc[OPC UA protocol] enabled. Alternatively, https://github.com/eclipse-4diac/4diac-fbe[4diac FBE] can be used to build a FORTE with OPC UA configuration. On the 4diac IDE side, the optional xref:installdeploymentopcuafeature.adoc[Deployment OPC UA feature] must be installed first.
 
 == Deploying IEC 61499 Applications
 
