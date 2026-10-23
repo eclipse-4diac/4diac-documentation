@@ -91,11 +91,6 @@
   <xs:attributeGroup ref="PositionAttributes"/>
 </xs:complexType>
 
-<xs:complexType name="Parameter">
-  <xs:attributeGroup ref="NameCommentAttributes"/>
-  <xs:attribute name="Value" type="xs:string" use="required"/>
-</xs:complexType>
-
 
 <!-- ============================================== -->
 <!-- Service Sequence Diagram                       -->
