@@ -12,7 +12,7 @@ sidebar:
 
 
 This page is for compiling 4diac FORTE for the Lego Mindstorm EV3. 
-For information about the parameters to be used, go to the xref:../io_config/ev3.adoc[EV3 IO configuration] page.
+For information about the parameters to be used, go to the xref:../io_config/overview.adoc[EV3 IO configuration] page.
 
 == [[ev3_introduction]]About the Lego Mindstorm EV3 and ev3dev
 
