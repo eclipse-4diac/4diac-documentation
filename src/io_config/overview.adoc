@@ -34,6 +34,7 @@ For example, `MachineControl.Conveyor.MotorEnable` identifies the `MotorEnable` 
 Select your platform for hardware-specific setup and configuration instructions:
 
 . xref:./gpiochip.adoc[GPIOChip (Raspberry Pi, Beagle Bone Black and Similar Boards)]
+. xref:./mccdaqhat.adoc[MCC DAQ HAT (MCC 128, MCC 152)]
 . xref:./plc01a1.adoc[PLC01A1]
 . xref:./revolutionpi.adoc[Revolution Pi]
 . xref:./wago_pfc200.adoc[Wago PFC200]
