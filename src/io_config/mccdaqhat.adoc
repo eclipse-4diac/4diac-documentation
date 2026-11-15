@@ -1,0 +1,136 @@
+---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
+title: "MCC DAQ HAT (MCC 128, MCC 152)"
+url: doc/io_config/mccdaqhat.html
+page_css_file: /4diac/css/4diac_doc.css
+sidebar: 
+  - sb-doc
+---
+
+= [[mccdaqhat]]MCC DAQ HAT (MCC 128, MCC 152)
+:lang: en
+
+The DAQ HATs by Measurement Computing are stackable I/O boards for the Raspberry Pi.
+4diac FORTE supports two of them:
+
+* MCC 128: 8 analog inputs, single-ended or differential, with selectable input ranges
+* MCC 152: 2 analog outputs and 8 digital I/O pins
+
+Up to eight HATs can be stacked on one Raspberry Pi.
+Each HAT on the stack needs its own address, which is set with the address jumpers on the board.
+
+== Setup your hardware
+
+Install the https://github.com/mccdaq/daqhats[daqhats library] on the Raspberry Pi as described in its README.
+The library also provides the tool `daqhats_list_boards`, which shows the address and type of every HAT on the stack.
+
+== Compile 4diac FORTE with MCC DAQ HAT support
+
+The support is an optional module of 4diac FORTE and is only available on Linux.
+Enable it with the CMake option `FORTE_MODULE_MCCDAQHAT`:
+
+----
+cmake -DFORTE_MODULE_MCCDAQHAT=ON <further options> <path to 4diac FORTE>
+----
+
+CMake looks for the daqhats header and library in the default locations.
+If they are installed elsewhere, set `MCCDAQHAT_INCLUDE_DIR` and `MCCDAQHAT_LIBRARY`.
+When linking against a static daqhats library, libgpiod is needed as well; set `MCCDAQHAT_GPIOD_LIBRARY` if it is not found automatically.
+
+== Configure your hardware in 4diac
+
+The function block types are part of the type library `mccdaqhat`, which depends on the library `io`.
+
+Place one `MCCIOController` in the resource that holds the hardware configuration.
+Connect its `BusAdapterOut` to the `BusAdapterIn` of the first card function block, and the `BusAdapterOut` of each card function block to the `BusAdapterIn` of the next one.
+The order of the cards in this chain does not need to match the stack, because every card is identified by its `Address`.
+
+Each I/O channel is assigned to an application I/O function block through a `STRING` input, as described in the xref:./overview.adoc[I/O overview].
+Leave the input empty for a channel that is not used.
+
+=== MCCIOController
+
+[cols="1,3"]
+|===
+| Name | Description
+
+| UpdateInterval
+| Update interval of all HATs in Hz (default 25)
+|===
+
+=== MCC128
+
+[cols="1,3"]
+|===
+| Name | Description
+
+| Address
+| Address of the HAT on the stack (0-7)
+
+| InputMode
+| 0 = single-ended, 1 = differential
+
+| InputRange
+| 0 = +/-10 V, 1 = +/-5 V, 2 = +/-2 V, 3 = +/-1 V
+
+| AI_0 .. AI_7
+| Analog inputs, read with `IW`
+|===
+
+=== MCC152
+
+[cols="1,3"]
+|===
+| Name | Description
+
+| Address
+| Address of the HAT on the stack (0-7)
+
+| PullEnable
+| Bit n = 1 enables the pull resistor of pin n
+
+| PullConfig
+| Bit n = 1 selects a pull-up, 0 a pull-down for pin n
+
+| DI_0 .. DI_7
+| Digital inputs, read with `IX`
+
+| DO_0 .. DO_7
+| Digital outputs, written with `QX`
+
+| AO_0, AO_1
+| Analog outputs, written with `QW`
+|===
+
+A digital pin is used as an input or as an output depending on whether `DI_n` or `DO_n` is set.
+Setting both for the same pin is reported as an error.
+
+== Analog values
+
+The analog channels use raw `WORD` codes; scaling to engineering units is left to the application.
+
+* MCC 128: the calibrated code spans the selected input range from 0 (negative end) to 65535 (positive end).
+For example, in the +/-5 V range 0 V is about 32768 and 2.5 V is 49152.
+* MCC 152: the code spans 0 V to 5 V from 0 to 4095.
+Larger values are limited to 4095, and a warning is logged.
+
+== Status and errors
+
+`MCCIOController` and the card function blocks report problems through `QO` and `STATUS` and in the log.
+A card is rejected if no HAT is found at its address, if the HAT at that address is of a different type, if the address is above 7, or if two card function blocks use the same address.
+
+== Where to go from here?
+
+You can see the supported protocols:
+
+xref:../communication/overview.adoc[Supported Communication Protocols]
+
+You can see the examples:
+
+xref:../examples/overview.adoc[4diac Examples]
+
+If you want to go back to the Where to Start page, we leave you here a fast access
+
+xref:../doc_overview.adoc[Where to Start]
+
+Or link:#top[Go to top]
