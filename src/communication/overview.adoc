@@ -18,6 +18,7 @@ are supported by 4diac FORTE.
 * xref:http.adoc[HTTP]
 * xref:mqttpaho.adoc[MQTT]
 * xref:serial.adoc[Serial (RS232) Communication]
+* xref:can.adoc[CAN]
 * xref:simulation.adoc[Communicating with Simulation Tools]
 ** xref:simulation.adoc#fmi[FMI]
 ** xref:simulation.adoc#matlab[Communication using Matlab]
