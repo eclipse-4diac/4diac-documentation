@@ -1,0 +1,138 @@
+---
+# This header is for providing additional information to hugo for the website generation it ignored by asciidoctor
+title: "CAN"
+url: doc/communication/can.html
+page_css_file: /4diac/css/4diac_doc.css
+sidebar:
+  - sb-doc
+---
+
+= CAN
+:lang: en
+
+== [[intro]]Introduction
+
+The CAN communication layer allows 4diac FORTE to send and receive classic CAN frames.
+It is based on Linux https://docs.kernel.org/networking/can.html[SocketCAN] and uses raw CAN sockets (`CAN_RAW`).
+This means it works with any CAN adapter that provides a SocketCAN network interface (e.g., `can0`) as well as with the virtual CAN interface `vcan` for testing without hardware.
+
+== [[lim]]Limitations
+
+* The layer is only available on Linux.
+* Only the publish/subscribe pattern is supported. Use PUBLISH_X function blocks to send and SUBSCRIBE_X function blocks to receive frames. CLIENT and SERVER function blocks are rejected during initialization.
+* Only classic CAN frames with up to 8 data bytes are supported (no CAN FD).
+* Only standard 11-bit CAN identifiers are supported (the receive filter uses the standard frame format mask).
+* Every data input/output of the function block is mapped to exactly *one byte* of the CAN payload. Use `BYTE` as data type for the SDs and RDs.
+
+== [[build]]Building 4diac FORTE with CAN Support
+
+To use the CAN layer, 4diac FORTE must be compiled from source, see xref:../installation/overview.adoc[Building 4diac FORTE].
+
+Enable the CMake option `FORTE_COM_CAN`:
+
+----
+$ cmake <path-to-forte> -DFORTE_COM_CAN=ON
+----
+
+=== Kernel Module Check
+
+When `FORTE_COM_CAN` is enabled, CMake checks with `lsmod` whether the kernel modules `can`, `can_raw`, `can_dev` and `vcan` are loaded on the build machine.
+If one of them is missing, the configuration step fails.
+The modules can be loaded with:
+
+----
+$ sudo modprobe can
+$ sudo modprobe can_raw
+$ sudo modprobe can_dev
+$ sudo modprobe vcan
+----
+
+If 4diac FORTE is cross-compiled or built on a machine without CAN support (e.g., in a container), the check can be disabled with the CMake option `FORTE_COM_CAN_MODULE_CHECK`:
+
+----
+$ cmake <path-to-forte> -DFORTE_COM_CAN=ON -DFORTE_COM_CAN_MODULE_CHECK=OFF
+----
+
+The modules must still be available on the target device at runtime.
+
+== [[interface]]Setting up a CAN Interface
+
+The CAN interface must be configured and up before 4diac FORTE initializes the communication function blocks.
+
+For a physical CAN interface, set the bitrate and bring the interface up, e.g.:
+
+----
+$ sudo ip link set can0 type can bitrate 500000
+$ sudo ip link set can0 up
+----
+
+For testing without hardware, a virtual CAN interface can be created:
+
+----
+$ sudo ip link add dev vcan0 type vcan
+$ sudo ip link set vcan0 up
+----
+
+The tools of the https://github.com/linux-can/can-utils[can-utils] package (e.g., `candump` and `cansend`) are useful for observing and injecting frames during development.
+
+== [[usage]]Usage
+
+=== ID Parameter
+
+The CAN layer is selected with the `can[]` layer identifier in the `ID` input of a PUBLISH_X or SUBSCRIBE_X function block.
+It takes two parameters separated by a semicolon:
+
+----
+can[<interface>;<CAN-ID>]
+----
+
+* `<interface>`: Name of the SocketCAN network interface, e.g., `can0` or `vcan0`.
+* `<CAN-ID>`: CAN identifier of the frames as a *decimal* number (0 to 2047).
+For example, the CAN identifier `0x123` has to be entered as `291`.
+
+The CAN layer directly maps the function block data to the CAN payload, therefore it is used on its own without an `fbdk[]` or `raw[]` layer.
+
+Example:
+
+----
+can[vcan0;291]
+----
+
+=== Sending Data (PUBLISH_X)
+
+A PUBLISH_X function block sends a CAN frame with the configured CAN identifier on every `REQ` event.
+
+* `SD_1` is placed in data byte 0, `SD_2` in data byte 1, and so on.
+* The data length code (DLC) of the frame equals the number of SDs.
+* If the function block has more than 8 SDs, the data is split into several consecutive frames with the same CAN identifier, each carrying up to 8 bytes.
+
+For example, a PUBLISH_3 block with the ID `can[vcan0;291]` and the inputs `SD_1 = 16#01`, `SD_2 = 16#02`, `SD_3 = 16#03` sends the following frame (as shown by `candump vcan0`):
+
+----
+vcan0  123   [3]  01 02 03
+----
+
+=== Receiving Data (SUBSCRIBE_X)
+
+A SUBSCRIBE_X function block receives all frames whose CAN identifier matches the configured one and triggers an `IND` event for each received frame.
+
+* Data byte 0 is written to `RD_1`, data byte 1 to `RD_2`, and so on.
+* If the received frame contains fewer bytes than the function block has RDs, the remaining RDs are set to `0`.
+* If the received frame contains more bytes than the function block has RDs, the additional bytes are ignored.
+
+A frame for a SUBSCRIBE_3 block with the ID `can[vcan0;291]` can be sent from the command line with:
+
+----
+$ cansend vcan0 123#0A0B0C
+----
+
+This sets `RD_1 = 16#0A`, `RD_2 = 16#0B` and `RD_3 = 16#0C`.
+
+== Where to go from here?
+
+* Go back to Protocols index: +
+xref:./overview.adoc[Communication Index]
+* If you want to go back to the Start Here page, we leave you here a fast access: +
+xref:../doc_overview.adoc[Start Here page]
+
+Or link:#top[Go to top]
